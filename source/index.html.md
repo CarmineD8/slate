@@ -1,18 +1,15 @@
 ---
-title: API Reference
+title: Coding Playground
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+  - c
+  - cpp
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
-
+  - <a>Logo made by Diesmo16</a>
 includes:
-  - errors
+  
 
 search: true
 
@@ -21,221 +18,554 @@ code_clipboard: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Computer Science Playground! Learn to code with our beginner-friendly tutorials and examples. Read tutorials, try examples, write programs, and learn to code.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+# Examples
 
-# Authentication
+## Introduction
 
-> To authorize, use this code:
+### [E0] "Hello, World!" Program 
 
-```ruby
-require 'kittn'
+```c
+#include <stdio.h>
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+int main() {
+   // printf() displays the string inside quotation
+   printf("Hello, World!");
+   return 0;
+}
 ```
 
-```python
-import kittn
+```cpp
+#include <iostream>
+using namespace std;
 
-api = kittn.authorize('meowmeowmeow')
+int main() {
+  // printf() displays the string inside quotation
+  cout << "Hello, World!" << endl;
+  return 0;
+}
 ```
+
+> The above command returns:
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+Hello, World!
 ```
 
-```javascript
-const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
+[E0]
+In this example, you will learn to print "Hello, World!" on the screen in C programming. 
+To understand this example, you should have the knowledge of the following C programming topics:
+
+* C Input Output (I/O)
+
+How "Hello, World!" program works?
+
+* The `#include` is a preprocessor command that tells the compiler to include the contents of stdio.h (standard input and output) file in the program.
+* The `stdio.h` file contains functions such as `scanf()` and `printf()` to take input and display output respectively.
+* If you use the `printf()` function without writing `#include <stdio.h>`, the program will not compile.
+* The execution of a C program starts from the `main()` function.
+* `printf()` is a library function to send formatted output to the screen. In this program, `printf()` displays Hello, World! text on the screen.
+* The `return 0;` statement is the "Exit status" of the program. In simple terms, the program ends with this statement.
+
+
+<br>
+
+### [E0] Program to Print a number and a char (Entered by the User) 
+
+```c
+#include <stdio.h>
+
+int main() {   
+  int number;
+  float real_number;
+  char letter;
+
+  printf("Enter an integer: ");  
+  // reads and stores input
+  scanf("%d", &number);
+
+  printf("Enter a real number: ");  
+  // reads and stores input
+  scanf("%f", &real_number);
+
+  printf("Enter a char: ");  
+  // reads and stores input
+  scanf("%c", &letter);
+
+  // displays output
+  printf("You entered: %d", number);
+  printf("You entered: %f", real_number);
+  printf("You entered: %c", letter);
+  
+  return 0;
+}
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+```cpp
+#include <iostream>
+using namespace std; 
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+int main() {   
+  int number;
+  float realNumber;
+  char letter;
 
-`Authorization: meowmeowmeow`
+  cout << "Enter an integer: ";  
+  // reads and stores input
+  cin >> number;
+
+  cout << "Enter a real number: ";  
+  // reads and stores input
+  cin >> realNumber;
+
+  cout << "Enter a char: ";  
+  // reads and stores input
+  cin >> letter;
+
+  // displays output
+  cout << "You entered: " << number  << endl;
+  cout << "You entered: " << realNumber << endl;
+  cout << "You entered: " << letter << endl;
+  
+  return 0;
+}
+```
+
+> The above command returns:
+
+```c
+Enter an integer: 25
+You entered: 25
+```
+
+```cpp
+Enter an integer: 25
+You entered: 25
+```
+
+
+In this example, the integer entered by the user is stored in a variable and printed on the screen.
+To understand this example, you should have the knowledge of the following C programming topics:
+
+  *  C Variables, Constants and Literals
+  *  C Data Types
+  *  C Input Output (I/O)
+
+In this program, an integer variable number, a real number variable and a char variable are declared.
+
+(Please, also notice that the variable are not initialized, but it is strongly reccomended to do that.)
+
+Then, the user is asked to enter a value for each declared variable. This value is stored in the respective variable.
+
+`printf("Enter an integer: ");`
+
+`scanf("%d", &number);`
+
+Finally, the value stored in number is displayed on the screen using `printf()`.
+
+`printf("You entered: %d", number);`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+<p>C code</p>
+
+All function and variable names are lowercase, with underscores as word separators where needed for clarity.
 </aside>
 
-# Kittens
+<aside class="notice">
+<p>C code</p>
 
-## Get All Kittens
+Global variables are named with a <code>g_</code> prefix.
+</aside>
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+<aside class="notice">
+<p>C++ code</p>
+
+Use CamelCase for all names. Start names (functions, variables) with a lowercase letter. You may use an all-lowercase name with underscores if your class closely resembles an external construct (e.g., a standard library construct) named that way.
+</aside>
+
+<br>
+
+
+### [E1] Program to Print a number and multiply by 2
+
+```c
+#include <stdio.h>
+
+int main() {   
+  int number = 0;
+  int result = 0;
+
+  printf("Enter an integer: ");  
+  // reads and stores input
+  scanf("%d", &number);
+
+  // multiply by two
+  result = number * 2; 
+
+  // displays output
+  printf("You entered:: %d", number);
+  printf("The result is: %d", result);
+  
+  return 0;
+}
 ```
 
-```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+```cpp
+#include <iostream>
+using namespace std; 
+
+int main() {   
+  int number = 0;
+  int result = 0;
+
+  cout << "Enter an integer: ";  
+  // reads and stores input
+  cin >> number;
+
+  // displays output
+  cout << "You entered: " << number  << endl;
+  cout << "The result is: " << result << endl;
+  
+  return 0;
+}
 ```
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+> The above command returns:
+
+```c
+You entered: 4
+The result is: 8
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+```cpp
+You entered: 4
+The result is: 8
 ```
 
-> The above command returns JSON structured like this:
+In this example, the integer entered by the user is stored in a variable, multiply by 2 and printed on the screen.
+To understand this example, you should have the knowledge of the following C programming topics:
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
+  *  C Variables, Constants and Literals
+  *  C Data Types
+  *  C Input Output (I/O)
 
-This endpoint retrieves all kittens.
+In this program, two integer variable numbers are declared and initialized to zero.
 
-### HTTP Request
+Then, the user is asked to enter an integer value. This value is stored in the respective variable, multiply by two and stored in a second variable.
 
-`GET http://example.com/api/kittens`
+`result = number * 2 ; `
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+Finally, the value stored in result is displayed on the screen using `printf()`.
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<p>Best practice: Initialize your variables upon creation.</p>
+When you declare a variable you specify a region of memory to hold a certain type of data. But just a declaration, writes nothing to that memory region. If the variable is read prior to being written, a value will be returned: whatever that part of memory held already, even if from other programs. In other words garbage.
+</aside>
+  
+  
+<br>
+
+
+### [E1] Program to Add Two Integers
+
+```c
+#include <stdio.h>
+int main() {    
+
+  int number1 = 0;
+  int number2 = 0;
+  int sum = 0;
+  
+  
+  printf("Enter two integers: ");
+  scanf("%d %d", &number1, &number2);
+
+  // calculating sum
+  sum = number1 + number2;      
+  
+  printf("%d + %d = %d", number1, number2, sum);
+  return 0;
+}
+```
+
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int number1 = 0;
+  int number2 = 0;
+  int sum = 0;
+  
+  cout << "Enter two integers: ";
+  cin >> number1 >> number2;
+
+  // sum of two numbers in stored in variable sum
+  sum = number1 + number2;
+
+  // Prints sum 
+  cout << number1 << " + " <<  number2 << " = " << sum;     
+
+  return 0;
+}
+```
+
+> The above command returns:
+
+```c
+Enter two integers: 4
+5
+4 + 5 = 9
+```
+
+```cpp
+Enter two integers: 4
+5
+4 + 5 = 9
+```
+
+In this example, the user is asked to enter two integers. Then, the sum of these two integers is calculated and displayed on the screen.
+To understand this example, you should have the knowledge of the following C programming topics:
+
+  *  C Variables, Constants and Literals
+  *  C Data Types
+  *  C Input Output (I/O)
+  *  C Programming Operators
+
+In this program, the user is asked to enter two integers. These two integers are stored in variables `number1` and `number2` respectively.
+```
+printf("Enter two integers: ");
+scanf("%d %d", &number1, &number2);
+```
+Then, these two numbers are added using the + operator, and the result is stored in the `sum` variable.
+
+`sum = number1 + number2;`
+
+
+Finally, the `printf()` function is used to display the sum of numbers.
+
+`printf("%d + %d = %d", number1, number2, sum);`
+
+<aside class="warning">
+One of the most common mistakes that new programmers make is to confuse the assignment operator (=) with the equality operator (==). Assignment (=) is used to assign a value to a variable. Equality (==) is used to test whether two operands are equal in value.
+</aside>
+  
+  
+<br>
+
+### [E1] Program to Compute the average of Two Integers
+
+```c
+#include <stdio.h>
+int main() {    
+
+  int number1 = 0;
+  int number2 = 0;
+  int sum = 0;
+  int average = 0;
+  
+  
+  printf("Enter two integers: ");
+  scanf("%d %d", &number1, &number2);
+
+  // calculating sum
+  sum = number1 + number2; 
+
+  // calculating average
+  average = sum/2;     
+  
+  printf("The average is: %d", average);
+  return 0;
+}
+```
+
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int number1 = 0;
+  int number2 = 0;
+  int sum = 0;
+  int average = 0;
+  
+  cout << "Enter two integers: ";
+  cin >> number1 >> number2;
+
+  // sum of two numbers in stored in variable sum
+  sum = number1 + number2;
+
+  average = sum / 2;
+
+  // Prints sum 
+  cout << " The average is: " << sum;     
+
+  return 0;
+}
+```
+
+> The above command returns:
+
+```c
+The average is: 4
+```
+
+```cpp
+The average is: 4
+```
+
+In this example, the user is asked to enter two integers. Then, the average of these two integers is calculated and displayed on the screen.
+To understand this example, you should have the knowledge of the following C programming topics:
+
+  *  C Variables, Constants and Literals
+  *  C Data Types
+  *  C Input Output (I/O)
+  *  C Programming Operators
+
+In this program, the user is asked to enter two integers. These two integers are stored in variables `number1` and `number2` respectively.
+```
+printf("Enter two integers: ");
+scanf("%d %d", &number1, &number2);
+```
+Then, these two numbers are added using the + operator, and the result is stored in the `sum` variable.
+
+`sum = number1 + number2;`
+
+Then the average is computed and stored in the `average` variable.
+
+
+Finally, the result is displayed.  
+  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E1] Program to convert Lowercase character to uppercase
+
+```c
+#include <stdio.h>
+int main() {    
+
+  char character = 0;
+  
+  printf("Enter a character in lowercase: ");
+  scanf("%c", &character);
+
+  // transform the character
+  character = character - 32;   
+  
+  printf("The character in uppercase is: %c", character);
+  return 0;
+}
+```
+
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  char character = 0;
+  
+  cout << "Enter a character in lowercase: ";
+  cin >> character;
+
+  // transform the character
+  character = character - 32;
+
+  // Prints converted char 
+  cout << " The character in uppercase is: " << character;     
+
+  return 0;
+}
+```
+
+> The above command returns:
+
+```c
+Enter a character in lowercase: a
+The character in uppercase is: A
+```
+
+```cpp
+Enter a character in lowercase: a
+The character in uppercase is: A
+```
+
+The program converts lowercase character to uppercase.
+
+In this example, the user is asked to enter a char variable. 
+
+Then the character is converted by subtracting 32 from the ASCII value of input char.
+
+Finally, the result is displayed.
+
+<aside class="notice">
+<p>ASCII value of lowercase char a to z ranges from 97 to 122</p>
+<p>ASCII value of uppercase char A to Z ranges from 65 to 92</p>
 </aside>
 
-## Get a Specific Kitten
+<aside class="notice">
+<p>C++ code</p>
 
-```ruby
-require 'kittn'
+<p>The <code>toupper()</code> function returns a uppercase version of ch if it exists. Otherwise it returns ch.</p>
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+<p>It is defined in <code>cctype</code> header file.</p>
+</aside>
 
-```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+## Decision Making and Loops
+In progress section...
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
+## Functions
+In progress section...
+    
+# Compiler
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+> To compile, use this code:
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
+gcc -o HelloWorld helloworld.c 
+./HelloWorld
 ```
 
-```javascript
-const kittn = require('kittn');
+A compiler is a computer program that transforms source code written in a high-level programming language (e.g., c, c++) into a lower level language (e.g., assembly language, object code, or machine code) to create an executable program. 
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
+The compilation of a C++ program involves three steps:
 
-> The above command returns JSON structured like this:
+1. Preprocessing: the preprocessor takes a C++ source code file and deals with the `#includes`, `#defines` and other preprocessor directives. The output of this step is a "pure" C++ file without pre-processor directives.
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
+2. Compilation: the compiler takes the pre-processor's output and produces an object file from it.
 
-This endpoint deletes a specific kitten.
+3. Linking: the linker takes the object files produced by the compiler and produces either a library or an executable file.
 
-### HTTP Request
+In order to try this we have to write an hello world program (see, example section), save it, and go to the directory where the file has been saved. Once there we can compile the program!
 
-`DELETE http://example.com/kittens/<ID>`
+<aside class="notice">
+C++ source files have a <code>.cpp</code> extension, C source files <code>.c</code>, and headers for both use <code>.h</code>.
+</aside>
 
-### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+If you want to try some examples, you can also try an online compiler, such as [programiz compiler](https://www.programiz.com/c-programming/online-compiler/).
+
+
+# FAQ 
 
