@@ -240,6 +240,9 @@ int main() {
   // reads and stores input
   std::cin >> number;
 
+  // multiply by two
+  result = number * 2; 
+
   // displays output
   std::cout << "You entered: " << number  << endl;
   std::cout << "The result is: " << result << endl;
