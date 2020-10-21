@@ -139,9 +139,9 @@ int main() {
   std::cin >> letter;
 
   // displays output
-  std::cout << "You entered: " << number  << endl;
-  std::cout << "You entered: " << realNumber << endl;
-  std::cout << "You entered: " << letter << endl;
+  std::cout << "You entered: " << number  << std::endl;
+  std::cout << "You entered: " << realNumber << std::endl;
+  std::cout << "You entered: " << letter << std::endl;
   
   return 0;
 }
@@ -244,8 +244,8 @@ int main() {
   result = number * 2; 
 
   // displays output
-  std::cout << "You entered: " << number  << endl;
-  std::cout << "The result is: " << result << endl;
+  std::cout << "You entered: " << number  << std::endl;
+  std::cout << "The result is: " << result << std::endl;
   
   return 0;
 }
