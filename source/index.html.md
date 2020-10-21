@@ -549,13 +549,27 @@ In progress section...
 
 ## Functions
 In progress section...
+
+# Bash Basic Commands
+* `ls` --> it shows the list of files in the current directory
+* `ls -a` --> it shows the list of files in the current directory, also the hidden ones
+* `cd nameDir` --> Change directory, changes the current path and enter in the specified directory
+* `.` --> current directory 
+* `..` --> Previous directory
+* `touch nameFile` --> it creates a file named nameFile
+* `rm nameFile` --> delete nameFile
+* `rmdir nameDir` --> delete nameDir (only if the directory is empty)
+* `rm -r nameDir` --> delete the directory and all the sub files in it
+* `nano nameFile` --> open (or it creates if it doesn't exist) nameFile with an editor from bash. Use ctrl + x to save and exit
+
+
     
 # Compiler
 
 > To compile, use this code:
 
 ```shell
-gcc -o HelloWorld helloworld.c 
+g++ -o HelloWorld helloworld.cpp 
 ./HelloWorld
 ```
 
@@ -570,6 +584,12 @@ The compilation of a C++ program involves three steps:
 3. Linking: the linker takes the object files produced by the compiler and produces either a library or an executable file.
 
 In order to try this we have to write an hello world program (see, example section), save it, and go to the directory where the file has been saved. Once there we can compile the program!
+
+How to install a compiler:
+
+ 1. Open the bash and run the following commands
+ 2. `sudo apt update`
+ 3. `sudo apt install build-essential`
 
 <aside class="notice">
 C++ source files have a <code>.cpp</code> extension, C source files <code>.c</code>, and headers for both use <code>.h</code>.
