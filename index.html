@@ -324,6 +324,9 @@
               </ul>
           </li>
           <li>
+            <a href="#bash-basic-commands" class="toc-h1 toc-link" data-title="Bash Basic Commands">Bash Basic Commands</a>
+          </li>
+          <li>
             <a href="#compiler" class="toc-h1 toc-link" data-title="Compiler">Compiler</a>
           </li>
           <li>
@@ -792,11 +795,24 @@ Then, these two numbers are added using the + operator, and the result is stored
 <p>In progress section...</p>
 <h2 id='functions'>Functions</h2>
 <p>In progress section...</p>
+<h1 id='bash-basic-commands'>Bash Basic Commands</h1>
+<ul>
+<li><code>ls</code> --&gt; it shows the list of files in the current directory</li>
+<li><code>ls -a</code> --&gt; it shows the list of files in the current directory, also the hidden ones</li>
+<li><code>cd nameDir</code> --&gt; Change directory, changes the current path and enter in the specified directory</li>
+<li><code>.</code> --&gt; current directory </li>
+<li><code>..</code> --&gt; Previous directory</li>
+<li><code>touch nameFile</code> --&gt; it creates a file named nameFile</li>
+<li><code>rm nameFile</code> --&gt; delete nameFile</li>
+<li><code>rmdir nameDir</code> --&gt; delete nameDir (only if the directory is empty)</li>
+<li><code>rm -r nameDir</code> --&gt; delete the directory and all the sub files in it</li>
+<li><code>nano nameFile</code> --&gt; open (or it creates if it doesn&#39;t exist) nameFile with an editor from bash. Use ctrl + x to save and exit</li>
+</ul>
 <h1 id='compiler'>Compiler</h1>
 <blockquote>
 <p>To compile, use this code:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>gcc <span class="nt">-o</span> HelloWorld helloworld.c 
+<div class="highlight"><pre class="highlight shell tab-shell"><code>g++ <span class="nt">-o</span> HelloWorld helloworld.cpp 
 ./HelloWorld
 </code></pre></div>
 <p>A compiler is a computer program that transforms source code written in a high-level programming language (e.g., c, c++) into a lower level language (e.g., assembly language, object code, or machine code) to create an executable program. </p>
@@ -810,6 +826,14 @@ Then, these two numbers are added using the + operator, and the result is stored
 </ol>
 
 <p>In order to try this we have to write an hello world program (see, example section), save it, and go to the directory where the file has been saved. Once there we can compile the program!</p>
+
+<p>How to install a compiler:</p>
+
+<ol>
+<li>Open the bash and run the following commands</li>
+<li><code>sudo apt update</code></li>
+<li><code>sudo apt install build-essential</code></li>
+</ol>
 
 <aside class="notice">
 C++ source files have a <code>.cpp</code> extension, C source files <code>.c</code>, and headers for both use <code>.h</code>.
