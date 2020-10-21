@@ -39,11 +39,10 @@ int main() {
 
 ```cpp
 #include <iostream>
-using namespace std;
 
 int main() {
-  // printf() displays the string inside quotation
-  cout << "Hello, World!" << endl;
+  // displays the string inside quotation
+  std::cout << "Hello, World!";
   return 0;
 }
 ```
@@ -63,13 +62,26 @@ To understand this example, you should have the knowledge of the following C pro
 
 How "Hello, World!" program works?
 
-* The `#include` is a preprocessor command that tells the compiler to include the contents of stdio.h (standard input and output) file in the program.
-* The `stdio.h` file contains functions such as `scanf()` and `printf()` to take input and display output respectively.
-* If you use the `printf()` function without writing `#include <stdio.h>`, the program will not compile.
-* The execution of a C program starts from the `main()` function.
-* `printf()` is a library function to send formatted output to the screen. In this program, `printf()` displays Hello, World! text on the screen.
-* The `return 0;` statement is the "Exit status" of the program. In simple terms, the program ends with this statement.
 
+* `// Your First C++ Program`
+  In C++, any line starting with `//` is a comment. Comments are intended for the person reading the code to better understand the functionality of the program. It is completely ignored by the C++ compiler.
+* `#include <iostream>`
+  The `#include` is a preprocessor directive used to include files in our program. The above code is including the contents of the iostream file.
+  This allows us to use cout in our program to print output on the screen.
+  For now, just remember that we need to use `#include <iostream>` to use cout that allows us to print output on the screen.
+* `int main() {...}`
+  A valid C++ program must have the `main()` function. The curly braces indicate the start and the end of the function.
+  The execution of code beings from this function.
+* `std::cout << "Hello World!";`
+  `std::cout` prints the content inside the quotation marks. It must be followed by `<<` followed by the format string. In our example, "Hello World!" is the format string.
+  Note: `;` is used to indicate the end of a statement.
+* `return 0;`
+  The `return 0;` statement is the "Exit status" of the program. In simple terms, the program ends with this statement.
+
+<aside class="notice">
+<p>C++ code</p>
+We must include iostream if we want to use std::cout
+</aside>
 
 <br>
 
@@ -107,29 +119,29 @@ int main() {
 
 ```cpp
 #include <iostream>
-using namespace std; 
+ 
 
 int main() {   
   int number;
   float realNumber;
   char letter;
 
-  cout << "Enter an integer: ";  
+  std::cout << "Enter an integer: ";  
   // reads and stores input
-  cin >> number;
+  std::cin >> number;
 
-  cout << "Enter a real number: ";  
+  std::cout << "Enter a real number: ";  
   // reads and stores input
-  cin >> realNumber;
+  std::cin >> realNumber;
 
-  cout << "Enter a char: ";  
+  std::cout << "Enter a char: ";  
   // reads and stores input
-  cin >> letter;
+  std::cin >> letter;
 
   // displays output
-  cout << "You entered: " << number  << endl;
-  cout << "You entered: " << realNumber << endl;
-  cout << "You entered: " << letter << endl;
+  std::cout << "You entered: " << number  << endl;
+  std::cout << "You entered: " << realNumber << endl;
+  std::cout << "You entered: " << letter << endl;
   
   return 0;
 }
@@ -161,13 +173,13 @@ In this program, an integer variable number, a real number variable and a char v
 
 Then, the user is asked to enter a value for each declared variable. This value is stored in the respective variable.
 
-`printf("Enter an integer: ");`
+`std::cout << "Hello World!";`
 
-`scanf("%d", &number);`
+`std::cin >> number;`
 
 Finally, the value stored in number is displayed on the screen using `printf()`.
 
-`printf("You entered: %d", number);`
+`std::cout << "You entered: " << number  << endl;`
 
 <aside class="notice">
 <p>C code</p>
@@ -218,19 +230,19 @@ int main() {
 
 ```cpp
 #include <iostream>
-using namespace std; 
+ 
 
 int main() {   
   int number = 0;
   int result = 0;
 
-  cout << "Enter an integer: ";  
+  std::cout << "Enter an integer: ";  
   // reads and stores input
-  cin >> number;
+  std::cin >> number;
 
   // displays output
-  cout << "You entered: " << number  << endl;
-  cout << "The result is: " << result << endl;
+  std::cout << "You entered: " << number  << endl;
+  std::cout << "The result is: " << result << endl;
   
   return 0;
 }
@@ -261,7 +273,7 @@ Then, the user is asked to enter an integer value. This value is stored in the r
 
 `result = number * 2 ; `
 
-Finally, the value stored in result is displayed on the screen using `printf()`.
+Finally, the value stored in result is displayed on the screen.
 
 <aside class="success">
 <p>Best practice: Initialize your variables upon creation.</p>
@@ -297,7 +309,6 @@ int main() {
 
 ```cpp
 #include <iostream>
-using namespace std;
 
 int main()
 {
@@ -305,14 +316,14 @@ int main()
   int number2 = 0;
   int sum = 0;
   
-  cout << "Enter two integers: ";
-  cin >> number1 >> number2;
+  std::cout << "Enter two integers: ";
+  std::cin >> number1 >> number2;
 
   // sum of two numbers in stored in variable sum
   sum = number1 + number2;
 
   // Prints sum 
-  cout << number1 << " + " <<  number2 << " = " << sum;     
+  std::cout << number1 << " + " <<  number2 << " = " << sum;     
 
   return 0;
 }
@@ -350,9 +361,9 @@ Then, these two numbers are added using the + operator, and the result is stored
 `sum = number1 + number2;`
 
 
-Finally, the `printf()` function is used to display the sum of numbers.
+Finally, the `cout` function is used to display the sum of numbers.
 
-`printf("%d + %d = %d", number1, number2, sum);`
+`std::cout << number1 << " + " <<  number2 << " = " << sum;`
 
 <aside class="warning">
 One of the most common mistakes that new programmers make is to confuse the assignment operator (=) with the equality operator (==). Assignment (=) is used to assign a value to a variable. Equality (==) is used to test whether two operands are equal in value.
@@ -390,7 +401,6 @@ int main() {
 
 ```cpp
 #include <iostream>
-using namespace std;
 
 int main()
 {
@@ -399,8 +409,8 @@ int main()
   int sum = 0;
   int average = 0;
   
-  cout << "Enter two integers: ";
-  cin >> number1 >> number2;
+  std::cout << "Enter two integers: ";
+  std::cin >> number1 >> number2;
 
   // sum of two numbers in stored in variable sum
   sum = number1 + number2;
@@ -408,7 +418,7 @@ int main()
   average = sum / 2;
 
   // Prints sum 
-  cout << " The average is: " << sum;     
+  std::cout << " The average is: " << sum;     
 
   return 0;
 }
@@ -479,20 +489,19 @@ int main() {
 
 ```cpp
 #include <iostream>
-using namespace std;
 
 int main()
 {
   char character = 0;
   
-  cout << "Enter a character in lowercase: ";
-  cin >> character;
+  std::cout << "Enter a character in lowercase: ";
+  std::cin >> character;
 
   // transform the character
   character = character - 32;
 
   // Prints converted char 
-  cout << " The character in uppercase is: " << character;     
+  std::cout << " The character in uppercase is: " << character;     
 
   return 0;
 }
