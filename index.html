@@ -348,11 +348,10 @@
    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
+</span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// printf() displays the string inside quotation</span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello, World!"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="c1">// displays the string inside quotation</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello, World!"</span><span class="p">;</span>
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -372,13 +371,26 @@ To understand this example, you should have the knowledge of the following C pro
 <p>How &quot;Hello, World!&quot; program works?</p>
 
 <ul>
-<li>The <code>#include</code> is a preprocessor command that tells the compiler to include the contents of stdio.h (standard input and output) file in the program.</li>
-<li>The <code>stdio.h</code> file contains functions such as <code>scanf()</code> and <code>printf()</code> to take input and display output respectively.</li>
-<li>If you use the <code>printf()</code> function without writing <code>#include &lt;stdio.h&gt;</code>, the program will not compile.</li>
-<li>The execution of a C program starts from the <code>main()</code> function.</li>
-<li><code>printf()</code> is a library function to send formatted output to the screen. In this program, <code>printf()</code> displays Hello, World! text on the screen.</li>
-<li>The <code>return 0;</code> statement is the &quot;Exit status&quot; of the program. In simple terms, the program ends with this statement.</li>
+<li><code>// Your First C++ Program</code>
+In C++, any line starting with <code>//</code> is a comment. Comments are intended for the person reading the code to better understand the functionality of the program. It is completely ignored by the C++ compiler.</li>
+<li><code>#include &lt;iostream&gt;</code>
+The <code>#include</code> is a preprocessor directive used to include files in our program. The above code is including the contents of the iostream file.
+This allows us to use cout in our program to print output on the screen.
+For now, just remember that we need to use <code>#include &lt;iostream&gt;</code> to use cout that allows us to print output on the screen.</li>
+<li><code>int main() {...}</code>
+A valid C++ program must have the <code>main()</code> function. The curly braces indicate the start and the end of the function.
+The execution of code beings from this function.</li>
+<li><code>std::cout &lt;&lt; &quot;Hello World!&quot;;</code>
+<code>std::cout</code> prints the content inside the quotation marks. It must be followed by <code>&lt;&lt;</code> followed by the format string. In our example, &quot;Hello World!&quot; is the format string.
+Note: <code>;</code> is used to indicate the end of a statement.</li>
+<li><code>return 0;</code>
+The <code>return 0;</code> statement is the &quot;Exit status&quot; of the program. In simple terms, the program ends with this statement.</li>
 </ul>
+
+<aside class="notice">
+<p>C++ code</p>
+We must include iostream if we want to use std::cout
+</aside>
 
 <p><br></p>
 <h3 id='e0-program-to-print-a-number-and-a-char-entered-by-the-user'>[E0] Program to Print a number and a char (Entered by the User)</h3><div class="highlight"><pre class="highlight c tab-c"><code><span class="cp">#include &lt;stdio.h&gt;
@@ -408,29 +420,29 @@ To understand this example, you should have the knowledge of the following C pro
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span> 
+</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>   
   <span class="kt">int</span> <span class="n">number</span><span class="p">;</span>
   <span class="kt">float</span> <span class="n">realNumber</span><span class="p">;</span>
   <span class="kt">char</span> <span class="n">letter</span><span class="p">;</span>
 
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter an integer: "</span><span class="p">;</span>  
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter an integer: "</span><span class="p">;</span>  
   <span class="c1">// reads and stores input</span>
-  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">number</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">number</span><span class="p">;</span>
 
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a real number: "</span><span class="p">;</span>  
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a real number: "</span><span class="p">;</span>  
   <span class="c1">// reads and stores input</span>
-  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">realNumber</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">realNumber</span><span class="p">;</span>
 
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a char: "</span><span class="p">;</span>  
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a char: "</span><span class="p">;</span>  
   <span class="c1">// reads and stores input</span>
-  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">letter</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">letter</span><span class="p">;</span>
 
   <span class="c1">// displays output</span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You entered: "</span> <span class="o">&lt;&lt;</span> <span class="n">number</span>  <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You entered: "</span> <span class="o">&lt;&lt;</span> <span class="n">realNumber</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You entered: "</span> <span class="o">&lt;&lt;</span> <span class="n">letter</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You entered: "</span> <span class="o">&lt;&lt;</span> <span class="n">number</span>  <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You entered: "</span> <span class="o">&lt;&lt;</span> <span class="n">realNumber</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You entered: "</span> <span class="o">&lt;&lt;</span> <span class="n">letter</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
@@ -458,13 +470,13 @@ To understand this example, you should have the knowledge of the following C pro
 
 <p>Then, the user is asked to enter a value for each declared variable. This value is stored in the respective variable.</p>
 
-<p><code>printf(&quot;Enter an integer: &quot;);</code></p>
+<p><code>std::cout &lt;&lt; &quot;Hello World!&quot;;</code></p>
 
-<p><code>scanf(&quot;%d&quot;, &amp;number);</code></p>
+<p><code>std::cin &gt;&gt; number;</code></p>
 
 <p>Finally, the value stored in number is displayed on the screen using <code>printf()</code>.</p>
 
-<p><code>printf(&quot;You entered: %d&quot;, number);</code></p>
+<p><code>std::cout &lt;&lt; &quot;You entered: &quot; &lt;&lt; number  &lt;&lt; endl;</code></p>
 
 <aside class="notice">
 <p>C code</p>
@@ -505,19 +517,19 @@ Use CamelCase for all names. Start names (functions, variables) with a lowercase
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span> 
+</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>   
   <span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter an integer: "</span><span class="p">;</span>  
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter an integer: "</span><span class="p">;</span>  
   <span class="c1">// reads and stores input</span>
-  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">number</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">number</span><span class="p">;</span>
 
   <span class="c1">// displays output</span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You entered: "</span> <span class="o">&lt;&lt;</span> <span class="n">number</span>  <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"The result is: "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You entered: "</span> <span class="o">&lt;&lt;</span> <span class="n">number</span>  <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"The result is: "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
@@ -545,7 +557,7 @@ To understand this example, you should have the knowledge of the following C pro
 
 <p><code>result = number * 2 ;</code></p>
 
-<p>Finally, the value stored in result is displayed on the screen using <code>printf()</code>.</p>
+<p>Finally, the value stored in result is displayed on the screen.</p>
 
 <aside class="success">
 <p>Best practice: Initialize your variables upon creation.</p>
@@ -572,22 +584,21 @@ When you declare a variable you specify a region of memory to hold a certain typ
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
+</span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="kt">int</span> <span class="n">number1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="kt">int</span> <span class="n">number2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter two integers: "</span><span class="p">;</span>
-  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">number1</span> <span class="o">&gt;&gt;</span> <span class="n">number2</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter two integers: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">number1</span> <span class="o">&gt;&gt;</span> <span class="n">number2</span><span class="p">;</span>
 
   <span class="c1">// sum of two numbers in stored in variable sum</span>
   <span class="n">sum</span> <span class="o">=</span> <span class="n">number1</span> <span class="o">+</span> <span class="n">number2</span><span class="p">;</span>
 
   <span class="c1">// Prints sum </span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">number1</span> <span class="o">&lt;&lt;</span> <span class="s">" + "</span> <span class="o">&lt;&lt;</span>  <span class="n">number2</span> <span class="o">&lt;&lt;</span> <span class="s">" = "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">;</span>     
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">number1</span> <span class="o">&lt;&lt;</span> <span class="s">" + "</span> <span class="o">&lt;&lt;</span>  <span class="n">number2</span> <span class="o">&lt;&lt;</span> <span class="s">" = "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">;</span>     
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
@@ -621,9 +632,9 @@ Then, these two numbers are added using the + operator, and the result is stored
 
 <p><code>sum = number1 + number2;</code></p>
 
-<p>Finally, the <code>printf()</code> function is used to display the sum of numbers.</p>
+<p>Finally, the <code>cout</code> function is used to display the sum of numbers.</p>
 
-<p><code>printf(&quot;%d + %d = %d&quot;, number1, number2, sum);</code></p>
+<p><code>std::cout &lt;&lt; number1 &lt;&lt; &quot; + &quot; &lt;&lt;  number2 &lt;&lt; &quot; = &quot; &lt;&lt; sum;</code></p>
 
 <aside class="warning">
 One of the most common mistakes that new programmers make is to confuse the assignment operator (=) with the equality operator (==). Assignment (=) is used to assign a value to a variable. Equality (==) is used to test whether two operands are equal in value.
@@ -653,8 +664,7 @@ One of the most common mistakes that new programmers make is to confuse the assi
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
+</span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="kt">int</span> <span class="n">number1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -662,8 +672,8 @@ One of the most common mistakes that new programmers make is to confuse the assi
   <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="kt">int</span> <span class="n">average</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter two integers: "</span><span class="p">;</span>
-  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">number1</span> <span class="o">&gt;&gt;</span> <span class="n">number2</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter two integers: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">number1</span> <span class="o">&gt;&gt;</span> <span class="n">number2</span><span class="p">;</span>
 
   <span class="c1">// sum of two numbers in stored in variable sum</span>
   <span class="n">sum</span> <span class="o">=</span> <span class="n">number1</span> <span class="o">+</span> <span class="n">number2</span><span class="p">;</span>
@@ -671,7 +681,7 @@ One of the most common mistakes that new programmers make is to confuse the assi
   <span class="n">average</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
 
   <span class="c1">// Prints sum </span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" The average is: "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">;</span>     
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" The average is: "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">;</span>     
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
@@ -730,20 +740,19 @@ Then, these two numbers are added using the + operator, and the result is stored
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
+</span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="kt">char</span> <span class="n">character</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a character in lowercase: "</span><span class="p">;</span>
-  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">character</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a character in lowercase: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">character</span><span class="p">;</span>
 
   <span class="c1">// transform the character</span>
   <span class="n">character</span> <span class="o">=</span> <span class="n">character</span> <span class="o">-</span> <span class="mi">32</span><span class="p">;</span>
 
   <span class="c1">// Prints converted char </span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" The character in uppercase is: "</span> <span class="o">&lt;&lt;</span> <span class="n">character</span><span class="p">;</span>     
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" The character in uppercase is: "</span> <span class="o">&lt;&lt;</span> <span class="n">character</span><span class="p">;</span>     
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
