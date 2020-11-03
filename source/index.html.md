@@ -2,8 +2,8 @@
 title: Coding Playground
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - c
   - cpp
+  - c
 
 toc_footers:
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
@@ -120,7 +120,6 @@ int main() {
 ```cpp
 #include <iostream>
  
-
 int main() {   
   int number;
   float realNumber;
