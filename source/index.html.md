@@ -23,7 +23,7 @@ Welcome to the Computer Science Playground! Learn to code with our beginner-frie
 
 # Examples
 
-## Introduction
+## Practical examples - 1
 
 ### [E0] "Hello, World!" Program 
 
@@ -55,6 +55,7 @@ Hello, World!
 
 
 [E0]
+
 In this example, you will learn to print "Hello, World!" on the screen in C programming. 
 To understand this example, you should have the knowledge of the following C programming topics:
 
@@ -158,6 +159,7 @@ Enter an integer: 25
 You entered: 25
 ```
 
+ 
 
 In this example, the integer entered by the user is stored in a variable and printed on the screen.
 To understand this example, you should have the knowledge of the following C programming topics:
@@ -202,7 +204,7 @@ Use CamelCase for all names. Start names (functions, variables) with a lowercase
 <br>
 
 
-### [E1] Program to Print a number and multiply by 2
+### [E1][A1] Program to Print a number and multiply by 2
 
 ```c
 #include <stdio.h>
@@ -262,6 +264,9 @@ You entered: 4
 The result is: 8
 ```
 
+**Assignement 1**: *Write a C++ program that ask the user to enter an integer value, multiplies it by 2 and displays the result*.
+
+**Solution**:
 In this example, the integer entered by the user is stored in a variable, multiply by 2 and printed on the screen.
 To understand this example, you should have the knowledge of the following C programming topics:
 
@@ -286,7 +291,7 @@ When you declare a variable you specify a region of memory to hold a certain typ
 <br>
 
 
-### [E1] Program to Add Two Integers
+### [E1][A2] Program to Add Two Integers
 
 ```c
 #include <stdio.h>
@@ -345,6 +350,9 @@ Enter two integers: 4
 4 + 5 = 9
 ```
 
+**Assignment 2**: *Write a C++ program that ask the user to enter two integer values, sums them and displays the result*.
+
+**Solution**:
 In this example, the user is asked to enter two integers. Then, the sum of these two integers is calculated and displayed on the screen.
 To understand this example, you should have the knowledge of the following C programming topics:
 
@@ -374,7 +382,7 @@ One of the most common mistakes that new programmers make is to confuse the assi
   
 <br>
 
-### [E1] Program to Compute the average of Two Integers
+### [E1][A3] Program to Compute the average of Two Integers
 
 ```c
 #include <stdio.h>
@@ -436,6 +444,9 @@ The average is: 4
 The average is: 4
 ```
 
+**Assignment 3**: *Write a C++ program that ask the user to enter two real values, makes the average of them and displays the result*.
+
+**Solution**:
 In this example, the user is asked to enter two integers. Then, the average of these two integers is calculated and displayed on the screen.
 To understand this example, you should have the knowledge of the following C programming topics:
 
@@ -469,7 +480,7 @@ Finally, the result is displayed.
 <br>
 <br>
 
-### [E1] Program to convert Lowercase character to uppercase
+### [E1][A4] Program to convert Lowercase character to uppercase
 
 ```c
 #include <stdio.h>
@@ -521,6 +532,9 @@ Enter a character in lowercase: a
 The character in uppercase is: A
 ```
 
+**Assignment 4**: *Write a C++ program that ask the user to enter a lowercase char, and displays the same char in uppercase as result*.
+
+**Solution**:
 The program converts lowercase character to uppercase.
 
 In this example, the user is asked to enter a char variable. 
@@ -554,7 +568,7 @@ Finally, the result is displayed.
 <br>
 <br>
 
-### [E1] Program to compute the area of a circle
+### [E1][A5] Program to compute the area of a circle
 
 ```c
 #include <stdio.h>
@@ -605,6 +619,9 @@ Enter the radius of circle : 5
 Area of circle with radius 5 is 78.5
 ```
 
+**Assignment 5**: *Write a C++ program that ask the user to enter the value of the radiud of a circle, computes the area and displays the result*.
+
+**Solution**:
 The program computes area of circle. The program takes radius of the circle as an input from the user, calculates the area of the circle and outputs it on the screen.
 In this example, the user is asked to enter a float variable. 
 
@@ -617,6 +634,272 @@ Finally, the result is displayed.
 <p>You can set the decimal precision to be used to format floating-point values on output operations by using <code>std::setprecision</code>.</p>
 <p>This manipulator is declared in header <code>iomanip</code>.</p>
 </aside>
+
+## Practical examples - 2
+
+To understand these examples, you should have the knowledge of the following C++ programming topics:
+
+*  C++ Variables, Constants and Literals
+*  C++ Data Types
+*  C++ Input Output (I/O)
+*  C++ Programming Operators
+*  C++ Functions
+*  User-defined Functions in C++
+
+
+
+### [E2] Time converter ... in progress
+
+<!-- ```c
+#include <stdio.h>
+int main() {    
+
+  
+}
+```
+
+
+```cpp
+#include <iostream>
+
+int main() {
+  // Declaration and variable init
+  int seconds = 0;
+  int minutes = 0;
+  int hour = 0;
+  int day = 0;
+  int weeks = 0;
+  // 
+  std::cout << "Enter an integer value to convert: ";
+  std::cin >> seconds;
+  
+  weeks = seconds / (24 * 3600 * 7);
+  
+  day = seconds / (24 * 3600); 
+
+  hour = seconds / 3600; 
+
+  minutes = seconds / 60 ; 
+    
+  std::cout << weeks << " " << "weeks \n" << day << " " << "days \n" << hour  
+        << " " << "hours\n" << minutes << " " 
+        << "minutes\n" << seconds << " " 
+        << "seconds\n "  << std::endl; 
+
+  return 0;
+}
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter an integer value to convert: 604700
+0 weeks 
+6 days 
+167 hours
+10078 minutes
+604700 seconds
+```
+The program replaces a time duration expressed in second in number of weeks, days, hours, minutes and seconds.
+
+In this example, the user is asked to enter a integer variable. This variable represents a duration expressed in seconds.
+
+Then the variable is converted in weeks (there are 7 * 24 * 60 * 60 seconds in a week), days (there are 24 * 60 * 60 seconds in a day), hours (there are * 60 * 60 seconds in one hour) and minutes (there are 60 seconds in a minute).
+
+Note that here, we are just expressing a value in seconds as weeks, days, etc.. So, 1 second is 0 weeks, 0 days, 0 hours, 0 mins and 1 second. 
+We are not converting a time duration in another format (go to next example).
+
+Finally, the result is displayed.
+
+
+But let's see the next example...
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E2] Time converter - variation 1 
+
+```c
+#include <stdio.h>
+int main() {    
+
+  
+}
+```
+
+
+```cpp
+#include <iostream>
+
+int main() {
+  // Declaration and variable init
+  int seconds = 0;
+  int minutes = 0;
+  int hour = 0;
+  int day = 0;
+  int weeks = 0;
+  // 
+  std::cout << "Enter an integer value to convert: ";
+  std::cin >> seconds;
+  
+  weeks = seconds / (24 * 3600 * 7);
+  
+  seconds = seconds % (24 * 3600 * 7);
+  day = seconds / (24 * 3600); 
+
+  seconds = seconds % (24 * 3600); 
+  hour = seconds / 3600; 
+
+  seconds %= 3600; 
+  minutes = seconds / 60 ; 
+
+  seconds %= 60; 
+  seconds = seconds; 
+    
+  std::cout << weeks << " " << "weeks \n" << day << " " << "days \n" << hour  
+        << " " << "hours\n" << minutes << " " 
+        << "minutes\n" << seconds << " " 
+        << "seconds\n "  << std::endl; 
+
+  return 0;
+}
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter an integer value to convert: 604700
+0 weeks 
+6 days 
+23 hours
+58 minutes
+20 seconds
+```
+
+The program converts a time duration expressed in second in number of weeks, days, hours, minutes and seconds.
+
+In this example, the user is asked to enter a integer variable. This variable represents a duration expressed in seconds.
+
+Here we are converting seconds to a format weeks:days:hours:minutes:seconds.
+
+Try out different time duration to understand how it works.
+
+Finally, the result is displayed.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E2] Time converter - variation 2
+
+```c
+#include <stdio.h>
+int main() {    
+
+  
+}
+```
+
+
+```cpp
+#include <iostream>
+
+void convertSeconds(int seconds){
+    
+    int minutes = 0;
+    int hour = 0;
+    int day = 0;
+    int weeks = 0;
+    
+    weeks = seconds / (24 * 3600 * 7);
+    
+    seconds = seconds % (24 * 3600 * 7);
+    day = seconds / (24 * 3600); 
+  
+    seconds = seconds % (24 * 3600); 
+    hour = seconds / 3600; 
+  
+    seconds %= 3600; 
+    minutes = seconds / 60 ; 
+  
+    seconds %= 60; 
+    seconds = seconds; 
+      
+    std::cout << weeks << " " << "weeks \n" << day << " " << "days \n" << hour  
+         << " " << "hours\n" << minutes << " " 
+         << "minutes\n" << seconds << " " 
+         << "seconds\n "  << std::endl; 
+}
+
+int main() {
+    // Declaration and variable init
+    int seconds = 0;
+    // 
+    std::cout << "Enter an integer value to convert: ";
+    std::cin >> seconds;
+    
+    convertSeconds(seconds);
+    
+    return 0;
+}
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter an integer value to convert: 604700
+0 weeks 
+6 days 
+23 hours
+58 minutes
+20 seconds
+```
+
+The program converts a time duration expressed in second in number of weeks, days, hours, minutes and seconds.
+
+In this example, the user is asked to enter a integer variable. This variable represents a duration expressed in seconds.
+
+Here we are converting seconds to a format weeks:days:hours:minutes:seconds.
+
+This version exploits the use of a custom defined function. We can define a function that takes in input some arguments and gives out something.
+In this example the functions takes an integer value, converts it into weeks, days, hours, minutes and seconds and display the result.
+
+Then in the main function, we can call this function. We have to pass to the function an integer number. 
+
+Finally, the program returns.
+
+You can also try to make another function to print out the result.  -->
+
 
 
 ## Decision Making and Loops
