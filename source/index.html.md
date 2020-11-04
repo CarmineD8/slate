@@ -543,6 +543,82 @@ Finally, the result is displayed.
 </aside>
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E1] Program to compute the area of a circle
+
+```c
+#include <stdio.h>
+int main() {    
+
+  float radius, area;
+
+  printf("Enter the radius of circle\n");
+
+  scanf("%f", &radius);
+
+  area = 3.14 * radius * radius;
+
+  printf("Area of the circle = %.1f\n", area);  // printing upto one decimal places
+
+  return 0;
+}
+```
+
+
+```cpp
+#include <iostream>
+
+int main()
+{
+  float radius, area;
+
+  std::cout << "Enter the radius of circle : ";
+  std::cin >> radius;
+
+  area = 3.14 * radius * radius;
+
+  std::cout << "Area of circle with radius " << radius << " is " << area;
+
+  return 0;
+}
+```
+
+> The above command returns:
+
+```c
+Enter the radius of circle : 5
+Area of the circle = 78.5
+```
+
+```cpp
+Enter the radius of circle : 5
+Area of circle with radius 5 is 78.5
+```
+
+The program computes area of circle. The program takes radius of the circle as an input from the user, calculates the area of the circle and outputs it on the screen.
+In this example, the user is asked to enter a float variable. 
+
+Then the radius is used to compute the area of the circle.
+
+Finally, the result is displayed.
+
+<aside class="notice">
+<p>C++ code</p>
+<p>You can set the decimal precision to be used to format floating-point values on output operations by using <code>std::setprecision</code>.</p>
+<p>This manipulator is declared in header <code>iomanip</code>.</p>
+</aside>
+
+
 ## Decision Making and Loops
 In progress section...
 
