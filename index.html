@@ -790,6 +790,68 @@ Then, these two numbers are added using the + operator, and the result is stored
 
 <p>It is defined in <code>cctype</code> header file.</p>
 </aside>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e1-program-to-compute-the-area-of-a-circle'>[E1] Program to compute the area of a circle</h3><div class="highlight"><pre class="highlight c tab-c"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>    
+
+  <span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">area</span><span class="p">;</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Enter the radius of circle</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+  <span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">radius</span><span class="p">);</span>
+
+  <span class="n">area</span> <span class="o">=</span> <span class="mi">3</span><span class="p">.</span><span class="mi">14</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span><span class="p">;</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Area of the circle = %.1f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">area</span><span class="p">);</span>  <span class="c1">// printing upto one decimal places</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">area</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter the radius of circle : "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">radius</span><span class="p">;</span>
+
+  <span class="n">area</span> <span class="o">=</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area of circle with radius "</span> <span class="o">&lt;&lt;</span> <span class="n">radius</span> <span class="o">&lt;&lt;</span> <span class="s">" is "</span> <span class="o">&lt;&lt;</span> <span class="n">area</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code><span class="n">Enter</span> <span class="n">the</span> <span class="n">radius</span> <span class="n">of</span> <span class="n">circle</span> <span class="o">:</span> <span class="mi">5</span>
+<span class="n">Area</span> <span class="n">of</span> <span class="n">the</span> <span class="n">circle</span> <span class="o">=</span> <span class="mi">78</span><span class="p">.</span><span class="mi">5</span>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">the</span> <span class="n">radius</span> <span class="n">of</span> <span class="n">circle</span> <span class="o">:</span> <span class="mi">5</span>
+<span class="n">Area</span> <span class="n">of</span> <span class="n">circle</span> <span class="n">with</span> <span class="n">radius</span> <span class="mi">5</span> <span class="n">is</span> <span class="mf">78.5</span>
+</code></pre></div>
+<p>The program computes area of circle. The program takes radius of the circle as an input from the user, calculates the area of the circle and outputs it on the screen.
+In this example, the user is asked to enter a float variable. </p>
+
+<p>Then the radius is used to compute the area of the circle.</p>
+
+<p>Finally, the result is displayed.</p>
+
+<aside class="notice">
+<p>C++ code</p>
+<p>You can set the decimal precision to be used to format floating-point values on output operations by using <code>std::setprecision</code>.</p>
+<p>This manipulator is declared in header <code>iomanip</code>.</p>
+</aside>
 <h2 id='decision-making-and-loops'>Decision Making and Loops</h2>
 <p>In progress section...</p>
 <h2 id='functions'>Functions</h2>
