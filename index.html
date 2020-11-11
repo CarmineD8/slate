@@ -796,7 +796,7 @@ The program converts lowercase character to uppercase.</p>
 
 <aside class="notice">
 <p>ASCII value of lowercase char a to z ranges from 97 to 122</p>
-<p>ASCII value of uppercase char A to Z ranges from 65 to 92</p>
+<p>ASCII value of uppercase char A to Z ranges from 65 to 90</p>
 </aside>
 
 <aside class="notice">
@@ -882,84 +882,67 @@ In this example, the user is asked to enter a float variable. </p>
 <li> C++ Functions</li>
 <li> User-defined Functions in C++</li>
 </ul>
-<h3 id='e2-a1-time-converter'>[E2][A1] Time converter</h3>
-<!-- 
- ```c
-#include <stdio.h>
-int main() {    
-
-  
-}
-```
+<h3 id='e2-a1-time-converter'>[E2][A1] Time converter</h3><div class="highlight"><pre class="highlight c tab-c"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>    
 
 
-```cpp
-#include <iostream>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Declaration and variable init</span>
+  <span class="kt">int</span> <span class="n">seconds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">minutes</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">hour</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">day</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">weeks</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="c1">// </span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter an integer value to convert: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">seconds</span><span class="p">;</span>
 
-int main() {
-  // Declaration and variable init
-  int seconds = 0;
-  int minutes = 0;
-  int hour = 0;
-  int day = 0;
-  int weeks = 0;
-  // 
-  std::cout << "Enter an integer value to convert: ";
-  std::cin >> seconds;
-  
-  weeks = seconds / (24 * 3600 * 7);
-  
-  day = seconds / (24 * 3600); 
+  <span class="n">weeks</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">/</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">*</span> <span class="mi">7</span><span class="p">);</span>
 
-  hour = seconds / 3600; 
+  <span class="n">day</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">/</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">);</span> 
 
-  minutes = seconds / 60 ; 
-    
-  std::cout << weeks << " " << "weeks \n" << day << " " << "days \n" << hour  
-        << " " << "hours\n" << minutes << " " 
-        << "minutes\n" << seconds << " " 
-        << "seconds\n "  << std::endl; 
+  <span class="n">hour</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">/</span> <span class="mi">3600</span><span class="p">;</span> 
 
-  return 0;
-}
-```
+  <span class="n">minutes</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">/</span> <span class="mi">60</span> <span class="p">;</span> 
 
-> The above command returns:
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">weeks</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="s">"weeks </span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">day</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="s">"days </span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">hour</span>  
+        <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="s">"hours</span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">minutes</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> 
+        <span class="o">&lt;&lt;</span> <span class="s">"minutes</span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">seconds</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> 
+        <span class="o">&lt;&lt;</span> <span class="s">"seconds</span><span class="se">\n</span><span class="s"> "</span>  <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> 
 
-```c
-
-```
-
-```cpp
-Enter an integer value to convert: 604700
-0 weeks 
-6 days 
-167 hours
-10078 minutes
-604700 seconds
-``` -->
-
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">an</span> <span class="n">integer</span> <span class="n">value</span> <span class="n">to</span> <span class="n">convert</span><span class="o">:</span> <span class="mi">604700</span>
+<span class="mi">0</span> <span class="n">weeks</span> 
+<span class="mi">6</span> <span class="n">days</span> 
+<span class="mi">167</span> <span class="n">hours</span>
+<span class="mi">10078</span> <span class="n">minutes</span>
+<span class="mi">604700</span> <span class="n">seconds</span>
+</code></pre></div>
 <p><strong>Assignement 1</strong>: <em>Write a C++ program that ask the user to insert an integer that refers to a time duration expressed in seconds. Then the program computes the same duration in terms of number of weeks, number of days, hours, minutes and seconds.</em></p>
 
-<!-- **Solution**:
+<p><strong>Solution</strong>:
 The program replaces a time duration expressed in second in number of weeks, days, hours, minutes and seconds.
-In this example, the user is asked to enter a integer variable. This variable represents a duration expressed in seconds.
+In this example, the user is asked to enter a integer variable. This variable represents a duration expressed in seconds.</p>
 
-Then the variable is converted in weeks (there are 7 * 24 * 60 * 60 seconds in a week), days (there are 24 * 60 * 60 seconds in a day), hours (there are * 60 * 60 seconds in one hour) and minutes (there are 60 seconds in a minute).
+<p>Then the variable is converted in weeks (there are 7 * 24 * 60 * 60 seconds in a week), days (there are 24 * 60 * 60 seconds in a day), hours (there are * 60 * 60 seconds in one hour) and minutes (there are 60 seconds in a minute).</p>
 
-Note that here, we are just expressing a value in seconds as weeks, days, etc.. So, 1 second is 0 weeks, 0 days, 0 hours, 0 mins and 1 second. 
-We are not converting a time duration in another format (go to next example).
+<p>Note that here, we are just expressing a value in seconds as weeks, days, etc.. So, 1 second is 0 weeks, 0 days, 0 hours, 0 mins and 1 second. 
+We are not converting a time duration in another format (go to next example).</p>
 
-Finally, the result is displayed.
+<p>Finally, the result is displayed.</p>
 
+<p>But let&#39;s see the next example...</p>
 
-But let's see the next example...
-
-
-
-
-<br>
-<br>
+<p><br>
 <br>
 <br>
 <br>
@@ -978,96 +961,73 @@ But let's see the next example...
 <br>
 <br>
 <br>
- 
-  
-   
-    
-     
- 
-  
-    -->
-
-<!-- 
-### [E2] Time converter - variation 1 
-
-```c
-#include <stdio.h>
-int main() {    
-
-  
-}
-```
-
-
-```cpp
-#include <iostream>
-
-int main() {
-  // Declaration and variable init
-  int seconds = 0;
-  int minutes = 0;
-  int hour = 0;
-  int day = 0;
-  int weeks = 0;
-  // 
-  std::cout << "Enter an integer value to convert: ";
-  std::cin >> seconds;
-  
-  weeks = seconds / (24 * 3600 * 7);
-  
-  seconds = seconds % (24 * 3600 * 7);
-  day = seconds / (24 * 3600); 
+<br></p>
+<h3 id='e2-time-converter-variation-1'>[E2] Time converter - variation 1</h3><div class="highlight"><pre class="highlight c tab-c"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>    
 
-  seconds = seconds % (24 * 3600); 
-  hour = seconds / 3600; 
 
-  seconds %= 3600; 
-  minutes = seconds / 60 ; 
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Declaration and variable init</span>
+  <span class="kt">int</span> <span class="n">seconds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">minutes</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">hour</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">day</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">weeks</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="c1">// </span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter an integer value to convert: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">seconds</span><span class="p">;</span>
 
-  seconds %= 60; 
-  seconds = seconds; 
-    
-  std::cout << weeks << " " << "weeks \n" << day << " " << "days \n" << hour  
-        << " " << "hours\n" << minutes << " " 
-        << "minutes\n" << seconds << " " 
-        << "seconds\n "  << std::endl; 
+  <span class="n">weeks</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">/</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">*</span> <span class="mi">7</span><span class="p">);</span>
 
-  return 0;
-}
-```
+  <span class="n">seconds</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">%</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">*</span> <span class="mi">7</span><span class="p">);</span>
+  <span class="n">day</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">/</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">);</span> 
 
-> The above command returns:
+  <span class="n">seconds</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">%</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">);</span> 
+  <span class="n">hour</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">/</span> <span class="mi">3600</span><span class="p">;</span> 
 
-```c
+  <span class="n">seconds</span> <span class="o">%=</span> <span class="mi">3600</span><span class="p">;</span> 
+  <span class="n">minutes</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">/</span> <span class="mi">60</span> <span class="p">;</span> 
 
-```
+  <span class="n">seconds</span> <span class="o">%=</span> <span class="mi">60</span><span class="p">;</span> 
+  <span class="n">seconds</span> <span class="o">=</span> <span class="n">seconds</span><span class="p">;</span> 
 
-```cpp
-Enter an integer value to convert: 604700
-0 weeks 
-6 days 
-23 hours
-58 minutes
-20 seconds
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">weeks</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="s">"weeks </span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">day</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="s">"days </span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">hour</span>  
+        <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="s">"hours</span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">minutes</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> 
+        <span class="o">&lt;&lt;</span> <span class="s">"minutes</span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">seconds</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> 
+        <span class="o">&lt;&lt;</span> <span class="s">"seconds</span><span class="se">\n</span><span class="s"> "</span>  <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> 
 
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">an</span> <span class="n">integer</span> <span class="n">value</span> <span class="n">to</span> <span class="n">convert</span><span class="o">:</span> <span class="mi">604700</span>
+<span class="mi">0</span> <span class="n">weeks</span> 
+<span class="mi">6</span> <span class="n">days</span> 
+<span class="mi">23</span> <span class="n">hours</span>
+<span class="mi">58</span> <span class="n">minutes</span>
+<span class="mi">20</span> <span class="n">seconds</span>
 
 
 
-```
 
+</code></pre></div>
+<p>The program converts a time duration expressed in second in number of weeks, days, hours, minutes and seconds.</p>
 
+<p>In this example, the user is asked to enter a integer variable. This variable represents a duration expressed in seconds.</p>
 
+<p>Here we are converting seconds to a format weeks:days:hours:minutes:seconds.</p>
 
-The program converts a time duration expressed in second in number of weeks, days, hours, minutes and seconds.
+<p>Try out different time duration to understand how it works.</p>
 
-In this example, the user is asked to enter a integer variable. This variable represents a duration expressed in seconds.
+<p>Finally, the result is displayed.</p>
 
-Here we are converting seconds to a format weeks:days:hours:minutes:seconds.
-
-Try out different time duration to understand how it works.
-
-Finally, the result is displayed.
-
+<p><br>
 <br>
 <br>
 <br>
@@ -1104,108 +1064,83 @@ Finally, the result is displayed.
 <br>
 <br>
 <br>
-<br>
-<br>
-  
-   
-    
-     
- 
-  
-   
-    
-
-### [E2] Time converter - variation 2
+<br></p>
+<h3 id='e2-time-converter-variation-2'>[E2] Time converter - variation 2</h3><div class="highlight"><pre class="highlight c tab-c"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>    
 
-```c
-#include <stdio.h>
-int main() {    
 
-  
-}
-```
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">void</span> <span class="nf">convertSeconds</span><span class="p">(</span><span class="kt">int</span> <span class="n">seconds</span><span class="p">){</span>
 
+    <span class="kt">int</span> <span class="n">minutes</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">hour</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">day</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">weeks</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-```cpp
-#include <iostream>
+    <span class="n">weeks</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">/</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">*</span> <span class="mi">7</span><span class="p">);</span>
 
-void convertSeconds(int seconds){
-    
-    int minutes = 0;
-    int hour = 0;
-    int day = 0;
-    int weeks = 0;
-    
-    weeks = seconds / (24 * 3600 * 7);
-    
-    seconds = seconds % (24 * 3600 * 7);
-    day = seconds / (24 * 3600); 
-  
-    seconds = seconds % (24 * 3600); 
-    hour = seconds / 3600; 
-  
-    seconds %= 3600; 
-    minutes = seconds / 60 ; 
-  
-    seconds %= 60; 
-    seconds = seconds; 
-      
-    std::cout << weeks << " " << "weeks \n" << day << " " << "days \n" << hour  
-         << " " << "hours\n" << minutes << " " 
-         << "minutes\n" << seconds << " " 
-         << "seconds\n "  << std::endl; 
-}
+    <span class="n">seconds</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">%</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">*</span> <span class="mi">7</span><span class="p">);</span>
+    <span class="n">day</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">/</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">);</span> 
 
-int main() {
-    // Declaration and variable init
-    int seconds = 0;
-    // 
-    std::cout << "Enter an integer value to convert: ";
-    std::cin >> seconds;
-    
-    convertSeconds(seconds);
-    
-    return 0;
-}
-```
+    <span class="n">seconds</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">%</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">);</span> 
+    <span class="n">hour</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">/</span> <span class="mi">3600</span><span class="p">;</span> 
 
-> The above command returns:
+    <span class="n">seconds</span> <span class="o">%=</span> <span class="mi">3600</span><span class="p">;</span> 
+    <span class="n">minutes</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">/</span> <span class="mi">60</span> <span class="p">;</span> 
 
-```c
+    <span class="n">seconds</span> <span class="o">%=</span> <span class="mi">60</span><span class="p">;</span> 
+    <span class="n">seconds</span> <span class="o">=</span> <span class="n">seconds</span><span class="p">;</span> 
 
-```
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">weeks</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="s">"weeks </span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">day</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="s">"days </span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">hour</span>  
+         <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="s">"hours</span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">minutes</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> 
+         <span class="o">&lt;&lt;</span> <span class="s">"minutes</span><span class="se">\n</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">seconds</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> 
+         <span class="o">&lt;&lt;</span> <span class="s">"seconds</span><span class="se">\n</span><span class="s"> "</span>  <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> 
+<span class="p">}</span>
 
-```cpp
-Enter an integer value to convert: 604700
-0 weeks 
-6 days 
-23 hours
-58 minutes
-20 seconds
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Declaration and variable init</span>
+    <span class="kt">int</span> <span class="n">seconds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// </span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter an integer value to convert: "</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">seconds</span><span class="p">;</span>
 
+    <span class="n">convertSeconds</span><span class="p">(</span><span class="n">seconds</span><span class="p">);</span>
 
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">an</span> <span class="n">integer</span> <span class="n">value</span> <span class="n">to</span> <span class="n">convert</span><span class="o">:</span> <span class="mi">604700</span>
+<span class="mi">0</span> <span class="n">weeks</span> 
+<span class="mi">6</span> <span class="n">days</span> 
+<span class="mi">23</span> <span class="n">hours</span>
+<span class="mi">58</span> <span class="n">minutes</span>
+<span class="mi">20</span> <span class="n">seconds</span>
 
-```
 
 
+</code></pre></div>
+<p>The program converts a time duration expressed in second in number of weeks, days, hours, minutes and seconds.</p>
 
-The program converts a time duration expressed in second in number of weeks, days, hours, minutes and seconds.
+<p>In this example, the user is asked to enter a integer variable. This variable represents a duration expressed in seconds.</p>
 
-In this example, the user is asked to enter a integer variable. This variable represents a duration expressed in seconds.
+<p>Here we are converting seconds to a format weeks:days:hours:minutes:seconds.</p>
 
-Here we are converting seconds to a format weeks:days:hours:minutes:seconds.
+<p>This version exploits the use of a custom defined function. We can define a function that takes in input some arguments and gives out something.
+In this example the functions takes an integer value, converts it into weeks, days, hours, minutes and seconds and display the result.</p>
 
-This version exploits the use of a custom defined function. We can define a function that takes in input some arguments and gives out something.
-In this example the functions takes an integer value, converts it into weeks, days, hours, minutes and seconds and display the result.
+<p>Then in the main function, we can call this function. We have to pass to the function an integer number. </p>
 
-Then in the main function, we can call this function. We have to pass to the function an integer number. 
+<p>Finally, the program returns.</p>
 
-Finally, the program returns.
+<p>You can also try to make another function to print out the result.  </p>
 
-You can also try to make another function to print out the result.  
-
-
-
+<p><br>
 <br>
 <br>
 <br>
@@ -1231,131 +1166,109 @@ You can also try to make another function to print out the result.
 <br>
 <br>
 <br>
-<br>
-<br>
-  
-   
-  
-  
-    -->
-<h3 id='e2-a2-compute-area-of-triangle'>[E2][A2] Compute area of triangle</h3>
-<!-- ```cpp
-#include<iostream>
-#include<cmath>
-
-int main()
-{
-    float a = 0;
-    float b = 0;
-    float c = 0;
-    float p = 0;
-    float Area = 0;
-    
-    std::cout << "Enter three sides of triangle : ";
-    std::cin >> a >> b >> c;
-    
-    p=(a+b+c)/2;
-    Area=sqrt(p*(p-a)*(p-b)*(p-c));
-    
-    std::cout<<"Area of triangle is : "<< Area << std::endl;;
-    
-    return 0;
-}
-
-```
+<br></p>
+<h3 id='e2-a2-compute-area-of-triangle'>[E2][A2] Compute area of triangle</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include&lt;iostream&gt;
+#include&lt;cmath&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">float</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">Area</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-> The above command returns:
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter three sides of triangle : "</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
 
-```c
+    <span class="n">p</span><span class="o">=</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    <span class="n">Area</span><span class="o">=</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="n">c</span><span class="p">));</span>
 
-```
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Area of triangle is : "</span><span class="o">&lt;&lt;</span> <span class="n">Area</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;;</span>
 
-```cpp
-Enter three sides of triangle : 5 7 8
-Area of triangle is : 17.32050
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 
-``` -->
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">three</span> <span class="n">sides</span> <span class="n">of</span> <span class="n">triangle</span> <span class="o">:</span> <span class="mi">5</span> <span class="mi">7</span> <span class="mi">8</span>
+<span class="n">Area</span> <span class="n">of</span> <span class="n">triangle</span> <span class="n">is</span> <span class="o">:</span> <span class="mf">17.32050</span>
 
+</code></pre></div>
 <p><strong>Assignement 2</strong>: <em>Write a program to compute area of triangle. Sides a, b, and c are input by user. Then the program computes the area and displays the result.</em>
  Note that the area can be computed as <code>A = sqrt(p*(p-a)*(p-b)*(p-c))</code> where <code>p=(a+b+c)/2</code>. Moreover to compute the square root you can use the library function <code>sqrt</code> available in <code>cmath</code>.</p>
 
-<!-- **Solution**:
+<p><strong>Solution</strong>:
  In this example we compute the area of a triangle. To do that, the user is asked to insert three real numbers.
  We save these values in three different float variable.
- Then, the programs computes the area of the triangle and displays the result.
+ Then, the programs computes the area of the triangle and displays the result.</p>
 
- We can also decide to create a custum function to compute the area and call it in the main function. Try this!
+<p>We can also decide to create a custum function to compute the area and call it in the main function. Try this!</p>
 
- <aside class="notice">
+<p><aside class="notice">
 <p>C++ code</p>
-<p>You can explor Standard C++ library function [here](http://www.cplusplus.com/reference/)</p>
-</aside>
+<p>You can explor Standard C++ library function <a href="http://www.cplusplus.com/reference/">here</a></p>
+</aside></p>
 
 <aside class="notice">
 <p>C++ code</p>
 <p>You can use a function defined in a library after importing it with <code>#include <cmath></code></p>
 </aside>
  
-  
-   
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>  -->
-<h3 id='e2-a3-use-increment-and-decrement-operators'>[E2][A3] Use increment and decrement operators</h3>
-<!-- 
-```cpp
-int main()
-{
-    int number = 0;
-    int pre = 0;
-    int post = 0;
-    
-    
-    std::cout << "Enter an integer: ";
-    std::cin >> number;
-    
-    //pre = number - 1;
-    //pre = number--;
-    pre = --number;
-    
-    //post = number + 1;
-    //post = number++;
-    post = ++ ++number;
-    
-    std::cout<<"The number is : "<< number << std::endl;
-    std::cout<<"Pre is : "<< pre << std::endl;
-    std::cout<<"Post is : "<< post << std::endl;
-    
-    return 0;
-}
-```
 
-> The above command returns:
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>  </p>
+<h3 id='e2-a3-use-increment-and-decrement-operators'>[E2][A3] Use increment and decrement operators</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">pre</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">post</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-```c
 
-```
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter an integer: "</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">number</span><span class="p">;</span>
 
-```cpp
-The number is: 8
-Pre is: 7
-Post is: 9
+    <span class="c1">//pre = number - 1;</span>
+    <span class="c1">//pre = number--;</span>
+    <span class="n">pre</span> <span class="o">=</span> <span class="o">--</span><span class="n">number</span><span class="p">;</span>
 
-``` -->
+    <span class="c1">//post = number + 1;</span>
+    <span class="c1">//post = number++;</span>
+    <span class="n">post</span> <span class="o">=</span> <span class="o">++</span> <span class="o">++</span><span class="n">number</span><span class="p">;</span>
 
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"The number is : "</span><span class="o">&lt;&lt;</span> <span class="n">number</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Pre is : "</span><span class="o">&lt;&lt;</span> <span class="n">pre</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Post is : "</span><span class="o">&lt;&lt;</span> <span class="n">post</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">The</span> <span class="n">number</span> <span class="n">is</span><span class="o">:</span> <span class="mi">8</span>
+<span class="n">Pre</span> <span class="n">is</span><span class="o">:</span> <span class="mi">7</span>
+<span class="n">Post</span> <span class="n">is</span><span class="o">:</span> <span class="mi">9</span>
+
+</code></pre></div>
 <p><strong>Assignement 3</strong>: <em>Write a C++ program that ask the user to insert an integer and displays the previous number and the next one. Use increment ++ and decrements -- operators.</em></p>
 
-<!-- **Solution**:
+<p><strong>Solution</strong>:
 In this example, the program asks for an integer number. The we use pre-decrement operator to compute the previous number, that returns the value contained in number variable after it has been incremented.
 Then we concatenate two pre-increment operator to compute the next value. 
-Try by yourself the different use of these operators.
+Try by yourself the different use of these operators.</p>
 
 <aside class="notice">
 <p>C++ code</p>
@@ -1367,10 +1280,7 @@ Try by yourself the different use of these operators.
 <p>Post-increment and post-decrement creates a copy of the object, increments or decrements the value of the object and returns the copy from before the increment or decrement.</p>
 </aside>
 
- 
-  
-   
-   <br>
+<p><br>
 <br>
 <br>
 <br>
@@ -1379,61 +1289,50 @@ Try by yourself the different use of these operators.
 <br>
 <br>
 <br>
-<br> 
-  -->
-<h3 id='e2-a4-check-numbers'>[E2][A4] Check numbers</h3>
-<!-- ```cpp
-#include<iostream>
+<br> </p>
+<h3 id='e2-a4-check-numbers'>[E2][A4] Check numbers</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include&lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> 
 
-int main()
-{
-    int a = 0;
-    int b = 0;
-    int result = -1; 
-    
-    
-    std::cout << "Enter two integers: ";
-    std::cin >> a >> b;
-    
-    if (a == b){
-        result = 0;
-    } else {
-        result = 1;
-    }
-    
-    std::cout<<"Result is : "<< result << std::endl;
-    
-    return 0;
-}
-```
 
-> The above command returns:
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter two integers: "</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">;</span>
 
-```c
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">){</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
 
-```
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Result is : "</span><span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-```cpp
-Enter two integers: 
-1 2
-Result is: 1
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">two</span> <span class="n">integers</span><span class="o">:</span> 
+<span class="mi">1</span> <span class="mi">2</span>
+<span class="n">Result</span> <span class="n">is</span><span class="o">:</span> <span class="mi">1</span>
 
-``` -->
-
+</code></pre></div>
 <p><strong>Assignement 4</strong>: <em>Write a C++ program that ask the user to insert two integers and display 0 if the two numbers are equal, or a positive number if the two are different.</em></p>
 
-<!-- **Solution**:
-In this example, the program asks the user to insert two integers. Then the program checks if the two numbers are equal. We use a comparison operator  `==` that returns true if the left value is equal to the right value, false otherwise.
+<p><strong>Solution</strong>:
+In this example, the program asks the user to insert two integers. Then the program checks if the two numbers are equal. We use a comparison operator  <code>==</code> that returns true if the left value is equal to the right value, false otherwise.</p>
 
 <aside class="notice">
 <p>C++ code</p>
 <p>You can use also XOR operator (^).  XOR of two numbers is 0 if the numbers are same, otherwise non-zero.</p>
 </aside>
 
- 
-  
-
-<br>
+<p><br>
 <br>
 <br>
 <br>
@@ -1453,86 +1352,74 @@ In this example, the program asks the user to insert two integers. Then the prog
 <br>
 <br>
 <br>
-<br>
-  
-   
- 
-   
-   -->
-<h3 id='e2-a5-swap-numbers'>[E2][A5] Swap numbers</h3>
-<!-- ```cpp
+<br></p>
+<h3 id='e2-a5-swap-numbers'>[E2][A5] Swap numbers</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+<span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-#include <iostream>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter two integers: "</span><span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">;</span>
 
-int main()
-{
-    int a = 0, b = 0, temp = 0;
-    
-    std::cout << "Enter two integers: "<< std::endl;
-    std::cin >> a >> b;
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">Before swapping."</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a = "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">", b = "</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-    std::cout << "\nBefore swapping." << std::endl;
-    std::cout << "a = " << a << ", b = " << b << std::endl;
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
 
-    temp = a;
-    a = b;
-    b = temp;
+    <span class="c1">// method 2: we can use just two variables</span>
+    <span class="c1">// a = a + b;</span>
+    <span class="c1">// b = a - b;</span>
+    <span class="c1">// a = a - b;</span>
 
-    // method 2: we can use just two variables
-    // a = a + b;
-    // b = a - b;
-    // a = a - b;
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">After swapping."</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a = "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">", b = "</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-    std::cout << "\nAfter swapping." << std::endl;
-    std::cout << "a = " << a << ", b = " << b << std::endl;
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 
-    return 0;
-}
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">two</span> <span class="n">integers</span><span class="o">:</span> 
+<span class="mi">1</span> <span class="mi">2</span>
 
-```
+<span class="n">Before</span> <span class="n">swapping</span><span class="p">.</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
 
-> The above command returns:
+<span class="n">After</span> <span class="n">swapping</span><span class="p">.</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
 
-```c
-
-```
-
-```cpp
-Enter two integers: 
-1 2
-
-Before swapping.
-a = 1, b = 2
-
-After swapping.
-a = 2, b = 1
-
-``` -->
-
+</code></pre></div>
 <p><strong>Assignement 5</strong>: <em>Write a C++ program that asks the user to insert two integers, swaps them and shows the result.</em></p>
 
-<!-- **Solution**:
-This example contains two different techniques to swap numbers in C programming. The first program uses temporary variable to swap numbers, whereas the second program doesn't use temporary variables.
-To perform swapping in above example, three variables are used.
+<p><strong>Solution</strong>:
+This example contains two different techniques to swap numbers in C programming. The first program uses temporary variable to swap numbers, whereas the second program doesn&#39;t use temporary variables.
+To perform swapping in above example, three variables are used.</p>
 
-The contents of the first variable is copied into the temp variable. Then, the contents of second variable is copied to the first variable.
+<p>The contents of the first variable is copied into the temp variable. Then, the contents of second variable is copied to the first variable.</p>
 
-Finally, the contents of the temp variable is copied back to the second variable which completes the swapping process.
+<p>Finally, the contents of the temp variable is copied back to the second variable which completes the swapping process.</p>
 
-You can also perform swapping using only two variables as below.
+<p>You can also perform swapping using only two variables as below.</p>
 
-The output of this program is the same as the first program above.
+<p>The output of this program is the same as the first program above.</p>
 
-Let us see how this program works:
+<p>Let us see how this program works:</p>
 
-1. Initially, a = 1 and b = 2.
-2. Then, we add a and b and store it in a with the code a = a + b. This means a = 1 + 2. So, a = 3 now.
-3. Then we use the code b = a - b. This means b = 3 - 2. So, b = 1 now.
-4. Again, we use the code a = a - b. This means a = 3 - 1. So finally, a = 2.
+<ol>
+<li>Initially, a = 1 and b = 2.</li>
+<li>Then, we add a and b and store it in a with the code a = a + b. This means a = 1 + 2. So, a = 3 now.</li>
+<li>Then we use the code b = a - b. This means b = 3 - 2. So, b = 1 now.</li>
+<li>Again, we use the code a = a - b. This means a = 3 - 1. So finally, a = 2.</li>
+</ol>
 
- 
- 
- <br>
+<p><br>
 <br>
 <br>
 <br>
@@ -1549,54 +1436,62 @@ Let us see how this program works:
 <br>
 <br>
 <br>
-<br>
- 
-  
-    -->
-<h3 id='e2-a6-use-relational-and-logical-operators'>[E2][A6] Use relational and logical operators</h3>
-<!-- ```cpp
-#include <iostream>
+<br></p>
+<h3 id='e2-a6-use-relational-and-logical-operators'>[E2][A6] Use relational and logical operators</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rows</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-int main()
-{
-    int rows = 0, columns = 0;
-    
-    std::cout << "Enter two integers: "<< std::endl;
-    std::cin >> rows >> columns;
-    // || (rows == 1 && columns == 1)
-    if (rows == 1 || columns == 1 ){
-        std::cout << "Result: " << 0 << std::endl;
-    }
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter two integers: "</span><span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">rows</span> <span class="o">&gt;&gt;</span> <span class="n">columns</span><span class="p">;</span>
+    <span class="c1">// || (rows == 1 &amp;&amp; columns == 1)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rows</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">columns</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">){</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Result: "</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    return 0;
-}
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 
-```
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">two</span> <span class="n">integers</span><span class="o">:</span> 
+<span class="mi">1</span> <span class="mi">2</span>
+<span class="n">Result</span><span class="o">:</span> <span class="mi">0</span>
 
-> The above command returns:
-
-```c
-
-```
-
-```cpp
-Enter two integers: 
-1 2
-Result: 0
-
-``` -->
-
+</code></pre></div>
 <p><strong>Assignement 6</strong>: <em>Write a C++ program that asks the user to insert two integers representing the number of rows and the number of columns of a matrix. The program displays 0 if the table has only one row, or if it as only one column or if it has just one element.</em> </p>
 
-<!-- **Solution**:
+<p><strong>Solution</strong>:</p>
 
-in this example the user gives in input two integers. The program use logic operators and relational operators to check if the condition holds. 
+<p>in this example the user gives in input two integers. The program use logic operators and relational operators to check if the condition holds. </p>
 
-Operator | Name | Description
--------------- | -------------- | --------------
-&& | AND | Returns true if both statements are true
-&#8741; | OR | Returns true if both statements are true
-! | NOT | Reverse the result, returns false if the result is true -->
+<table><thead>
+<tr>
+<th>Operator</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>&amp;&amp;</td>
+<td>AND</td>
+<td>Returns true if both statements are true</td>
+</tr>
+<tr>
+<td>&#8741;</td>
+<td>OR</td>
+<td>Returns true if both statements are true</td>
+</tr>
+<tr>
+<td>!</td>
+<td>NOT</td>
+<td>Reverse the result, returns false if the result is true</td>
+</tr>
+</tbody></table>
 <h2 id='decision-making-and-loops'>Decision Making and Loops</h2>
 <p>In progress section...</p>
 <h2 id='functions'>Functions</h2>
