@@ -545,7 +545,7 @@ Finally, the result is displayed.
 
 <aside class="notice">
 <p>ASCII value of lowercase char a to z ranges from 97 to 122</p>
-<p>ASCII value of uppercase char A to Z ranges from 65 to 92</p>
+<p>ASCII value of uppercase char A to Z ranges from 65 to 90</p>
 </aside>
 
 <aside class="notice">
@@ -649,7 +649,7 @@ To understand these examples, you should have the knowledge of the following C++
 
 
 ### [E2][A1] Time converter 
-<!-- 
+
  ```c
 #include <stdio.h>
 int main() {    
@@ -703,11 +703,11 @@ Enter an integer value to convert: 604700
 167 hours
 10078 minutes
 604700 seconds
-``` -->
+```
 
 **Assignement 1**: *Write a C++ program that ask the user to insert an integer that refers to a time duration expressed in seconds. Then the program computes the same duration in terms of number of weeks, number of days, hours, minutes and seconds.*
 
-<!-- **Solution**:
+**Solution**:
 The program replaces a time duration expressed in second in number of weeks, days, hours, minutes and seconds.
 In this example, the user is asked to enter a integer variable. This variable represents a duration expressed in seconds.
 
@@ -751,9 +751,9 @@ But let's see the next example...
      
  
   
-    -->
+    
 
-<!-- 
+
 ### [E2] Time converter - variation 1 
 
 ```c
@@ -1003,12 +1003,12 @@ You can also try to make another function to print out the result.
    
   
   
-    -->
+   
 
 
 ### [E2][A2] Compute area of triangle 
 
-<!-- ```cpp
+```cpp
 #include<iostream>
 #include<cmath>
 
@@ -1043,14 +1043,14 @@ int main()
 Enter three sides of triangle : 5 7 8
 Area of triangle is : 17.32050
 
-``` -->
+``` 
 
 **Assignement 2**: *Write a program to compute area of triangle. Sides a, b, and c are input by user. Then the program computes the area and displays the result.*
  Note that the area can be computed as `A = sqrt(p*(p-a)*(p-b)*(p-c))` where `p=(a+b+c)/2`. Moreover to compute the square root you can use the library function `sqrt` available in `cmath`.
 
 
 
-<!-- **Solution**:
+**Solution**:
  In this example we compute the area of a triangle. To do that, the user is asked to insert three real numbers.
  We save these values in three different float variable.
  Then, the programs computes the area of the triangle and displays the result.
@@ -1078,12 +1078,12 @@ Area of triangle is : 17.32050
 <br>
 <br>
 <br>
-<br>  -->
+<br>  
 
 
 
 ### [E2][A3] Use increment and decrement operators 
-<!-- 
+
 ```cpp
 int main()
 {
@@ -1122,11 +1122,11 @@ The number is: 8
 Pre is: 7
 Post is: 9
 
-``` -->
+``` 
 
 **Assignement 3**: *Write a C++ program that ask the user to insert an integer and displays the previous number and the next one. Use increment ++ and decrements -- operators.*
 
-<!-- **Solution**:
+**Solution**:
 In this example, the program asks for an integer number. The we use pre-decrement operator to compute the previous number, that returns the value contained in number variable after it has been incremented.
 Then we concatenate two pre-increment operator to compute the next value. 
 Try by yourself the different use of these operators.
@@ -1154,13 +1154,13 @@ Try by yourself the different use of these operators.
 <br>
 <br>
 <br> 
-  -->
+  
 
 
 
 ### [E2][A4] Check numbers 
 
-<!-- ```cpp
+```cpp
 #include<iostream>
 
 int main()
@@ -1196,11 +1196,11 @@ Enter two integers:
 1 2
 Result is: 1
 
-``` -->
+``` 
 
 **Assignement 4**: *Write a C++ program that ask the user to insert two integers and display 0 if the two numbers are equal, or a positive number if the two are different.*
 
-<!-- **Solution**:
+**Solution**:
 In this example, the program asks the user to insert two integers. Then the program checks if the two numbers are equal. We use a comparison operator  `==` that returns true if the left value is equal to the right value, false otherwise.
 
 <aside class="notice">
@@ -1236,13 +1236,13 @@ In this example, the program asks the user to insert two integers. Then the prog
    
  
    
-   -->
+   
 
 
 
 ### [E2][A5] Swap numbers 
 
-<!-- ```cpp
+ ```cpp
 
 #include <iostream>
 
@@ -1289,11 +1289,11 @@ a = 1, b = 2
 After swapping.
 a = 2, b = 1
 
-``` -->
+``` 
 
 **Assignement 5**: *Write a C++ program that asks the user to insert two integers, swaps them and shows the result.*
 
-<!-- **Solution**:
+**Solution**:
 This example contains two different techniques to swap numbers in C programming. The first program uses temporary variable to swap numbers, whereas the second program doesn't use temporary variables.
 To perform swapping in above example, three variables are used.
 
@@ -1334,7 +1334,7 @@ Let us see how this program works:
 <br>
  
   
-    -->
+  
     
  
   
@@ -1342,7 +1342,7 @@ Let us see how this program works:
 
 ### [E2][A6] Use relational and logical operators 
 
-<!-- ```cpp
+```cpp
 #include <iostream>
 
 int main()
@@ -1372,11 +1372,11 @@ Enter two integers:
 1 2
 Result: 0
 
-``` -->
+``` 
 
 **Assignement 6**: *Write a C++ program that asks the user to insert two integers representing the number of rows and the number of columns of a matrix. The program displays 0 if the table has only one row, or if it as only one column or if it has just one element.* 
 
-<!-- **Solution**:
+**Solution**:
 
 in this example the user gives in input two integers. The program use logic operators and relational operators to check if the condition holds. 
 
@@ -1384,7 +1384,7 @@ Operator | Name | Description
 -------------- | -------------- | --------------
 && | AND | Returns true if both statements are true
 &#8741; | OR | Returns true if both statements are true
-! | NOT | Reverse the result, returns false if the result is true -->
+! | NOT | Reverse the result, returns false if the result is true 
 
 
 
