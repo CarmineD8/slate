@@ -428,7 +428,7 @@ int main()
   average = sum / 2;
 
   // Prints sum 
-  std::cout << " The average is: " << sum;     
+  std::cout << " The average is: " << average << std::endl;     
 
   return 0;
 }
@@ -514,7 +514,7 @@ int main()
   character = character - 32;
 
   // Prints converted char 
-  std::cout << " The character in uppercase is: " << character;     
+  std::cout << " The character in uppercase is: " << character << std::endl;     
 
   return 0;
 }
@@ -601,7 +601,7 @@ int main()
 
   area = 3.14 * radius * radius;
 
-  std::cout << "Area of circle with radius " << radius << " is " << area;
+  std::cout << "Area of circle with radius " << radius << " is " << area << std::endl;
 
   return 0;
 }
@@ -648,9 +648,9 @@ To understand these examples, you should have the knowledge of the following C++
 
 
 
-### [E2] Time converter ... in progress
-
-<!-- ```c
+### [E2][A1] Time converter 
+<!-- 
+ ```c
 #include <stdio.h>
 int main() {    
 
@@ -703,9 +703,12 @@ Enter an integer value to convert: 604700
 167 hours
 10078 minutes
 604700 seconds
-```
-The program replaces a time duration expressed in second in number of weeks, days, hours, minutes and seconds.
+``` -->
 
+**Assignement 1**: *Write a C++ program that ask the user to insert an integer that refers to a time duration expressed in seconds. Then the program computes the same duration in terms of number of weeks, number of days, hours, minutes and seconds.*
+
+<!-- **Solution**:
+The program replaces a time duration expressed in second in number of weeks, days, hours, minutes and seconds.
 In this example, the user is asked to enter a integer variable. This variable represents a duration expressed in seconds.
 
 Then the variable is converted in weeks (there are 7 * 24 * 60 * 60 seconds in a week), days (there are 24 * 60 * 60 seconds in a day), hours (there are * 60 * 60 seconds in one hour) and minutes (there are 60 seconds in a minute).
@@ -731,7 +734,26 @@ But let's see the next example...
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ 
+  
+   
+    
+     
+ 
+  
+    -->
 
+<!-- 
 ### [E2] Time converter - variation 1 
 
 ```c
@@ -793,7 +815,14 @@ Enter an integer value to convert: 604700
 23 hours
 58 minutes
 20 seconds
+
+
+
+
 ```
+
+
+
 
 The program converts a time duration expressed in second in number of weeks, days, hours, minutes and seconds.
 
@@ -815,6 +844,42 @@ Finally, the result is displayed.
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  
+   
+    
+     
+ 
+  
+   
+    
 
 ### [E2] Time converter - variation 2
 
@@ -883,7 +948,12 @@ Enter an integer value to convert: 604700
 23 hours
 58 minutes
 20 seconds
+
+
+
 ```
+
+
 
 The program converts a time duration expressed in second in number of weeks, days, hours, minutes and seconds.
 
@@ -898,7 +968,423 @@ Then in the main function, we can call this function. We have to pass to the fun
 
 Finally, the program returns.
 
-You can also try to make another function to print out the result.  -->
+You can also try to make another function to print out the result.  
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  
+   
+  
+  
+    -->
+
+
+### [E2][A2] Compute area of triangle 
+
+<!-- ```cpp
+#include<iostream>
+#include<cmath>
+
+int main()
+{
+	float a = 0;
+	float b = 0;
+	float c = 0;
+	float p = 0;
+	float Area = 0;
+	
+	std::cout << "Enter three sides of triangle : ";
+	std::cin >> a >> b >> c;
+	
+	p=(a+b+c)/2;
+	Area=sqrt(p*(p-a)*(p-b)*(p-c));
+	
+	std::cout<<"Area of triangle is : "<< Area << std::endl;;
+	
+	return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter three sides of triangle : 5 7 8
+Area of triangle is : 17.32050
+
+``` -->
+
+**Assignement 2**: *Write a program to compute area of triangle. Sides a, b, and c are input by user. Then the program computes the area and displays the result.*
+ Note that the area can be computed as `A = sqrt(p*(p-a)*(p-b)*(p-c))` where `p=(a+b+c)/2`. Moreover to compute the square root you can use the library function `sqrt` available in `cmath`.
+
+
+
+<!-- **Solution**:
+ In this example we compute the area of a triangle. To do that, the user is asked to insert three real numbers.
+ We save these values in three different float variable.
+ Then, the programs computes the area of the triangle and displays the result.
+
+ We can also decide to create a custum function to compute the area and call it in the main function. Try this!
+
+ <aside class="notice">
+<p>C++ code</p>
+<p>You can explor Standard C++ library function [here](http://www.cplusplus.com/reference/)</p>
+</aside>
+
+<aside class="notice">
+<p>C++ code</p>
+<p>You can use a function defined in a library after importing it with <code>#include <cmath></code></p>
+</aside>
+ 
+  
+   
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>  -->
+
+
+
+### [E2][A3] Use increment and decrement operators 
+<!-- 
+```cpp
+int main()
+{
+	int number = 0;
+	int pre = 0;
+	int post = 0;
+	
+	
+	std::cout << "Enter an integer: ";
+	std::cin >> number;
+	
+	//pre = number - 1;
+	//pre = number--;
+	pre = --number;
+	
+	//post = number + 1;
+	//post = number++;
+	post = ++ ++number;
+	
+	std::cout<<"The number is : "<< number << std::endl;
+	std::cout<<"Pre is : "<< pre << std::endl;
+	std::cout<<"Post is : "<< post << std::endl;
+	
+	return 0;
+}
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+The number is: 8
+Pre is: 7
+Post is: 9
+
+``` -->
+
+**Assignement 3**: *Write a C++ program that ask the user to insert an integer and displays the previous number and the next one. Use increment ++ and decrements -- operators.*
+
+<!-- **Solution**:
+In this example, the program asks for an integer number. The we use pre-decrement operator to compute the previous number, that returns the value contained in number variable after it has been incremented.
+Then we concatenate two pre-increment operator to compute the next value. 
+Try by yourself the different use of these operators.
+
+<aside class="notice">
+<p>C++ code</p>
+<p>Pre-increment and pre-decrement operators increments or decrements the value of the object and returns a reference to the result.</p>
+</aside>
+
+<aside class="notice">
+<p>C++ code</p>
+<p>Post-increment and post-decrement creates a copy of the object, increments or decrements the value of the object and returns the copy from before the increment or decrement.</p>
+</aside>
+
+ 
+  
+   
+   <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+  -->
+
+
+
+### [E2][A4] Check numbers 
+
+<!-- ```cpp
+#include<iostream>
+
+int main()
+{
+	int a = 0;
+	int b = 0;
+	int result = -1; 
+	
+	
+	std::cout << "Enter two integers: ";
+	std::cin >> a >> b;
+	
+	if (a == b){
+	    result = 0;
+	} else {
+	    result = 1;
+	}
+	
+	std::cout<<"Result is : "<< result << std::endl;
+	
+	return 0;
+}
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter two integers: 
+1 2
+Result is: 1
+
+``` -->
+
+**Assignement 4**: *Write a C++ program that ask the user to insert two integers and display 0 if the two numbers are equal, or a positive number if the two are different.*
+
+<!-- **Solution**:
+In this example, the program asks the user to insert two integers. Then the program checks if the two numbers are equal. We use a comparison operator  `==` that returns true if the left value is equal to the right value, false otherwise.
+
+<aside class="notice">
+<p>C++ code</p>
+<p>You can use also XOR operator (^).  XOR of two numbers is 0 if the numbers are same, otherwise non-zero.</p>
+</aside>
+
+ 
+  
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  
+   
+ 
+   
+   -->
+
+
+
+### [E2][A5] Swap numbers 
+
+<!-- ```cpp
+
+#include <iostream>
+
+int main()
+{
+    int a = 0, b = 0, temp = 0;
+    
+    std::cout << "Enter two integers: "<< std::endl;
+	std::cin >> a >> b;
+
+    std::cout << "\nBefore swapping." << std::endl;
+    std::cout << "a = " << a << ", b = " << b << std::endl;
+
+    temp = a;
+    a = b;
+    b = temp;
+
+    // method 2: we can use just two variables
+    // a = a + b;
+    // b = a - b;
+    // a = a - b;
+
+    std::cout << "\nAfter swapping." << std::endl;
+    std::cout << "a = " << a << ", b = " << b << std::endl;
+
+    return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter two integers: 
+1 2
+
+Before swapping.
+a = 1, b = 2
+
+After swapping.
+a = 2, b = 1
+
+``` -->
+
+**Assignement 5**: *Write a C++ program that asks the user to insert two integers, swaps them and shows the result.*
+
+<!-- **Solution**:
+This example contains two different techniques to swap numbers in C programming. The first program uses temporary variable to swap numbers, whereas the second program doesn't use temporary variables.
+To perform swapping in above example, three variables are used.
+
+The contents of the first variable is copied into the temp variable. Then, the contents of second variable is copied to the first variable.
+
+Finally, the contents of the temp variable is copied back to the second variable which completes the swapping process.
+
+You can also perform swapping using only two variables as below.
+
+The output of this program is the same as the first program above.
+
+Let us see how this program works:
+
+1. Initially, a = 1 and b = 2.
+2. Then, we add a and b and store it in a with the code a = a + b. This means a = 1 + 2. So, a = 3 now.
+3. Then we use the code b = a - b. This means b = 3 - 2. So, b = 1 now.
+4. Again, we use the code a = a - b. This means a = 3 - 1. So finally, a = 2.
+
+ 
+ 
+ <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ 
+  
+    -->
+    
+ 
+  
+
+
+### [E2][A6] Use relational and logical operators 
+
+<!-- ```cpp
+#include <iostream>
+
+int main()
+{
+    int rows = 0, columns = 0;
+    
+    std::cout << "Enter two integers: "<< std::endl;
+	std::cin >> rows >> columns;
+    // || (rows == 1 && columns == 1)
+    if (rows == 1 || columns == 1 ){
+        std::cout << "Result: " << 0 << std::endl;
+    }
+
+    return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter two integers: 
+1 2
+Result: 0
+
+``` -->
+
+**Assignement 6**: *Write a C++ program that asks the user to insert two integers representing the number of rows and the number of columns of a matrix. The program displays 0 if the table has only one row, or if it as only one column or if it has just one element.* 
+
+<!-- **Solution**:
+
+in this example the user gives in input two integers. The program use logic operators and relational operators to check if the condition holds. 
+
+Operator | Name | Description
+-------------- | -------------- | --------------
+&& | AND | Returns true if both statements are true
+&#8741; | OR | Returns true if both statements are true
+! | NOT | Reverse the result, returns false if the result is true -->
 
 
 
