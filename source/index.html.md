@@ -1387,6 +1387,312 @@ Operator | Name | Description
 ! | NOT | Reverse the result, returns false if the result is true 
 
 
+## Practical examples - 3
+
+To understand these examples, you should have the knowledge of the following C++ programming topics:
+
+*  C++ Variables, Constants and Literals
+*  C++ Data Types
+*  C++ Input Output (I/O)
+*  C++ Programming Operators
+*  C++ Functions
+*  User-defined Functions in C++
+*  C++ if...else, switch case
+
+
+
+
+
+### [E3][A1]  Quadratic Equation
+
+```cpp
+#include <iostream>
+#include <cmath>
+
+int main() {
+
+  float a, b, c, x1, x2, discriminant, realPart, imaginaryPart;
+
+  sdt::cout << "Enter coefficients a, b and c: ";
+  sdt::cin >> a >> b >> c;
+
+  discriminant = b*b - 4*a*c;
+  
+  if (discriminant > 0) {
+    x1 = (-b + sqrt(discriminant)) / (2*a);
+    x2 = (-b - sqrt(discriminant)) / (2*a);
+    cout << "Roots are real and different." << endl;
+    sdt::cout << "x1 = " << x1 << sdt::endl;
+    sdt::cout << "x2 = " << x2 << sdt::endl;
+  } 
+  else if (discriminant == 0) {
+    sdt::cout << "Roots are real and same." << sdt::endl;
+    x1 = -b/(2*a);
+    sdt::cout << "x1 = x2 =" << x1 << sdt::endl;
+  }
+  else {
+    realPart = -b/(2*a);
+    imaginaryPart =sqrt(-discriminant)/(2*a);
+    sdt::cout << "Roots are complex and different."  << sdt::endl;
+    sdt::cout << "x1 = " << realPart << "+" << imaginaryPart << "i" << sdt::endl;
+    sdt::cout << "x2 = " << realPart << "-" << imaginaryPart << "i" << sdt::endl;
+  }
+
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter coefficients a, b and c: 4
+5
+1
+Roots are real and different.
+x1 = -0.25
+x2 = -1
+
+``` 
+
+**Assignement 2**: *Write a C++ program to compute all roots of a quadratic equation like this `ax^2+bx+c = 0`. The program asks the user to insert three coefficients a,b,c and computes the solutions, both real and complex roots depending upon the discriminant.*
+
+
+
+**Solution**:
+ This program accepts coefficients of a quadratic equation from the user and displays the roots (both real and complex roots depending upon the discriminant).
+
+ For a quadratic equation `ax2+bx+c = 0` (where a, b and c are coefficients), it's roots is given by following the formula: `(-b +- sqrt(b^2 - 4ac))/ 2a `.
+
+ The term `b2-4ac` is known as the discriminant of a quadratic equation. The discriminant tells the nature of the roots.
+
+  * If discriminant is greater than 0, the roots are real and different.
+  * If discriminant is equal to 0, the roots are real and equal.
+  * If discriminant is less than 0, the roots are complex and different.
+
+In this program, `sqrt()` library function is used to find the square root of a number. Remember to import `cmath` to use this function. 
+
+
+
+ <aside class="notice">
+
+</aside>
+<aside class="notice">
+
+</aside>
+ 
+  
+   
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>  
+ 
+  
+
+
+
+
+### [E3][A2] Calculator 
+
+```cpp
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+
+``` 
+
+**Assignement 3**: *Write a C++ program that implements a simple calculator. The program asks the user two real number and an operator (+, -, *, /) , then it computes the operation and displays the result. In the case that the operator given by the user is not in the list of accepted operators, the program will show an error message.*
+
+**Solution**:
+...
+
+ 
+  
+   
+   <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+  
+
+
+
+### [E3][A3] Check area 
+
+```cpp
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+
+``` 
+
+**Assignement 4**: *Write a C++ program that assess if a given point is inside of a rectangle area. The program asks the user to insert two integers for the point coordinate (x,y) and to insert four more integers for the top-left vertex (a,b) and the bottom-right vertex (c,d). The program displays a message to point out if the point belongs to the rectangle.*
+
+**Solution**:
+...
+
+ 
+  
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  
+   
+ 
+   
+   
+
+
+
+### [E3][A4] Leap Year
+
+ ```cpp
+
+
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+
+``` 
+
+**Assignement 5**: *Write a C++ program tha asks the user to insert two integers representing a month and a year and computes the number of days of the given month. Pay attention, remember that February of a leap year has  29 days. A leap year is divisible by 4, with the exception of years also divisible by 100, that are leap only if the are divisible by 400.*
+
+**Solution**:
+...
+
+ 
+ 
+ <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ 
+  
+  
+    
+ 
+  
+
+
+### [E3][A5] Birthday
+
+```cpp
+
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+
+``` 
+
+**Assignement 6**: *Write a C++ program that ask the user to insert the current date and his birthday, so the user enters three integers (day, month, year) for the current date and three more integers for his birthday. After the validation of the input the program displays the age of the person. if the birthday date is in the future the program displays an error message. If the result, i.e. the age is greater than 100 years, the program displays a warning. If the result is under 1 year, the programs displays the result in terms of months and days.* 
+
+**Solution**:
+
+...
+
+
 
 ## Decision Making and Loops
 In progress section...
