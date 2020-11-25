@@ -20,6 +20,10 @@ code_clipboard: true
 
 Welcome to the Computer Science Playground! Learn to code with our beginner-friendly tutorials and examples. Read tutorials, try examples, write programs, and learn to code.
 
+# Tutorial 
+
+Section in progress...
+
 
 # Examples
 
@@ -1459,7 +1463,7 @@ x2 = -1
 
 ``` 
 
-**Assignement 2**: *Write a C++ program to compute all roots of a quadratic equation like this `ax^2+bx+c = 0`. The program asks the user to insert three coefficients a,b,c and computes the solutions, both real and complex roots depending upon the discriminant.*
+**Assignement 1**: *Write a C++ program to compute all roots of a quadratic equation like this `ax^2+bx+c = 0`. The program asks the user to insert three coefficients a,b,c and computes the solutions, both real and complex roots depending upon the discriminant.*
 
 
 
@@ -1480,9 +1484,17 @@ In this program, `sqrt()` library function is used to find the square root of a 
 
  <aside class="notice">
 
+  <p> math.h VS cmath</p>
+  The C++ library includes the same definitions as the C language library organized in the same structure of header files, with the following differences:
+
+  1. Each header file has the same name as the C language version but with a "c" prefix and no extension. For example, the C++ equivalent for the C language header file < stdlib.h > is < cstdlib>.
+
+  2. Every element of the library is defined within the std namespace.
+
 </aside>
 <aside class="notice">
-
+<p> math.h VS cmath</p>
+<p> We recommend to use <code>cmath</code> when writing C++ programs because they are standard C++, meaning you have strong guarantees of what is supported in those headers and how the functions in them work.</p>
 </aside>
  
   
@@ -1526,6 +1538,47 @@ In this program, `sqrt()` library function is used to find the square root of a 
 ### [E3][A2] Calculator 
 
 ```cpp
+# include <iostream>
+
+int main()
+{
+  char op;
+  float num1, num2;
+
+  std::cout << "Enter operation (a + b):";
+
+  std::cin >> num1 >> op >>  num2;
+
+  switch(op)
+  {
+    case '+':
+      std::cout << num1+num2 << std::endl;
+      break;
+
+    case '-':
+      std::cout << num1-num2 << std::endl;
+      break;
+
+    case '*':
+      std::cout << num1*num2 << std::endl;
+      break;
+
+    case '/':
+      if (num2 == 0){
+          std::cout << "Error! division per 0" << std::endl;
+          break;
+      }
+      std::cout << num1/num2 << std::endl;
+      break;
+
+    default:
+      // If the operator is other than +, -, * or /, error message is shown
+      std::cout << "Error! operator is not supported";
+      break;
+  }
+
+  return 0;
+}
 
 ```
 
@@ -1536,16 +1589,28 @@ In this program, `sqrt()` library function is used to find the square root of a 
 ```
 
 ```cpp
-
+Enter operation (a + b): 2+3
+5
 
 ``` 
 
-**Assignement 3**: *Write a C++ program that implements a simple calculator. The program asks the user two real number and an operator (+, -, *, /) , then it computes the operation and displays the result. In the case that the operator given by the user is not in the list of accepted operators, the program will show an error message.*
+**Assignement 2**: *Write a C++ program that implements a simple calculator. The program asks the user two real number and an operator (+, -, *, /) , then it computes the operation and displays the result. In the case that the operator given by the user is not in the list of accepted operators, the program will show an error message.*
 
 **Solution**:
-...
+This program takes an arithmetic operator (+, -, *, /) and two operands from an user and performs the operation on those two operands depending upon the operator entered by user.
+This program takes an operator and two operands from user.
 
- 
+The operator is stored in variable op and two operands are stored in num1 and num2 respectively.
+
+Then, `switch...case` statement is used for checking the operator entered by user.
+
+If user enters `+` then, statements for `case: '+'` is executed and program is terminated.
+
+If user enters `-` then, statements for `case: '-'` is executed and program is terminated.
+
+This program works similarly for `*` and `/` operator. But, if the operator doesn't matches any of the four character [ +, -, * and / ], default statement is executed which displays error message.
+
+
   
    
    <br>
@@ -1558,6 +1623,152 @@ In this program, `sqrt()` library function is used to find the square root of a 
 <br>
 <br>
 <br> 
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E3][A2][v2] Calculator while
+
+```cpp
+# include <iostream>
+
+int main()
+{
+  char op;
+  float num1, num2;
+  char flag = 'y';
+  
+  do {
+
+    std::cout << "Enter operation (a + b):";
+    std::cin >> num1 >> op >>  num2;
+
+    switch(op)
+    {
+      case '+':
+        std::cout << num1+num2 << std::endl;
+        break;
+
+      case '-':
+        std::cout << num1-num2 << std::endl;
+        break;
+
+      case '*':
+        std::cout << num1*num2 << std::endl;
+        break;
+
+      case '/':
+        if (num2 == 0){
+          std::cout << "Error! division per 0" << std::endl;
+          break;
+        }
+        std::cout << num1/num2 << std::endl;
+        break;
+
+      default:
+        // If the operator is other than +, -, * or /, error message is shown
+        std::cout << "Error! operator is not supported";
+        break;
+    }
+
+    std::cout << "Press y to continue ";
+    std::cin >> flag;
+
+  } while (flag == 'y');
+  
+  std::cout << "Exit...";
+
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter operation (a + b):3+4
+7
+Press y to continue g
+Exit...
+
+``` 
+
+**Assignement 2**: *Write a C++ program that implements a simple calculator. The program asks the user two real number and an operator (+, -, *, /) , then it computes the operation and displays the result. In the case that the operator given by the user is not in the list of accepted operators, the program will show an error message.*
+
+**Solution**:
+This program takes an arithmetic operator (+, -, *, /) and two operands from an user and performs the operation on those two operands depending upon the operator entered by user.
+This program takes an operator and two operands from user.
+
+The operator is stored in variable op and two operands are stored in num1 and num2 respectively.
+
+Then, `switch...case` statement is used for checking the operator entered by user.
+
+If user enters `+` then, statements for `case: '+'` is executed and program is terminated.
+
+If user enters `-` then, statements for `case: '-'` is executed and program is terminated.
+
+This program works similarly for `*` and `/` operator. But, if the operator doesn't matches any of the four character [ +, -, * and / ], default statement is executed which displays error message.
+
+In this implementation the programkeeps to accepts operations until the user types something different from `y`. There are many other methods to do that, try by yourself!
+
+
+  
+   
+   <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
   
 
 
@@ -1579,7 +1790,7 @@ In this program, `sqrt()` library function is used to find the square root of a 
 
 ``` 
 
-**Assignement 4**: *Write a C++ program that assess if a given point is inside of a rectangle area. The program asks the user to insert two integers for the point coordinate (x,y) and to insert four more integers for the top-left vertex (a,b) and the bottom-right vertex (c,d). The program displays a message to point out if the point belongs to the rectangle.*
+**Assignement 3**: *Write a C++ program that assess if a given point is inside of a rectangle area. The program asks the user to insert two integers for the point coordinate (x,y) and to insert four more integers for the top-left vertex (a,b) and the bottom-right vertex (c,d). The program displays a message to point out if the point belongs to the rectangle.*
 
 **Solution**:
 ...
@@ -1635,7 +1846,7 @@ In this program, `sqrt()` library function is used to find the square root of a 
 
 ``` 
 
-**Assignement 5**: *Write a C++ program tha asks the user to insert two integers representing a month and a year and computes the number of days of the given month. Pay attention, remember that February of a leap year has  29 days. A leap year is divisible by 4, with the exception of years also divisible by 100, that are leap only if the are divisible by 400.*
+**Assignement 4**: *Write a C++ program tha asks the user to insert two integers representing a month and a year and computes the number of days of the given month. Pay attention, remember that February of a leap year has  29 days. A leap year is divisible by 4, with the exception of years also divisible by 100, that are leap only if the are divisible by 400.*
 
 **Solution**:
 ...
@@ -1686,11 +1897,246 @@ In this program, `sqrt()` library function is used to find the square root of a 
 
 ``` 
 
-**Assignement 6**: *Write a C++ program that ask the user to insert the current date and his birthday, so the user enters three integers (day, month, year) for the current date and three more integers for his birthday. After the validation of the input the program displays the age of the person. if the birthday date is in the future the program displays an error message. If the result, i.e. the age is greater than 100 years, the program displays a warning. If the result is under 1 year, the programs displays the result in terms of months and days.* 
+**Assignement 5**: *Write a C++ program that ask the user to insert the current date and his birthday, so the user enters three integers (day, month, year) for the current date and three more integers for his birthday. After the validation of the input the program displays the age of the person. if the birthday date is in the future the program displays an error message. If the result, i.e. the age is greater than 100 years, the program displays a warning. If the result is under 1 year, the programs displays the result in terms of months and days.* 
 
 **Solution**:
 
 ...
+
+
+### [E3][A6] Fibonacci series WHILE
+
+```cpp
+#include <iostream>
+
+
+int main()
+{
+  int t1 = 0, t2 = 1, nextTerm = 0, n;
+
+  std::cout << "Enter a positive number: ";
+  std::cin >> n;
+
+  // displays the first two terms which is always 0 and 1
+  std::cout << "Fibonacci Series: " << t1 << ", " << t2 << ", ";
+
+  nextTerm = t1 + t2;
+
+  while(nextTerm <= n)
+  {
+    std::cout << nextTerm << ", ";
+    t1 = t2;
+    t2 = nextTerm;
+    nextTerm = t1 + t2;
+  }
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter a positive integer: 100
+Fibonacci Series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89,
+
+``` 
+
+**Assignement 6**: *Write a C++ program that shows the Fibonacci sequence up to a certain number*
+
+**Solution**:
+The Fibonacci sequence is a series where the next term is the sum of pervious two terms. The first two terms of the Fibonacci sequence is 0 followed by 1.
+
+Here the program asks the user to enter an integer to know the value up to which the program has to compute the sequence. 
+
+Then a while loop is used to iterate until the entered value is reached. For each loop we update t1 and t2 value and compute the next term.
+
+Note that the first two terms in a Fibonacci sequence are always the same, 0 and 1.
+
+ 
+  
+   
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+
+### [E3][A6] Fibonacci series FOR
+
+```cpp
+#include <iostream>
+
+int main()
+{
+  int n, t1 = 0, t2 = 1, nextTerm = 0;
+
+  std::cout << "Enter the number of terms: ";
+  std::cin >> n;
+
+  std::cout << "Fibonacci Series: ";
+
+  for (int i = 1; i <= n; ++i)
+  {
+    // Prints the first two terms.
+    if(i == 1)
+    {
+      std::cout << " " << t1;
+      continue;
+    }
+    if(i == 2)
+    {
+      std::cout << t2 << " ";
+      continue;
+    }
+    nextTerm = t1 + t2;
+    t1 = t2;
+    t2 = nextTerm;
+    
+    std::cout << nextTerm << " ";
+  }
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter the number of terms: 10
+Fibonacci Series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34,
+
+``` 
+
+**Assignement 6**: *Write a C++ program that shows the Fibonacci sequence up to a number n of terms*
+
+**Solution**:
+The Fibonacci sequence is a series where the next term is the sum of pervious two terms. The first two terms of the Fibonacci sequence is 0 followed by 1. 
+
+Here the program asks the user to enter an integer to know the number of therms to compute. 
+
+Then a for loop is used to iterate n times. For each loop we compute the next term and update t1 and t2 value accordingly.
+
+Note that the first two terms in a Fibonacci sequence are always the same, 0 and 1.
+
+ 
+  
+   
+   <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+
+
+
+### [E3][A7] Check Prime Number
+
+```cpp
+
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+
+``` 
+
+**Assignement 7**: *Write a C++ program that check if a number is prime or not.*
+
+**Solution**:
+
+<!-- A positive integer which is only divisible by 1 and itself is known as prime number.
+
+For example: 13 is a prime number because it is only divisible by 1 and 13 but, 15 is not prime number because it is divisible by 1, 3, 5 and 15.
+
+Note: 0 and 1 are not prime numbers.
+
+This program takes a positive integer from the user and stores it in the variable `n`.
+
+Notice that the boolean variable `isPrime` is initialized to `true` at the beginning of the program.
+
+Since 0 and 1 are not prime numbers, we first check if the input number is one of those numbers or not. If the input number is either 0 or 1, then the value of `isPrime` is set to false.
+
+Else, the initial value of `isPrime` is left unchanged and the for loop is executed, which checks whether the number entered by the user is perfectly divisible by `i` or not.
+
+The for loop runs from `i == 2` to `i <= n / 2` and increases the value of `i` by 1 with each iteration.
+
+The loop terminates at `i == n / 2` because we cannot find any factor for n beyond the number `n / 2` . So, any iterations beyond `n / 2` is redundant.
+
+If the number entered by the user is perfectly divisible by `i`, then `isPrime` is set to `false` and the number will not be a prime number.
+
+But if the input number is not perfectly divisible by `i` throughout the entirety of the loop, then it means that the input number is only divisible by 1 and that number itself.
+
+So, the given number is a prime number.
+
+In the case of `n == 2`, the for loop fails to run and the value of `isPrime` remains `true`.  -->
+  
+   
+   <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+
+
 
 
 
