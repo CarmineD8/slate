@@ -310,6 +310,9 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
+            <a href="#tutorial" class="toc-h1 toc-link" data-title="Tutorial">Tutorial</a>
+          </li>
+          <li>
             <a href="#examples" class="toc-h1 toc-link" data-title="Examples">Examples</a>
               <ul class="toc-list-h2">
                   <li>
@@ -349,6 +352,8 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the Computer Science Playground! Learn to code with our beginner-friendly tutorials and examples. Read tutorials, try examples, write programs, and learn to code.</p>
+<h1 id='tutorial'>Tutorial</h1>
+<p>Section in progress...</p>
 <h1 id='examples'>Examples</h1><h2 id='practical-examples-1'>Practical examples - 1</h2><h3 id='e0-quot-hello-world-quot-program'>[E0] &quot;Hello, World!&quot; Program</h3><div class="highlight"><pre class="highlight c tab-c"><code><span class="cp">#include &lt;stdio.h&gt;
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -1555,7 +1560,7 @@ To perform swapping in above example, three variables are used.</p>
 <span class="n">x2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 
 </code></pre></div>
-<p><strong>Assignement 2</strong>: <em>Write a C++ program to compute all roots of a quadratic equation like this <code>ax^2+bx+c = 0</code>. The program asks the user to insert three coefficients a,b,c and computes the solutions, both real and complex roots depending upon the discriminant.</em></p>
+<p><strong>Assignement 1</strong>: <em>Write a C++ program to compute all roots of a quadratic equation like this <code>ax^2+bx+c = 0</code>. The program asks the user to insert three coefficients a,b,c and computes the solutions, both real and complex roots depending upon the discriminant.</em></p>
 
 <p><strong>Solution</strong>:
  This program accepts coefficients of a quadratic equation from the user and displays the roots (both real and complex roots depending upon the discriminant).</p>
@@ -1574,10 +1579,19 @@ To perform swapping in above example, three variables are used.</p>
 
 <p><aside class="notice"></p>
 
-<p></aside>
-<aside class="notice"></p>
+<p><p> math.h VS cmath</p>
+  The C++ library includes the same definitions as the C language library organized in the same structure of header files, with the following differences:</p>
 
-<p></aside></p>
+<ol>
+<li><p>Each header file has the same name as the C language version but with a &quot;c&quot; prefix and no extension. For example, the C++ equivalent for the C language header file &lt; stdlib.h &gt; is &lt; cstdlib&gt;.</p></li>
+<li><p>Every element of the library is defined within the std namespace.</p></li>
+</ol>
+
+<p></aside>
+<aside class="notice">
+<p> math.h VS cmath</p>
+<p> We recommend to use <code>cmath</code> when writing C++ programs because they are standard C++, meaning you have strong guarantees of what is supported in those headers and how the functions in them work.</p>
+</aside></p>
 
 <p><br>
 <br>
@@ -1609,19 +1623,72 @@ To perform swapping in above example, three variables are used.</p>
 <br>
 <br>
 <br>  </p>
-<h3 id='e3-a2-calculator'>[E3][A2] Calculator</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+<h3 id='e3-a2-calculator'>[E3][A2] Calculator</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp"># include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">char</span> <span class="n">op</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter operation (a + b):"</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num1</span> <span class="o">&gt;&gt;</span> <span class="n">op</span> <span class="o">&gt;&gt;</span>  <span class="n">num2</span><span class="p">;</span>
+
+  <span class="k">switch</span><span class="p">(</span><span class="n">op</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">case</span> <span class="sc">'+'</span><span class="p">:</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span><span class="o">+</span><span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="sc">'-'</span><span class="p">:</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span><span class="o">-</span><span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="sc">'*'</span><span class="p">:</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span><span class="o">*</span><span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="sc">'/'</span><span class="p">:</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">num2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+          <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Error! division per 0"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+          <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span><span class="o">/</span><span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+
+    <span class="nl">default:</span>
+      <span class="c1">// If the operator is other than +, -, * or /, error message is shown</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Error! operator is not supported"</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
 </code></pre></div>
 <blockquote>
 <p>The above command returns:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight c tab-c"><code>
-</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">operation</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">:</span> <span class="mi">2</span><span class="o">+</span><span class="mi">3</span>
+<span class="mi">5</span>
 
 </code></pre></div>
-<p><strong>Assignement 3</strong>: <em>Write a C++ program that implements a simple calculator. The program asks the user two real number and an operator (+, -, *, /) , then it computes the operation and displays the result. In the case that the operator given by the user is not in the list of accepted operators, the program will show an error message.</em></p>
+<p><strong>Assignement 2</strong>: <em>Write a C++ program that implements a simple calculator. The program asks the user two real number and an operator (+, -, *, /) , then it computes the operation and displays the result. In the case that the operator given by the user is not in the list of accepted operators, the program will show an error message.</em></p>
 
 <p><strong>Solution</strong>:
-...</p>
+This program takes an arithmetic operator (+, -, *, /) and two operands from an user and performs the operation on those two operands depending upon the operator entered by user.
+This program takes an operator and two operands from user.</p>
+
+<p>The operator is stored in variable op and two operands are stored in num1 and num2 respectively.</p>
+
+<p>Then, <code>switch...case</code> statement is used for checking the operator entered by user.</p>
+
+<p>If user enters <code>+</code> then, statements for <code>case: &#39;+&#39;</code> is executed and program is terminated.</p>
+
+<p>If user enters <code>-</code> then, statements for <code>case: &#39;-&#39;</code> is executed and program is terminated.</p>
+
+<p>This program works similarly for <code>*</code> and <code>/</code> operator. But, if the operator doesn&#39;t matches any of the four character [ +, -, * and / ], default statement is executed which displays error message.</p>
 
 <p><br>
 <br>
@@ -1632,7 +1699,141 @@ To perform swapping in above example, three variables are used.</p>
 <br>
 <br>
 <br>
-<br> </p>
+<br> 
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e3-a2-v2-calculator-while'>[E3][A2][v2] Calculator while</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp"># include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">char</span> <span class="n">op</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="n">flag</span> <span class="o">=</span> <span class="sc">'y'</span><span class="p">;</span>
+
+  <span class="k">do</span> <span class="p">{</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter operation (a + b):"</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num1</span> <span class="o">&gt;&gt;</span> <span class="n">op</span> <span class="o">&gt;&gt;</span>  <span class="n">num2</span><span class="p">;</span>
+
+    <span class="k">switch</span><span class="p">(</span><span class="n">op</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">case</span> <span class="sc">'+'</span><span class="p">:</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span><span class="o">+</span><span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="sc">'-'</span><span class="p">:</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span><span class="o">-</span><span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="sc">'*'</span><span class="p">:</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span><span class="o">*</span><span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="sc">'/'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">num2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+          <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Error! division per 0"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span><span class="o">/</span><span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="nl">default:</span>
+        <span class="c1">// If the operator is other than +, -, * or /, error message is shown</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Error! operator is not supported"</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Press y to continue "</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">flag</span><span class="p">;</span>
+
+  <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">flag</span> <span class="o">==</span> <span class="sc">'y'</span><span class="p">);</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Exit..."</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">operation</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">:</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span>
+<span class="mi">7</span>
+<span class="n">Press</span> <span class="n">y</span> <span class="n">to</span> <span class="k">continue</span> <span class="n">g</span>
+<span class="n">Exit</span><span class="p">...</span>
+
+</code></pre></div>
+<p><strong>Assignement 2</strong>: <em>Write a C++ program that implements a simple calculator. The program asks the user two real number and an operator (+, -, *, /) , then it computes the operation and displays the result. In the case that the operator given by the user is not in the list of accepted operators, the program will show an error message.</em></p>
+
+<p><strong>Solution</strong>:
+This program takes an arithmetic operator (+, -, *, /) and two operands from an user and performs the operation on those two operands depending upon the operator entered by user.
+This program takes an operator and two operands from user.</p>
+
+<p>The operator is stored in variable op and two operands are stored in num1 and num2 respectively.</p>
+
+<p>Then, <code>switch...case</code> statement is used for checking the operator entered by user.</p>
+
+<p>If user enters <code>+</code> then, statements for <code>case: &#39;+&#39;</code> is executed and program is terminated.</p>
+
+<p>If user enters <code>-</code> then, statements for <code>case: &#39;-&#39;</code> is executed and program is terminated.</p>
+
+<p>This program works similarly for <code>*</code> and <code>/</code> operator. But, if the operator doesn&#39;t matches any of the four character [ +, -, * and / ], default statement is executed which displays error message.</p>
+
+<p>In this implementation the programkeeps to accepts operations until the user types something different from <code>y</code>. There are many other methods to do that, try by yourself!</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
 <h3 id='e3-a3-check-area'>[E3][A3] Check area</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
 </code></pre></div>
 <blockquote>
@@ -1642,7 +1843,7 @@ To perform swapping in above example, three variables are used.</p>
 </code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
 
 </code></pre></div>
-<p><strong>Assignement 4</strong>: <em>Write a C++ program that assess if a given point is inside of a rectangle area. The program asks the user to insert two integers for the point coordinate (x,y) and to insert four more integers for the top-left vertex (a,b) and the bottom-right vertex (c,d). The program displays a message to point out if the point belongs to the rectangle.</em></p>
+<p><strong>Assignement 3</strong>: <em>Write a C++ program that assess if a given point is inside of a rectangle area. The program asks the user to insert two integers for the point coordinate (x,y) and to insert four more integers for the top-left vertex (a,b) and the bottom-right vertex (c,d). The program displays a message to point out if the point belongs to the rectangle.</em></p>
 
 <p><strong>Solution</strong>:
 ...</p>
@@ -1679,7 +1880,7 @@ To perform swapping in above example, three variables are used.</p>
 </code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
 
 </code></pre></div>
-<p><strong>Assignement 5</strong>: <em>Write a C++ program tha asks the user to insert two integers representing a month and a year and computes the number of days of the given month. Pay attention, remember that February of a leap year has  29 days. A leap year is divisible by 4, with the exception of years also divisible by 100, that are leap only if the are divisible by 400.</em></p>
+<p><strong>Assignement 4</strong>: <em>Write a C++ program tha asks the user to insert two integers representing a month and a year and computes the number of days of the given month. Pay attention, remember that February of a leap year has  29 days. A leap year is divisible by 4, with the exception of years also divisible by 100, that are leap only if the are divisible by 400.</em></p>
 
 <p><strong>Solution</strong>:
 ...</p>
@@ -1712,11 +1913,207 @@ To perform swapping in above example, three variables are used.</p>
 </code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
 
 </code></pre></div>
-<p><strong>Assignement 6</strong>: <em>Write a C++ program that ask the user to insert the current date and his birthday, so the user enters three integers (day, month, year) for the current date and three more integers for his birthday. After the validation of the input the program displays the age of the person. if the birthday date is in the future the program displays an error message. If the result, i.e. the age is greater than 100 years, the program displays a warning. If the result is under 1 year, the programs displays the result in terms of months and days.</em> </p>
+<p><strong>Assignement 5</strong>: <em>Write a C++ program that ask the user to insert the current date and his birthday, so the user enters three integers (day, month, year) for the current date and three more integers for his birthday. After the validation of the input the program displays the age of the person. if the birthday date is in the future the program displays an error message. If the result, i.e. the age is greater than 100 years, the program displays a warning. If the result is under 1 year, the programs displays the result in terms of months and days.</em> </p>
 
 <p><strong>Solution</strong>:</p>
 
 <p>...</p>
+<h3 id='e3-a6-fibonacci-series-while'>[E3][A6] Fibonacci series WHILE</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">t1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nextTerm</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a positive number: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+
+  <span class="c1">// displays the first two terms which is always 0 and 1</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Fibonacci Series: "</span> <span class="o">&lt;&lt;</span> <span class="n">t1</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">t2</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+
+  <span class="n">nextTerm</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span><span class="p">;</span>
+
+  <span class="k">while</span><span class="p">(</span><span class="n">nextTerm</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">nextTerm</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">t2</span><span class="p">;</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">nextTerm</span><span class="p">;</span>
+    <span class="n">nextTerm</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">a</span> <span class="n">positive</span> <span class="n">integer</span><span class="o">:</span> <span class="mi">100</span>
+<span class="n">Fibonacci</span> <span class="n">Series</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span>
+
+</code></pre></div>
+<p><strong>Assignement 6</strong>: <em>Write a C++ program that shows the Fibonacci sequence up to a certain number</em></p>
+
+<p><strong>Solution</strong>:
+The Fibonacci sequence is a series where the next term is the sum of pervious two terms. The first two terms of the Fibonacci sequence is 0 followed by 1.</p>
+
+<p>Here the program asks the user to enter an integer to know the value up to which the program has to compute the sequence. </p>
+
+<p>Then a while loop is used to iterate until the entered value is reached. For each loop we update t1 and t2 value and compute the next term.</p>
+
+<p>Note that the first two terms in a Fibonacci sequence are always the same, 0 and 1.</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> </p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> </p>
+<h3 id='e3-a6-fibonacci-series-for'>[E3][A6] Fibonacci series FOR</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">t1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nextTerm</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter the number of terms: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Fibonacci Series: "</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Prints the first two terms.</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">t1</span><span class="p">;</span>
+      <span class="k">continue</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">t2</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+      <span class="k">continue</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">nextTerm</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span><span class="p">;</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">t2</span><span class="p">;</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">nextTerm</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">nextTerm</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">terms</span><span class="o">:</span> <span class="mi">10</span>
+<span class="n">Fibonacci</span> <span class="n">Series</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span>
+
+</code></pre></div>
+<p><strong>Assignement 6</strong>: <em>Write a C++ program that shows the Fibonacci sequence up to a number n of terms</em></p>
+
+<p><strong>Solution</strong>:
+The Fibonacci sequence is a series where the next term is the sum of pervious two terms. The first two terms of the Fibonacci sequence is 0 followed by 1. </p>
+
+<p>Here the program asks the user to enter an integer to know the number of therms to compute. </p>
+
+<p>Then a for loop is used to iterate n times. For each loop we compute the next term and update t1 and t2 value accordingly.</p>
+
+<p>Note that the first two terms in a Fibonacci sequence are always the same, 0 and 1.</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> </p>
+<h3 id='e3-a7-check-prime-number'>[E3][A7] Check Prime Number</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+
+</code></pre></div>
+<p><strong>Assignement 7</strong>: <em>Write a C++ program that check if a number is prime or not.</em></p>
+
+<p><strong>Solution</strong>:</p>
+
+<!-- A positive integer which is only divisible by 1 and itself is known as prime number.
+
+For example: 13 is a prime number because it is only divisible by 1 and 13 but, 15 is not prime number because it is divisible by 1, 3, 5 and 15.
+
+Note: 0 and 1 are not prime numbers.
+
+This program takes a positive integer from the user and stores it in the variable `n`.
+
+Notice that the boolean variable `isPrime` is initialized to `true` at the beginning of the program.
+
+Since 0 and 1 are not prime numbers, we first check if the input number is one of those numbers or not. If the input number is either 0 or 1, then the value of `isPrime` is set to false.
+
+Else, the initial value of `isPrime` is left unchanged and the for loop is executed, which checks whether the number entered by the user is perfectly divisible by `i` or not.
+
+The for loop runs from `i == 2` to `i <= n / 2` and increases the value of `i` by 1 with each iteration.
+
+The loop terminates at `i == n / 2` because we cannot find any factor for n beyond the number `n / 2` . So, any iterations beyond `n / 2` is redundant.
+
+If the number entered by the user is perfectly divisible by `i`, then `isPrime` is set to `false` and the number will not be a prime number.
+
+But if the input number is not perfectly divisible by `i` throughout the entirety of the loop, then it means that the input number is only divisible by 1 and that number itself.
+
+So, the given number is a prime number.
+
+In the case of `n == 2`, the for loop fails to run and the value of `isPrime` remains `true`.  -->
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> </p>
 <h2 id='decision-making-and-loops'>Decision Making and Loops</h2>
 <p>In progress section...</p>
 <h2 id='functions'>Functions</h2>
