@@ -325,7 +325,10 @@
                     <a href="#practical-examples-3" class="toc-h2 toc-link" data-title="Practical examples - 3">Practical examples - 3</a>
                   </li>
                   <li>
-                    <a href="#decision-making-and-loops" class="toc-h2 toc-link" data-title="Decision Making and Loops">Decision Making and Loops</a>
+                    <a href="#practical-examples-4" class="toc-h2 toc-link" data-title="Practical examples - 4">Practical examples - 4</a>
+                  </li>
+                  <li>
+                    <a href="#lessons-code-2-12-2020" class="toc-h2 toc-link" data-title="Lessons code 2/12/2020">Lessons code 2/12/2020</a>
                   </li>
                   <li>
                     <a href="#functions" class="toc-h2 toc-link" data-title="Functions">Functions</a>
@@ -1834,56 +1837,135 @@ This program takes an operator and two operands from user.</p>
 <br>
 <br>
 <br></p>
-<h3 id='e3-a3-check-area'>[E3][A3] Check area</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+<h3 id='e3-a4-leap-year'>[E3][A4] Leap Year</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span><span class="c1">// Function declarations</span>
+<span class="kt">bool</span> <span class="nf">isLeap</span><span class="p">(</span><span class="kt">int</span> <span class="n">year</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">computeDays</span><span class="p">(</span><span class="kt">int</span> <span class="n">month</span><span class="p">,</span> <span class="kt">int</span> <span class="n">year</span><span class="p">);</span>
+
+
+<span class="c1">// Function definitions</span>
+<span class="kt">bool</span> <span class="nf">isLeap</span><span class="p">(</span><span class="kt">int</span> <span class="n">year</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">bool</span> <span class="n">leap</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">year</span> <span class="o">&lt;&lt;</span> <span class="s">" is a leap year."</span><span class="p">;</span>
+        <span class="n">leap</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">else</span>
+      <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">year</span> <span class="o">&lt;&lt;</span> <span class="s">" is not a leap year."</span><span class="p">;</span>
+        <span class="n">leap</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">year</span> <span class="o">&lt;&lt;</span> <span class="s">" is a leap year."</span><span class="p">;</span>
+      <span class="n">leap</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">else</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">year</span> <span class="o">&lt;&lt;</span> <span class="s">" is not a leap year."</span><span class="p">;</span>
+    <span class="n">leap</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">leap</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">computeDays</span><span class="p">(</span><span class="kt">int</span> <span class="n">month</span><span class="p">,</span> <span class="kt">int</span> <span class="n">year</span><span class="p">){</span>
+  <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="n">month</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">9</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">11</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="c1">// mesi 30 giorni</span>
+      <span class="n">result</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">7</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">8</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">12</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="c1">// mesi 31 giorni</span>
+      <span class="n">result</span> <span class="o">=</span> <span class="mi">31</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="c1">// mesi 28 giorni</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">isLeap</span><span class="p">(</span><span class="n">year</span><span class="p">))</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">29</span><span class="p">;</span>
+      <span class="k">else</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">28</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">year</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">month</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a year: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">year</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a month: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">month</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">computeDays</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">);</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"The result is: "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> 
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
 </code></pre></div>
 <blockquote>
 <p>The above command returns:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight c tab-c"><code>
-</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
-
-</code></pre></div>
-<p><strong>Assignement 3</strong>: <em>Write a C++ program that assess if a given point is inside of a rectangle area. The program asks the user to insert two integers for the point coordinate (x,y) and to insert four more integers for the top-left vertex (a,b) and the bottom-right vertex (c,d). The program displays a message to point out if the point belongs to the rectangle.</em></p>
-
-<p><strong>Solution</strong>:
-...</p>
-
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br> 
-<br>
-<br>
-<br> 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br></p>
-<h3 id='e3-a4-leap-year'>[E3][A4] Leap Year</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
-
-
-</code></pre></div>
-<blockquote>
-<p>The above command returns:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight c tab-c"><code>
-</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">a</span> <span class="n">year</span><span class="o">:</span> <span class="mi">2020</span>
+<span class="n">Enter</span> <span class="n">a</span> <span class="n">month</span><span class="o">:</span> <span class="mi">12</span>
+<span class="n">The</span> <span class="n">result</span> <span class="n">is</span><span class="o">:</span> <span class="mi">31</span>
 
 </code></pre></div>
 <p><strong>Assignement 4</strong>: <em>Write a C++ program tha asks the user to insert two integers representing a month and a year and computes the number of days of the given month. Pay attention, remember that February of a leap year has  29 days. A leap year is divisible by 4, with the exception of years also divisible by 100, that are leap only if the are divisible by 400.</em></p>
 
 <p><strong>Solution</strong>:
-...</p>
+The program asks the user to enter two integers number. We use two integer variables, <code>month</code> and <code>year</code> to store these values.</p>
+
+<p>Then the program calls a custum function <code>computeDays</code>, which takes two input parameters. </p>
+
+<p>The <code>computeDays</code> function returns an integer corresponding to the number of days in a specified month.</p>
+
+<p>Inside this function a switch case is used to assign to the result variable the right number of days according to the month. There are months with 30, 31 and 28 days. </p>
+
+<p>Moreover, the program check if the year is leap. </p>
+
+<p>In this case, if the month is February the days will be set to 29. </p>
+
+<p>The <code>isLeap</code> function takes in input an integer. Then it checks if the number is dividible by 4, by 100 and by 400.</p>
+
+<p>Finally, the program displays the result.</p>
+
+<p></aside>
+<aside class="notice">
+<p> Switch case</p>
+<p> We can group cases together, but pay attention to the code readability and not to miss any case! </p>
+</aside></p>
 
 <p><br>
 <br>
@@ -1902,22 +1984,213 @@ This program takes an operator and two operands from user.</p>
 <br>
 <br>
 <br>
+<br>
+ <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br></p>
-<h3 id='e3-a5-birthday'>[E3][A5] Birthday</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+<h3 id='e3-a5-birthday'>[E3][A5] Birthday</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="c1">// Questa è una dichiarazione di funzione</span>
+<span class="c1">// La dichiarazione esprime il nome di una funzione e la relazione in termini di di ingresso/uscita</span>
+<span class="kt">void</span> <span class="nf">computeAge</span><span class="p">(</span><span class="kt">int</span> <span class="n">currentDay</span><span class="p">,</span> <span class="kt">int</span> <span class="n">currentMonth</span><span class="p">,</span> <span class="kt">int</span> <span class="n">currentYear</span><span class="p">,</span> <span class="kt">int</span> <span class="n">bdayDay</span><span class="p">,</span> <span class="kt">int</span> <span class="n">bdayMonth</span><span class="p">,</span> <span class="kt">int</span> <span class="n">bdayYear</span><span class="p">);</span>
+
+
+<span class="c1">// // Questa è una definizione di una funzione</span>
+<span class="cm">/**
+ * Funzione che calcola l'età di una persona.
+ * La funzione calcola l'età di una persona a partire dalla data corrente e dalla data di nascita.
+ * 
+ * @param currentDay variabile intera che indica il giorno corrente
+ * @param currentMonth variabile intera che indica il mese corrente
+ * @param currentYear variabile intera che indica l'anno corrente
+ * @param bdayDay variabile intera che indica il giorno del compleanno
+ * @param bdayMonth variabile intera che indica il mese corrente
+ * @param bdayYear variabile intera che indica l'anno corrente
+ *
+ */</span>
+<span class="kt">void</span> <span class="nf">computeAge</span><span class="p">(</span><span class="kt">int</span> <span class="n">currentDay</span><span class="p">,</span> <span class="kt">int</span> <span class="n">currentMonth</span><span class="p">,</span> <span class="kt">int</span> <span class="n">currentYear</span><span class="p">,</span> <span class="kt">int</span> <span class="n">bdayDay</span><span class="p">,</span> <span class="kt">int</span> <span class="n">bdayMonth</span><span class="p">,</span> <span class="kt">int</span> <span class="n">bdayYear</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">bdayDay</span> <span class="o">&gt;</span> <span class="n">currentDay</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">currentMonth</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
+      <span class="k">case</span> <span class="mi">6</span><span class="p">:</span>
+      <span class="k">case</span> <span class="mi">9</span><span class="p">:</span>
+      <span class="k">case</span> <span class="mi">11</span><span class="p">:</span>
+      <span class="p">{</span>
+        <span class="c1">// mesi 30 giorni</span>
+        <span class="n">currentDay</span> <span class="o">=</span> <span class="n">currentDay</span> <span class="o">+</span> <span class="mi">30</span><span class="p">;</span>
+        <span class="n">currentMonth</span> <span class="o">=</span> <span class="n">currentMonth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+      <span class="k">case</span> <span class="mi">5</span><span class="p">:</span>
+      <span class="k">case</span> <span class="mi">7</span><span class="p">:</span>
+      <span class="k">case</span> <span class="mi">8</span><span class="p">:</span>
+      <span class="k">case</span> <span class="mi">10</span><span class="p">:</span>
+      <span class="k">case</span> <span class="mi">12</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="c1">// mesi 31 giorni</span>
+      <span class="n">currentDay</span> <span class="o">=</span> <span class="n">currentDay</span> <span class="o">+</span> <span class="mi">31</span><span class="p">;</span>
+      <span class="n">currentMonth</span> <span class="o">=</span> <span class="n">currentMonth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="c1">// mesi 28 giorni</span>
+      <span class="n">currentDay</span> <span class="o">=</span> <span class="n">currentDay</span> <span class="o">+</span> <span class="mi">28</span><span class="p">;</span>
+      <span class="n">currentMonth</span> <span class="o">=</span> <span class="n">currentMonth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">bdayMonth</span> <span class="o">&gt;</span> <span class="n">currentMonth</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">currentYear</span> <span class="o">=</span> <span class="n">currentYear</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">currentMonth</span> <span class="o">=</span> <span class="n">currentMonth</span> <span class="o">+</span> <span class="mi">12</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">int</span> <span class="n">giorni</span> <span class="o">=</span> <span class="n">currentDay</span> <span class="o">-</span> <span class="n">bdayDay</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">mesi</span> <span class="o">=</span> <span class="n">currentMonth</span> <span class="o">-</span> <span class="n">bdayMonth</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">anni</span> <span class="o">=</span> <span class="n">currentYear</span> <span class="o">-</span> <span class="n">bdayYear</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">anni</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">){</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Pay attention! It seems you are 100 years old! "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">anni</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">){</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Age: "</span> <span class="o">&lt;&lt;</span> <span class="n">mesi</span> <span class="o">&lt;&lt;</span> <span class="s">" months and "</span> <span class="o">&lt;&lt;</span> <span class="n">giorni</span> <span class="o">&lt;&lt;</span> <span class="s">" days "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Age: "</span> <span class="o">&lt;&lt;</span> <span class="n">anni</span> <span class="o">&lt;&lt;</span> <span class="s">"years "</span><span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+  <span class="k">return</span><span class="p">;</span> 
+<span class="p">}</span>
+
+
+<span class="c1">//[E3][A5] Birthday</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">currentDay</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">currentMonth</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">currentYear</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="n">bdayDay</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">bdayMonth</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">bdayYear</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter current date (gg mm yyyy): "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">currentDay</span> <span class="o">&gt;&gt;</span> <span class="n">currentMonth</span> <span class="o">&gt;&gt;</span> <span class="n">currentYear</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter your birthday (gg mm yyyy): "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">bdayDay</span> <span class="o">&gt;&gt;</span> <span class="n">bdayMonth</span> <span class="o">&gt;&gt;</span> <span class="n">bdayYear</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Current date: "</span> <span class="o">&lt;&lt;</span> <span class="n">currentDay</span> <span class="o">&lt;&lt;</span> <span class="s">"/"</span> <span class="o">&lt;&lt;</span> <span class="n">currentMonth</span> <span class="o">&lt;&lt;</span> <span class="s">"/"</span> <span class="o">&lt;&lt;</span> <span class="n">currentYear</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Birthday: "</span> <span class="o">&lt;&lt;</span> <span class="n">bdayDay</span> <span class="o">&lt;&lt;</span> <span class="s">"/"</span> <span class="o">&lt;&lt;</span> <span class="n">bdayMonth</span> <span class="o">&lt;&lt;</span> <span class="s">"/"</span> <span class="o">&lt;&lt;</span> <span class="n">bdayYear</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+  <span class="n">computeAge</span><span class="p">(</span><span class="n">currentDay</span><span class="p">,</span> <span class="n">currentMonth</span><span class="p">,</span> <span class="n">currentYear</span><span class="p">,</span> <span class="n">bdayDay</span><span class="p">,</span> <span class="n">bdayMonth</span><span class="p">,</span> <span class="n">bdayYear</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 
 </code></pre></div>
 <blockquote>
 <p>The above command returns:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight c tab-c"><code>
-</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">current</span> <span class="n">date</span> <span class="p">(</span><span class="n">gg</span> <span class="n">mm</span> <span class="n">yyyy</span><span class="p">)</span><span class="o">:</span> <span class="mi">2</span> <span class="mi">12</span> <span class="mi">2020</span>
+<span class="n">Enter</span> <span class="n">your</span> <span class="n">birthday</span> <span class="p">(</span><span class="n">gg</span> <span class="n">mm</span> <span class="n">yyyy</span><span class="p">)</span><span class="o">:</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">1900</span>
+<span class="n">Current</span> <span class="n">date</span><span class="o">:</span> <span class="mi">2</span><span class="o">/</span><span class="mi">12</span><span class="o">/</span><span class="mi">2020</span>
+<span class="n">Birthday</span><span class="o">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="mi">1900</span>
+<span class="n">Pay</span> <span class="n">attention</span><span class="o">!</span> <span class="n">It</span> <span class="n">seems</span> <span class="n">you</span> <span class="n">are</span> <span class="mi">100</span> <span class="n">years</span> <span class="n">old</span><span class="o">!</span>
 
 </code></pre></div>
 <p><strong>Assignement 5</strong>: <em>Write a C++ program that ask the user to insert the current date and his birthday, so the user enters three integers (day, month, year) for the current date and three more integers for his birthday. After the validation of the input the program displays the age of the person. if the birthday date is in the future the program displays an error message. If the result, i.e. the age is greater than 100 years, the program displays a warning. If the result is under 1 year, the programs displays the result in terms of months and days.</em> </p>
 
 <p><strong>Solution</strong>:</p>
 
-<p>...</p>
+<p>The program ask the user to enter six integers values.</p>
+
+<p>Then we use <code>computeAge</code> function to compute the difference between the two dates.</p>
+
+<p>The function prints out the result and takes as input six parameters.</p>
+
+<p>If we want to computes the age in terms of years, months and days we have to computed each difference taking into account the number of days of each month.</p>
+
+<p>We use a <code>switch case</code> to to that. </p>
+
+<p>Finally, we compute the difference of each quantity and display the result.</p>
+
+<p>If you want you can recycle the code of the previous exercise and call directly that function, try this!</p>
+
+<p>You can also try out a solution in which you print the result in the main function and not inside the custom function, try this! </p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
 <h3 id='e3-a6-fibonacci-series-while'>[E3][A6] Fibonacci series WHILE</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 </span>
 
@@ -2064,45 +2337,73 @@ The Fibonacci sequence is a series where the next term is the sum of pervious tw
 <br>
 <br>
 <br> </p>
-<h3 id='e3-a7-check-prime-number'>[E3][A7] Check Prime Number</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+<h3 id='e3-a7-check-prime-number'>[E3][A7] Check Prime Number</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="n">isPrime</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a positive integer: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+
+  <span class="c1">// 0 and 1 are not prime numbers</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">isPrime</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">isPrime</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">isPrime</span><span class="p">)</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">" is a prime number"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <span class="k">else</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">" is not a prime number"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 
 </code></pre></div>
 <blockquote>
 <p>The above command returns:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight c tab-c"><code>
-</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">a</span> <span class="n">positive</span> <span class="n">integer</span><span class="o">:</span> <span class="mi">8</span>
+<span class="mi">8</span> <span class="n">is</span> <span class="n">not</span> <span class="n">a</span> <span class="n">prime</span> <span class="n">number</span>
 
 </code></pre></div>
 <p><strong>Assignement 7</strong>: <em>Write a C++ program that check if a number is prime or not.</em></p>
 
 <p><strong>Solution</strong>:</p>
 
-<!-- A positive integer which is only divisible by 1 and itself is known as prime number.
+<p>A positive integer which is only divisible by 1 and itself is known as prime number.</p>
 
-For example: 13 is a prime number because it is only divisible by 1 and 13 but, 15 is not prime number because it is divisible by 1, 3, 5 and 15.
+<p>For example: 13 is a prime number because it is only divisible by 1 and 13 but, 15 is not prime number because it is divisible by 1, 3, 5 and 15.</p>
 
-Note: 0 and 1 are not prime numbers.
+<p>Note: 0 and 1 are not prime numbers.</p>
 
-This program takes a positive integer from the user and stores it in the variable `n`.
+<p>This program takes a positive integer from the user and stores it in the variable <code>n</code>.</p>
 
-Notice that the boolean variable `isPrime` is initialized to `true` at the beginning of the program.
+<p>Notice that the boolean variable <code>isPrime</code> is initialized to <code>true</code> at the beginning of the program.</p>
 
-Since 0 and 1 are not prime numbers, we first check if the input number is one of those numbers or not. If the input number is either 0 or 1, then the value of `isPrime` is set to false.
+<p>Since 0 and 1 are not prime numbers, we first check if the input number is one of those numbers or not. If the input number is either 0 or 1, then the value of <code>isPrime</code> is set to false.</p>
 
-Else, the initial value of `isPrime` is left unchanged and the for loop is executed, which checks whether the number entered by the user is perfectly divisible by `i` or not.
+<p>Else, the initial value of <code>isPrime</code> is left unchanged and the for loop is executed, which checks whether the number entered by the user is perfectly divisible by <code>i</code> or not.</p>
 
-The for loop runs from `i == 2` to `i <= n / 2` and increases the value of `i` by 1 with each iteration.
+<p>The for loop runs from <code>i == 2</code> to <code>i &lt;= n / 2</code> and increases the value of <code>i</code> by 1 with each iteration.</p>
 
-The loop terminates at `i == n / 2` because we cannot find any factor for n beyond the number `n / 2` . So, any iterations beyond `n / 2` is redundant.
+<p>The loop terminates at <code>i == n / 2</code> because we cannot find any factor for n beyond the number <code>n / 2</code> . So, any iterations beyond <code>n / 2</code> is redundant.</p>
 
-If the number entered by the user is perfectly divisible by `i`, then `isPrime` is set to `false` and the number will not be a prime number.
+<p>If the number entered by the user is perfectly divisible by <code>i</code>, then <code>isPrime</code> is set to <code>false</code> and the number will not be a prime number.</p>
 
-But if the input number is not perfectly divisible by `i` throughout the entirety of the loop, then it means that the input number is only divisible by 1 and that number itself.
+<p>But if the input number is not perfectly divisible by <code>i</code> throughout the entirety of the loop, then it means that the input number is only divisible by 1 and that number itself.</p>
 
-So, the given number is a prime number.
+<p>So, the given number is a prime number.</p>
 
-In the case of `n == 2`, the for loop fails to run and the value of `isPrime` remains `true`.  -->
+<p>In the case of <code>n == 2</code>, the for loop fails to run and the value of <code>isPrime</code> remains <code>true</code>. </p>
 
 <p><br>
 <br>
@@ -2114,7 +2415,7 @@ In the case of `n == 2`, the for loop fails to run and the value of `isPrime` re
 <br>
 <br>
 <br> </p>
-<h2 id='decision-making-and-loops'>Decision Making and Loops</h2>
+<h2 id='practical-examples-4'>Practical examples - 4</h2><h2 id='lessons-code-2-12-2020'>Lessons code 2/12/2020</h2>
 <p>In progress section...</p>
 <h2 id='functions'>Functions</h2>
 <p>In progress section...</p>
