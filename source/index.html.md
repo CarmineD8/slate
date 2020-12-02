@@ -1977,6 +1977,18 @@ Finally, the program displays the result.
 <br>
 <br>
 <br> 
+<br>
+<br>
+<br> 
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
   
     
  
@@ -2218,6 +2230,18 @@ You can also try out a solution in which you print the result in the main functi
 <br>
 <br>
 <br> 
+<br>
+<br>
+<br> 
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### [E3][A6] Fibonacci series WHILE
 
