@@ -1773,52 +1773,12 @@ In this implementation the programkeeps to accepts operations until the user typ
 
 
 
-### [E3][A3] Check area 
 
-```cpp
-
-```
-
-> The above command returns:
-
-```c
-
-```
-
-```cpp
-
-
-``` 
-
-**Assignement 3**: *Write a C++ program that assess if a given point is inside of a rectangle area. The program asks the user to insert two integers for the point coordinate (x,y) and to insert four more integers for the top-left vertex (a,b) and the bottom-right vertex (c,d). The program displays a message to point out if the point belongs to the rectangle.*
-
-**Solution**:
-...
 
  
   
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br> 
-<br>
-<br>
-<br> 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
   
    
  
@@ -1830,7 +1790,99 @@ In this implementation the programkeeps to accepts operations until the user typ
 ### [E3][A4] Leap Year
 
  ```cpp
+#include <iostream>
+// Function declarations
+bool isLeap(int year);
+int computeDays(int month, int year);
 
+
+// Function definitions
+bool isLeap(int year)
+{
+  bool leap = false;
+  if (year % 4 == 0)
+  {
+    if (year % 100 == 0)
+    {
+      if (year % 400 == 0)
+      {
+        std::cout << year << " is a leap year.";
+        leap = true;
+      }
+      else
+      {
+        std::cout << year << " is not a leap year.";
+        leap = false;
+      }
+    }
+    else
+    {
+      std::cout << year << " is a leap year.";
+      leap = true;
+    }
+  }
+  else
+  {
+    std::cout << year << " is not a leap year.";
+    leap = false;
+  }
+  return leap;
+}
+
+int computeDays(int month, int year){
+  int result = 0;
+  switch (month)
+    {
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+    {
+      // mesi 30 giorni
+      result = 30;
+      break;
+    }
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+    {
+      // mesi 31 giorni
+      result = 31;
+      break;
+    }
+    case 2:
+    {
+      // mesi 28 giorni
+      if (isLeap(year))
+        result = 29;
+      else
+        result = 28;
+      break;
+    }
+    }
+  return result;
+}
+
+int main() {
+  int year;
+  int month;
+
+  std::cout << "Enter a year: ";
+  std::cin >> year;
+
+  std::cout << "Enter a month: ";
+  std::cin >> month;
+
+  int result = computeDays(month, year);
+
+   std::cout << "The result is: " << result << std::endl; 
+
+  return 0;
+}
 
 
 ```
@@ -1842,15 +1894,36 @@ In this implementation the programkeeps to accepts operations until the user typ
 ```
 
 ```cpp
-
+Enter a year: 2020
+Enter a month: 12
+The result is: 31
 
 ``` 
 
 **Assignement 4**: *Write a C++ program tha asks the user to insert two integers representing a month and a year and computes the number of days of the given month. Pay attention, remember that February of a leap year has  29 days. A leap year is divisible by 4, with the exception of years also divisible by 100, that are leap only if the are divisible by 400.*
 
 **Solution**:
-...
+The program asks the user to enter two integers number. We use two integer variables, `month` and `year` to store these values.
 
+Then the program calls a custum function `computeDays`, which takes two input parameters. 
+
+The `computeDays` function returns an integer corresponding to the number of days in a specified month.
+
+Inside this function a switch case is used to assign to the result variable the right number of days according to the month. There are months with 30, 31 and 28 days. 
+
+Moreover, the program check if the year is leap. 
+
+In this case, if the month is February the days will be set to 29. 
+
+The `isLeap` function takes in input an integer. Then it checks if the number is dividible by 4, by 100 and by 400.
+
+Finally, the program displays the result.
+
+</aside>
+<aside class="notice">
+<p> Switch case</p>
+<p> We can group cases together, but pay attention to the code readability and not to miss any case! </p>
+</aside>
  
  
  <br>
@@ -1871,7 +1944,27 @@ In this implementation the programkeeps to accepts operations until the user typ
 <br>
 <br>
 <br>
- 
+ <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
   
   
     
@@ -1882,7 +1975,116 @@ In this implementation the programkeeps to accepts operations until the user typ
 ### [E3][A5] Birthday
 
 ```cpp
+#include <iostream>
 
+// Questa è una dichiarazione di funzione
+// La dichiarazione esprime il nome di una funzione e la relazione in termini di di ingresso/uscita
+void computeAge(int currentDay, int currentMonth, int currentYear, int bdayDay, int bdayMonth, int bdayYear);
+
+
+// // Questa è una definizione di una funzione
+/**
+ * Funzione che calcola l'età di una persona.
+ * La funzione calcola l'età di una persona a partire dalla data corrente e dalla data di nascita.
+ * 
+ * @param currentDay variabile intera che indica il giorno corrente
+ * @param currentMonth variabile intera che indica il mese corrente
+ * @param currentYear variabile intera che indica l'anno corrente
+ * @param bdayDay variabile intera che indica il giorno del compleanno
+ * @param bdayMonth variabile intera che indica il mese corrente
+ * @param bdayYear variabile intera che indica l'anno corrente
+ *
+ */
+void computeAge(int currentDay, int currentMonth, int currentYear, int bdayDay, int bdayMonth, int bdayYear)
+{
+  if (bdayDay > currentDay)
+  {
+    switch (currentMonth)
+    {
+      case 4:
+      case 6:
+      case 9:
+      case 11:
+      {
+        // mesi 30 giorni
+        currentDay = currentDay + 30;
+        currentMonth = currentMonth - 1;
+        break;
+      }
+      case 1:
+      case 3:
+      case 5:
+      case 7:
+      case 8:
+      case 10:
+      case 12:
+    {
+      // mesi 31 giorni
+      currentDay = currentDay + 31;
+      currentMonth = currentMonth - 1;
+      break;
+    }
+    case 2:
+    {
+      // mesi 28 giorni
+      currentDay = currentDay + 28;
+      currentMonth = currentMonth - 1;
+      break;
+    }
+    }
+  }
+
+  if (bdayMonth > currentMonth)
+  {
+    currentYear = currentYear - 1;
+    currentMonth = currentMonth + 12;
+  }
+
+  int giorni = currentDay - bdayDay;
+  int mesi = currentMonth - bdayMonth;
+  int anni = currentYear - bdayYear;
+
+  if (anni > 100){
+    std::cout << "Pay attention! It seems you are 100 years old! " << std::endl;
+    return;
+  }
+
+  if (anni < 1){
+    std::cout << "Age: " << mesi << " months and " << giorni << " days " << std::endl;
+    return;
+  }
+
+  std::cout << "Age: " << anni << "years "<< std::endl;
+
+  return; 
+}
+
+
+//[E3][A5] Birthday
+int main()
+{
+  int currentDay;
+  int currentMonth;
+  int currentYear;
+
+  int bdayDay;
+  int bdayMonth;
+  int bdayYear;
+
+  std::cout << "Enter current date (gg mm yyyy): ";
+  std::cin >> currentDay >> currentMonth >> currentYear;
+
+  std::cout << "Enter your birthday (gg mm yyyy): ";
+  std::cin >> bdayDay >> bdayMonth >> bdayYear;
+
+  std::cout << "Current date: " << currentDay << "/" << currentMonth << "/" << currentYear << std::endl;
+
+  std::cout << "Birthday: " << bdayDay << "/" << bdayMonth << "/" << bdayYear << std::endl;
+
+  computeAge(currentDay, currentMonth, currentYear, bdayDay, bdayMonth, bdayYear);
+
+  return 0;
+}
 
 ```
 
@@ -1893,7 +2095,11 @@ In this implementation the programkeeps to accepts operations until the user typ
 ```
 
 ```cpp
-
+Enter current date (gg mm yyyy): 2 12 2020
+Enter your birthday (gg mm yyyy): 1 2 1900
+Current date: 2/12/2020
+Birthday: 1/2/1900
+Pay attention! It seems you are 100 years old!
 
 ``` 
 
@@ -1901,8 +2107,66 @@ In this implementation the programkeeps to accepts operations until the user typ
 
 **Solution**:
 
-...
+The program ask the user to enter six integers values.
 
+Then we use `computeAge` function to compute the difference between the two dates.
+
+The function prints out the result and takes as input six parameters.
+
+If we want to computes the age in terms of years, months and days we have to computed each difference taking into account the number of days of each month.
+
+We use a `switch case` to to that. 
+
+Finally, we compute the difference of each quantity and display the result.
+
+If you want you can recycle the code of the previous exercise and call directly that function, try this!
+
+You can also try out a solution in which you print the result in the main function and not inside the custom function, try this! 
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### [E3][A6] Fibonacci series WHILE
 
@@ -2079,7 +2343,34 @@ Note that the first two terms in a Fibonacci sequence are always the same, 0 and
 ### [E3][A7] Check Prime Number
 
 ```cpp
+#include <iostream>
 
+int main() {
+  int i, n;
+  bool isPrime = true;
+
+  std::cout << "Enter a positive integer: ";
+  std::cin >> n;
+
+  // 0 and 1 are not prime numbers
+  if (n == 0 || n == 1) {
+      isPrime = false;
+  }
+  else {
+    for (i = 2; i <= n / 2; ++i) {
+      if (n % i == 0) {
+        isPrime = false;
+        break;
+      }
+    }
+  }
+  if (isPrime)
+    std::cout << '\n' << n << " is a prime number" << std::endl;
+  else
+    std::cout << '\n' << n << " is not a prime number" << std::endl;
+
+  return 0;
+}
 
 ```
 
@@ -2090,7 +2381,8 @@ Note that the first two terms in a Fibonacci sequence are always the same, 0 and
 ```
 
 ```cpp
-
+Enter a positive integer: 8
+8 is not a prime number
 
 ``` 
 
@@ -2098,7 +2390,7 @@ Note that the first two terms in a Fibonacci sequence are always the same, 0 and
 
 **Solution**:
 
-<!-- A positive integer which is only divisible by 1 and itself is known as prime number.
+A positive integer which is only divisible by 1 and itself is known as prime number.
 
 For example: 13 is a prime number because it is only divisible by 1 and 13 but, 15 is not prime number because it is divisible by 1, 3, 5 and 15.
 
@@ -2122,7 +2414,7 @@ But if the input number is not perfectly divisible by `i` throughout the entiret
 
 So, the given number is a prime number.
 
-In the case of `n == 2`, the for loop fails to run and the value of `isPrime` remains `true`.  -->
+In the case of `n == 2`, the for loop fails to run and the value of `isPrime` remains `true`. 
   
    
    <br>
@@ -2137,10 +2429,10 @@ In the case of `n == 2`, the for loop fails to run and the value of `isPrime` re
 <br> 
 
 
+## Practical examples - 4
 
 
-
-## Decision Making and Loops
+## Lessons code 2/12/2020
 In progress section...
 
 ## Functions
