@@ -1965,7 +1965,18 @@ Finally, the program displays the result.
 <br>
 <br>
 <br>
-  
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
   
     
  
@@ -2308,22 +2319,7 @@ Note that the first two terms in a Fibonacci sequence are always the same, 0 and
 <br> 
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br> 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br> 
+
 
 ### [E3][A6] Fibonacci series FOR
 
@@ -2426,17 +2422,7 @@ Note that the first two terms in a Fibonacci sequence are always the same, 0 and
 <br>
 <br>
 <br>
-<br>
-<br> 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br> 
+
 
 
 
