@@ -1522,8 +1522,8 @@ To perform swapping in above example, three variables are used.</p>
 
   <span class="kt">float</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">discriminant</span><span class="p">,</span> <span class="n">realPart</span><span class="p">,</span> <span class="n">imaginaryPart</span><span class="p">;</span>
 
-  <span class="n">sdt</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter coefficients a, b and c: "</span><span class="p">;</span>
-  <span class="n">sdt</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter coefficients a, b and c: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
 
   <span class="n">discriminant</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">;</span>
 
@@ -1531,20 +1531,20 @@ To perform swapping in above example, three variables are used.</p>
     <span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">discriminant</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">);</span>
     <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">discriminant</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">);</span>
     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Roots are real and different."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="n">sdt</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x1 = "</span> <span class="o">&lt;&lt;</span> <span class="n">x1</span> <span class="o">&lt;&lt;</span> <span class="n">sdt</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="n">sdt</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x2 = "</span> <span class="o">&lt;&lt;</span> <span class="n">x2</span> <span class="o">&lt;&lt;</span> <span class="n">sdt</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x1 = "</span> <span class="o">&lt;&lt;</span> <span class="n">x1</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x2 = "</span> <span class="o">&lt;&lt;</span> <span class="n">x2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
   <span class="p">}</span> 
   <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">discriminant</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">sdt</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Roots are real and same."</span> <span class="o">&lt;&lt;</span> <span class="n">sdt</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Roots are real and same."</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     <span class="n">x1</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">);</span>
-    <span class="n">sdt</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x1 = x2 ="</span> <span class="o">&lt;&lt;</span> <span class="n">x1</span> <span class="o">&lt;&lt;</span> <span class="n">sdt</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x1 = x2 ="</span> <span class="o">&lt;&lt;</span> <span class="n">x1</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
   <span class="p">}</span>
   <span class="k">else</span> <span class="p">{</span>
     <span class="n">realPart</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">);</span>
     <span class="n">imaginaryPart</span> <span class="o">=</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">discriminant</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">);</span>
-    <span class="n">sdt</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Roots are complex and different."</span>  <span class="o">&lt;&lt;</span> <span class="n">sdt</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="n">sdt</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x1 = "</span> <span class="o">&lt;&lt;</span> <span class="n">realPart</span> <span class="o">&lt;&lt;</span> <span class="s">"+"</span> <span class="o">&lt;&lt;</span> <span class="n">imaginaryPart</span> <span class="o">&lt;&lt;</span> <span class="s">"i"</span> <span class="o">&lt;&lt;</span> <span class="n">sdt</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="n">sdt</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x2 = "</span> <span class="o">&lt;&lt;</span> <span class="n">realPart</span> <span class="o">&lt;&lt;</span> <span class="s">"-"</span> <span class="o">&lt;&lt;</span> <span class="n">imaginaryPart</span> <span class="o">&lt;&lt;</span> <span class="s">"i"</span> <span class="o">&lt;&lt;</span> <span class="n">sdt</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Roots are complex and different."</span>  <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x1 = "</span> <span class="o">&lt;&lt;</span> <span class="n">realPart</span> <span class="o">&lt;&lt;</span> <span class="s">"+"</span> <span class="o">&lt;&lt;</span> <span class="n">imaginaryPart</span> <span class="o">&lt;&lt;</span> <span class="s">"i"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x2 = "</span> <span class="o">&lt;&lt;</span> <span class="n">realPart</span> <span class="o">&lt;&lt;</span> <span class="s">"-"</span> <span class="o">&lt;&lt;</span> <span class="n">imaginaryPart</span> <span class="o">&lt;&lt;</span> <span class="s">"i"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
@@ -2524,7 +2524,573 @@ The Fibonacci sequence is a series where the next term is the sum of pervious tw
 <br>
 <br>
 <br> </p>
-<h2 id='practical-examples-4'>Practical examples - 4</h2><h2 id='lessons-code-2-12-2020'>Lessons code 2/12/2020</h2>
+<h2 id='practical-examples-4'>Practical examples - 4</h2><h3 id='e4-a1-displaying-array-elements'>[E4][A1] Displaying Array Elements</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">35</span><span class="p">};</span>
+
+  <span class="c1">// cout &lt;&lt; "The numbers are: ";</span>
+  <span class="c1">// //  Printing array elements</span>
+  <span class="c1">// // using range based for loop</span>
+  <span class="c1">// for (const int &amp;n : numbers) {</span>
+  <span class="c1">//     cout &lt;&lt; n &lt;&lt; "  ";</span>
+  <span class="c1">// }</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">The numbers are: "</span><span class="p">;</span>
+  <span class="c1">//  Printing array elements</span>
+  <span class="c1">// using traditional for loop</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">",  "</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">35</span>
+
+</code></pre></div>
+<p><strong>Assignement 1</strong>: <em>Write a C++ program that prints an array.</em></p>
+
+<p><strong>Solution</strong>:
+We initialized an array called numbers of size 5 and type int. This means that each element of the array if of type int.  </p>
+
+<p>If we don&#39;t mention the size of the array, the compiler automatically computes the size only if it is initialized.</p>
+
+<p>Here, we have used a for loop to iterate from i = 0 to i = 4. In each iteration, we have printed numbers[i].</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e4-a2-take-inputs-from-user-and-store-them-in-an-array'>[E4][A2] Take Inputs from User and Store Them in an Array</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter 5 numbers: "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+  <span class="c1">//  store input from user to array</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"The numbers are: "</span><span class="p">;</span>
+
+  <span class="c1">//  print array elements</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">numbers</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"  "</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="mi">7</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">12</span> <span class="mi">35</span>
+
+</code></pre></div>
+<p><strong>Assignement 2</strong>: <em>Write a C++ program that prints an array taken in input by the user.</em></p>
+
+<p><strong>Solution</strong>:
+We initialized an array called numbers of size 5 and type int. This means that each element of the array if of type int.  </p>
+
+<p>Once again, we have used a for loop to iterate from i = 0 to i = 4. In each iteration, we took an input from the user and stored it in numbers[i].</p>
+
+<p>Then, we used another for loop to print all the array elements.</p>
+
+<p>We have seen also that we can make a custum function to print the array! try by yourlself.</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e4-a3-display-sum-and-average-of-array-elements-using-for-loop'>[E4][A3] Display Sum and Average of Array Elements Using for Loop</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="c1">// initialize an array without specifying size</span>
+  <span class="kt">double</span> <span class="n">numbers</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">27</span><span class="p">};</span>
+
+  <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">average</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"The numbers are: "</span><span class="p">;</span>
+
+  <span class="c1">// </span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"  "</span><span class="p">;</span>
+
+    <span class="c1">//  calculate the sum</span>
+    <span class="n">sum</span> <span class="o">+=</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+
+    <span class="c1">// count the no. of array elements</span>
+    <span class="o">++</span><span class="n">count</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// print the sum</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">Their Sum = "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+  <span class="c1">// find the average</span>
+  <span class="n">average</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">count</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Their Average = "</span> <span class="o">&lt;&lt;</span> <span class="n">average</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">The</span> <span class="n">numbers</span> <span class="n">are</span><span class="o">:</span> <span class="mi">7</span>  <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">12</span>  <span class="mi">35</span>  <span class="mi">27</span>
+<span class="n">Their</span> <span class="n">Sum</span> <span class="o">=</span> <span class="mi">92</span>
+<span class="n">Their</span> <span class="n">Average</span> <span class="o">=</span> <span class="mf">15.3333</span>
+
+</code></pre></div>
+<p><strong>Assignement 3</strong>: <em>Write a C++ program that computes sum and average of an array.</em></p>
+
+<p><strong>Solution</strong>:
+In this program:</p>
+
+<p>We have initialized a double array named <code>numbers</code> but without specifying its size. We also declared three double variables <code>sum</code>, <code>count</code>, and <code>average</code>.</p>
+
+<p>Then we used a <code>for loop</code> to print the array elements. In each iteration of the loop, we add the current array element to sum.</p>
+
+<p>We also increase the value of <code>count</code> by 1 in each iteration, so that we can get the size of the array by the end of the for loop.</p>
+
+<p>After printing all the elements, we print the sum and the average of all the numbers.</p>
+
+<p>The average of the numbers is given by <code>average = sum / count</code>;</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e4-a4-display-largest-element-of-an-array'>[E4][A4] Display Largest Element of an array</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">arr</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter total number of elements(1 to 100): "</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="c1">// Store number entered by the user</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter Number "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">" : "</span><span class="p">;</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Loop to store largest number to arr[0]</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Change &lt; to &gt; if you want to find the smallest element</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]){</span>
+        <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Largest element = "</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">nter</span> <span class="n">total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">elements</span><span class="o">:</span> <span class="mi">8</span>
+
+<span class="n">Enter</span> <span class="n">Number</span> <span class="mi">1</span><span class="o">:</span> <span class="mf">23.4</span>
+<span class="n">Enter</span> <span class="n">Number</span> <span class="mi">2</span><span class="o">:</span> <span class="o">-</span><span class="mf">34.5</span>
+<span class="n">Enter</span> <span class="n">Number</span> <span class="mi">3</span><span class="o">:</span> <span class="mi">50</span>
+<span class="n">Enter</span> <span class="n">Number</span> <span class="mi">4</span><span class="o">:</span> <span class="mf">33.5</span>
+<span class="n">Enter</span> <span class="n">Number</span> <span class="mi">5</span><span class="o">:</span> <span class="mf">55.5</span>
+<span class="n">Enter</span> <span class="n">Number</span> <span class="mi">6</span><span class="o">:</span> <span class="mf">43.7</span>
+<span class="n">Enter</span> <span class="n">Number</span> <span class="mi">7</span><span class="o">:</span> <span class="mf">5.7</span>
+<span class="n">Enter</span> <span class="n">Number</span> <span class="mi">8</span><span class="o">:</span> <span class="o">-</span><span class="mf">66.5</span>
+
+<span class="n">Largest</span> <span class="n">element</span> <span class="o">=</span> <span class="mf">55.5</span>
+
+</code></pre></div>
+<p><strong>Assignement 4</strong>: <em>Write a C++ program that display largest element of an array.</em></p>
+
+<p><strong>Solution</strong>:
+This program takes n number of elements from user and stores it in array <code>arr[]</code>.</p>
+
+<p>To find the largest element, the first two elements of array are checked and largest of these two element is placed in <code>arr[0]</code>.</p>
+
+<p>Then, the first and third elements are checked and largest of these two element is placed in <code>arr[0]</code>.</p>
+
+<p>This process continues until and first and last elements are checked.</p>
+
+<p>After this process, the largest element of an array will be in <code>arr[0]</code> position.</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e4-a5-check-values-at-even-indexes'>[E4][A5] check values at even indexes</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+  <span class="kt">bool</span> <span class="n">ok</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+  <span class="c1">// input</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Enter 10 numbers: "</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="c1">//check</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">9</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+          <span class="n">ok</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">ok</span><span class="p">){</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Correct."</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span><span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Not correct."</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Correct</span><span class="p">.</span>
+
+</code></pre></div>
+<p><strong>Assignement 5</strong>: <em>Write a C++ program that check values at even indexes of an array.</em></p>
+
+<p><strong>Solution</strong>:
+This program takes n number of elements from user and stores it in array <code>a[]</code>.</p>
+
+<p>A <code>bool</code> variable is initilized to <code>true</code>. </p>
+
+<p>Then the program check each value with an even index in the array and check if that value is even itself. </p>
+
+<p>If it is not the condition turns to <code>false</code>.</p>
+
+<p>Then the result is shown to the screen. </p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e4-a6-passing-one-dimensional-array-to-a-function'>[E4][A6] Passing One-dimensional Array to a Function</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="c1">// declare function to display x</span>
+<span class="c1">// take a 1d array as parameter</span>
+<span class="kt">void</span> <span class="nf">display</span><span class="p">(</span><span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Displaying x: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+  <span class="c1">// display array elements    </span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Student "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span> <span class="o">&lt;&lt;</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="c1">// declare and initialize an array</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">88</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">69</span><span class="p">};</span>
+
+  <span class="c1">// call display function</span>
+  <span class="c1">// pass array as argument</span>
+  <span class="n">display</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Displaying</span> <span class="n">x</span><span class="o">:</span> 
+<span class="n">Student</span> <span class="mi">1</span><span class="o">:</span> <span class="mi">88</span>
+<span class="n">Student</span> <span class="mi">2</span><span class="o">:</span> <span class="mi">76</span>
+<span class="n">Student</span> <span class="mi">3</span><span class="o">:</span> <span class="mi">90</span>
+<span class="n">Student</span> <span class="mi">4</span><span class="o">:</span> <span class="mi">61</span>
+<span class="n">Student</span> <span class="mi">5</span><span class="o">:</span> <span class="mi">69</span>
+
+</code></pre></div>
+<p><strong>Assignement 6</strong>: <em>Write a C++ program that prints an array using a custom function.</em></p>
+
+<p><strong>Solution</strong>:
+Here,</p>
+
+<p>When we call a function by passing an array as the argument, only the name of the array is used.</p>
+
+<p><code>display(x);</code></p>
+
+<p>Here, the argument <code>x</code> represent the memory address of the first element of array <code>x[5]</code>.
+However, notice the parameter of the <code>display()</code> function.</p>
+
+<p><code>void display(int array[5])</code></p>
+
+<p>Here, we use the full declaration of the array in the function parameter, including the square braces <code>[]</code>.
+The function parameter <code>int array[5]</code> converts to <code>int* array</code>;. This points to the same address pointed by the array <code>x</code>. This means that when we manipulate <code>array[5]</code> in the function body, we are actually manipulating the original array <code>x</code>.</p>
+
+<p>C++ handles passing an array to a function in this way to save memory and time.</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e4-a7-cipher-a-given-text'>[E4][A7]  Cipher a given text</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">plainText</span> <span class="o">:</span> <span class="n">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>
+<span class="n">shift</span><span class="o">:</span> <span class="mi">1</span>
+<span class="n">cipherText</span><span class="o">:</span><span class="n">BCDEFGHIJKLMNOPQRSTUVWXYZA</span>
+
+</code></pre></div>
+<p><strong>Assignement 7</strong>: Write a C++ program to cipher a given text.
+Use the Caesar Cipher technique to make the encryption. The Caesar Cipher technique is one of the simplest method of encryption method.
+ It’s a type of substitution cipher, i.e., each letter of a given text is replaced by a letter some fixed number of positions down the alphabet [Wikipedia link: https://en.wikipedia.org/wiki/Caesar_cipher ]. For example with a shift of 1, A would be replaced by B, B wouldbecome C, and so on. Thus to cipher a given text we need an integer value (shift), which indicates the number of position each letter of the text has been moved down. The encryption can be represented using modular arithmetic by first transforming the letters into numbers, according to the scheme, A = 0, B = 1,..., Z = 25. Encryption of a letter by a shift n can be described mathematically as: </p>
+
+<ul>
+<li><p>e(x)=(x+n)mod26(Encryption Phase with shift n)</p></li>
+<li><p>d(x)=(x−n)mod26(Decryption Phase with shift n)</p></li>
+</ul>
+
+<p>Examples :</p>
+
+<p>plainText : ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+
+<p>shift: 1</p>
+
+<p>cipherText: BCDEFGHIJKLMNOPQRSTUVWXYZA</p>
+
+<p>plainText : password</p>
+
+<p>shift: 2</p>
+
+<p>cipherText: rcuuyqtf</p>
+
+<p>So, the program takes in input a String (you can use <code>#include &lt;string&gt;</code> or an array of char) of lower or upper case letters, and an Integer between 0-25 denoting the required shift and prints out the plain text (with lower or upper case letters), the shift value and the cipher text like in the examples provided above.</p>
+
+<p>Tips: Write a function <code>encrypt()</code> which takes as arguments the plain text and the shift. In this function traverse the given text one character at a time. For each character, transform the given character, according to the encryption rule (pay attention also to lower and upper letter case).</p>
+
+<p>Task 2. Add to the program a function to decrypt the cipher text.</p>
+
+<p>Task 3. Add to the program a menu that let the user select what action he wants to take</p>
+
+<p>Goal: Send us your name encrypted with a shift given by deciphering this cipher text (shift=8): NQDM</p>
+
+<p><strong>Solution</strong>:
+In progress...</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h2 id='lessons-code-2-12-2020'>Lessons code 2/12/2020</h2>
 <p>In progress section...</p>
 <h2 id='functions'>Functions</h2>
 <p>In progress section...</p>
