@@ -1417,8 +1417,8 @@ int main() {
 
   float a, b, c, x1, x2, discriminant, realPart, imaginaryPart;
 
-  sdt::cout << "Enter coefficients a, b and c: ";
-  sdt::cin >> a >> b >> c;
+  std::cout << "Enter coefficients a, b and c: ";
+  std::cin >> a >> b >> c;
 
   discriminant = b*b - 4*a*c;
   
@@ -1426,20 +1426,20 @@ int main() {
     x1 = (-b + sqrt(discriminant)) / (2*a);
     x2 = (-b - sqrt(discriminant)) / (2*a);
     cout << "Roots are real and different." << endl;
-    sdt::cout << "x1 = " << x1 << sdt::endl;
-    sdt::cout << "x2 = " << x2 << sdt::endl;
+    std::cout << "x1 = " << x1 << std::endl;
+    std::cout << "x2 = " << x2 << std::endl;
   } 
   else if (discriminant == 0) {
-    sdt::cout << "Roots are real and same." << sdt::endl;
+    std::cout << "Roots are real and same." << std::endl;
     x1 = -b/(2*a);
-    sdt::cout << "x1 = x2 =" << x1 << sdt::endl;
+    std::cout << "x1 = x2 =" << x1 << std::endl;
   }
   else {
     realPart = -b/(2*a);
     imaginaryPart =sqrt(-discriminant)/(2*a);
-    sdt::cout << "Roots are complex and different."  << sdt::endl;
-    sdt::cout << "x1 = " << realPart << "+" << imaginaryPart << "i" << sdt::endl;
-    sdt::cout << "x2 = " << realPart << "-" << imaginaryPart << "i" << sdt::endl;
+    std::cout << "Roots are complex and different."  << std::endl;
+    std::cout << "x1 = " << realPart << "+" << imaginaryPart << "i" << std::endl;
+    std::cout << "x2 = " << realPart << "-" << imaginaryPart << "i" << std::endl;
   }
 
   return 0;
@@ -2540,6 +2540,645 @@ In the case of `n == 2`, the for loop fails to run and the value of `isPrime` re
 
 
 ## Practical examples - 4
+
+### [E4][A1] Displaying Array Elements
+
+```cpp
+#include <iostream>
+
+int main() {
+  int numbers[5] = {7, 5, 6, 12, 35};
+
+  // cout << "The numbers are: ";
+  // //  Printing array elements
+  // // using range based for loop
+  // for (const int &n : numbers) {
+  //     cout << n << "  ";
+  // }
+
+  std::cout << "\nThe numbers are: ";
+  //  Printing array elements
+  // using traditional for loop
+  for (int i = 0; i < 5; ++i) {
+      std::cout << numbers[i] << ",  ";
+  }
+
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+7, 5, 6, 12, 35
+
+``` 
+
+**Assignement 1**: *Write a C++ program that prints an array.*
+
+**Solution**:
+We initialized an array called numbers of size 5 and type int. This means that each element of the array if of type int.  
+
+If we don't mention the size of the array, the compiler automatically computes the size only if it is initialized.
+
+Here, we have used a for loop to iterate from i = 0 to i = 4. In each iteration, we have printed numbers[i].
+
+ 
+  
+   
+   <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E4][A2] Take Inputs from User and Store Them in an Array
+
+```cpp
+#include <iostream>
+
+
+int main() {
+  int numbers[5];
+
+  std::cout << "Enter 5 numbers: " << std::endl;
+
+  //  store input from user to array
+  for (int i = 0; i < 5; ++i) {
+      std::cin >> numbers[i];
+  }
+
+  std::cout << "The numbers are: ";
+
+  //  print array elements
+  for (int n = 0; n < 5; ++n) {
+      std::cout << numbers[n] << "  ";
+  }
+
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+7 5 6 12 35
+
+``` 
+
+**Assignement 2**: *Write a C++ program that prints an array taken in input by the user.*
+
+**Solution**:
+We initialized an array called numbers of size 5 and type int. This means that each element of the array if of type int.  
+
+Once again, we have used a for loop to iterate from i = 0 to i = 4. In each iteration, we took an input from the user and stored it in numbers[i].
+
+Then, we used another for loop to print all the array elements.
+
+We have seen also that we can make a custum function to print the array! try by yourlself.
+  
+   
+   <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E4][A3] Display Sum and Average of Array Elements Using for Loop
+```cpp
+#include <iostream>
+
+int main() {
+    
+  // initialize an array without specifying size
+  double numbers[] = {7, 5, 6, 12, 35, 27};
+
+  double sum = 0;
+  double count = 0;
+  double average;
+
+  std::cout << "The numbers are: ";
+
+  // 
+  for (int i=0; i<6; ++i>) {
+    std::cout << numbers[i] << "  ";
+
+    //  calculate the sum
+    sum += numbers[i];
+
+    // count the no. of array elements
+    ++count;
+  }
+
+  // print the sum
+  std::cout << "\nTheir Sum = " << sum << endl;
+
+  // find the average
+  average = sum / count;
+  std::cout << "Their Average = " << average << endl;
+
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+The numbers are: 7  5  6  12  35  27
+Their Sum = 92
+Their Average = 15.3333
+
+``` 
+
+**Assignement 3**: *Write a C++ program that computes sum and average of an array.*
+
+**Solution**:
+In this program:
+
+We have initialized a double array named `numbers` but without specifying its size. We also declared three double variables `sum`, `count`, and `average`.
+
+Then we used a `for loop` to print the array elements. In each iteration of the loop, we add the current array element to sum.
+
+We also increase the value of `count` by 1 in each iteration, so that we can get the size of the array by the end of the for loop.
+
+After printing all the elements, we print the sum and the average of all the numbers.
+
+The average of the numbers is given by `average = sum / count`;
+
+  
+   
+   <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E4][A4] Display Largest Element of an array
+```cpp
+#include <iostream>
+
+int main()
+{
+    int i, n;
+    float arr[100];
+
+    std::cout << "Enter total number of elements(1 to 100): ";
+    std::cin >> n;
+    std::cout << endl;
+
+    // Store number entered by the user
+    for(i = 0; i < n; ++i)
+    {
+      std::cout << "Enter Number " << i + 1 << " : ";
+      std::cin >> arr[i];
+    }
+
+    // Loop to store largest number to arr[0]
+    for(i = 1;i < n; ++i)
+    {
+      // Change < to > if you want to find the smallest element
+      if(arr[0] < arr[i]){
+        arr[0] = arr[i];
+      }
+    }
+    std::cout << "Largest element = " << arr[0];
+
+    return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+nter total number of elements: 8
+
+Enter Number 1: 23.4
+Enter Number 2: -34.5
+Enter Number 3: 50
+Enter Number 4: 33.5
+Enter Number 5: 55.5
+Enter Number 6: 43.7
+Enter Number 7: 5.7
+Enter Number 8: -66.5
+
+Largest element = 55.5
+
+``` 
+
+**Assignement 4**: *Write a C++ program that display largest element of an array.*
+
+**Solution**:
+This program takes n number of elements from user and stores it in array `arr[]`.
+
+To find the largest element, the first two elements of array are checked and largest of these two element is placed in `arr[0]`.
+
+Then, the first and third elements are checked and largest of these two element is placed in `arr[0]`.
+
+This process continues until and first and last elements are checked.
+
+After this process, the largest element of an array will be in `arr[0]` position.
+
+  
+   
+   <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E4][A5] check values at even indexes
+```cpp
+#include <iostream>
+
+int main()
+{
+  int a[10];
+  bool ok = true;
+
+  // input
+  std::cout<<"Enter 10 numbers: "<<endl;
+  for (int i = 0; i < 10; i++)
+    {
+      std::cin >> a[i];
+    }
+  //check
+  for(int i=0;i<9;i++)
+  {
+    if(i % 2 == 0)
+    {
+        if(a[i] % 2 != 0){
+          ok=false;
+        }
+    }
+  }
+  if(ok){
+    std::cout<<"Correct.";
+  }
+  else{
+    std::cout<<"Not correct.";
+  }
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Correct.
+
+``` 
+
+**Assignement 5**: *Write a C++ program that check values at even indexes of an array.*
+
+**Solution**:
+This program takes n number of elements from user and stores it in array `a[]`.
+
+A `bool` variable is initilized to `true`. 
+
+Then the program check each value with an even index in the array and check if that value is even itself. 
+
+If it is not the condition turns to `false`.
+
+Then the result is shown to the screen. 
+
+  
+   
+   <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E4][A6] Passing One-dimensional Array to a Function
+```cpp
+#include <iostream>
+
+// declare function to display x
+// take a 1d array as parameter
+void display(int array[5]) {
+  std::cout << "Displaying x: " << endl;
+
+  // display array elements    
+  for (int i = 0; i < 5; ++i) {
+    std::cout << "Student " << i + 1 << ": " << array[i] << endl;
+  }
+}
+
+int main() {
+
+  // declare and initialize an array
+  int x[5] = {88, 76, 90, 61, 69};
+  
+  // call display function
+  // pass array as argument
+  display(x);
+
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Displaying x: 
+Student 1: 88
+Student 2: 76
+Student 3: 90
+Student 4: 61
+Student 5: 69
+
+``` 
+
+**Assignement 6**: *Write a C++ program that prints an array using a custom function.*
+
+**Solution**:
+Here,
+
+When we call a function by passing an array as the argument, only the name of the array is used.
+
+`display(x);`
+
+Here, the argument `x` represent the memory address of the first element of array `x[5]`.
+However, notice the parameter of the `display()` function.
+
+`void display(int array[5])`
+
+Here, we use the full declaration of the array in the function parameter, including the square braces `[]`.
+The function parameter `int array[5]` converts to `int* array`;. This points to the same address pointed by the array `x`. This means that when we manipulate `array[5]` in the function body, we are actually manipulating the original array `x`.
+
+C++ handles passing an array to a function in this way to save memory and time.
+
+  
+   
+   <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E4][A7]  Cipher a given text
+```cpp
+#include <iostream>
+
+
+int main() {
+
+  
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+plainText : ABCDEFGHIJKLMNOPQRSTUVWXYZ
+shift: 1
+cipherText:BCDEFGHIJKLMNOPQRSTUVWXYZA
+
+``` 
+
+**Assignement 7**: Write a C++ program to cipher a given text.
+Use the Caesar Cipher technique to make the encryption. The Caesar Cipher technique is one of the simplest method of encryption method.
+ It’s a type of substitution cipher, i.e., each letter of a given text is replaced by a letter some fixed number of positions down the alphabet [Wikipedia link: https://en.wikipedia.org/wiki/Caesar_cipher ]. For example with a shift of 1, A would be replaced by B, B wouldbecome C, and so on. Thus to cipher a given text we need an integer value (shift), which indicates the number of position each letter of the text has been moved down. The encryption can be represented using modular arithmetic by first transforming the letters into numbers, according to the scheme, A = 0, B = 1,..., Z = 25. Encryption of a letter by a shift n can be described mathematically as: 
+
+* e(x)=(x+n)mod26(Encryption Phase with shift n)
+
+* d(x)=(x−n)mod26(Decryption Phase with shift n)
+ 
+ Examples :
+
+ plainText : ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+ shift: 1
+
+ cipherText: BCDEFGHIJKLMNOPQRSTUVWXYZA
+
+
+ plainText : password
+ 
+ shift: 2
+
+ cipherText: rcuuyqtf
+
+So, the program takes in input a String (you can use `#include <string>` or an array of char) of lower or upper case letters, and an Integer between 0-25 denoting the required shift and prints out the plain text (with lower or upper case letters), the shift value and the cipher text like in the examples provided above.
+
+Tips: Write a function `encrypt()` which takes as arguments the plain text and the shift. In this function traverse the given text one character at a time. For each character, transform the given character, according to the encryption rule (pay attention also to lower and upper letter case).
+
+Task 2. Add to the program a function to decrypt the cipher text.
+
+Task 3. Add to the program a menu that let the user select what action he wants to take
+
+Goal: Send us your name encrypted with a shift given by deciphering this cipher text (shift=8): NQDM
+
+**Solution**:
+In progress...
+
+  
+   
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 
 ## Lessons code 2/12/2020
