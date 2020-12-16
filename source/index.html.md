@@ -3093,11 +3093,104 @@ C++ handles passing an array to a function in this way to save memory and time.
 ### [E4][A7]  Cipher a given text
 ```cpp
 #include <iostream>
+#include <string>
+using namespace std;
 
+// Funzione per la criptazione della password
+string encrypt(string passwordToEncrypt, int shiftValue)
+{
+  // Inizializzazione della password criptata e del numero intero utilizzato nel ciclo for
+  string encryptedString = "";
+  int i;
+  // Ciclo for che procede finche non finisce di decriptare tutti i caratteri (lunghezza stringa)
+  for (i = 0; i < passwordToEncrypt.length(); i++)
+  {
+    // Se le lettere sono maiuscole
+    if (isupper(passwordToEncrypt[i]))
+    {
+      // Utilizzo formula per la criptazione con mod26 utilizzando tabella ASCII (Maiuscole)
+      encryptedString += char(int(passwordToEncrypt[i] + shiftValue - 'A' + 26) % 26 + 'A');
+    }
+    // Altrimenti se sono minuscoli
+    else
+    {
+      // Utilizzo formula per la criptazione con mod26 utilizzando tabella ASCII (Minuscole)
+      encryptedString += char(int(passwordToEncrypt[i] + shiftValue - 'a' + 26) % 26 + 'a');
+    }
+  }
+  return encryptedString;
+}
+// Funzione per la decriptazione della password
+string decrypt(string passwordToDecrypt, int shiftValue)
+{
+  // Inizializzazione variabili per la password decriptata e int da utilizzare nel ciclo for
+  string decryptedPassword = "";
+  int n;
+  // Ciclo for che procede finche non finisce di decriptare tutti i caratteri (lunghezza stringa)
+  for (n = 0; n < passwordToDecrypt.length(); n++)
+  {
+    // Se le lettere sono maiuscole
+    if (isupper(passwordToDecrypt[n]))
+    {
+      // Utilizzo formula per la decriptazione con mod26 utilizzando tabella ASCII (Maiuscole)
+      decryptedPassword += char(int(passwordToDecrypt[n] - shiftValue - 'A' + 26) % 26 + 'A');
+    }
+    // Altrimenti se sono minuscole
+    else
+    {
+      // Utilizzo formula per la decriptazione con mod26 utilizzando tabella ASCII (Minuscole)
+      decryptedPassword += char(int(passwordToDecrypt[n] - shiftValue - 'a' + 26) % 26 + 'a');
+    }
+  }
+  return decryptedPassword;
+}
 
-int main() {
+int main()
+{
+  // Inizializzazione valori principali quali scelta del menu, valore per shift e stringhe
+  int shiftValue = 0;
+  int sceltaMenu;
+  bool ended = false;
+  string passwordToEncrypt;
+  string passwordToDecrypt;
 
-  
+  do
+  {
+    cout << "Select an option:" << endl;
+    cout << "1. Encrypt" << endl;
+    cout << "2. Decrypt" << endl;
+    cout << "3. Quit" << endl;
+    cin >> sceltaMenu;
+    // Utilizzo switch per generare un menu in grado di cambiare funzionalità
+    switch (sceltaMenu)
+    {
+    case 1:
+      cout << "Enter a string to encrypt:" << endl;
+      cin >> passwordToEncrypt;
+      cout << "Enter a shift value between 0-25:" << endl;
+      cin >> shiftValue;
+      while (shiftValue > 25 || shiftValue < 0)
+      {
+        cin >> shiftValue;
+      }
+      cout << "Password: " << passwordToEncrypt << endl;
+      cout << "Shift: " << shiftValue << endl;
+      cout << "Encrypted Password: " << encrypt(passwordToEncrypt, shiftValue) << endl;
+      break;
+    case 2:
+      cout << "Enter a string to decrypt:" << endl;
+      cin >> passwordToDecrypt;
+      cout << "Enter a shift value between 0-25:" << endl;
+      cin >> shiftValue;
+      cout << "The plain text is:" << decrypt(passwordToDecrypt, shiftValue) << endl;
+      break;
+    case 3:
+      ended = true;
+      break;
+    default:
+      cout << "Invalid option. Try again." << endl;
+    }
+  } while (!ended);
   return 0;
 }
 
@@ -3150,7 +3243,746 @@ Task 3. Add to the program a menu that let the user select what action he wants 
 Goal: Send us your name encrypted with a shift given by deciphering this cipher text (shift=8): NQDM
 
 **Solution**:
-In progress...
+Firstly, we initialized the variables we need during the execution of the program. An integer value to store the shift value, an integer value to store the selected option from the menu, a bool flag to control the execution of the do ... while and two strings to store the values of the words to decrypt or encrypt.
+
+Then a do while is used to keep the program until the user select the quit option.
+
+In the case the user select the encryption option, the program calls a custom function that we have defined.
+
+The encryption function takes as argument a string to encrypt and the value of the shift. Then for each character of the strings we shift the char in the range 0-25 by doing -'a', then we apply the shift and finally we shift the result again in the range a-z by doing +'a'. 
+
+We can also check and maintains uppercase letter by using 'A'. 
+
+The function return the encrypted string. 
+
+In the case the user select the decryption option, the program calls a custom function that we have defined.
+
+The decryption function takes as argument a string to decrypt and the value of the shift. Then for each character of the strings we shift the char in the range 0-25 by doing -'a', then we apply the shift and finally we shift the result again in the range a-z by doing +'a'. 
+
+We can also check and maintains uppercase letter by using 'A'. 
+
+The function return the decrypted string. 
+
+Finally the program displays the result.
+
+  
+   
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Practical examples - 5
+
+### [E5][A1]  Add Two Matrices using Multi-dimensional Arrays
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int r, c, a[100][100], b[100][100], sum[100][100], i, j;
+
+  cout << "Enter number of rows (between 1 and 100): ";
+  cin >> r;
+
+  cout << "Enter number of columns (between 1 and 100): ";
+  cin >> c;
+
+  cout << endl << "Enter elements of 1st matrix: " << endl;
+
+  // Storing elements of first matrix entered by user.
+  for(i = 0; i < r; ++i){
+    for(j = 0; j < c; ++j)
+    {
+      cout << "Enter element a" << i + 1 << j + 1 << " : ";
+      cin >> a[i][j];
+    }
+  }
+
+  // Storing elements of second matrix entered by user.
+  cout << endl << "Enter elements of 2nd matrix: " << endl;
+  for(i = 0; i < r; ++i){
+    for(j = 0; j < c; ++j)
+    {
+      cout << "Enter element b" << i + 1 << j + 1 << " : ";
+      cin >> b[i][j];
+    }
+  }
+
+  // Adding Two matrices
+  for(i = 0; i < r; ++i){
+    for(j = 0; j < c; ++j){
+      sum[i][j] = a[i][j] + b[i][j];
+    }
+  }
+  // Displaying the resultant sum matrix.
+  cout << endl << "Sum of two matrix is: " << endl;
+  for(i = 0; i < r; ++i){
+    for(j = 0; j < c; ++j)
+    {
+      cout << sum[i][j] << "  ";
+      if(j == c - 1)
+        cout << endl;
+    }
+  }
+
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter number of rows (between 1 and 100): 2
+Enter number of columns (between 1 and 100): 2
+
+Enter elements of 1st matrix:
+Enter element a11: -4
+Enter element a12: 5
+Enter element a21: 6
+Enter element a22: 8
+
+Enter elements of 2nd matrix:
+Enter element b11: 3
+Enter element b12: -9
+Enter element b21: 7
+Enter element b22: 2
+
+Sum of two matrix is:
+-1   -4
+13   10
+
+``` 
+
+**Assignement 1**: This program takes two matrices of order r*c and stores it in two-dimensional array. Then, the program adds these two matrices and displays it on the screen.
+
+**Solution**:
+In this program, user is asked to entered the number of rows r and columns c. The value of r and c should be less than 100 in this program.
+
+The user is asked to enter elements of two matrices (of order r*c).
+
+Then, the program adds these two matrices, saves it in another matrix (two-dimensional array) and displays it on the screen.
+
+  
+  <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E5][A2]  Find Transpose of a Matrix
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+   int a[10][10], transpose[10][10], row, column, i, j;
+
+   cout << "Enter rows and columns of matrix: ";
+   cin >> row >> column;
+
+   cout << "\nEnter elements of matrix: " << endl;
+
+   // Storing matrix elements
+   for (int i = 0; i < row; ++i) {
+    for (int j = 0; j < column; ++j) {
+      cout << "Enter element a" << i + 1 << j + 1 << ": ";
+      cin >> a[i][j];
+    }
+   }
+
+   // Printing the a matrix
+   cout << "\nEntered Matrix: " << endl;
+   for (int i = 0; i < row; ++i) {
+    for (int j = 0; j < column; ++j) {
+      cout << " " << a[i][j];
+      if (j == column - 1){
+        cout << endl << endl;
+      }
+    }
+   }
+
+   // Computing transpose of the matrix
+   for (int i = 0; i < row; ++i){
+    for (int j = 0; j < column; ++j) {
+      transpose[j][i] = a[i][j];
+    }
+   }
+
+   // Printing the transpose
+   cout << "\nTranspose of Matrix: " << endl;
+   for (int i = 0; i < column; ++i){
+    for (int j = 0; j < row; ++j) {
+      cout << " " << transpose[i][j];
+      if (j == row - 1){
+        cout << endl << endl;
+      }
+    }
+   }
+
+   return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter rows and columns of matrix: 2
+3
+
+Enter elements of matrix:
+Enter element a11: 1
+Enter element a12: 2
+Enter element a13: 9
+Enter element a21: 0
+Enter element a22: 4
+Enter element a23: 7
+
+Entered Matrix:
+1  2  9
+
+0  4  7
+
+
+Transpose of Matrix:
+1  0
+
+2  4
+
+9  7
+
+``` 
+
+**Assignement 2**: This program takes a matrix of order r*c from the user and computes the transpose of the matrix.
+
+**Solution**:
+In this program, user is asked to entered the number of rows and columns. The value of rows and columns should be less than 10 in this program.
+
+Then, the user is asked to enter elements of the matrix.
+
+The program computes the transpose of the matrix and displays it on the screen.
+
+  
+  <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E5][A3]   Multiply Matrix by Passing it to a Function
+```cpp
+#include <iostream>
+using namespace std;
+
+void enterData(int firstMatrix[][10], int secondMatrix[][10], int rowFirst, int columnFirst, int rowSecond, int columnSecond);
+void multiplyMatrices(int firstMatrix[][10], int secondMatrix[][10], int multResult[][10], int rowFirst, int columnFirst, int rowSecond, int columnSecond);
+void display(int mult[][10], int rowFirst, int columnSecond);
+
+void enterData(int firstMatrix[][10], int secondMatrix[][10], int rowFirst, int columnFirst, int rowSecond, int columnSecond)
+{
+	int i, j;
+	cout << endl << "Enter elements of matrix 1:" << endl;
+	for(i = 0; i < rowFirst; ++i)
+	{
+		for(j = 0; j < columnFirst; ++j)
+		{
+			cout << "Enter elements a"<< i + 1 << j + 1 << ": ";
+			cin >> firstMatrix[i][j];
+		}
+	}
+
+	cout << endl << "Enter elements of matrix 2:" << endl;
+	for(i = 0; i < rowSecond; ++i)
+	{
+		for(j = 0; j < columnSecond; ++j)
+		{
+			cout << "Enter elements b" << i + 1 << j + 1 << ": ";
+			cin >> secondMatrix[i][j];
+		}
+	}
+}
+
+void multiplyMatrices(int firstMatrix[][10], int secondMatrix[][10], int mult[][10], int rowFirst, int columnFirst, int rowSecond, int columnSecond)
+{
+	int i, j, k;
+
+	// Initializing elements of matrix mult to 0.
+	for(i = 0; i < rowFirst; ++i)
+	{
+		for(j = 0; j < columnSecond; ++j)
+		{
+			mult[i][j] = 0;
+		}
+	}
+
+	// Multiplying matrix firstMatrix and secondMatrix and storing in array mult.
+	for(i = 0; i < rowFirst; ++i)
+	{
+		for(j = 0; j < columnSecond; ++j)
+		{
+			for(k=0; k<columnFirst; ++k)
+			{
+				mult[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+			}
+		}
+	}
+}
+
+void display(int mult[][10], int rowFirst, int columnSecond)
+{
+	int i, j;
+
+	cout << "Output Matrix:" << endl;
+	for(i = 0; i < rowFirst; ++i)
+	{
+		for(j = 0; j < columnSecond; ++j)
+		{
+			cout << mult[i][j] << " ";
+			if(j == columnSecond - 1)
+				cout << endl << endl;
+		}
+	}
+}
+
+int main()
+{
+	int firstMatrix[10][10], secondMatrix[10][10], mult[10][10], rowFirst, columnFirst, rowSecond, columnSecond, i, j, k;
+
+	cout << "Enter rows and column for first matrix: ";
+	cin >> rowFirst >> columnFirst;
+
+	cout << "Enter rows and column for second matrix: ";
+	cin >> rowSecond >> columnSecond;
+
+	// If colum of first matrix in not equal to row of second matrix, asking user to enter the size of matrix again.
+	while (columnFirst != rowSecond)
+	{
+		cout << "Error! column of first matrix not equal to row of second." << endl;
+		cout << "Enter rows and column for first matrix: ";
+		cin >> rowFirst >> columnFirst;
+		cout << "Enter rows and column for second matrix: ";
+		cin >> rowSecond >> columnSecond;
+	}
+
+	// Function to take matrices data
+  enterData(firstMatrix, secondMatrix, rowFirst, columnFirst, rowSecond, columnSecond);
+
+  // Function to multiply two matrices.
+  multiplyMatrices(firstMatrix, secondMatrix, mult, rowFirst, columnFirst, rowSecond, columnSecond);
+
+  // Function to display resultant matrix after multiplication.
+  display(mult, rowFirst, columnSecond);
+
+	return 0;
+}
+
+
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter rows and column for first matrix: 3
+2
+Enter rows and column for second matrix: 3
+2
+Error! column of first matrix not equal to row of second.
+
+Enter rows and column for first matrix: 2
+3
+Enter rows and column for second matrix: 3
+2
+
+Enter elements of matrix 1:
+Enter elements a11: 3
+Enter elements a12: -2
+Enter elements a13: 5
+Enter elements a21: 3
+Enter elements a22: 0
+Enter elements a23: 4
+
+Enter elements of matrix 2:
+Enter elements b11: 2
+Enter elements b12: 3
+Enter elements b21: -9
+Enter elements b22: 0
+Enter elements b31: 0
+Enter elements b32: 4
+
+Output Matrix:
+24 29
+
+6  25
+
+``` 
+
+**Assignement 3**: Multiply two matrices and display it using user defined function.
+
+**Solution**:
+This program asks user to enter the size of the matrix (rows and columns).
+
+Then, it asks the user to enter the elements of two matrices and finally it multiplies two matrix and displays the result.
+
+To perform this task three functions are made:
+
+1. To take matrix elements from user
+2. To multiply two matrix
+3. To display the resultant matrix after multiplication
+
+
+  
+   
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E5][A4]  
+```cpp
+#include <iostream>
+
+
+int main()
+{
+  
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+``` 
+
+**Assignement 4**: 
+
+**Solution**:
+
 
   
    
