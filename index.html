@@ -328,6 +328,9 @@
                     <a href="#practical-examples-4" class="toc-h2 toc-link" data-title="Practical examples - 4">Practical examples - 4</a>
                   </li>
                   <li>
+                    <a href="#practical-examples-5" class="toc-h2 toc-link" data-title="Practical examples - 5">Practical examples - 5</a>
+                  </li>
+                  <li>
                     <a href="#lessons-code-2-12-2020" class="toc-h2 toc-link" data-title="Lessons code 2/12/2020">Lessons code 2/12/2020</a>
                   </li>
                   <li>
@@ -3012,11 +3015,104 @@ The function parameter <code>int array[5]</code> converts to <code>int* array</c
 <br>
 <br></p>
 <h3 id='e4-a7-cipher-a-given-text'>[E4][A7]  Cipher a given text</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
-</span>
+#include &lt;string&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="c1">// Funzione per la criptazione della password</span>
+<span class="n">string</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">string</span> <span class="n">passwordToEncrypt</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shiftValue</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Inizializzazione della password criptata e del numero intero utilizzato nel ciclo for</span>
+  <span class="n">string</span> <span class="n">encryptedString</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="c1">// Ciclo for che procede finche non finisce di decriptare tutti i caratteri (lunghezza stringa)</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">passwordToEncrypt</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Se le lettere sono maiuscole</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">isupper</span><span class="p">(</span><span class="n">passwordToEncrypt</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="p">{</span>
+      <span class="c1">// Utilizzo formula per la criptazione con mod26 utilizzando tabella ASCII (Maiuscole)</span>
+      <span class="n">encryptedString</span> <span class="o">+=</span> <span class="kt">char</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">passwordToEncrypt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">shiftValue</span> <span class="o">-</span> <span class="sc">'A'</span> <span class="o">+</span> <span class="mi">26</span><span class="p">)</span> <span class="o">%</span> <span class="mi">26</span> <span class="o">+</span> <span class="sc">'A'</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// Altrimenti se sono minuscoli</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="c1">// Utilizzo formula per la criptazione con mod26 utilizzando tabella ASCII (Minuscole)</span>
+      <span class="n">encryptedString</span> <span class="o">+=</span> <span class="kt">char</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">passwordToEncrypt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">shiftValue</span> <span class="o">-</span> <span class="sc">'a'</span> <span class="o">+</span> <span class="mi">26</span><span class="p">)</span> <span class="o">%</span> <span class="mi">26</span> <span class="o">+</span> <span class="sc">'a'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">encryptedString</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// Funzione per la decriptazione della password</span>
+<span class="n">string</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">string</span> <span class="n">passwordToDecrypt</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shiftValue</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Inizializzazione variabili per la password decriptata e int da utilizzare nel ciclo for</span>
+  <span class="n">string</span> <span class="n">decryptedPassword</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+  <span class="c1">// Ciclo for che procede finche non finisce di decriptare tutti i caratteri (lunghezza stringa)</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">passwordToDecrypt</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Se le lettere sono maiuscole</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">isupper</span><span class="p">(</span><span class="n">passwordToDecrypt</span><span class="p">[</span><span class="n">n</span><span class="p">]))</span>
+    <span class="p">{</span>
+      <span class="c1">// Utilizzo formula per la decriptazione con mod26 utilizzando tabella ASCII (Maiuscole)</span>
+      <span class="n">decryptedPassword</span> <span class="o">+=</span> <span class="kt">char</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">passwordToDecrypt</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">shiftValue</span> <span class="o">-</span> <span class="sc">'A'</span> <span class="o">+</span> <span class="mi">26</span><span class="p">)</span> <span class="o">%</span> <span class="mi">26</span> <span class="o">+</span> <span class="sc">'A'</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// Altrimenti se sono minuscole</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="c1">// Utilizzo formula per la decriptazione con mod26 utilizzando tabella ASCII (Minuscole)</span>
+      <span class="n">decryptedPassword</span> <span class="o">+=</span> <span class="kt">char</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">passwordToDecrypt</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">shiftValue</span> <span class="o">-</span> <span class="sc">'a'</span> <span class="o">+</span> <span class="mi">26</span><span class="p">)</span> <span class="o">%</span> <span class="mi">26</span> <span class="o">+</span> <span class="sc">'a'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">decryptedPassword</span><span class="p">;</span>
+<span class="p">}</span>
 
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// Inizializzazione valori principali quali scelta del menu, valore per shift e stringhe</span>
+  <span class="kt">int</span> <span class="n">shiftValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">sceltaMenu</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="n">ended</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="n">string</span> <span class="n">passwordToEncrypt</span><span class="p">;</span>
+  <span class="n">string</span> <span class="n">passwordToDecrypt</span><span class="p">;</span>
 
+  <span class="k">do</span>
+  <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Select an option:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"1. Encrypt"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"2. Decrypt"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"3. Quit"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">sceltaMenu</span><span class="p">;</span>
+    <span class="c1">// Utilizzo switch per generare un menu in grado di cambiare funzionalità</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">sceltaMenu</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a string to encrypt:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+      <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">passwordToEncrypt</span><span class="p">;</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a shift value between 0-25:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+      <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">shiftValue</span><span class="p">;</span>
+      <span class="k">while</span> <span class="p">(</span><span class="n">shiftValue</span> <span class="o">&gt;</span> <span class="mi">25</span> <span class="o">||</span> <span class="n">shiftValue</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">shiftValue</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Password: "</span> <span class="o">&lt;&lt;</span> <span class="n">passwordToEncrypt</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Shift: "</span> <span class="o">&lt;&lt;</span> <span class="n">shiftValue</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Encrypted Password: "</span> <span class="o">&lt;&lt;</span> <span class="n">encrypt</span><span class="p">(</span><span class="n">passwordToEncrypt</span><span class="p">,</span> <span class="n">shiftValue</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a string to decrypt:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+      <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">passwordToDecrypt</span><span class="p">;</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a shift value between 0-25:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+      <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">shiftValue</span><span class="p">;</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"The plain text is:"</span> <span class="o">&lt;&lt;</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">passwordToDecrypt</span><span class="p">,</span> <span class="n">shiftValue</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+      <span class="n">ended</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="nl">default:</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Invalid option. Try again."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">ended</span><span class="p">);</span>
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -3064,7 +3160,706 @@ Use the Caesar Cipher technique to make the encryption. The Caesar Cipher techni
 <p>Goal: Send us your name encrypted with a shift given by deciphering this cipher text (shift=8): NQDM</p>
 
 <p><strong>Solution</strong>:
-In progress...</p>
+Firstly, we initialized the variables we need during the execution of the program. An integer value to store the shift value, an integer value to store the selected option from the menu, a bool flag to control the execution of the do ... while and two strings to store the values of the words to decrypt or encrypt.</p>
+
+<p>Then a do while is used to keep the program until the user select the quit option.</p>
+
+<p>In the case the user select the encryption option, the program calls a custom function that we have defined.</p>
+
+<p>The encryption function takes as argument a string to encrypt and the value of the shift. Then for each character of the strings we shift the char in the range 0-25 by doing -&#39;a&#39;, then we apply the shift and finally we shift the result again in the range a-z by doing +&#39;a&#39;. </p>
+
+<p>We can also check and maintains uppercase letter by using &#39;A&#39;. </p>
+
+<p>The function return the encrypted string. </p>
+
+<p>In the case the user select the decryption option, the program calls a custom function that we have defined.</p>
+
+<p>The decryption function takes as argument a string to decrypt and the value of the shift. Then for each character of the strings we shift the char in the range 0-25 by doing -&#39;a&#39;, then we apply the shift and finally we shift the result again in the range a-z by doing +&#39;a&#39;. </p>
+
+<p>We can also check and maintains uppercase letter by using &#39;A&#39;. </p>
+
+<p>The function return the decrypted string. </p>
+
+<p>Finally the program displays the result.</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h2 id='practical-examples-5'>Practical examples - 5</h2><h3 id='e5-a1-add-two-matrices-using-multi-dimensional-arrays'>[E5][A1]  Add Two Matrices using Multi-dimensional Arrays</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">][</span><span class="mi">100</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">100</span><span class="p">][</span><span class="mi">100</span><span class="p">],</span> <span class="n">sum</span><span class="p">[</span><span class="mi">100</span><span class="p">][</span><span class="mi">100</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter number of rows (between 1 and 100): "</span><span class="p">;</span>
+  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">r</span><span class="p">;</span>
+
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter number of columns (between 1 and 100): "</span><span class="p">;</span>
+  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter elements of 1st matrix: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+  <span class="c1">// Storing elements of first matrix entered by user.</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter element a"</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">" : "</span><span class="p">;</span>
+      <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Storing elements of second matrix entered by user.</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter elements of 2nd matrix: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter element b"</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">" : "</span><span class="p">;</span>
+      <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Adding Two matrices</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">){</span>
+      <span class="n">sum</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="c1">// Displaying the resultant sum matrix.</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"Sum of two matrix is: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"  "</span><span class="p">;</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">c</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">number</span> <span class="n">of</span> <span class="n">rows</span> <span class="p">(</span><span class="n">between</span> <span class="mi">1</span> <span class="n">and</span> <span class="mi">100</span><span class="p">)</span><span class="o">:</span> <span class="mi">2</span>
+<span class="n">Enter</span> <span class="n">number</span> <span class="n">of</span> <span class="n">columns</span> <span class="p">(</span><span class="n">between</span> <span class="mi">1</span> <span class="n">and</span> <span class="mi">100</span><span class="p">)</span><span class="o">:</span> <span class="mi">2</span>
+
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">of</span> <span class="mx">1s</span><span class="n">t</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="n">Enter</span> <span class="n">element</span> <span class="n">a11</span><span class="o">:</span> <span class="o">-</span><span class="mi">4</span>
+<span class="n">Enter</span> <span class="n">element</span> <span class="n">a12</span><span class="o">:</span> <span class="mi">5</span>
+<span class="n">Enter</span> <span class="n">element</span> <span class="n">a21</span><span class="o">:</span> <span class="mi">6</span>
+<span class="n">Enter</span> <span class="n">element</span> <span class="n">a22</span><span class="o">:</span> <span class="mi">8</span>
+
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">of</span> <span class="mi">2</span><span class="n">nd</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="n">Enter</span> <span class="n">element</span> <span class="n">b11</span><span class="o">:</span> <span class="mi">3</span>
+<span class="n">Enter</span> <span class="n">element</span> <span class="n">b12</span><span class="o">:</span> <span class="o">-</span><span class="mi">9</span>
+<span class="n">Enter</span> <span class="n">element</span> <span class="n">b21</span><span class="o">:</span> <span class="mi">7</span>
+<span class="n">Enter</span> <span class="n">element</span> <span class="n">b22</span><span class="o">:</span> <span class="mi">2</span>
+
+<span class="n">Sum</span> <span class="n">of</span> <span class="n">two</span> <span class="n">matrix</span> <span class="n">is</span><span class="o">:</span>
+<span class="o">-</span><span class="mi">1</span>   <span class="o">-</span><span class="mi">4</span>
+<span class="mi">13</span>   <span class="mi">10</span>
+
+</code></pre></div>
+<p><strong>Assignement 1</strong>: This program takes two matrices of order r*c and stores it in two-dimensional array. Then, the program adds these two matrices and displays it on the screen.</p>
+
+<p><strong>Solution</strong>:
+In this program, user is asked to entered the number of rows r and columns c. The value of r and c should be less than 100 in this program.</p>
+
+<p>The user is asked to enter elements of two matrices (of order r*c).</p>
+
+<p>Then, the program adds these two matrices, saves it in another matrix (two-dimensional array) and displays it on the screen.</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e5-a2-find-transpose-of-a-matrix'>[E5][A2]  Find Transpose of a Matrix</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+   <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">10</span><span class="p">],</span> <span class="n">transpose</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">10</span><span class="p">],</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter rows and columns of matrix: "</span><span class="p">;</span>
+   <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">row</span> <span class="o">&gt;&gt;</span> <span class="n">column</span><span class="p">;</span>
+
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">Enter elements of matrix: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+   <span class="c1">// Storing matrix elements</span>
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">row</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">column</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter element a"</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span><span class="p">;</span>
+      <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+    <span class="p">}</span>
+   <span class="p">}</span>
+
+   <span class="c1">// Printing the a matrix</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">Entered Matrix: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">row</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">column</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">column</span> <span class="o">-</span> <span class="mi">1</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+   <span class="p">}</span>
+
+   <span class="c1">// Computing transpose of the matrix</span>
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">row</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">column</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">transpose</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+    <span class="p">}</span>
+   <span class="p">}</span>
+
+   <span class="c1">// Printing the transpose</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">Transpose of Matrix: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">column</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">row</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">transpose</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+   <span class="p">}</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">rows</span> <span class="n">and</span> <span class="n">columns</span> <span class="n">of</span> <span class="n">matrix</span><span class="o">:</span> <span class="mi">2</span>
+<span class="mi">3</span>
+
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">of</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="n">Enter</span> <span class="n">element</span> <span class="n">a11</span><span class="o">:</span> <span class="mi">1</span>
+<span class="n">Enter</span> <span class="n">element</span> <span class="n">a12</span><span class="o">:</span> <span class="mi">2</span>
+<span class="n">Enter</span> <span class="n">element</span> <span class="n">a13</span><span class="o">:</span> <span class="mi">9</span>
+<span class="n">Enter</span> <span class="n">element</span> <span class="n">a21</span><span class="o">:</span> <span class="mi">0</span>
+<span class="n">Enter</span> <span class="n">element</span> <span class="n">a22</span><span class="o">:</span> <span class="mi">4</span>
+<span class="n">Enter</span> <span class="n">element</span> <span class="n">a23</span><span class="o">:</span> <span class="mi">7</span>
+
+<span class="n">Entered</span> <span class="n">Matrix</span><span class="o">:</span>
+<span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">9</span>
+
+<span class="mi">0</span>  <span class="mi">4</span>  <span class="mi">7</span>
+
+
+<span class="n">Transpose</span> <span class="n">of</span> <span class="n">Matrix</span><span class="o">:</span>
+<span class="mi">1</span>  <span class="mi">0</span>
+
+<span class="mi">2</span>  <span class="mi">4</span>
+
+<span class="mi">9</span>  <span class="mi">7</span>
+
+</code></pre></div>
+<p><strong>Assignement 2</strong>: This program takes a matrix of order r*c from the user and computes the transpose of the matrix.</p>
+
+<p><strong>Solution</strong>:
+In this program, user is asked to entered the number of rows and columns. The value of rows and columns should be less than 10 in this program.</p>
+
+<p>Then, the user is asked to enter elements of the matrix.</p>
+
+<p>The program computes the transpose of the matrix and displays it on the screen.</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e5-a3-multiply-matrix-by-passing-it-to-a-function'>[E5][A3]   Multiply Matrix by Passing it to a Function</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">enterData</span><span class="p">(</span><span class="kt">int</span> <span class="n">firstMatrix</span><span class="p">[][</span><span class="mi">10</span><span class="p">],</span> <span class="kt">int</span> <span class="n">secondMatrix</span><span class="p">[][</span><span class="mi">10</span><span class="p">],</span> <span class="kt">int</span> <span class="n">rowFirst</span><span class="p">,</span> <span class="kt">int</span> <span class="n">columnFirst</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rowSecond</span><span class="p">,</span> <span class="kt">int</span> <span class="n">columnSecond</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">multiplyMatrices</span><span class="p">(</span><span class="kt">int</span> <span class="n">firstMatrix</span><span class="p">[][</span><span class="mi">10</span><span class="p">],</span> <span class="kt">int</span> <span class="n">secondMatrix</span><span class="p">[][</span><span class="mi">10</span><span class="p">],</span> <span class="kt">int</span> <span class="n">multResult</span><span class="p">[][</span><span class="mi">10</span><span class="p">],</span> <span class="kt">int</span> <span class="n">rowFirst</span><span class="p">,</span> <span class="kt">int</span> <span class="n">columnFirst</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rowSecond</span><span class="p">,</span> <span class="kt">int</span> <span class="n">columnSecond</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">display</span><span class="p">(</span><span class="kt">int</span> <span class="n">mult</span><span class="p">[][</span><span class="mi">10</span><span class="p">],</span> <span class="kt">int</span> <span class="n">rowFirst</span><span class="p">,</span> <span class="kt">int</span> <span class="n">columnSecond</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">enterData</span><span class="p">(</span><span class="kt">int</span> <span class="n">firstMatrix</span><span class="p">[][</span><span class="mi">10</span><span class="p">],</span> <span class="kt">int</span> <span class="n">secondMatrix</span><span class="p">[][</span><span class="mi">10</span><span class="p">],</span> <span class="kt">int</span> <span class="n">rowFirst</span><span class="p">,</span> <span class="kt">int</span> <span class="n">columnFirst</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rowSecond</span><span class="p">,</span> <span class="kt">int</span> <span class="n">columnSecond</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter elements of matrix 1:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rowFirst</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">columnFirst</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter elements a"</span><span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span><span class="p">;</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">firstMatrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter elements of matrix 2:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rowSecond</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">columnSecond</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter elements b"</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span><span class="p">;</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">secondMatrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">multiplyMatrices</span><span class="p">(</span><span class="kt">int</span> <span class="n">firstMatrix</span><span class="p">[][</span><span class="mi">10</span><span class="p">],</span> <span class="kt">int</span> <span class="n">secondMatrix</span><span class="p">[][</span><span class="mi">10</span><span class="p">],</span> <span class="kt">int</span> <span class="n">mult</span><span class="p">[][</span><span class="mi">10</span><span class="p">],</span> <span class="kt">int</span> <span class="n">rowFirst</span><span class="p">,</span> <span class="kt">int</span> <span class="n">columnFirst</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rowSecond</span><span class="p">,</span> <span class="kt">int</span> <span class="n">columnSecond</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+
+    <span class="c1">// Initializing elements of matrix mult to 0.</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rowFirst</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">columnSecond</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">mult</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Multiplying matrix firstMatrix and secondMatrix and storing in array mult.</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rowFirst</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">columnSecond</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">columnFirst</span><span class="p">;</span> <span class="o">++</span><span class="n">k</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">mult</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">firstMatrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">secondMatrix</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">display</span><span class="p">(</span><span class="kt">int</span> <span class="n">mult</span><span class="p">[][</span><span class="mi">10</span><span class="p">],</span> <span class="kt">int</span> <span class="n">rowFirst</span><span class="p">,</span> <span class="kt">int</span> <span class="n">columnSecond</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Output Matrix:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rowFirst</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">columnSecond</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">mult</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">columnSecond</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">firstMatrix</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">10</span><span class="p">],</span> <span class="n">secondMatrix</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">10</span><span class="p">],</span> <span class="n">mult</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">10</span><span class="p">],</span> <span class="n">rowFirst</span><span class="p">,</span> <span class="n">columnFirst</span><span class="p">,</span> <span class="n">rowSecond</span><span class="p">,</span> <span class="n">columnSecond</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter rows and column for first matrix: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">rowFirst</span> <span class="o">&gt;&gt;</span> <span class="n">columnFirst</span><span class="p">;</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter rows and column for second matrix: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">rowSecond</span> <span class="o">&gt;&gt;</span> <span class="n">columnSecond</span><span class="p">;</span>
+
+    <span class="c1">// If colum of first matrix in not equal to row of second matrix, asking user to enter the size of matrix again.</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">columnFirst</span> <span class="o">!=</span> <span class="n">rowSecond</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Error! column of first matrix not equal to row of second."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter rows and column for first matrix: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">rowFirst</span> <span class="o">&gt;&gt;</span> <span class="n">columnFirst</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter rows and column for second matrix: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">rowSecond</span> <span class="o">&gt;&gt;</span> <span class="n">columnSecond</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Function to take matrices data</span>
+  <span class="n">enterData</span><span class="p">(</span><span class="n">firstMatrix</span><span class="p">,</span> <span class="n">secondMatrix</span><span class="p">,</span> <span class="n">rowFirst</span><span class="p">,</span> <span class="n">columnFirst</span><span class="p">,</span> <span class="n">rowSecond</span><span class="p">,</span> <span class="n">columnSecond</span><span class="p">);</span>
+
+  <span class="c1">// Function to multiply two matrices.</span>
+  <span class="n">multiplyMatrices</span><span class="p">(</span><span class="n">firstMatrix</span><span class="p">,</span> <span class="n">secondMatrix</span><span class="p">,</span> <span class="n">mult</span><span class="p">,</span> <span class="n">rowFirst</span><span class="p">,</span> <span class="n">columnFirst</span><span class="p">,</span> <span class="n">rowSecond</span><span class="p">,</span> <span class="n">columnSecond</span><span class="p">);</span>
+
+  <span class="c1">// Function to display resultant matrix after multiplication.</span>
+  <span class="n">display</span><span class="p">(</span><span class="n">mult</span><span class="p">,</span> <span class="n">rowFirst</span><span class="p">,</span> <span class="n">columnSecond</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">rows</span> <span class="n">and</span> <span class="n">column</span> <span class="k">for</span> <span class="n">first</span> <span class="n">matrix</span><span class="o">:</span> <span class="mi">3</span>
+<span class="mi">2</span>
+<span class="n">Enter</span> <span class="n">rows</span> <span class="n">and</span> <span class="n">column</span> <span class="k">for</span> <span class="n">second</span> <span class="n">matrix</span><span class="o">:</span> <span class="mi">3</span>
+<span class="mi">2</span>
+<span class="n">Error</span><span class="o">!</span> <span class="n">column</span> <span class="n">of</span> <span class="n">first</span> <span class="n">matrix</span> <span class="n">not</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">row</span> <span class="n">of</span> <span class="n">second</span><span class="p">.</span>
+
+<span class="n">Enter</span> <span class="n">rows</span> <span class="n">and</span> <span class="n">column</span> <span class="k">for</span> <span class="n">first</span> <span class="n">matrix</span><span class="o">:</span> <span class="mi">2</span>
+<span class="mi">3</span>
+<span class="n">Enter</span> <span class="n">rows</span> <span class="n">and</span> <span class="n">column</span> <span class="k">for</span> <span class="n">second</span> <span class="n">matrix</span><span class="o">:</span> <span class="mi">3</span>
+<span class="mi">2</span>
+
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">of</span> <span class="n">matrix</span> <span class="mi">1</span><span class="o">:</span>
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">a11</span><span class="o">:</span> <span class="mi">3</span>
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">a12</span><span class="o">:</span> <span class="o">-</span><span class="mi">2</span>
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">a13</span><span class="o">:</span> <span class="mi">5</span>
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">a21</span><span class="o">:</span> <span class="mi">3</span>
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">a22</span><span class="o">:</span> <span class="mi">0</span>
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">a23</span><span class="o">:</span> <span class="mi">4</span>
+
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">of</span> <span class="n">matrix</span> <span class="mi">2</span><span class="o">:</span>
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">b11</span><span class="o">:</span> <span class="mi">2</span>
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">b12</span><span class="o">:</span> <span class="mi">3</span>
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">b21</span><span class="o">:</span> <span class="o">-</span><span class="mi">9</span>
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">b22</span><span class="o">:</span> <span class="mi">0</span>
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">b31</span><span class="o">:</span> <span class="mi">0</span>
+<span class="n">Enter</span> <span class="n">elements</span> <span class="n">b32</span><span class="o">:</span> <span class="mi">4</span>
+
+<span class="n">Output</span> <span class="n">Matrix</span><span class="o">:</span>
+<span class="mi">24</span> <span class="mi">29</span>
+
+<span class="mi">6</span>  <span class="mi">25</span>
+
+</code></pre></div>
+<p><strong>Assignement 3</strong>: Multiply two matrices and display it using user defined function.</p>
+
+<p><strong>Solution</strong>:
+This program asks user to enter the size of the matrix (rows and columns).</p>
+
+<p>Then, it asks the user to enter the elements of two matrices and finally it multiplies two matrix and displays the result.</p>
+
+<p>To perform this task three functions are made:</p>
+
+<ol>
+<li>To take matrix elements from user</li>
+<li>To multiply two matrix</li>
+<li>To display the resultant matrix after multiplication</li>
+</ol>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e5-a4'>[E5][A4]</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div>
+<p><strong>Assignement 4</strong>: </p>
+
+<p><strong>Solution</strong>:</p>
 
 <p><br>
 <br>
