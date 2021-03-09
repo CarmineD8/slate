@@ -3956,15 +3956,905 @@ To perform this task three functions are made:
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-### [E5][A4]  
+
+
+
+##  Practical examples - 6
+In this section, you'll learn about structures in C++ programming; what is it, how to define it and use it in your program.
+
+**Structure** is a collection of variables of different data types under a single name. 
+
+### [E6][A1]  
 ```cpp
 #include <iostream>
 
+struct Person
+{
+  char name[50];
+  int age;
+  float salary;
+};
 
 int main()
 {
+  Person p1;
   
+  std::cout << "Enter Full name: ";
+  std::cin.get(p1.name, 50);
+  std::cout << "Enter age: ";
+  std::cin >> p1.age;
+  std::cout << "Enter salary: ";
+  std::cin >> p1.salary;
+
+  std::cout << "\nDisplaying Information." << endl;
+  std::cout << "Name: " << p1.name << endl;
+  std::cout <<"Age: " << p1.age << endl;
+  std::cout << "Salary: " << p1.salary;
+
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter Full name: Magdalena Dankova
+Enter age: 27
+Enter salary: 1024.4
+
+Displaying Information.
+Name: Magdalena Dankova
+Age: 27
+Salary: 1024.4
+``` 
+
+**Assignement 1**: 
+C++ Program to assign data to members of a structure variable and display it.
+
+**Solution**:
+The struct keyword defines a structure type followed by an identifier (name of the structure).
+Then inside the curly braces, you can declare one or more members (declare variables inside curly braces) of that structure.
+When a structure is created, no memory is allocated.
+Here a structure `Person` is declared which has three members `name`, `age` and `salary`.
+Once you declare a structure person as above. You can define a structure variable.
+When structure variable is defined, only then the required memory is allocated by the compiler.
+The members of structure variable is accessed using a `dot (.)` operator.
+Inside `main()` function, a structure variable `p1` is defined. Then, the user is asked to enter information and data entered by user is displayed.
+
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+### [E6][A2] Passing structure to function in C++
+```cpp
+#include <iostream>
+
+struct Person
+{
+    char name[50];
+    int age;
+    float salary;
+};
+
+void displayData(Person);   // Function declaration
+
+void displayData(Person p) // Function definition
+{
+  std::cout << "\nDisplaying Information." << endl;
+  std::cout << "Name: " << p.name << endl;
+  std::cout <<"Age: " << p.age << endl;
+  std::cout << "Salary: " << p.salary;
+}
+
+int main()
+{
+  Person p;
+
+  std::cout << "Enter Full name: ";
+  std::cin.get(p.name, 50);
+  std::cout << "Enter age: ";
+  std::cin >> p.age;
+  std::cout << "Enter salary: ";
+  std::cin >> p.salary;
+
+  // Function call with structure variable as an argument
+  displayData(p);
+
+  return 0;
+}
+
+
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter Full name: Bill Jobs
+Enter age: 55
+Enter salary: 34233.4
+
+Displaying Information.
+Name: Bill Jobs
+Age: 55
+Salary: 34233.4
+``` 
+
+**Assignement 2**: 
+Structure variables can be passed to a function and returned in a similar way as normal arguments.
+
+**Solution**:
+In this program, user is asked to enter the name, age and salary of a `Person` inside `main()` function.
+Then, the structure variable `p` is to passed to a function using `displayData()` function.
+The return type of `displayData()` is void and a single argument of type structure `Person` is passed.
+Then the members of structure `p` is displayed from this function.
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+### [E6][A3] Input/output with files
+```cpp
+// basic file operations
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main () {
+  ofstream myfile;
+  myfile.open ("example.txt");
+  myfile << "Writing this to a file.\n";
+  myfile.close();
+  return 0;
+}
+
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+[file example.txt]
+Writing this to a file.
+``` 
+
+**Assignement 3**: 
+C++ provides the following classes to perform output and input of characters to/from files:
+
+  * ofstream: Stream class to write on files
+  * ifstream: Stream class to read from files
+  * fstream: Stream class to both read and write from/to files.
+
+
+These classes are derived directly or indirectly from the classes istream and ostream.
+
+**Solution**:
+This code creates a file called example.txt and inserts a sentence into it in the same way we are used to do with cout, but using the file stream myfile instead.
+The first operation generally performed on an object of one of these classes is to associate it to a real file. This procedure is known as to open a file. An open file is represented within a program by a stream (i.e., an object of one of these classes) and any input or output operation performed on this stream object will be applied to the physical file associated to it.
+
+In order to open a file with a stream object we use its member function open:
+
+open (filename, mode);
+
+Where filename is a string representing the name of the file to be opened, and mode is an optional parameter.
+Each of the open member functions of classes ofstream, ifstream and fstream has a default mode that is used if the file is opened without a second argument: 
+class | default mode 
+----- | ------------
+ofstream | ios::out
+ifstream | ios::in
+fstream | ios::in ios::out
+
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+### [E6][A4] 
+```cpp
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Strutture dati
+//////////////////////////////////////////////////////////////////////////////////////
+
+// Costanti
+const int max_esami = 100;
+const int max_lunghezza_stringhe = 32;
+
+// Struttura per la memorizzazione dei dati relativi a un esame
+struct esame {
+	char nome_studente[max_lunghezza_stringhe];
+	char cognome_studente[max_lunghezza_stringhe];
+	int numero_matricola;
+	int voto;
+};
+
+// Struttura per la memorizzazione degli esami della sessione
+struct sessione_di_esami {
+	esame archivio_esami[max_esami];
+	int num_esami;
+};
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Funzioni per l'inizializzazione delle strutture dati
+//////////////////////////////////////////////////////////////////////////////////////
+
+// Inizializzazione di un esame
+void inizializza_esame(esame& e)
+{
+	strcpy(e.nome_studente, "");	//Inizializza e.Nome con la stringa vuota ""
+	strcpy(e.cognome_studente, "");
+	e.numero_matricola = 0;
+	e.voto = 0;
+}
+
+// Inizializzazione di una sessione di esami
+void inizializza_sessione_esami(sessione_di_esami& sessione)
+{
+	for (int k = 0; k < max_esami; k++)
+		inizializza_esame(sessione.archivio_esami[k]);
+
+	sessione.num_esami = 0;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Funzioni per l'inserimento dei dati
+//////////////////////////////////////////////////////////////////////////////////////
+
+// Inserimento dei dati di un esame
+void inserisci_dati_esame(esame& e)
+{
+	// cleaning
+	cin.clear();   
+	cin.sync();
+
+	cout << "Inserire il nome dello studente: ";
+	cin.getline(e.nome_studente, 32, '\n');
+	cout << endl;
+
+	cout << "Inserire il cognome dello studente: ";
+	cin.getline(e.cognome_studente, 32, '\n');
+	cout << endl;
+
+	cout << "Inserire il numero di matricola: ";
+	cin >> e.numero_matricola;
+	cout << endl;
+
+	do {
+		cout << "Inserire il voto di esame: ";
+		cin >> e.voto;
+		cout << endl;
+		if ((e.voto > 30) || (e.voto < 18))
+			cout << "Attenzione: il voto deve essere compreso tra 18 e 30." << endl << endl;
+	} while ((e.voto > 30) || (e.voto < 18));
+}
+
+// Inserimento di un esame in una sessione
+// Ritorna 1 se l'inserimento è riuscito, 0 altrimenti
+int inserisci_esame(sessione_di_esami& sessione, esame e)
+{
+	if (sessione.num_esami < max_esami) {
+		sessione.archivio_esami[sessione.num_esami] = e;
+		sessione.num_esami++;
+		return 1;
+	}
+	return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Funzioni per la stampa dei dati
+//////////////////////////////////////////////////////////////////////////////////////
+
+// Stampa di un esame
+void stampa_dati_esame(esame e)
+{
+	cout << "Nome: " << e.nome_studente << endl;
+	cout << "Cognome: " << e.cognome_studente << endl;
+	cout << "Numero di matricola: " << e.numero_matricola << endl;
+	cout << "Voto di esame: " << e.voto << endl << endl;
+}
+
+// Stampa di una sessione di esami
+// const significa che s (passato per riferimento) non verrà modificato dalla funzione
+// Passiamo s per riferimento per evitare il passaggio per valore che implica
+// la copia di TUTTA la struttura dati, che può essere uno spreco di tempo(e memoria)!
+void stampa_sessione(const sessione_di_esami& sessione)
+{
+	for (int k = 0; k < sessione.num_esami; k++)
+		stampa_dati_esame(sessione.archivio_esami[k]);
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Funzioni per l'elaborazione dei dati
+//////////////////////////////////////////////////////////////////////////////////////
+
+// Calcolo della media dei voti di una sessione
+double calcola_media_voti(const sessione_di_esami& sessione)
+{
+	if (sessione.num_esami > 0) {
+		double somma = 0.0;
+		for (int k = 0; k < sessione.num_esami; k++)
+			somma += sessione.archivio_esami[k].voto;
+		return somma / sessione.num_esami;
+	}
+	return 0.0;
+}
+
+// Calcolo del numero di studenti con voto maggiore di n
+int calcola_num_studenti(const sessione_di_esami& sessione, int n)
+{
+	int contatore = 0;
+
+	for (int k = 0; k < sessione.num_esami; k++)
+		if (sessione.archivio_esami[k].voto > n) 
+			contatore++;
+
+	return contatore;
+}
+
+// Calcolo dell'istogramma dei voti di esame di una sessione
+void calcola_istogramma(const sessione_di_esami& sessione, int istogramma[13])
+{
+	for (int i = 0; i < 13; i++)
+		istogramma[i] = 0;
+
+	for (int k = 0; k < sessione.num_esami; k++) {
+		int indice = sessione.archivio_esami[k].voto - 18;  // Riporta l'indice da 0 a 13 in base al voto
+		istogramma[indice]++;
+	}
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Funzione main
+//////////////////////////////////////////////////////////////////////////////////////
+
+int main()
+{
+	// Sessione di esami
+	sessione_di_esami sessione;
+	inizializza_sessione_esami(sessione);
+	
+	// Variabili ausiliarie per l'elaborazione dati
+	esame e;
+	inizializza_esame(e);
+	double media = 0.0;
+	int soglia = 18;
+	int num_studenti = 0;
+	int istogramma[13];
+
+	// Variabile per la condizione di terminazione del programma
+	int continua = 1;
+
+	// Pulizia dei flussi in ingresso
+	cin.clear();   
+	cin.sync();
+
+	do {
+		
+		// Stampa del menu delle operazioni diponibili
+		cout << "Operazioni disponibili: " << endl;
+		cout << "1 - Inserire un nuovo esame" << endl;
+		cout << "2 - Media dei voti conseguiti" << endl;
+		cout << "3 - Numero di studenti con voto superiore ad una specifica soglia" << endl;
+		cout << "4 - Istogramma dei voti conseguiti" << endl;
+		cout << "5 - Esci" << endl << endl;
+		cout << "Selezionare un'opzione: ";
+		
+		// Inserimento della scelta da parte dell'utente
+		int scelta = 0;
+		cin >> scelta;
+		system("cls");
+
+		// Esecuzione dell'operazione richiesta
+		switch (scelta) {
+			case 1:			// Inserimento di un nuovo esame
+				inserisci_dati_esame(e);
+				if (inserisci_esame(sessione, e)) 
+					cout << "Nuovo esame inserito" << endl <<endl;
+				else
+					cout << "E' stato raggiunto il massimo numero di esami per sessione. Non si possono inserire ulteriori esami" << endl << endl;
+				system("pause");
+				system("cls");
+				break;
+			case 2:			// Calcolo della media dei voti conseguiti
+				media = calcola_media_voti(sessione);
+				cout << "La media dei voti conseguiti e': " << media << endl << endl;
+				system("pause");
+				system("cls");
+				break;
+			case 3:			// Calcolo del numero di studenti che hanno conseguito un voto superiore ad una data soglia
+				cout << "Inserire il voto di soglia: ";
+				cin >> soglia;
+				cout << endl;
+				num_studenti = calcola_num_studenti(sessione, soglia);
+				cout << num_studenti << " studenti hanno conseguito un voto maggiore o uguale a " << soglia << endl << endl;
+				system("pause");
+				system("cls");
+				break;
+			case 4:		// Calcolo dell'istogramma dei voti conseguiti
+				calcola_istogramma(sessione, istogramma);
+				cout << "Istogramma dei voti conseguiti:" << endl;
+				for (int k = 0; k < 13; k++)
+					cout << k + 18 << ": " << istogramma[k] << endl;
+				cout << endl;
+				system("pause");
+				system("cls");
+				break;
+			case 5:		// Uscita dal programma
+				continua = 0;
+				break;
+			default:	// Opzione non disponibile
+				system("cls");
+				cout << "Opzione non disponibile: inserire un numero tra 1 e 6" << endl << endl;
+		}
+
+	} while (continua);
+
+	return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Student name: Anthony 
+Student surname: Hopkins
+Student_id: 12345
+Rank: 28
+``` 
+
+**Assignement 4**: 
+Write a c++ programs to gather data about the exams period of a specific university course. For each exam the program stores the name and the surname of the student, his/her student id and the exam mark. The exams period has 100 exams at most. The program should provide the following functions: A function to enter student data, a function to compute and print the mean of the marks, a function to compute the number of students that have passed an exam with a grade above n, with n specified from the user; a function to compute and print the hystogram of exams marks (occurrency of each mark).
+The main function will allow the user to select one of the features provided by the program and execute the corresponding function.
+
+**Solution**:
+In progress....
+
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E6][A5] 
+```cpp
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+const int r = 31;
+const int c = 10;
+
+double totaleMerce(double T[r][c])
+{
+	double s = 0;
+	for (int i = 0; i < r; i++)
+		for (int j = 0; j < c; j++)
+			s += T[i][j];
+	return s;
+}
+
+int numTreni(double T[r][c])
+{
+    int count = 0;
+    for (int i = 0; i < r; i++)
+        for (int j = 0; j < c; j++)
+            if (T[i][j] != 0.0) {
+                count++;
+                break;
+            }
+    return count;
+}
+
+double maxTreno(double T[r][c], int& v, int& g) 
+{
+	g = 0; v = 0;
+	double s = 0.0;
+	for (int i = 0; i < r; i++) {
+		int count = 0;
+		double sum = 0.0;
+		for (int j = 0; j < c; j++) {
+			if (T[i][j] != 0.0) {
+				count++;
+				sum += T[i][j];
+			}
+		}
+		if (count > v) {
+			v = count;
+			g = i;
+			s = sum;
+		}
+	}
+	return s;
+}
+
+int main() {
+	double Treni[r][c] = {0};
+	fstream fin;
+	fin.open("Dati.txt", ios::in);
+	for (int i = 0; i < r; i++)
+		for (int j = 0; j < c; j++)
+			fin >> Treni[i][j];
+	fin.close();
+	cout << "Totale merce movimentata: " << totaleMerce(Treni) << endl;
+	cout << "Numero di treni: " << numTreni(Treni) << endl;
+	int giorno = 0;
+	int nVagoni = 0;
+	double merce = maxTreno(Treni, nVagoni, giorno);
+	cout << "Massimo numero di vagoni: " << nVagoni << endl;
+	cout << "Giorno del treno con massimo numero di vagoni: " << giorno << endl;
+	cout << "Merce del treno con massimo numero di vagoni: " << merce << endl;
+	return 0;
 }
 
 ```
@@ -3979,45 +4869,533 @@ int main()
 
 ``` 
 
-**Assignement 4**: 
+**Assignement 5**: 
+A shipping agency organizes almost daily the movement of goods between two cities connected by a railway. The goods are therefore placed on a train that can consist of a maximum of 10 wagons. To represent the data relating to this activity over the course of a month, a matrix T of real numbers of 31 rows and 10 columns can be used, where the rows represent the days of a month and the columns the wagons of the train. The Tij element of the matrix represents the number of tons of goods loaded on a specific wagon (the j-th wagon) on a specific day (the i-th day). If the train on a certain day was made up of less than 10 wagons, the remaining elements of the corresponding row of the matrix T are set to zero. If on a certain day the train
+not started, all the elements of the corresponding row of the matrix T are set to zero (in the same way months that have at least 31 days are managed). To process this data, develop the following in C ++ language: 1.The totalMerceche function receives as a parameter the matrix T described above and returns as a return value the total number of tons of goods handled during the month (a real number). The function will then calculate and return the sum of the values ​​of the elements of the matrix T. For simplicity, assume that the values ​​assumed by the elements of the matrix T are always valid. 2 The numTrenic function receives as a parameter the matrix T described above and returns as a return value, the total number of trains that traveled during the month (an integer). The function will then calculate and return the number of rows of the matrix T that contain at least one non-zero element. For the sake of simplicity, assume that the values ​​assumed by the elements of the matrix T are always valid. 3 The maxTren function, which receives the matrix T described above as a parameter, has as output parameters (i.e. by reference) two integers v and g and returns the value of return a real number. The function assigns to v the number of wagons of the train composed of the largest number of wagons, assigns the index of the day on which that train traveled and returns as a return value the number of tons of goods that this train has transported. is more than one train with the same maximum number of wagons, the function returns the data of the train that traveled first (i.e. the first that is found by scanning the rows of the matrix T from the first to the last). For the sake of simplicity, assume that the values ​​assumed by the elements of the matrix T are always valid. 4. A program that operates as follows: declares and initializes to zero an array of real numbers of 31 rows and 10 columns organized as described above; open the Data.txt file for reading: the file consists of 31 lines, each containing 10 real numbers (for simplicity, suppose that the file exists and that its content is always valid) scan the file and assign to each element of the Trains matrix the corresponding value contained in the file; call the function totalMerce and print its return value on the screen; you call the numTrenie function and print its return value on the screen; you call the maxTreno function and print its return value and the values ​​assumed by the parameters passed by reference after calling the function.
+
+**Solution**:
+In progress
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E6][A6] 
+```cpp
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Strutture dati
+//////////////////////////////////////////////////////////////////////////////////////
+
+// Costanti
+const int max_appartamenti = 100;
+
+// Struttura per la memorizzazione dei dati relativi a un appartamento
+struct appartamento {
+	int codice;
+	char indirizzo[100];
+	char comune[32];
+	int numero_vani;
+	double superficie;
+	double prezzo;
+};
+
+// Struttura per la memorizzazione degli appartamenti di una agenzia immobiliare
+struct archivio_appartamenti {
+	appartamento archivio[max_appartamenti];
+	int num_appartamenti;
+};
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Funzioni per l'inizializzazione delle strutture dati
+//////////////////////////////////////////////////////////////////////////////////////
+
+// Inizializzazione di un appartamento
+void inizializza_appartamento(appartamento& a)
+{
+	a.codice = 0;
+	strcpy(a.indirizzo, "");
+	strcpy(a.comune, "");
+	a.numero_vani = 0;
+	a.superficie = 0.0;
+	a.prezzo = 0.0;
+}
+
+// Inizializzazione dell'archivio di appartamenti
+void inizializza_archivio(archivio_appartamenti& arch)
+{
+	for (int k = 0; k < max_appartamenti; k++)
+		inizializza_appartamento(arch.archivio[k]);
+
+	arch.num_appartamenti = 0;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Funzioni per l'inserimento dei dati
+//////////////////////////////////////////////////////////////////////////////////////
+
+// Inserimento dei dati di un appartamento
+void inserisci_dati_appartamento(appartamento& a)
+{
+	cout << "Inserire il codice dell'appartamento: ";
+	cin >> a.codice;
+	cout << endl;
+
+	// cleaning
+	cin.clear();   
+	cin.sync();
+
+	cout << "Inserire l'indirizzo dell'appartamento: ";
+	cin.getline(a.indirizzo, 100, '\n');
+	cout << endl;
+
+	cout << "Inserire il comune: ";
+	cin.getline(a.comune, 32, '\n');
+	cout << endl;
+
+	do {
+		cout << "Inserire il numero di vani: ";
+		cin >> a.numero_vani;
+		cout << endl;
+		if (a.numero_vani <= 0)
+			cout << "Attenzione: il numero di vani deve essere un numero positivo" << endl << endl;
+	} while (a.numero_vani <= 0);
+
+	do {
+		cout << "Inserire la superficie (in mq.): ";
+		cin >> a.superficie;
+		cout << endl;
+		if (a.superficie <= 0)
+			cout << "Attenzione: la superficie deve essere un numero positivo" << endl << endl;
+	} while (a.superficie <= 0);
+
+	do {
+		cout << "Inserire il prezzo (in Euro): ";
+		cin >> a.prezzo;
+		cout << endl;
+		if (a.prezzo <= 0)
+			cout << "Attenzione: il prezzo deve essere un numero positivo" << endl << endl;
+	} while (a.prezzo <= 0);
+}
+
+// Inserimento di un appartamento nell'archivio
+int inserisci_appartamento(archivio_appartamenti& arch, appartamento a)
+{
+	if (arch.num_appartamenti < max_appartamenti) {
+		arch.archivio[arch.num_appartamenti] = a;
+		arch.num_appartamenti++;
+		return 1;
+	}
+	return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Funzioni per la stampa dei dati
+//////////////////////////////////////////////////////////////////////////////////////
+
+// Stampa di un appartamento
+void stampa_dati_appartamento(appartamento a)
+{
+	cout << "Codice: " << a.codice << endl;
+	cout << "Indirizzo: " << a.indirizzo << endl;
+	cout << "Comune: " << a.comune << endl;
+	cout << "Numero di vani: " << a.numero_vani << endl;
+	cout << "Superficie: " << a.superficie << endl;
+	cout << "Prezzo: " << a.prezzo << endl << endl;
+}
+
+// Stampa dell'archivio di appartamenti
+void stampa_archivio(const archivio_appartamenti& arch)
+{
+	for (int k = 0; k < arch.num_appartamenti; k++)
+		stampa_dati_appartamento(arch.archivio[k]);
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Funzioni per l'elaborazione dei dati
+//////////////////////////////////////////////////////////////////////////////////////
+
+// Calcolo del prezzo minimo degli appartamenti in vendita
+double calcola_prezzo_minimo(const archivio_appartamenti& arch)
+{
+	if (arch.num_appartamenti > 0) {
+		double minimo = arch.archivio[0].prezzo;
+		for (int k = 0; k < arch.num_appartamenti; k++)
+			if (arch.archivio[k].prezzo < minimo)
+				minimo = arch.archivio[k].prezzo;
+		return minimo;
+	}
+	return 0.0;
+}
+
+// Calcolo del prezzo massimo degli appartamenti in vendita
+double calcola_prezzo_massimo(const archivio_appartamenti& arch)
+{
+	if (arch.num_appartamenti > 0) {
+		double massimo = arch.archivio[0].prezzo;
+		for (int k = 0; k < arch.num_appartamenti; k++)
+			if (arch.archivio[k].prezzo > massimo)
+				massimo = arch.archivio[k].prezzo;
+		return massimo;
+	}
+	return 0.0;
+}
+
+// Calcolo del prezzo medio degli appartamenti in vendita
+double calcola_prezzo_medio(const archivio_appartamenti& arch)
+{
+	if (arch.num_appartamenti > 0) {
+		double somma = 0.0;
+		for (int k = 0; k < arch.num_appartamenti; k++)
+			somma += arch.archivio[k].prezzo;
+		return somma / double(arch.num_appartamenti);
+	}
+	return 0.0;
+}
+
+// Calcolo del prezzo medio degli appartamenti la cui superficie e' compresa tra un valore minimo e un valore massimo
+double calcola_prezzo_medio_superficie(const archivio_appartamenti& arch, double sup_min, double sup_max)
+{
+	if ((arch.num_appartamenti > 0) && (sup_max >= sup_min)) {
+		double somma = 0.0, contatore = 0.0;
+		for (int k = 0; k < arch.num_appartamenti; k++) {
+			if ((arch.archivio[k].superficie >= sup_min) && (arch.archivio[k].superficie <= sup_max)) {
+				somma += arch.archivio[k].prezzo;
+				contatore++;
+			}
+		}
+		if (contatore > 0)
+			return somma / contatore;
+	}
+	return 0.0;
+}
+
+// Calcolo dell'istogramma del numero di vani degli appartamenti in vendita
+void calcola_istogramma_vani(const archivio_appartamenti& arch, int istogramma[9])
+{
+	for (int i = 0; i < 9; i++)
+		istogramma[i] = 0;
+
+	for (int k = 0; k < arch.num_appartamenti; k++) {
+		int numero_vani = arch.archivio[k].numero_vani;
+		if (numero_vani > 8)
+			istogramma[8]++;
+		else
+			istogramma[numero_vani - 1]++;
+	}
+}
+
+// Stampa dell'istogramma del numero di vani degli appartamenti in vendita
+void stampa_istogramma_vani(const int istogramma[9])
+{
+	cout << "Numero di appartamenti per numero di vani:" << endl;
+	cout << "Monolocali (1 vano): " << istogramma[0] << endl;
+	cout << "Bilocali (2 vani): " << istogramma[1] << endl;
+	cout << "Trlocali (3 vani): " << istogramma[2] << endl;
+	for (int k = 3; k < 8; k++)
+		cout << k + 1 << " vani: " << istogramma[k] << endl;
+	cout << "Piu' di 8 vani: " << istogramma[8] << endl;
+	cout << endl;
+}
+
+// Stampa dei dati relativi agli appartamenti con un dato numero di vani
+void stampa_selezione_vani(const archivio_appartamenti& arch, int num_vani)
+{
+	if ((num_vani > 0) && (arch.num_appartamenti > 0)) {
+		int contatore = 0;
+		for (int k = 0; k < arch.num_appartamenti; k++) {
+			if (arch.archivio[k].numero_vani == num_vani) { 
+				stampa_dati_appartamento(arch.archivio[k]);
+				contatore++;
+			}
+		}
+		if (contatore == 0)
+			cout << "Non vi sono appartamenti di " << num_vani << " vani" << endl << endl;
+	}
+	else 
+		cout << "Attenzione: l'archivio e' vuoto o e' stato inserito un valore negativo per il numero di vani." << endl << endl;
+}
+
+// Stampa dei dati relativi agli appartamenti il cui prezzo e' compreso tra un valore minimo e un valore massimo
+void stampa_selezione_prezzo(const archivio_appartamenti& arch, double prezzo_minimo, double prezzo_massimo)
+{
+	if ((arch.num_appartamenti > 0) && (prezzo_massimo >= prezzo_minimo)) {
+		int contatore = 0;
+		for (int k = 0; k < arch.num_appartamenti; k++) {
+			if ((arch.archivio[k].prezzo >= prezzo_minimo) && (arch.archivio[k].prezzo <= prezzo_massimo)) {
+				stampa_dati_appartamento(arch.archivio[k]);
+				contatore++;
+			}
+		}
+		if (contatore == 0)
+			cout << "Non vi sono appartamenti con prezzo compreso tra " << prezzo_minimo << " e " << prezzo_massimo << " Euro" << endl << endl;
+	}
+	else 
+		cout << "Attenzione: l'archivio e' vuoto o e' il prezzo massimo inserito e' inferiore al prezzo minimo." << endl << endl;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Funzione main
+//////////////////////////////////////////////////////////////////////////////////////
+
+int main()
+{
+	archivio_appartamenti arch;
+	inizializza_archivio(arch);
+
+	appartamento a;
+
+	double sup_min, sup_max;
+	double prezzo_medio = 0.0;
+	double prezzo_min, prezzo_max;
+	int numero_vani;
+	int istogramma[9];
+
+	int continua = 1;
+
+	do {
+		cin.clear();   
+		cin.sync();
+
+		int scelta = 0;
+		cout << "Operazioni disponibili: " << endl;
+		cout << "1 - Inserimento di un nuovo appartamento" << endl;
+		cout << "2 - Calcolo del prezzo minimo, medio e massimo" << endl;
+		cout << "3 - Calcolo del prezzo medio degli appartamenti con superficie compresa tra due estremi prefissati" << endl;
+		cout << "4 - Calcolo del numero di appartamenti composti da diversi numeri di vani" << endl;
+		cout << "5 - Stampa degli appartamenti composti da un dato numero di vani" << endl;
+		cout << "6 - Stampa degli appartamenti con prezzo compreso tra due estremi prefissati" << endl;
+		cout << "7 - Esci" << endl << endl;
+		cout << "Selezionare un'opzione: ";
+		cin >> scelta;
+		system("cls");
+
+		switch (scelta) {
+			// Inserimento di un nuovo appartamento
+			case 1:
+				inserisci_dati_appartamento(a);
+				if (inserisci_appartamento(arch, a))
+					cout << "Nuovo appartamento inserito" << endl <<endl;
+				else
+					cout << "E' stato raggiunto il massimo numero di appartamenti. Non si possono inserire ulteriori appartamenti" << endl << endl;
+				system("pause");
+				system("cls");
+				break;
+			// Calcolo del prezzo minimo, medio e massimo
+			case 2:
+				cout << "Prezzo minimo: " << calcola_prezzo_minimo(arch) << endl;
+				cout << "Prezzo medio: " << calcola_prezzo_medio(arch) << endl;
+				cout << "Prezzo massimo: " << calcola_prezzo_massimo(arch) << endl << endl;
+				system("pause");
+				system("cls");
+				break;
+			// Calcolo del prezzo medio degli appartamenti con superficie compresa tra due estremi prefissati
+			case 3:
+				cout << "Inserire la superficie minima: ";
+				cin >> sup_min;
+				cout << "Inserire la superficie massima: ";
+				cin >> sup_max;
+				system("cls");
+				prezzo_medio = calcola_prezzo_medio_superficie(arch, sup_min, sup_max);
+				cout << "Prezzo medio degli appartamenti con superficie compresa tra " << sup_min << " e " << sup_max << " mq: " << prezzo_medio << endl << endl;
+				system("pause");
+				system("cls");
+				break;
+			// Calcolo del numero di appartamenti composti da diversi numeri di vani
+			case 4:
+				calcola_istogramma_vani(arch, istogramma);
+				stampa_istogramma_vani(istogramma);
+				system("pause");
+				system("cls");
+				break;
+			// Stampa degli appartamenti composti da un dato numero di vani
+			case 5:
+				cout << "Inserire un numero di vani: ";
+				cin >> numero_vani;
+				system("cls");
+				stampa_selezione_vani(arch, numero_vani);
+				system("pause");
+				system("cls");
+				break;
+			// Stampa dei dati relativi agli appartamenti il cui prezzo e' compreso tra un valore minimo e un valore massimo
+			case 6:
+				cout << "Inserire il prezzo minimo: ";
+				cin >> prezzo_min;
+				cout << "Inserire il prezzo massimo: ";
+				cin >> prezzo_max;
+				system("cls");
+				stampa_selezione_prezzo(arch, prezzo_min, prezzo_max);
+				system("pause");
+				system("cls");
+				break;
+			// Uscita dal programma
+			case 7:
+				continua = 0;
+				break;
+			default:
+				system("cls");
+				cout << "Opzione non disponibile: inserire un numero tra 1 e 7" << endl << endl;
+		}
+
+	} while (continua);
+		
+	return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+``` 
+
+**Assignement 6**: 
+Write a C ++ program that processes information relating to apartments for sale at a real estate agency. The following information will be stored for each apartment: the identification code (an integer), the address (a string of characters for the street and one for the municipality), number of rooms, the surface in square meters, the price. The number of apartments for sale does not exceed 100 units. The collection of apartments for sale can be created as a suitably initialized array of apartments. The program must provide the following functions: 1.Input data by the user from standard input, verifying the validity of the same (i.e. number of rooms, surface and price must be positive numbers); 2.Calculation and video printing of the average, minimum and maximum price of the apartments for sale; 3.Calculation and video printing of the average price of the apartments whose surface is between a minimum and a maximum value entered by the user; 4.Calculation and screen printing of the number of one-room apartments (n = 1), of two-room apartments (n = 2), of three-room apartments (n = 3), of apartments of 4, 5, 6, 7 and 8 rooms and those with more than 8 rooms. 5.Print on the screen of the information relating to all the apartments of nvani, with the user entering it; 6.Print on the video of the information relating to all the apartments whose price is between a val minimum hours and a maximum value entered by the user. The main function will allow the user to select one of the features provided by the program and execute the corresponding function.
+
+**Solution**:
+In progress...
+
+
+
+
+
+
+### [E6][A5] 
+```cpp
+
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+``` 
+
+**Assignement 2**: 
+
 
 **Solution**:
 
 
-  
-   
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br> 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br> 
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-## Lessons code 2/12/2020
-In progress section...
-
-## Functions
-In progress section...
 
 # Bash Basic Commands
 * `ls` --> it shows the list of files in the current directory
