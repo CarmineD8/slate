@@ -331,10 +331,7 @@
                     <a href="#practical-examples-5" class="toc-h2 toc-link" data-title="Practical examples - 5">Practical examples - 5</a>
                   </li>
                   <li>
-                    <a href="#lessons-code-2-12-2020" class="toc-h2 toc-link" data-title="Lessons code 2/12/2020">Lessons code 2/12/2020</a>
-                  </li>
-                  <li>
-                    <a href="#functions" class="toc-h2 toc-link" data-title="Functions">Functions</a>
+                    <a href="#practical-examples-6" class="toc-h2 toc-link" data-title="Practical examples - 6">Practical examples - 6</a>
                   </li>
               </ul>
           </li>
@@ -3841,13 +3838,862 @@ This program asks user to enter the size of the matrix (rows and columns).</p>
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br></p>
-<h3 id='e5-a4'>[E5][A4]</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+<h2 id='practical-examples-6'>Practical examples - 6</h2>
+<p>In this section, you&#39;ll learn about structures in C++ programming; what is it, how to define it and use it in your program.</p>
+
+<p><strong>Structure</strong> is a collection of variables of different data types under a single name. </p>
+<h3 id='e6-a1'>[E6][A1]</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 </span>
+<span class="k">struct</span> <span class="nc">Person</span>
+<span class="p">{</span>
+  <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
+  <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">salary</span><span class="p">;</span>
+<span class="p">};</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
+  <span class="n">Person</span> <span class="n">p1</span><span class="p">;</span>
 
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter Full name: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter age: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">age</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter salary: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">salary</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">Displaying Information."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Name: "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">"Age: "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">age</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Salary: "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">salary</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">Full</span> <span class="n">name</span><span class="o">:</span> <span class="n">Magdalena</span> <span class="n">Dankova</span>
+<span class="n">Enter</span> <span class="n">age</span><span class="o">:</span> <span class="mi">27</span>
+<span class="n">Enter</span> <span class="n">salary</span><span class="o">:</span> <span class="mf">1024.4</span>
+
+<span class="n">Displaying</span> <span class="n">Information</span><span class="p">.</span>
+<span class="n">Name</span><span class="o">:</span> <span class="n">Magdalena</span> <span class="n">Dankova</span>
+<span class="n">Age</span><span class="o">:</span> <span class="mi">27</span>
+<span class="n">Salary</span><span class="o">:</span> <span class="mf">1024.4</span>
+</code></pre></div>
+<p><strong>Assignement 1</strong>: 
+C++ Program to assign data to members of a structure variable and display it.</p>
+
+<p><strong>Solution</strong>:
+The struct keyword defines a structure type followed by an identifier (name of the structure).
+Then inside the curly braces, you can declare one or more members (declare variables inside curly braces) of that structure.
+When a structure is created, no memory is allocated.
+Here a structure <code>Person</code> is declared which has three members <code>name</code>, <code>age</code> and <code>salary</code>.
+Once you declare a structure person as above. You can define a structure variable.
+When structure variable is defined, only then the required memory is allocated by the compiler.
+The members of structure variable is accessed using a <code>dot (.)</code> operator.
+Inside <code>main()</code> function, a structure variable <code>p1</code> is defined. Then, the user is asked to enter information and data entered by user is displayed.</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e6-a2-passing-structure-to-function-in-c'>[E6][A2] Passing structure to function in C++</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="k">struct</span> <span class="nc">Person</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">salary</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">displayData</span><span class="p">(</span><span class="n">Person</span><span class="p">);</span>   <span class="c1">// Function declaration</span>
+
+<span class="kt">void</span> <span class="nf">displayData</span><span class="p">(</span><span class="n">Person</span> <span class="n">p</span><span class="p">)</span> <span class="c1">// Function definition</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">Displaying Information."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Name: "</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">"Age: "</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">age</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Salary: "</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">salary</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">Person</span> <span class="n">p</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter Full name: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter age: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">age</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter salary: "</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">salary</span><span class="p">;</span>
+
+  <span class="c1">// Function call with structure variable as an argument</span>
+  <span class="n">displayData</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Enter</span> <span class="n">Full</span> <span class="n">name</span><span class="o">:</span> <span class="n">Bill</span> <span class="n">Jobs</span>
+<span class="n">Enter</span> <span class="n">age</span><span class="o">:</span> <span class="mi">55</span>
+<span class="n">Enter</span> <span class="n">salary</span><span class="o">:</span> <span class="mf">34233.4</span>
+
+<span class="n">Displaying</span> <span class="n">Information</span><span class="p">.</span>
+<span class="n">Name</span><span class="o">:</span> <span class="n">Bill</span> <span class="n">Jobs</span>
+<span class="n">Age</span><span class="o">:</span> <span class="mi">55</span>
+<span class="n">Salary</span><span class="o">:</span> <span class="mf">34233.4</span>
+</code></pre></div>
+<p><strong>Assignement 2</strong>: 
+Structure variables can be passed to a function and returned in a similar way as normal arguments.</p>
+
+<p><strong>Solution</strong>:
+In this program, user is asked to enter the name, age and salary of a <code>Person</code> inside <code>main()</code> function.
+Then, the structure variable <code>p</code> is to passed to a function using <code>displayData()</code> function.
+The return type of <code>displayData()</code> is void and a single argument of type structure <code>Person</code> is passed.
+Then the members of structure <code>p</code> is displayed from this function.</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e6-a3-input-output-with-files'>[E6][A3] Input/output with files</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="c1">// basic file operations</span>
+<span class="cp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="n">ofstream</span> <span class="n">myfile</span><span class="p">;</span>
+  <span class="n">myfile</span><span class="p">.</span><span class="n">open</span> <span class="p">(</span><span class="s">"example.txt"</span><span class="p">);</span>
+  <span class="n">myfile</span> <span class="o">&lt;&lt;</span> <span class="s">"Writing this to a file.</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="n">myfile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="p">[</span><span class="n">file</span> <span class="n">example</span><span class="p">.</span><span class="n">txt</span><span class="p">]</span>
+<span class="n">Writing</span> <span class="k">this</span> <span class="n">to</span> <span class="n">a</span> <span class="n">file</span><span class="p">.</span>
+</code></pre></div>
+<p><strong>Assignement 3</strong>: 
+C++ provides the following classes to perform output and input of characters to/from files:</p>
+
+<ul>
+<li>ofstream: Stream class to write on files</li>
+<li>ifstream: Stream class to read from files</li>
+<li>fstream: Stream class to both read and write from/to files.</li>
+</ul>
+
+<p>These classes are derived directly or indirectly from the classes istream and ostream.</p>
+
+<p><strong>Solution</strong>:
+This code creates a file called example.txt and inserts a sentence into it in the same way we are used to do with cout, but using the file stream myfile instead.
+The first operation generally performed on an object of one of these classes is to associate it to a real file. This procedure is known as to open a file. An open file is represented within a program by a stream (i.e., an object of one of these classes) and any input or output operation performed on this stream object will be applied to the physical file associated to it.</p>
+
+<p>In order to open a file with a stream object we use its member function open:</p>
+
+<p>open (filename, mode);</p>
+
+<p>Where filename is a string representing the name of the file to be opened, and mode is an optional parameter.
+Each of the open member functions of classes ofstream, ifstream and fstream has a default mode that is used if the file is opened without a second argument: 
+class | default mode 
+----- | ------------
+ofstream | ios::out
+ifstream | ios::in
+fstream | ios::in ios::out</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e6-a4'>[E6][A4]</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Strutture dati</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="c1">// Costanti</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">max_esami</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">max_lunghezza_stringhe</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+
+<span class="c1">// Struttura per la memorizzazione dei dati relativi a un esame</span>
+<span class="k">struct</span> <span class="nc">esame</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">nome_studente</span><span class="p">[</span><span class="n">max_lunghezza_stringhe</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">cognome_studente</span><span class="p">[</span><span class="n">max_lunghezza_stringhe</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">numero_matricola</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">voto</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// Struttura per la memorizzazione degli esami della sessione</span>
+<span class="k">struct</span> <span class="nc">sessione_di_esami</span> <span class="p">{</span>
+    <span class="n">esame</span> <span class="n">archivio_esami</span><span class="p">[</span><span class="n">max_esami</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">num_esami</span><span class="p">;</span>
+<span class="p">};</span>
+
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Funzioni per l'inizializzazione delle strutture dati</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="c1">// Inizializzazione di un esame</span>
+<span class="kt">void</span> <span class="nf">inizializza_esame</span><span class="p">(</span><span class="n">esame</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">nome_studente</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>    <span class="c1">//Inizializza e.Nome con la stringa vuota ""</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">cognome_studente</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+    <span class="n">e</span><span class="p">.</span><span class="n">numero_matricola</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">e</span><span class="p">.</span><span class="n">voto</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Inizializzazione di una sessione di esami</span>
+<span class="kt">void</span> <span class="nf">inizializza_sessione_esami</span><span class="p">(</span><span class="n">sessione_di_esami</span><span class="o">&amp;</span> <span class="n">sessione</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">max_esami</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">inizializza_esame</span><span class="p">(</span><span class="n">sessione</span><span class="p">.</span><span class="n">archivio_esami</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span>
+
+    <span class="n">sessione</span><span class="p">.</span><span class="n">num_esami</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Funzioni per l'inserimento dei dati</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="c1">// Inserimento dei dati di un esame</span>
+<span class="kt">void</span> <span class="nf">inserisci_dati_esame</span><span class="p">(</span><span class="n">esame</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// cleaning</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>   
+    <span class="n">cin</span><span class="p">.</span><span class="n">sync</span><span class="p">();</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il nome dello studente: "</span><span class="p">;</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">nome_studente</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="sc">'\n'</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il cognome dello studente: "</span><span class="p">;</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">cognome_studente</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="sc">'\n'</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il numero di matricola: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">e</span><span class="p">.</span><span class="n">numero_matricola</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il voto di esame: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">e</span><span class="p">.</span><span class="n">voto</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">e</span><span class="p">.</span><span class="n">voto</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">voto</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">))</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Attenzione: il voto deve essere compreso tra 18 e 30."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">((</span><span class="n">e</span><span class="p">.</span><span class="n">voto</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">voto</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="c1">// Inserimento di un esame in una sessione</span>
+<span class="c1">// Ritorna 1 se l'inserimento è riuscito, 0 altrimenti</span>
+<span class="kt">int</span> <span class="nf">inserisci_esame</span><span class="p">(</span><span class="n">sessione_di_esami</span><span class="o">&amp;</span> <span class="n">sessione</span><span class="p">,</span> <span class="n">esame</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">sessione</span><span class="p">.</span><span class="n">num_esami</span> <span class="o">&lt;</span> <span class="n">max_esami</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">sessione</span><span class="p">.</span><span class="n">archivio_esami</span><span class="p">[</span><span class="n">sessione</span><span class="p">.</span><span class="n">num_esami</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
+        <span class="n">sessione</span><span class="p">.</span><span class="n">num_esami</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Funzioni per la stampa dei dati</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="c1">// Stampa di un esame</span>
+<span class="kt">void</span> <span class="nf">stampa_dati_esame</span><span class="p">(</span><span class="n">esame</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Nome: "</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">nome_studente</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Cognome: "</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">cognome_studente</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Numero di matricola: "</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">numero_matricola</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Voto di esame: "</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">voto</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Stampa di una sessione di esami</span>
+<span class="c1">// const significa che s (passato per riferimento) non verrà modificato dalla funzione</span>
+<span class="c1">// Passiamo s per riferimento per evitare il passaggio per valore che implica</span>
+<span class="c1">// la copia di TUTTA la struttura dati, che può essere uno spreco di tempo(e memoria)!</span>
+<span class="kt">void</span> <span class="nf">stampa_sessione</span><span class="p">(</span><span class="k">const</span> <span class="n">sessione_di_esami</span><span class="o">&amp;</span> <span class="n">sessione</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">sessione</span><span class="p">.</span><span class="n">num_esami</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">stampa_dati_esame</span><span class="p">(</span><span class="n">sessione</span><span class="p">.</span><span class="n">archivio_esami</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span>
+<span class="p">}</span>
+
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Funzioni per l'elaborazione dei dati</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="c1">// Calcolo della media dei voti di una sessione</span>
+<span class="kt">double</span> <span class="nf">calcola_media_voti</span><span class="p">(</span><span class="k">const</span> <span class="n">sessione_di_esami</span><span class="o">&amp;</span> <span class="n">sessione</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">sessione</span><span class="p">.</span><span class="n">num_esami</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">somma</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">sessione</span><span class="p">.</span><span class="n">num_esami</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">somma</span> <span class="o">+=</span> <span class="n">sessione</span><span class="p">.</span><span class="n">archivio_esami</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">voto</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">somma</span> <span class="o">/</span> <span class="n">sessione</span><span class="p">.</span><span class="n">num_esami</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Calcolo del numero di studenti con voto maggiore di n</span>
+<span class="kt">int</span> <span class="nf">calcola_num_studenti</span><span class="p">(</span><span class="k">const</span> <span class="n">sessione_di_esami</span><span class="o">&amp;</span> <span class="n">sessione</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">contatore</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">sessione</span><span class="p">.</span><span class="n">num_esami</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">sessione</span><span class="p">.</span><span class="n">archivio_esami</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">voto</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span> 
+            <span class="n">contatore</span><span class="o">++</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">contatore</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Calcolo dell'istogramma dei voti di esame di una sessione</span>
+<span class="kt">void</span> <span class="nf">calcola_istogramma</span><span class="p">(</span><span class="k">const</span> <span class="n">sessione_di_esami</span><span class="o">&amp;</span> <span class="n">sessione</span><span class="p">,</span> <span class="kt">int</span> <span class="n">istogramma</span><span class="p">[</span><span class="mi">13</span><span class="p">])</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">istogramma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">sessione</span><span class="p">.</span><span class="n">num_esami</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">indice</span> <span class="o">=</span> <span class="n">sessione</span><span class="p">.</span><span class="n">archivio_esami</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">voto</span> <span class="o">-</span> <span class="mi">18</span><span class="p">;</span>  <span class="c1">// Riporta l'indice da 0 a 13 in base al voto</span>
+        <span class="n">istogramma</span><span class="p">[</span><span class="n">indice</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Funzione main</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Sessione di esami</span>
+    <span class="n">sessione_di_esami</span> <span class="n">sessione</span><span class="p">;</span>
+    <span class="n">inizializza_sessione_esami</span><span class="p">(</span><span class="n">sessione</span><span class="p">);</span>
+
+    <span class="c1">// Variabili ausiliarie per l'elaborazione dati</span>
+    <span class="n">esame</span> <span class="n">e</span><span class="p">;</span>
+    <span class="n">inizializza_esame</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">media</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">soglia</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">num_studenti</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">istogramma</span><span class="p">[</span><span class="mi">13</span><span class="p">];</span>
+
+    <span class="c1">// Variabile per la condizione di terminazione del programma</span>
+    <span class="kt">int</span> <span class="n">continua</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// Pulizia dei flussi in ingresso</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>   
+    <span class="n">cin</span><span class="p">.</span><span class="n">sync</span><span class="p">();</span>
+
+    <span class="k">do</span> <span class="p">{</span>
+
+        <span class="c1">// Stampa del menu delle operazioni diponibili</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Operazioni disponibili: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"1 - Inserire un nuovo esame"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"2 - Media dei voti conseguiti"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"3 - Numero di studenti con voto superiore ad una specifica soglia"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"4 - Istogramma dei voti conseguiti"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"5 - Esci"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Selezionare un'opzione: "</span><span class="p">;</span>
+
+        <span class="c1">// Inserimento della scelta da parte dell'utente</span>
+        <span class="kt">int</span> <span class="n">scelta</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">scelta</span><span class="p">;</span>
+        <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+
+        <span class="c1">// Esecuzione dell'operazione richiesta</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">scelta</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>         <span class="c1">// Inserimento di un nuovo esame</span>
+                <span class="n">inserisci_dati_esame</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">inserisci_esame</span><span class="p">(</span><span class="n">sessione</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span> 
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Nuovo esame inserito"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">else</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"E' stato raggiunto il massimo numero di esami per sessione. Non si possono inserire ulteriori esami"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"pause"</span><span class="p">);</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>         <span class="c1">// Calcolo della media dei voti conseguiti</span>
+                <span class="n">media</span> <span class="o">=</span> <span class="n">calcola_media_voti</span><span class="p">(</span><span class="n">sessione</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La media dei voti conseguiti e': "</span> <span class="o">&lt;&lt;</span> <span class="n">media</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"pause"</span><span class="p">);</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>         <span class="c1">// Calcolo del numero di studenti che hanno conseguito un voto superiore ad una data soglia</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il voto di soglia: "</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">soglia</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">num_studenti</span> <span class="o">=</span> <span class="n">calcola_num_studenti</span><span class="p">(</span><span class="n">sessione</span><span class="p">,</span> <span class="n">soglia</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num_studenti</span> <span class="o">&lt;&lt;</span> <span class="s">" studenti hanno conseguito un voto maggiore o uguale a "</span> <span class="o">&lt;&lt;</span> <span class="n">soglia</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"pause"</span><span class="p">);</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>     <span class="c1">// Calcolo dell'istogramma dei voti conseguiti</span>
+                <span class="n">calcola_istogramma</span><span class="p">(</span><span class="n">sessione</span><span class="p">,</span> <span class="n">istogramma</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Istogramma dei voti conseguiti:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">18</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span> <span class="o">&lt;&lt;</span> <span class="n">istogramma</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"pause"</span><span class="p">);</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">5</span><span class="p">:</span>     <span class="c1">// Uscita dal programma</span>
+                <span class="n">continua</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="nl">default:</span>    <span class="c1">// Opzione non disponibile</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Opzione non disponibile: inserire un numero tra 1 e 6"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">continua</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Student</span> <span class="n">name</span><span class="o">:</span> <span class="n">Anthony</span> 
+<span class="n">Student</span> <span class="n">surname</span><span class="o">:</span> <span class="n">Hopkins</span>
+<span class="n">Student_id</span><span class="o">:</span> <span class="mi">12345</span>
+<span class="n">Rank</span><span class="o">:</span> <span class="mi">28</span>
+</code></pre></div>
+<p><strong>Assignement 4</strong>: 
+Write a c++ programs to gather data about the exams period of a specific university course. For each exam the program stores the name and the surname of the student, his/her student id and the exam mark. The exams period has 100 exams at most. The program should provide the following functions: A function to enter student data, a function to compute and print the mean of the marks, a function to compute the number of students that have passed an exam with a grade above n, with n specified from the user; a function to compute and print the hystogram of exams marks (occurrency of each mark).
+The main function will allow the user to select one of the features provided by the program and execute the corresponding function.</p>
+
+<p><strong>Solution</strong>:
+In progress....</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e6-a5'>[E6][A5]</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+<span class="cp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">31</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="kt">double</span> <span class="nf">totaleMerce</span><span class="p">(</span><span class="kt">double</span> <span class="n">T</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">])</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">numTreni</span><span class="p">(</span><span class="kt">double</span> <span class="n">T</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">double</span> <span class="nf">maxTreno</span><span class="p">(</span><span class="kt">double</span> <span class="n">T</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">],</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">g</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">s</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+                <span class="n">sum</span> <span class="o">+=</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">count</span><span class="p">;</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">sum</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">Treni</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="n">fstream</span> <span class="n">fin</span><span class="p">;</span>
+    <span class="n">fin</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">"Dati.txt"</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">fin</span> <span class="o">&gt;&gt;</span> <span class="n">Treni</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+    <span class="n">fin</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Totale merce movimentata: "</span> <span class="o">&lt;&lt;</span> <span class="n">totaleMerce</span><span class="p">(</span><span class="n">Treni</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Numero di treni: "</span> <span class="o">&lt;&lt;</span> <span class="n">numTreni</span><span class="p">(</span><span class="n">Treni</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">giorno</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">nVagoni</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">merce</span> <span class="o">=</span> <span class="n">maxTreno</span><span class="p">(</span><span class="n">Treni</span><span class="p">,</span> <span class="n">nVagoni</span><span class="p">,</span> <span class="n">giorno</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Massimo numero di vagoni: "</span> <span class="o">&lt;&lt;</span> <span class="n">nVagoni</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Giorno del treno con massimo numero di vagoni: "</span> <span class="o">&lt;&lt;</span> <span class="n">giorno</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Merce del treno con massimo numero di vagoni: "</span> <span class="o">&lt;&lt;</span> <span class="n">merce</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
 </code></pre></div>
@@ -3857,11 +4703,88 @@ This program asks user to enter the size of the matrix (rows and columns).</p>
 <div class="highlight"><pre class="highlight c tab-c"><code>
 </code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
 </code></pre></div>
-<p><strong>Assignement 4</strong>: </p>
+<p><strong>Assignement 5</strong>: 
+A shipping agency organizes almost daily the movement of goods between two cities connected by a railway. The goods are therefore placed on a train that can consist of a maximum of 10 wagons. To represent the data relating to this activity over the course of a month, a matrix T of real numbers of 31 rows and 10 columns can be used, where the rows represent the days of a month and the columns the wagons of the train. The Tij element of the matrix represents the number of tons of goods loaded on a specific wagon (the j-th wagon) on a specific day (the i-th day). If the train on a certain day was made up of less than 10 wagons, the remaining elements of the corresponding row of the matrix T are set to zero. If on a certain day the train
+not started, all the elements of the corresponding row of the matrix T are set to zero (in the same way months that have at least 31 days are managed). To process this data, develop the following in C ++ language: 1.The totalMerceche function receives as a parameter the matrix T described above and returns as a return value the total number of tons of goods handled during the month (a real number). The function will then calculate and return the sum of the values ​​of the elements of the matrix T. For simplicity, assume that the values ​​assumed by the elements of the matrix T are always valid. 2 The numTrenic function receives as a parameter the matrix T described above and returns as a return value, the total number of trains that traveled during the month (an integer). The function will then calculate and return the number of rows of the matrix T that contain at least one non-zero element. For the sake of simplicity, assume that the values ​​assumed by the elements of the matrix T are always valid. 3 The maxTren function, which receives the matrix T described above as a parameter, has as output parameters (i.e. by reference) two integers v and g and returns the value of return a real number. The function assigns to v the number of wagons of the train composed of the largest number of wagons, assigns the index of the day on which that train traveled and returns as a return value the number of tons of goods that this train has transported. is more than one train with the same maximum number of wagons, the function returns the data of the train that traveled first (i.e. the first that is found by scanning the rows of the matrix T from the first to the last). For the sake of simplicity, assume that the values ​​assumed by the elements of the matrix T are always valid. 4. A program that operates as follows: declares and initializes to zero an array of real numbers of 31 rows and 10 columns organized as described above; open the Data.txt file for reading: the file consists of 31 lines, each containing 10 real numbers (for simplicity, suppose that the file exists and that its content is always valid) scan the file and assign to each element of the Trains matrix the corresponding value contained in the file; call the function totalMerce and print its return value on the screen; you call the numTrenie function and print its return value on the screen; you call the maxTreno function and print its return value and the values ​​assumed by the parameters passed by reference after calling the function.</p>
 
-<p><strong>Solution</strong>:</p>
+<p><strong>Solution</strong>:
+In progress</p>
 
 <p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
 <br>
 <br>
 <br>
@@ -3885,10 +4808,400 @@ This program asks user to enter the size of the matrix (rows and columns).</p>
 <br>
 <br>
 <br></p>
-<h2 id='lessons-code-2-12-2020'>Lessons code 2/12/2020</h2>
-<p>In progress section...</p>
-<h2 id='functions'>Functions</h2>
-<p>In progress section...</p>
+<h3 id='e6-a6'>[E6][A6]</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Strutture dati</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="c1">// Costanti</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">max_appartamenti</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+<span class="c1">// Struttura per la memorizzazione dei dati relativi a un appartamento</span>
+<span class="k">struct</span> <span class="nc">appartamento</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">codice</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">indirizzo</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">comune</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">numero_vani</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">superficie</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">prezzo</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// Struttura per la memorizzazione degli appartamenti di una agenzia immobiliare</span>
+<span class="k">struct</span> <span class="nc">archivio_appartamenti</span> <span class="p">{</span>
+    <span class="n">appartamento</span> <span class="n">archivio</span><span class="p">[</span><span class="n">max_appartamenti</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">num_appartamenti</span><span class="p">;</span>
+<span class="p">};</span>
+
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Funzioni per l'inizializzazione delle strutture dati</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="c1">// Inizializzazione di un appartamento</span>
+<span class="kt">void</span> <span class="nf">inizializza_appartamento</span><span class="p">(</span><span class="n">appartamento</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">codice</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">indirizzo</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">comune</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">numero_vani</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">superficie</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">prezzo</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Inizializzazione dell'archivio di appartamenti</span>
+<span class="kt">void</span> <span class="nf">inizializza_archivio</span><span class="p">(</span><span class="n">archivio_appartamenti</span><span class="o">&amp;</span> <span class="n">arch</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">max_appartamenti</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">inizializza_appartamento</span><span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span>
+
+    <span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Funzioni per l'inserimento dei dati</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="c1">// Inserimento dei dati di un appartamento</span>
+<span class="kt">void</span> <span class="nf">inserisci_dati_appartamento</span><span class="p">(</span><span class="n">appartamento</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il codice dell'appartamento: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">codice</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="c1">// cleaning</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>   
+    <span class="n">cin</span><span class="p">.</span><span class="n">sync</span><span class="p">();</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire l'indirizzo dell'appartamento: "</span><span class="p">;</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">indirizzo</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="sc">'\n'</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il comune: "</span><span class="p">;</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">comune</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="sc">'\n'</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il numero di vani: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">numero_vani</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">numero_vani</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Attenzione: il numero di vani deve essere un numero positivo"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">numero_vani</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire la superficie (in mq.): "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">superficie</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">superficie</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Attenzione: la superficie deve essere un numero positivo"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">superficie</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il prezzo (in Euro): "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">prezzo</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">prezzo</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Attenzione: il prezzo deve essere un numero positivo"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">prezzo</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Inserimento di un appartamento nell'archivio</span>
+<span class="kt">int</span> <span class="nf">inserisci_appartamento</span><span class="p">(</span><span class="n">archivio_appartamenti</span><span class="o">&amp;</span> <span class="n">arch</span><span class="p">,</span> <span class="n">appartamento</span> <span class="n">a</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span> <span class="o">&lt;</span> <span class="n">max_appartamenti</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+        <span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Funzioni per la stampa dei dati</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="c1">// Stampa di un appartamento</span>
+<span class="kt">void</span> <span class="nf">stampa_dati_appartamento</span><span class="p">(</span><span class="n">appartamento</span> <span class="n">a</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Codice: "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">codice</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Indirizzo: "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">indirizzo</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Comune: "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">comune</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Numero di vani: "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">numero_vani</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Superficie: "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">superficie</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Prezzo: "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">prezzo</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Stampa dell'archivio di appartamenti</span>
+<span class="kt">void</span> <span class="nf">stampa_archivio</span><span class="p">(</span><span class="k">const</span> <span class="n">archivio_appartamenti</span><span class="o">&amp;</span> <span class="n">arch</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">stampa_dati_appartamento</span><span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span>
+<span class="p">}</span>
+
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Funzioni per l'elaborazione dei dati</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="c1">// Calcolo del prezzo minimo degli appartamenti in vendita</span>
+<span class="kt">double</span> <span class="nf">calcola_prezzo_minimo</span><span class="p">(</span><span class="k">const</span> <span class="n">archivio_appartamenti</span><span class="o">&amp;</span> <span class="n">arch</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">minimo</span> <span class="o">=</span> <span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">prezzo</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">prezzo</span> <span class="o">&lt;</span> <span class="n">minimo</span><span class="p">)</span>
+                <span class="n">minimo</span> <span class="o">=</span> <span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">prezzo</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">minimo</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Calcolo del prezzo massimo degli appartamenti in vendita</span>
+<span class="kt">double</span> <span class="nf">calcola_prezzo_massimo</span><span class="p">(</span><span class="k">const</span> <span class="n">archivio_appartamenti</span><span class="o">&amp;</span> <span class="n">arch</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">massimo</span> <span class="o">=</span> <span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">prezzo</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">prezzo</span> <span class="o">&gt;</span> <span class="n">massimo</span><span class="p">)</span>
+                <span class="n">massimo</span> <span class="o">=</span> <span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">prezzo</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">massimo</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Calcolo del prezzo medio degli appartamenti in vendita</span>
+<span class="kt">double</span> <span class="nf">calcola_prezzo_medio</span><span class="p">(</span><span class="k">const</span> <span class="n">archivio_appartamenti</span><span class="o">&amp;</span> <span class="n">arch</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">somma</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">somma</span> <span class="o">+=</span> <span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">prezzo</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">somma</span> <span class="o">/</span> <span class="kt">double</span><span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Calcolo del prezzo medio degli appartamenti la cui superficie e' compresa tra un valore minimo e un valore massimo</span>
+<span class="kt">double</span> <span class="nf">calcola_prezzo_medio_superficie</span><span class="p">(</span><span class="k">const</span> <span class="n">archivio_appartamenti</span><span class="o">&amp;</span> <span class="n">arch</span><span class="p">,</span> <span class="kt">double</span> <span class="n">sup_min</span><span class="p">,</span> <span class="kt">double</span> <span class="n">sup_max</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">sup_max</span> <span class="o">&gt;=</span> <span class="n">sup_min</span><span class="p">))</span> <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">somma</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">contatore</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">superficie</span> <span class="o">&gt;=</span> <span class="n">sup_min</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">superficie</span> <span class="o">&lt;=</span> <span class="n">sup_max</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">somma</span> <span class="o">+=</span> <span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">prezzo</span><span class="p">;</span>
+                <span class="n">contatore</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">contatore</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">somma</span> <span class="o">/</span> <span class="n">contatore</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Calcolo dell'istogramma del numero di vani degli appartamenti in vendita</span>
+<span class="kt">void</span> <span class="nf">calcola_istogramma_vani</span><span class="p">(</span><span class="k">const</span> <span class="n">archivio_appartamenti</span><span class="o">&amp;</span> <span class="n">arch</span><span class="p">,</span> <span class="kt">int</span> <span class="n">istogramma</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">istogramma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">numero_vani</span> <span class="o">=</span> <span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">numero_vani</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">numero_vani</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">)</span>
+            <span class="n">istogramma</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">istogramma</span><span class="p">[</span><span class="n">numero_vani</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Stampa dell'istogramma del numero di vani degli appartamenti in vendita</span>
+<span class="kt">void</span> <span class="nf">stampa_istogramma_vani</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">istogramma</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+<span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Numero di appartamenti per numero di vani:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Monolocali (1 vano): "</span> <span class="o">&lt;&lt;</span> <span class="n">istogramma</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Bilocali (2 vani): "</span> <span class="o">&lt;&lt;</span> <span class="n">istogramma</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Trlocali (3 vani): "</span> <span class="o">&lt;&lt;</span> <span class="n">istogramma</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">" vani: "</span> <span class="o">&lt;&lt;</span> <span class="n">istogramma</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Piu' di 8 vani: "</span> <span class="o">&lt;&lt;</span> <span class="n">istogramma</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Stampa dei dati relativi agli appartamenti con un dato numero di vani</span>
+<span class="kt">void</span> <span class="nf">stampa_selezione_vani</span><span class="p">(</span><span class="k">const</span> <span class="n">archivio_appartamenti</span><span class="o">&amp;</span> <span class="n">arch</span><span class="p">,</span> <span class="kt">int</span> <span class="n">num_vani</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">num_vani</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">contatore</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">numero_vani</span> <span class="o">==</span> <span class="n">num_vani</span><span class="p">)</span> <span class="p">{</span> 
+                <span class="n">stampa_dati_appartamento</span><span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span>
+                <span class="n">contatore</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">contatore</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Non vi sono appartamenti di "</span> <span class="o">&lt;&lt;</span> <span class="n">num_vani</span> <span class="o">&lt;&lt;</span> <span class="s">" vani"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> 
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Attenzione: l'archivio e' vuoto o e' stato inserito un valore negativo per il numero di vani."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Stampa dei dati relativi agli appartamenti il cui prezzo e' compreso tra un valore minimo e un valore massimo</span>
+<span class="kt">void</span> <span class="nf">stampa_selezione_prezzo</span><span class="p">(</span><span class="k">const</span> <span class="n">archivio_appartamenti</span><span class="o">&amp;</span> <span class="n">arch</span><span class="p">,</span> <span class="kt">double</span> <span class="n">prezzo_minimo</span><span class="p">,</span> <span class="kt">double</span> <span class="n">prezzo_massimo</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">prezzo_massimo</span> <span class="o">&gt;=</span> <span class="n">prezzo_minimo</span><span class="p">))</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">contatore</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">arch</span><span class="p">.</span><span class="n">num_appartamenti</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">prezzo</span> <span class="o">&gt;=</span> <span class="n">prezzo_minimo</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">prezzo</span> <span class="o">&lt;=</span> <span class="n">prezzo_massimo</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">stampa_dati_appartamento</span><span class="p">(</span><span class="n">arch</span><span class="p">.</span><span class="n">archivio</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span>
+                <span class="n">contatore</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">contatore</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Non vi sono appartamenti con prezzo compreso tra "</span> <span class="o">&lt;&lt;</span> <span class="n">prezzo_minimo</span> <span class="o">&lt;&lt;</span> <span class="s">" e "</span> <span class="o">&lt;&lt;</span> <span class="n">prezzo_massimo</span> <span class="o">&lt;&lt;</span> <span class="s">" Euro"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> 
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Attenzione: l'archivio e' vuoto o e' il prezzo massimo inserito e' inferiore al prezzo minimo."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Funzione main</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">archivio_appartamenti</span> <span class="n">arch</span><span class="p">;</span>
+    <span class="n">inizializza_archivio</span><span class="p">(</span><span class="n">arch</span><span class="p">);</span>
+
+    <span class="n">appartamento</span> <span class="n">a</span><span class="p">;</span>
+
+    <span class="kt">double</span> <span class="n">sup_min</span><span class="p">,</span> <span class="n">sup_max</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">prezzo_medio</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">prezzo_min</span><span class="p">,</span> <span class="n">prezzo_max</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">numero_vani</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">istogramma</span><span class="p">[</span><span class="mi">9</span><span class="p">];</span>
+
+    <span class="kt">int</span> <span class="n">continua</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cin</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>   
+        <span class="n">cin</span><span class="p">.</span><span class="n">sync</span><span class="p">();</span>
+
+        <span class="kt">int</span> <span class="n">scelta</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Operazioni disponibili: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"1 - Inserimento di un nuovo appartamento"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"2 - Calcolo del prezzo minimo, medio e massimo"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"3 - Calcolo del prezzo medio degli appartamenti con superficie compresa tra due estremi prefissati"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"4 - Calcolo del numero di appartamenti composti da diversi numeri di vani"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"5 - Stampa degli appartamenti composti da un dato numero di vani"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"6 - Stampa degli appartamenti con prezzo compreso tra due estremi prefissati"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"7 - Esci"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Selezionare un'opzione: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">scelta</span><span class="p">;</span>
+        <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+
+        <span class="k">switch</span> <span class="p">(</span><span class="n">scelta</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Inserimento di un nuovo appartamento</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">inserisci_dati_appartamento</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">inserisci_appartamento</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Nuovo appartamento inserito"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">else</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"E' stato raggiunto il massimo numero di appartamenti. Non si possono inserire ulteriori appartamenti"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"pause"</span><span class="p">);</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="c1">// Calcolo del prezzo minimo, medio e massimo</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Prezzo minimo: "</span> <span class="o">&lt;&lt;</span> <span class="n">calcola_prezzo_minimo</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Prezzo medio: "</span> <span class="o">&lt;&lt;</span> <span class="n">calcola_prezzo_medio</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Prezzo massimo: "</span> <span class="o">&lt;&lt;</span> <span class="n">calcola_prezzo_massimo</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"pause"</span><span class="p">);</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="c1">// Calcolo del prezzo medio degli appartamenti con superficie compresa tra due estremi prefissati</span>
+            <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire la superficie minima: "</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">sup_min</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire la superficie massima: "</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">sup_max</span><span class="p">;</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="n">prezzo_medio</span> <span class="o">=</span> <span class="n">calcola_prezzo_medio_superficie</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">sup_min</span><span class="p">,</span> <span class="n">sup_max</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Prezzo medio degli appartamenti con superficie compresa tra "</span> <span class="o">&lt;&lt;</span> <span class="n">sup_min</span> <span class="o">&lt;&lt;</span> <span class="s">" e "</span> <span class="o">&lt;&lt;</span> <span class="n">sup_max</span> <span class="o">&lt;&lt;</span> <span class="s">" mq: "</span> <span class="o">&lt;&lt;</span> <span class="n">prezzo_medio</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"pause"</span><span class="p">);</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="c1">// Calcolo del numero di appartamenti composti da diversi numeri di vani</span>
+            <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="n">calcola_istogramma_vani</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">istogramma</span><span class="p">);</span>
+                <span class="n">stampa_istogramma_vani</span><span class="p">(</span><span class="n">istogramma</span><span class="p">);</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"pause"</span><span class="p">);</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="c1">// Stampa degli appartamenti composti da un dato numero di vani</span>
+            <span class="k">case</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire un numero di vani: "</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">numero_vani</span><span class="p">;</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="n">stampa_selezione_vani</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">numero_vani</span><span class="p">);</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"pause"</span><span class="p">);</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="c1">// Stampa dei dati relativi agli appartamenti il cui prezzo e' compreso tra un valore minimo e un valore massimo</span>
+            <span class="k">case</span> <span class="mi">6</span><span class="p">:</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il prezzo minimo: "</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">prezzo_min</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il prezzo massimo: "</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">prezzo_max</span><span class="p">;</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="n">stampa_selezione_prezzo</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">prezzo_min</span><span class="p">,</span> <span class="n">prezzo_max</span><span class="p">);</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"pause"</span><span class="p">);</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="c1">// Uscita dal programma</span>
+            <span class="k">case</span> <span class="mi">7</span><span class="p">:</span>
+                <span class="n">continua</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="nl">default:</span>
+                <span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Opzione non disponibile: inserire un numero tra 1 e 7"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">continua</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div>
+<p><strong>Assignement 6</strong>: 
+Write a C ++ program that processes information relating to apartments for sale at a real estate agency. The following information will be stored for each apartment: the identification code (an integer), the address (a string of characters for the street and one for the municipality), number of rooms, the surface in square meters, the price. The number of apartments for sale does not exceed 100 units. The collection of apartments for sale can be created as a suitably initialized array of apartments. The program must provide the following functions: 1.Input data by the user from standard input, verifying the validity of the same (i.e. number of rooms, surface and price must be positive numbers); 2.Calculation and video printing of the average, minimum and maximum price of the apartments for sale; 3.Calculation and video printing of the average price of the apartments whose surface is between a minimum and a maximum value entered by the user; 4.Calculation and screen printing of the number of one-room apartments (n = 1), of two-room apartments (n = 2), of three-room apartments (n = 3), of apartments of 4, 5, 6, 7 and 8 rooms and those with more than 8 rooms. 5.Print on the screen of the information relating to all the apartments of nvani, with the user entering it; 6.Print on the video of the information relating to all the apartments whose price is between a val minimum hours and a maximum value entered by the user. The main function will allow the user to select one of the features provided by the program and execute the corresponding function.</p>
+
+<p><strong>Solution</strong>:
+In progress...</p>
+<h3 id='e6-a5-2'>[E6][A5]</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div>
+<p><strong>Assignement 2</strong>: </p>
+
+<p><strong>Solution</strong>:</p>
 <h1 id='bash-basic-commands'>Bash Basic Commands</h1>
 <ul>
 <li><code>ls</code> --&gt; it shows the list of files in the current directory</li>
