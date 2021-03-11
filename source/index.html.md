@@ -5370,7 +5370,47 @@ Write a C ++ program that processes information relating to apartments for sale 
 In progress...
 
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
@@ -5392,6 +5432,2048 @@ In progress...
 
 **Assignement 2**: 
 
+
+**Solution**:
+
+
+## Practical examples - 7
+
+In this section, we will learn about pointers in C++ and their working with the help of examples.
+
+### [E7][A1] Printing Variable Addresses in C++
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // declare variables
+    int var1 = 3;
+    int var2 = 24;
+    int var3 = 17;
+
+    // print address of var1
+    cout << "Address of var1: "<< &var1 << endl;
+
+    // print address of var2
+    cout << "Address of var2: " << &var2 << endl;
+
+    // print address of var3
+    cout << "Address of var3: " << &var3 << endl;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Address of var1: 0x7fff5fbff8ac
+Address of var2: 0x7fff5fbff8a8
+Address of var3: 0x7fff5fbff8a4
+``` 
+
+**Assignement 1**: 
+Printing Variable Addresses in C++
+
+**Solution**:
+If we have a variable var in our program, `&var` will give us its address in the memory.
+Here, `0x` at the beginning represents the address is in the hexadecimal form.
+
+Notice that the first address differs from the second by 4 bytes and the second address differs from the third by 4 bytes.
+
+This is because the size of an int variable is 4 bytes in a 64-bit system.
+
+Note: You may not get the same results when you run the program.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+### [E7][A2] Working of C++ Pointers
+```cpp
+#include <iostream>
+using namespace std;
+int main() {
+  int var = 5;
+
+  // declare pointer variable
+  int* pointVar;
+
+  // store address of var
+  pointVar = &var;
+
+  // print value of var
+  cout << "var = " << var << endl;
+
+  // print address of var
+  cout << "Address of var (&var) = " << &var << endl
+        << endl;
+
+  // print pointer pointVar
+  cout << "pointVar = " << pointVar << endl;
+
+  // print the content of the address pointVar points to
+  cout << "Content of the address pointed to by pointVar (*pointVar) = " << *pointVar << endl;
+  
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+var = 5
+Address of var (&var) = 0x61ff08
+
+pointVar = 0x61ff08
+Content of the address pointed to by pointVar (*pointVar) = 5
+``` 
+
+**Assignement 2**: 
+
+
+**Solution**:
+As mentioned above, pointers are used to store addresses rather than values.
+
+Here is how we can declare pointers.
+
+`int *pointVar;`
+
+Here, we have declared a pointer pointVar of the int type.
+
+We can also declare pointers in the following way.
+
+`int* pointVar;` // preferred syntax
+
+Let's take another example of declaring pointers.
+
+`int* pointVar, p;`
+
+Here, we have declared a pointer `pointVar` and a normal variable `p`.
+
+Note: The `*` operator is used after the data type to declare pointers.
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E7][A3] Changing Value Pointed by Pointers
+```cpp
+#include <iostream>
+using namespace std;
+int main() {
+    int var = 5;
+    int* pointVar;
+
+    // store address of var
+    pointVar = &var;
+
+    // print var
+    cout << "var = " << var << endl;
+
+    // print *pointVar
+    cout << "*pointVar = " << *pointVar << endl
+         << endl;
+
+    cout << "Changing value of var to 7:" << endl;
+
+    // change value of var to 7
+    var = 7;
+
+    // print var
+    cout << "var = " << var << endl;
+
+    // print *pointVar
+    cout << "*pointVar = " << *pointVar << endl
+         << endl;
+
+    cout << "Changing value of *pointVar to 16:" << endl;
+
+    // change value of var to 16
+    *pointVar = 16;
+
+    // print var
+    cout << "var = " << var << endl;
+
+    // print *pointVar
+    cout << "*pointVar = " << *pointVar << endl;
+    return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+var = 5
+*pointVar = 5
+
+Changing value of var to 7:
+var = 7
+*pointVar = 7
+
+Changing value of *pointVar to 16:
+var = 16
+*pointVar = 16
+``` 
+
+**Assignement 3**: 
+Changing Value Pointed by Pointers
+
+**Solution**:
+If pointVar points to the address of var, we can change the value of var by using *pointVar.
+
+Here, `pointVar` and `&var` have the same address, the value of var will also be changed when `*pointVar` is changed.
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E7][A4] C++ Pointers and Arrays
+```cpp
+int main()
+{
+  float arr[3];
+
+  // declare pointer variable
+  float *ptr;
+  
+  cout << "Displaying address using arrays: " << endl;
+
+  // use for loop to print addresses of all array elements
+  for (int i = 0; i < 3; ++i)
+  {
+      cout << "&arr[" << i << "] = " << &arr[i] << endl;
+  }
+
+  // ptr = &arr[0]
+  ptr = arr;
+
+  cout<<"\nDisplaying address using pointers: "<< endl;
+
+  // use for loop to print addresses of all array elements
+  // using pointer notation
+  for (int i = 0; i < 3; ++i)
+  {
+      cout << "ptr + " << i << " = "<< ptr + i << endl;
+  }
+
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Displaying address using arrays: 
+&arr[0] = 0x61fef0
+&arr[1] = 0x61fef4
+&arr[2] = 0x61fef8
+
+Displaying address using pointers: 
+ptr + 0 = 0x61fef0
+ptr + 1 = 0x61fef4
+ptr + 2 = 0x61fef8
+``` 
+
+**Assignement 4**: 
+
+
+**Solution**:
+In the above program, we first simply printed the addresses of the array elements without using the pointer variable `ptr`.
+Then, we used the pointer `ptr` to point to the address of `a[0]`, `ptr + 1` to point to the address of `a[1]`, and so on.
+In most contexts, array names decay to pointers. In simple words, array names are converted to pointers. That's the reason why we can use pointers to access elements of arrays.
+However, we should remember that pointers and arrays are not the same.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E7][A5] Array name used as pointer
+```cpp
+/ C++ Program to insert and display data entered by using pointer notation.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  float arr[5];
+  
+  // Insert data using pointer notation
+  cout << "Enter 5 numbers: ";
+  for (int i = 0; i < 5; ++i) {
+
+    // store input number in arr[i]
+    cin >> *(arr + i) ;
+
+  }
+
+  // Display data using pointer notation
+  cout << "Displaying data: " << endl;
+  for (int i = 0; i < 5; ++i) {
+
+    // display value of arr[i]
+    cout << *(arr + i) << endl ;
+
+  }
+
+  return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+Enter 5 numbers: 2.5
+3.5
+4.5
+5
+2
+Displaying data: 
+2.5
+3.5
+4.5
+5
+2
+``` 
+
+**Assignement 5**: 
+C++ Program to insert and display data entered by using pointer notation.
+
+**Solution**:
+Here,
+
+  * We first used the pointer notation to store the numbers entered by the user into the array `arr`.
+
+    `cin >> *(arr + i) ;`
+
+    This code is equivalent to the code below:
+
+    `cin >> arr[i];`
+
+    Notice that we haven't declared a separate pointer variable, but rather we are using the array name arr for the pointer notation.
+
+    As we already know, the array name `arr` points to the first element of the array. So, we can think of arr as acting like a pointer.
+
+  * Similarly, we then used for loop to display the values of arr using pointer notation.
+
+    `cout << *(arr + i) << endl;`
+
+    This code is equivalent to
+
+    `cout << arr[i] << endl;`
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+### [E7][A7] 
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  // Dichiarazioni
+  int a = 0; int b = 0; 
+  int c1 = 0; int c2 = 0; int c3 = 0; int c4 = 0;
+  int& r = a;
+  int* pa = &a; int* pb = &b;
+  int** ppa = &pa;
+  const int* pca = &a;
+
+  // Lettura di a e b
+  cout << "Inserire due numeri interi: ";
+  cin >> a >> b;
+  
+  // Stampa di a e b
+  cout << "Hai inserito i seguenti valori: ";
+  cout << *pa << " e " << *pb << endl;
+  
+  // Stampa dei valori dei puntatori pa e pb
+  cout << "I puntatori pa e pb valgono: " << pa << " e " << pb << endl;
+  
+  // Stampa del valore di ppa
+  cout << "Il puntatore a puntatore ppa vale: " << *ppa << endl;
+  
+  // Stampa a video del valore puntato dal puntatore puntato da ppa
+  cout << "Valore della variabile puntata dal puntatore al quale punta ppa: " << **ppa << endl;
+  
+  // Stampa del valore puntato dal puntatore a costante
+  cout << "Il valore puntato dal puntatore a costante ppc vale: " << *pca << endl;
+  
+  // Assegnamenti
+  c1 = *pa;
+  c2 = **ppa;
+  c3 = *pca;
+  c4 = r;
+  cout << "Le variabili c1, c2, c3 e c4 hanno i seguenti valori: " << endl;
+  cout << "c1: " << c1 << endl;
+  cout << "c2: " << c1 << endl;
+  cout << "c3: " << c1 << endl;
+  cout << "c4: " << c1 << endl;
+  
+  // Svolgimento di operazioni su a
+  a += 3;
+  cout << "a adesso vale " << a << endl;
+  *pa += 3;
+  cout << "a adesso vale " << a << endl;
+  **ppa += 3;
+  cout << "a adesso vale " << a << endl;
+  r += 3;
+  cout << "a adesso vale " << a << endl;
+  
+  // Assegnamento di pa e ripetizione delle operazioni precedenti
+  a = c1;
+  pa = pb;
+  a += 3;
+  cout << "a adesso vale " << a << endl;
+  *pa += 3;
+  cout << "a adesso vale " << a << endl;
+  **ppa += 3;
+  cout << "a adesso vale " << a << endl;
+  r += 3;
+  cout << "a adesso vale " << a << endl;
+  cout << "b adesso vale " << b << endl;
+  
+  // *pca += 5;   
+  // Non compila perché non posso modificare una variabile puntata da un puntatore a costante
+    
+	return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+``` 
+
+**Assignement 7**: 
+Write a C ++ program that works as follows:
+ * Declare two integer variables a and b and initialize them to zero.
+ * Declare four integer variables c1, c2, c3 and c4 and initialize them to zero.
+ * declare the reference variable r as an integer and assign it the variable a.
+ * Declare the pointer variables pa and pb that point to the variables a and b and the pointer variable ppa that points to the pointer pa.
+ * Declare the pointer to constant pca that points to the variable a.
+ * Take from keyboard the value of a and b and print out the values ​​entered using the pointers pa and pb.
+ * Print the values ​​of pa and pb on the screen. What is printed?
+ * Print out the value pointed by ppa. What is printed?
+ * Print the value pointed by pca on the screen. What is printed?
+ * Assign to c1 the value pointed by pa, to c2 the value pointed by the pointer pointed by ppa, to c3 the value pointeb by pca,to c4 the value of r. Then print the values ​​of c1, c2, c3 and c4 on the screen. What is printed? Why?
+ * Add 3 to a and screen print the value of a; add 3 to the value pointed to by pa and print the value of a on the screen; add 3 to the value pointed to by the pointer ppa points to and print the value of a on the screen; add 3 to r and print the value of a on the screen. What is the effect of these operations on the value of the variable a? Why does what happens in the printouts of the values ​​of a after each operation? 
+ * Assign the value of c1 and pa to the value of pb and repeat the operations the four operations carried out in the previous point. also print the value of b on the screen. What happened? Why happens what we observe in the printouts of the values ​​of ad after each operation and in the final printout of the value of b?
+ * What would happen if we tried to add 5 to the value pointed to by the pca pointer?
+
+**Solution**:
+In progress...
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E7][A8] 
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	// Dichiarazioni
+	const int dim = 20;
+	int a[dim];
+	int n = 0;
+
+	// Inizializzazione
+	for (int* p = a; p < (a + dim); p++)
+		*p = 0;
+
+	// Acquisizione e verifica dell'input
+	do {
+		cout << "Inserire un numero intero compreso tra 3 e 5: ";
+		cin >> n;
+		if (n < 3 || n > 5)
+			cout << "Attenzione: il numero deve essere compreso tra 3 e 5" << endl;
+	} while (n < 3 || n > 5);
+
+	// Elaborazione dell'array
+	for (int* q = a + n; q < (a + dim); q += n)
+		*q = 1;
+
+	// Stampa a video
+	cout << "a = {";
+	for (int i = 0; i < dim - 1; i++)
+		cout << a[i] << ", ";
+	cout << a[dim - 1] << "}" << endl;
+
+	// Parte aggiuntiva 1
+	char* pc;
+	for (pc = (char*)a; pc < (char*)(a + dim); pc += 4)
+		*pc = 10;
+	cout << "a = {";
+	for (int i = 0; i < dim - 1; i++)
+		cout << a[i] << ", ";
+	cout << a[dim - 1] << "}" << endl;
+	// Utilizzando un puntatore a char ci si sposta nell'array byte per byte.
+	// Si può quindi modificare separatamente ciascuno dei 4 byte che compongono un numero
+	// intero di tipo int. Il valore 10 viene quindi assegnato al quarto byte di ciascun 
+	// numero intero a[i] che pertanto diventa 0x0000000A (in rappresentazione esadecimale). 
+	// Tutti gli elementi di a assumono quindi valore pari a 10.
+
+	// Parte aggiuntiva 2
+	for (pc = (char*)a; pc < (char*)(a + dim); pc += 2)
+		*pc = 10;
+	cout << "a = {";
+	for (int i = 0; i < dim - 1; i++)
+		cout << a[i] << ", ";
+	cout << a[dim - 1] << "}" << endl;
+	// In questo caso il valore 10 viene assegnato al secondo e al quarto byte di ciascun 
+	// numero intero a[i] che pertanto diventa 0x000A000A (in rappresentazione esadecimale). 
+	// Tutti gli elementi di a assumono quindi valore pari a 655370.
+
+	return 0;
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+``` 
+
+**Assignement 8**: 
+Write a C ++ program that operates as follows:
+ * Declare an array of 20 integers.
+ * Using pointer arithmetic, initialize all elements of the array `a` to zero.
+ * Ask the user to enter an integer number between 3 and 5 from the keyboard. If the number entered is not included in this range, the program will continue to ask the user to enter until a number within the required range.
+ * Using pointer arithmetic, assign the value 1 to all elements of the array whose index is equal to the number entered by the user or is an integer multiple.
+ * Print the so modified array on the screen and terminate.
+
+Example: if the user enters `n = 4`, the program will assign 1 to the elements in position 4, 8, 12 and 16 and will print the following array on the screen: `a = {0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0}`.
+
+ To do more: declare a pointer to character `pc` and scan the array using pointer arithmetic applied to the `pc` pointer. The increase of pcad each iteration will be equal to 4. Furthermore, at each iteration the value 10 will be assigned to the element pointed to by `pc`. At the end of the scan, print the so modified array on the screen. What is printed? Why? Now repeat the operations described above, applying to each iteration an increment of `pc` equal to 2. At the end of the scan, print the array a again on the screen. What is printed? Why? Warning: in order to compile the modified program it is necessary to explicitly convert the pointers to int in pointers to char
+
+**Solution**:
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+### [E7][A9] 
+```cpp
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+using namespace std;
+
+int main()
+{
+	// Dichiarazioni
+	const int dim = 5000;
+	char text[dim] = { ' ' };
+	char* pwords[dim] = { NULL };
+	fstream fin;
+
+	// Apertura del file
+	fin.open("testo.txt", ios::in);
+
+	// Elaborazione del file e riempimento degli array
+	int h = 0; int k = 0;
+	char prev = ' '; char curr; 
+	fin.get(curr);
+	while (!fin.eof()) {
+		if (h >= dim) break;
+		text[h] = curr;
+		if (curr != ' ' && (prev == ' ' || prev == '\n')) {
+			if (curr >= 'A' && curr <= 'Z' || curr >= 'a' && curr <= 'z') {
+				pwords[k] = &text[h];
+				k++;
+			}
+		}
+		prev = curr;
+		fin.get(curr);
+		h++;
+	}
+
+	// Chiusura del file
+	fin.close();
+
+	// Stampa dei risultati
+	cout << "Testo in input: " << endl << text << endl;
+	cout << "Numero di parole: " << k << endl;
+	cout << "Iniziali delle parole contenuto nel testo: ";
+	for (int i = 0; pwords[i] != NULL; i++)
+		cout << *pwords[i] << " ";
+	cout << endl;
+
+	// Parte aggiuntiva 1: generazione di parole casuali
+	const int num_trials = 30;
+	const int rand_word_dim = 7;
+	char random_word[rand_word_dim] = "";
+
+	srand(time(NULL));
+	
+	int j = 0;
+	while (j < num_trials) {
+		for (int i = 0; i < rand_word_dim - 1; i++) {
+			int index = rand() % k;
+			char c = *pwords[index];
+			if (c >= 'A' && c <= 'Z')
+				c = c - 'A' + 'a';
+			random_word[i] = c;
+		}
+		random_word[rand_word_dim - 1] = '\0';
+		cout << "Parola generata: " << random_word << endl;
+		j++;
+	}
+
+	// Parte aggiuntiva 2: generazione di frasi casuali
+	const int rand_sentence_dim = 1000;
+	const int num_words = 10;
+	char random_sentence[rand_sentence_dim] = "";
+	int r = 0;
+	while (r < num_trials) {
+		int w = 0;
+		for (int s = 0; s < num_words; s++) {
+			int index = rand() % (k - 1);
+			char* pa = pwords[index];
+			char* pb = pwords[index + 1];
+			for (char* p = pa; p < pb; p++) {
+				if ((*p >= 'A' && *p <= 'Z') || (*p >= 'a' && *p <= 'z')) {
+					if (*p >= 'A' && *p <= 'Z')
+						*p = *p - 'A' + 'a';
+					random_sentence[w] = *p;
+					w++;
+				}
+			}
+			random_sentence[w] = ' ';
+			w++;
+		}
+		random_sentence[w] = '\0';
+		cout << "Frase generata: " << random_sentence << endl;
+		r++;
+	}
+
+	return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+``` 
+
+**Assignement 9**: 
+Write a C ++ program that reads a text file and supplies a pointer to the first letter of each word in the file. The program operates as follows:
+ * Declares a text array of 5000 characters.
+ * Declares a `pwords` array of 5000 character pointers and initializes each element to NULL.
+ * Opens the input file for reading (for example the "testo.txt" file).
+ * As long as the file is not finished, read each character in the file using the `get` library function. For example, if you have called fin the stream associated with the file and there is a variable of type character, the call to the function `get`  is like this: `fin.get(c)`.
+ * Copy the character just read in the array text and, if the character matches at the first letter of a word, assigns to the current element of the pwords array the address of the text array element in which the element has just been copied.
+For simplicity, assume that a character represents the first letter of a word if it is a letter and if the preceding character is a space or the new line character ('\ n').
+
+* Prints on the screen: (1) the text read in input (i.e. the content of the text array), (2) the number of words found (i.e. the number of pwords elements different from NULL) and (3) all the first letters of the words found in the text (ie the character pointed to by each element of pwords other than NULL).
+
+ Example: if the file contains the following text "In the middle of our life's path I found myself in a dark forest, because the straight path was lost.", the program will print on the screen the text itself, the number of words found equal to 19 and the initial letters of each word, ie “N mdcdnvmrpusocldves”.
+
+To do more:
+ 1. Build and print 30 words of 6 characters, obtained by randomly extracting 6 of the initial letters pointed to by the non-null pointers contained in the `pwords` array. To extract a pseudorandom number you can use the `rand` function available in the `cstdlib` library. If k is the number of non-null pointers contained in the `pwords` array, it is possible to obtain a pseudorandom number between 0 and k – 1 using the following call: int n = rand ()% k. To get a random number, add the following call at the beginning of the program: srand(time(NULL)). Were you able to get some meaningful words?
+ 2. Build and print 30 sentences of 10 words, obtained by randomly extracting 10 words whose first letter is pointed to by one of the non-null pointers contained in the pwords array. For the generation of 10 random numbers you can use the functions described in the previous point. Extracting a random number `n`, between `0` and `k – 2`, the program will build the sentence by reading from the text array all the characters between the one pointed to by `pwords[n]` and the one pointed to by `pwords[n + 1]`, excluding any non-alphabetic characters. Have you managed to get some sentences of complete meaning?
+
+ Example:
+ 1.Some words of 6 letters generated randomly from the text "Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, ché la diritta via era smarrita": "Nelmnn", "vlrdpd", "unomlu", "cddumv", "dmevmc", "rrrvnn" .
+2. Some 10-word sentences generated randomly from the text Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, ché la diritta via era smarrita.”: “mezzo era oscura per cammin una una vita selva vita”, “una nostra nel diritta di mezzo cammin del la selva”.
+
+**Solution**:
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [E7][A10] 
+```cpp
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double prodotto_scalare(double* x, double* y, int n)
+{
+	double somma = 0;
+	double* q = y;
+	for (double* p = x; p < (x + n) && q < (y + n); p++) {
+		somma += *p * *q;
+		q++;
+	}
+	return somma;
+}
+
+// Implementazione alternativa, inserendo l'intera applicazione 
+// dell'aritmetica dei puntatori nell'istruzine for
+double prodotto_scalare_2(double* x, double* y, int n)
+{
+	double somma = 0;
+	for (double* p = x, *q = y; p < (x + n) && q < (y + n); p++, q++)
+		somma += *p * *q;
+	return somma;
+}
+
+// Implementazione che calcola anche la distanza e restuisce
+// l'output in una struttura passata come parametro di uscita
+struct risultati {
+	double prodotto;
+	double distanza;
+};
+
+// Parte 2
+void prodotto_scalare_e_distanza(double* x, double* y, int n, risultati* r)
+{
+	double somma = 0.0;
+	double somma_quadrati = 0.0;
+	double* q = y;
+	for (double* p = x; p < (x + n) && q < (y + n); p++) {
+		somma += *p * *q;
+		somma_quadrati = (*p - *q) * (*p - *q);
+		q++;
+	}
+	r->prodotto = somma;
+	r->distanza = sqrt(somma_quadrati);
+}
+
+int main ()
+{
+	const int dim = 5;
+	double a[dim], b[dim];
+
+	cout << "Inserire due array, a e b, di " << dim << " numeri reali" << endl;
+	for (int k = 0; k < dim; k++) {
+		cout << "Inserire a[" << k << "]: ";
+		cin >> a[k];
+		cout << "Inserire b[" << k << "]: ";
+		cin >> b[k];
+	}
+	cout << endl;
+
+	cout << "Il prodotto scalare di: " << endl << "a = {" << a[0];
+	for (int i = 1; i < dim; i++)
+		cout << ", " << a[i];
+	cout << "}" << " e" << endl << "b = {" << b[0];
+	for (int j = 1; j < dim; j++)
+		cout << ", " << b[j];
+	cout << "}" << " e' " << prodotto_scalare(a, b, dim) << endl;
+	cout << endl;
+	
+	// Parte 2
+	risultati ris;
+	prodotto_scalare_e_distanza(a, b, dim, &ris);
+	cout << "Il prodotto scalare di: " << endl << "a = {" << a[0];
+	for (int i = 1; i < dim; i++)
+		cout << ", " << a[i];
+	cout << "}" << " e" << endl << "b = {" << b[0];
+	for (int j = 1; j < dim; j++)
+		cout << ", " << b[j];
+	cout << "}" << " e' " << ris.prodotto << endl;
+	cout << "La distanza tra gli stessi due array vale " << ris.distanza << endl;
+	cout << endl;
+	
+	return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+``` 
+
+**Assignement 10**: 
+Write the C ++ function `product_scale` that receives as parameters the pointer `px` to the first element of an array of real numbers, the pointer `p` to the first element of an array of real numbers and the common size of the two arrays (an integer). Using the arithmetic of pointers, the function will have to scan the two arrays and calculate their scalar product, returned as a return value (a real number). Then write a C ++ program to verify that the function works correctly. The program will ask the user to enter the values ​​for the two arrays from the keyboard, will call the `product_scalare` function and will print the return value on the screen.
+
+
+ Example: if the array pointed to by pxvale {1.0, 3.0, 2.5, 0.0, 1.2} and the array pointed to by pyvale {2.0, 1.0, 2.0, 3.8, 10.0} (we therefore have n = 5), the function returns the value of the scalar product of the two arrays, that is: 1.0 × 2.0 + 3.0 × 1.0 + 2.5 × 2 + 0.0 × 3.8 + 1.2 × 10.0 = 22.0.
+
+
+To do more: also calculate the distance between the arrays pointed to by pxe from pye to return, as an output parameter (rather than as a return value), a structure that contains two fields, the scalar product and the distance calculated by the function (two real numbers ). Then modify the test program so that it prints both values ​​returned by the function.
+
+**Solution**:
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+### [E7][A11] 
+```cpp
+#include <iostream>
+using namespace std;
+
+void swap(int* a, int* b, int* c)
+{
+	int tmp = *b;
+	*b = *a;
+	*a = *c;
+	*c = tmp;
+}
+
+void swap_2(int& a, int& b, int& c) 
+{
+	int tmp = b;
+	b = a;
+	a = c;
+	c = tmp;	
+}
+
+int main ()
+{
+	int x, y, z;
+	cout << "Inserire tre numeri interi" << endl;
+	cout << "Primo numero: ";
+	cin >> x;
+	cout << "Secondo numero: ";
+	cin >> y;
+	cout << "Terzo numero: ";
+	cin >> z;
+	cout << endl;
+
+	swap(&x, &y, &z);
+
+	cout << "I valori ruotati sono" << endl;
+	cout << "Primo numero: " << x << endl;
+	cout << "Secondo numero: " << y << endl;
+	cout << "Terzo numero: " << z << endl;
+	cout << endl;
+	
+	// Parte 2
+	swap_2(x, y, z);
+	cout << "I valori ancora ruotati sono" << endl;
+	cout << "Primo numero: " << x << endl;
+	cout << "Secondo numero: " << y << endl;
+	cout << "Terzo numero: " << z << endl;
+	cout << endl;
+
+	return 0;
+}
+
+// Se non si vogliono utilizzare i puntatori si può usare il passaggio per riferimento.
+// In C++, in realtà, è consigliabile utilizzare il passaggio per riferimento
+// anziché il passaggio per puntatore che deriva dal vecchio C.
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+``` 
+
+**Assignement 11**: 
+Write the C ++ `swap` function that receives as parameters the pointers to three integers a, b and rotates their values, that is: a b is assigned the value of a, c is assigned the value of b and a is assigned the value of c. Then write a C ++ program to verify the correct functioning of the function. The program will ask the user to enter three integers from the keyboard, call the swapping function and print the values ​​on the screen.
+
+
+Example: if it has 3, 5 and 10, after calling the function it will be 10, it will be 3 and there will be 5.
+
+
+ To do more: if you don't want to use pointers how could you re-implement the function? To test this, write a `swap_2` function that swaps values ​​without using pointers and use it in your developed program. Compare the implementation code with pointers and the one without pointers. How do they differ?
+
+**Solution**:
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+
+### [E7][A12] 
+```cpp
+#include <iostream>
+using namespace std;
+
+int* massimo(int* a, int* b, int* c)
+{
+	int max = *a;
+	int* pmax = a;
+	if (*b > max) {	
+		max = *b;
+		pmax = b;
+	}
+	if (*c > max) {
+		max = *c;
+		pmax = c;
+	}
+	return pmax; 
+}
+
+void estremi(int* a, int* b, int* c, int** pm, int** pM)
+{
+	int max = *a;
+	int* pmax = a;
+	int min = *a;
+	int* pmin = a;
+
+	if (*b > max) {	
+		max = *b;
+		pmax = b;
+	}
+	if (*b < min) {	
+		min = *b;
+		pmin = b;
+	}
+
+	if (*c > max) {
+		max = *c;
+		pmax = c;
+	}
+	if (*c < min) {	
+		min = *c;
+		pmin = c;
+	}
+	
+	*pM = pmax;
+	*pm = pmin; 
+}
+
+int main ()
+{
+	int x, y, z;
+	cout << "Inserire tre numeri interi" << endl;
+	cout << "Primo numero: ";
+	cin >> x;
+	cout << "Secondo numero: ";
+	cin >> y;
+	cout << "Terzo numero: ";
+	cin >> z;
+	cout << endl;
+
+	int* pM = massimo(&x, &y, &z);
+
+	cout << "Il massimo tra " << x << ", " << y  
+		 << " e " << z << " e' " << *pM << endl;
+		 
+	// Parte 2
+	int* pminimo = NULL;
+	int* pmassimo = NULL;
+	estremi(&x, &y, &z, &pminimo, &pmassimo);
+	cout << "Il massimo tra " << x << ", " << y  
+		 << " e " << z << " e' " << *pmassimo << endl;
+	cout << "Il minimo tra " << x << ", " << y  
+		 << " e " << z << " e' " << *pminimo << endl;
+	
+	return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+``` 
+
+**Assignement 12**: 
+Write the maximum C ++ function that takes pointers to three integers `a`, `b` and `c` as parameters and returns the pointer to the largest of the three numbers (a pointer to an integer) as a return value. If there are two equal numbers, both larger than the third number, the function returns the pointer to the first of the two. Then write a C ++ program to verify that the function works correctly. The program will ask the user to enter three integers from the keyboard, will call the `maximum` function and will print on the screen the value pointed to by the pointer that the function returns as a return value.
+
+
+Example: if a is 3, b  10 and c  5, the function will return as a return value the `pointer to b` and the program will print on screen 10.
+
+
+ To do more: you want to get a pointer to the largest number and a pointer to the smallest number between the three numbers a, b and c. To do this, develop the extreme function that receives these two pointers as output parameters and modify the program so that it also calls the extreme function and prints on the screen the values ​​pointed to by the pointers passed to the output parameters. The extremes function does not return any return values.
+
+**Solution**:
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+### [E7][A13] 
+```cpp
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+char* cerca(char* s1, char* s2)
+{
+	for (char* p = s1; *p != '\0'; p++) {
+		char* q = s2; int k = 0;
+		while (*q != '\0' && *(p + k) != '\0') {
+			if (*q != *(p + k))
+				break;
+			k++;
+			q++;
+		}
+		if (*q == '\0')
+			return p;
+	}
+	return NULL;
+}
+
+char* cerca_indietro(char* s1, char* s2)
+{
+	char* z = NULL;
+	for (z = s1; *z != '\0'; z++);
+	for (char* p = z; p >= s1; p--) {
+		char* q = s2; int k = 0;
+		while (*q != '\0' && (p - k) != s1) {
+			if (*q != *(p - k))
+				break;
+			k++;
+			q++;
+		}
+		if (*q == '\0')
+			return p;
+	}
+	return NULL;
+}
+
+int main() 
+{
+	const int dim = 128;
+	char str1[dim]; char str2[dim];
+	cout << "Inserire una stringa di caratteri: ";
+	cin.getline(str1, dim, '\n');
+	cout << "Inserire un'altra stringa: ";
+	cin.getline(str2, dim, '\n');
+	char* p = cerca(str1, str2);
+	if (p != NULL)
+		cout << p << endl;
+	else
+		cout << str2 << " non e' contenuta in " << str1 << endl;
+		
+	// Parte 2
+	cout << "Inserire una stringa di caratteri: ";
+	cin.getline(str1, dim, '\n');
+	cout << "Inserire un'altra stringa: ";
+	cin.getline(str2, dim, '\n');
+	p = cerca_indietro(str1, str2);
+	if (p != NULL) {
+		for(char* t = str1; t <= p; t++)
+			cout << *t;
+		cout << endl;
+	}
+	else
+		cout << str2 << " non e' contenuta in " << str1 << endl;
+		
+	return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+``` 
+
+**Assignement 13**: 
+Write the C ++ function looking for it to receive as parameters the pointer to the first element of a string `str1` and the pointer to the first element of a second string `str2`. Using the arithmetic of pointers, the function will have to scan the string `str1` and return, as a return value, the pointer to the first occurrence of the substring `str2` in `str1`. In case the substring `str2` does not occur in `str1`, the function will return `NULL`. Then write a C ++ program to verify that the function works correctly. The program will ask the user to enter two strings from the keyboard, it will call the search by function
+check if the second string is required within the first and will print on the screen, if successful, the string str1 starting from the character pointed to by the pointer returned by the search function and up to its end. If the verification fails, the program will print an appropriate message on the screen. Example: if `str1 = "Fondamenti di Informatica"` and `str2 = "onda"`, the function will return a pointer to the first `'o'` of the word `"Fondamenti"`. Furthermore, the program will print on the screen the string `“ondamenti di informatica”`. 
+
+To do more: implement the `search_back` function with the same parameters and the same return value as the search function, but operate in this way: scan the string `str1` starting from its last character and return, as a return value, the pointer to the first occurrence of the substring `str2` in `str1`, read backwards from the bottom towards the beginning of the string. In this case, the test program will print the string `str1` up to the character pointed to by the return value of the `search_back` function. For example, if `str1 = "Fondamenti di Informatica"` and `str2 = "cita"`, the function will return a pointer to the character `'c'` immediately before the last `'a'` of the word `"Informatica"` and the program will print `"Fondamenti di Informatic "`.
+
+**Solution**:
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+### [E7][A14] 
+```cpp
+#include <iostream>
+using namespace std;
+
+const int dim = 3;
+
+void righe_negative(int A[dim][dim], int* b[dim])
+{
+	for (int** parr = b; parr < (b + dim); parr++)
+		*parr = NULL;
+
+	int somma = 0; int** pb = b;
+	for (int* p = &A[0][0]; p < &A[0][0] + (dim * dim); p += dim) {
+		for (int* q = p; q < (p + dim); q++)
+			somma += *q;
+		if (somma < 0) {
+			*pb = p;
+			pb++;
+		}
+		somma = 0;
+	}
+}
+
+// Parte 2
+struct sottomatrice {
+	int alto;
+	int basso;
+	int sinistra;
+	int destra;
+};
+
+int righe_negative_2(int A[dim][dim], int* b[dim], sottomatrice s)
+{
+	for (int** parr = b; parr < (b + dim); parr++)
+		*parr = NULL;
+	
+	if (s.alto < 0 || s.alto >= dim || s.basso < 0 || s.basso >= dim ||
+		s.sinistra < 0 || s.sinistra >= dim || s.destra < 0 || s.destra >= dim ||
+		s.alto >= s.basso || s.sinistra >= s.destra)
+		return 0;
+	
+	int* pinizio = &A[s.alto][s.sinistra];
+	int* pfine = &A[s.basso][s.destra];
+
+	int somma = 0; int** pb = b;
+	for (int* p = pinizio; p < pfine; p += dim) {
+		for (int* q = p; q < (p + (s.destra - s.sinistra + 1)); q++)
+			somma += *q;
+		if (somma < 0) {
+			*pb = p;
+			pb++;
+		}
+		somma = 0;
+	}
+	return 1;
+}
+
+int main()
+{
+	int matrice[dim][dim];
+	int* prighe[dim];
+
+	cout << "Inserire gli elementi di una matrice A (" << dim << " x " << dim << ")" << endl;
+	for (int i = 0; i < dim; i++)
+		for (int j = 0; j < dim; j++) {
+			cout << "Elemento A[" << i << "][" << j << "]: ";
+			cin >> matrice[i][j];
+		}
+	cout << endl;
+
+	righe_negative(matrice, prighe);
+	
+	cout << "Righe con somma negativa:" << endl;
+	int k = 0;
+	while (prighe[k] != NULL && k < dim) {
+		for (int h = 0; h < dim; h++)
+			cout << *prighe[k]++ << " ";
+		cout << endl;
+		k++;
+	}
+	if (k == 0) cout << "Nessuna";
+	cout << endl;
+	
+	// Parte 2
+	sottomatrice sm = {0, 1, 1, 2};
+	int numrighe = (sm.basso - sm.alto) + 1;
+	int numcolonne = (sm.destra - sm.sinistra) + 1;
+	if (righe_negative_2(matrice, prighe, sm) == 0)
+		return -1;
+	cout << "Righe con somma negativa:" << endl;
+	k = 0;
+	while (prighe[k] != NULL && k < numrighe) {
+		for (int h = 0; h < numcolonne; h++)
+			cout << *prighe[k]++ << " ";
+		cout << endl;
+		k++;
+	}
+	if (k == 0) cout << "Nessuna";
+	cout << endl;
+
+	return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+``` 
+
+**Assignement 14**: 
+Write the C ++ function ` negative_lines`  that receives as parameters a matrix ` A`  of ` n`  rows and ` n`  columns (nor declared as an integer constant at the beginning of the program) and an array of pointers to integers ` b` . Array ` b`  also consists of the same constant number ` n`  of elements and the function initializes it in such a way that all elements are ` NULL` . The function will scan the matrix ` A`  line by line and insert in the ` b`  array pointers to the lines for which the sum of the elements is a negative number. Then write a C ++ program to verify the correct functioning of the function: the program will ask the user to enter the elements of matrix ` A`  from the keyboard, will call the function ` negative_ rows`  and will print on the screen the lines whose sum of the elements is a negative number.
+
+To do more: write the ` lines_negative_2`  function which, compared to the ` lines_egative`  function, receives as a further parameter a structure composed of the four fields ` left` , ` right` , ` top` , ` bottom`  (four integers between ` 0`  and ` n -1` ) which represent the extremes of a submatrix of matrix ` A` . In particular, the rows of the submatrix are those included between the high and low indices (` high <low` ) and the columns of the submatrix are those included between the left and right indices (` left <right` ). The function also returns an integer as a return value. The function will scan the submatrix of A using the arithmetic of pointers and insert in array b the pointers to the rows of the submatrix for which the sum of the elements is a negative number. In case the value of at least one of the parameters left, right, top, bottom is invalid, the function returns zero as a return value and all elements of b take the value ` NULL` , otherwise the function returns one.
+
+**Solution**:
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+
+### [E7][A15] 
+```cpp
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+const int m = 3;
+const int n = 3;
+
+void linearizza(int A[m][n], int v[m*n], int mode)
+{
+	int* pv = v;
+	if (mode == 0) {
+		for (int* p = &A[0][0]; p < &A[0][0] + (m * n); p += n)
+			for (int* q = p; q < (p + n); q++) {
+				*pv = *q;
+				pv++;
+			}
+	}
+	else {
+		for (int* p = &A[0][0]; p < &A[0][0] + (m * n); p += n) {
+			int k = 0;
+			for (int* q = p; q < (p + n); q++) {
+				*(pv + k * n) = *q;
+				k++;	
+			}
+			pv++;
+		}
+	}
+}
+
+int main() 
+{
+	int M[m][n] = {0};
+	int w[m * n] = {0};
+	
+	fstream fin;
+	fin.open("matrix.txt", ios::in);
+	if (!fin) return -1;
+	
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			fin >> M[i][j];
+			cout << M[i][j] << " ";
+		}
+		cout << endl;
+	}
+	
+	int s = 0;
+	cout << "Linearizzare per righe (0) o per colonne (1)? ";
+	cin >> s;
+	
+	linearizza(M, w, s);
+	
+	cout << "{";
+	for (int k = 0; k < (m * n) - 1; k++)
+		cout << w[k] << ", ";
+	cout << w[(m * n) - 1] << "}" << endl; 
+		
+	return 0;
+}
+
+```
+
+> The above command returns:
+
+```c
+
+```
+
+```cpp
+
+``` 
+
+**Assignement 15**: 
+Write the C ++ function `linearizes` that receives as parameters a matrix `A` of integers of `m` rows and `n` columns (m and n are declared as integer constants at the beginning of the program) and an array `v` of `m x n` integers. Using the arithmetic of pointers, the function copies the rows of matrix `A` one after the other into the `array v`, starting from the first row to the last. The function does not return any return values. Then write a program to verify the correct functioning of the function: the program declares a `matrix M` of integers of `m` rows and `n` columns and an array `w` of `m x n` integers, reads the values ​​of the elements of the `matrix M` from the file, calls the function `linearizes` by passing M and w as current parameters for A and v and finally, it prints on the screen the matrix M and the array w.
+
+To do more: modify the `linearize` function by adding the additional `mode` parameter (an integer). If the value is 0, the function behaves as above, otherwise the function copies the columns of matrix A one after the other into the array v, starting from the first column to the last. Modify the test program accordingly, asking the user if he wants to copy the matrix into the array by rows or by columns.
 
 **Solution**:
 
