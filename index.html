@@ -339,6 +339,9 @@
                   <li>
                     <a href="#practical-examples-8" class="toc-h2 toc-link" data-title="Practical examples - 8">Practical examples - 8</a>
                   </li>
+                  <li>
+                    <a href="#practical-examples-9" class="toc-h2 toc-link" data-title="Practical examples - 9">Practical examples - 9</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -7726,6 +7729,943 @@ Write a C ++ program to perform simple processing on arrays of real numbers. To 
   - Using the pointer contained in the pf array, call the function corresponding to the desired operation and print the result on the screen. </p>
 
 <p>To do more: we want to add another operation, the sum of the inverses of the array elements that have a value other than 0. Then add the corresponding function and modify the program to take this new operation into account. Function pointers will allow us to significantly reduce the number of changes that need to be made to the program!</p>
+
+<p><strong>Solution</strong>:</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h2 id='practical-examples-9'>Practical examples - 9</h2>
+<p>In this section, we will learn about dynamic alloc and reallocation</p>
+<h3 id='e9-a1-9'>[E9][A1] 9</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">min</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">pf</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="n">pf</span><span class="p">)(</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]))</span>
+                <span class="n">swap</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"How many numbers do you want to enter? "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter the "</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">".o number of the sequence: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">p</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">scelta</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Come si vogliono ordinare i dati? "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"1 - In senso crescente"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"2 - In senso decrescente"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">scelta</span><span class="p">;</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">scelta</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">bubble_sort</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">min</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">bubble_sort</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">max</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="nl">default:</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Error: pick 1 o 2"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">scelta</span> <span class="o">!=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">scelta</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">);</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"The sorted sequence is': "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">s</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">delete</span><span class="p">[]</span> <span class="n">p</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">The</span> <span class="n">sorted</span> <span class="n">sequence</span> <span class="n">is</span><span class="o">:</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> 
+</code></pre></div>
+<p><strong>Assignement 1</strong>: 
+Write a C ++ program to sort a sequence of integers entered by the user in ascending order. The program will ask the user to specify how many numbers make up the sequence, will dynamically allocate an array to contain them, then will ask the user to enter the numbers one after the other. Each of the numbers entered will be inserted into the array immediately in the correct position (thus moving any larger numbers by one position). At the end of the sequence, the program will print the ordered array on the screen.</p>
+
+<p>To do more: implement the program again using the <code>bubbleSort</code> function developed in the previous section. In this case, the program will fill the array with the unsorted values ​​entered by the user, ask the user if they want to sort in ascending or descending order, call the <code>bubbleSort</code> function appropriately and print the ordered array on the screen.</p>
+
+<p><strong>Solution</strong>:</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e9-a2'>[E9][A2]</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="o">*</span> <span class="nf">append</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">pa</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">pb</span><span class="p">,</span> <span class="kt">int</span> <span class="n">na</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nb</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">na</span> <span class="o">+</span> <span class="n">nb</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">na</span> <span class="o">+</span> <span class="n">nb</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">pa</span><span class="p">;</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">pb</span><span class="p">;</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">((</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">pa</span> <span class="o">+</span> <span class="n">na</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">p2</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">pb</span> <span class="o">+</span> <span class="n">nb</span><span class="p">)))</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="o">*</span><span class="n">p2</span><span class="p">)</span>
+                    <span class="o">*</span><span class="n">p3</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span><span class="n">p1</span><span class="o">++</span><span class="p">;</span>
+                <span class="k">else</span>
+                    <span class="o">*</span><span class="n">p3</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span><span class="n">p2</span><span class="o">++</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">pa</span> <span class="o">+</span> <span class="n">na</span><span class="p">))</span>
+                <span class="o">*</span><span class="n">p3</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span><span class="n">p1</span><span class="o">++</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">p2</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">pb</span> <span class="o">+</span> <span class="n">nb</span><span class="p">))</span>
+                <span class="o">*</span><span class="n">p3</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span><span class="n">p2</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">check</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">pa</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pa</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">pa</span> <span class="o">+</span> <span class="n">n</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">p</span> <span class="o">&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">p</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">BubbleSort</span> <span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+                <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+                <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+            <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"First array: how many items do you want to enter? "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n1</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">n1</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p1</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n1</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter the "</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">".o item of first array: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">p1</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Second array: how many items do you want to enter? "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n2</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n2</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">n2</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p2</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="n">n2</span><span class="p">;</span> <span class="n">h</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter the "</span> <span class="o">&lt;&lt;</span> <span class="n">h</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">".o item of second array: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">p2</span><span class="p">[</span><span class="n">h</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="n">BubbleSort</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">n1</span><span class="p">);</span>
+    <span class="n">BubbleSort</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="n">n2</span><span class="p">);</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">p3</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">p3</span> <span class="o">+</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">check</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span><span class="p">))</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Array is now sorted! "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">delete</span><span class="p">[]</span> <span class="n">p1</span><span class="p">;</span>
+    <span class="k">delete</span><span class="p">[]</span> <span class="n">p2</span><span class="p">;</span>
+    <span class="k">delete</span><span class="p">[]</span> <span class="n">p3</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Array</span> <span class="n">is</span> <span class="n">now</span> <span class="n">sorted</span><span class="o">!</span>
+</code></pre></div>
+<p><strong>Assignement 2</strong>: 
+Write the C ++ append function that concatenates two arrays of ascending integers. The function takes as parameters the pointers to two integer arrays <code>pa</code> and <code>pb</code> and their dimensions <code>na</code> and <code>nb</code> (two integers) and returns the pointer to an array of integers as a return value. It is assumed that the arrays pointed to by <code>pa</code> and <code>pb</code> are already sorted in ascending order. The function will dynamically allocate an array of <code>(na + nb)</code> elements and copy the elements of the arrays pointed to by <code>pa</code> and <code>pb</code> in such a way that the resulting array is in turn sorted in ascending order. The function will eventually return the pointer to the resulting array. It will be the responsibility of the calling program to deallocate the memory allocated by the function.</p>
+
+<p>Then write a C ++ program to verify that the function works correctly. The program will ask the user to enter the <code>nx</code> and <code>ny</code> dimensions of two integer arrays from the keyboard, will dynamically allocate the arrays and ask the user to enter the values ​​for both arrays. The program will then use the BubbleSort algorithm to sort both arrays, call the append function and print the resulting concatenated array on the screen. Why is it more efficient to use the append function than to simply copy the elements of the two starting arrays into the resulting array and then use BubbleSort again on the resulting array?</p>
+
+<p>Example: if the array pointed to by <code>pa</code> is {1, 3,5, 6, 8} (na = 5) and the array pointed to by <code>pb</code> is {2, 4, 10} (nb = 3), the array resulting concatenated will be {1, 2, 3, 4, 5, 6, 8, 10}.</p>
+
+<p>To do more: write a <code>check</code> function that takes as parameters the pointer <code>pa</code> to an array of integers and the dimension <code>n</code> of the array (an integer) and returns as a return value 1 if the array is sorted and 0 otherwise . To verify the correct functioning of the append function, call the <code>check</code> function by passing it the array returned by the append function and print its result on the screen (which, if append works correctly, should be 1).</p>
+
+<p><strong>Solution</strong>:</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e9-a3'>[E9][A3]</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">char</span><span class="o">*</span> <span class="nf">append</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str1</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str2</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">str2</span><span class="p">);</span>
+
+    <span class="kt">char</span><span class="o">*</span> <span class="n">pStr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+
+    <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">str1</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">'\0'</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">pStr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">str1</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">str2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">'\0'</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">pStr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">str2</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">k</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">pStr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'\0'</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">pStr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">char</span><span class="o">*</span> <span class="nf">append_extended</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">dim</span> <span class="o">+=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">pStr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">dim</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+
+    <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">h</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">str</span><span class="p">[</span><span class="n">h</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">'\0'</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">pStr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="n">h</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+            <span class="n">k</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">pStr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'\0'</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">pStr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> 
+    <span class="kt">char</span> <span class="n">s1</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">s2</span><span class="p">[</span><span class="n">dim</span><span class="p">];</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter first string: "</span> <span class="p">;</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="sc">'\n'</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter second string: "</span> <span class="p">;</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="sc">'\n'</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="kt">char</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"String is : "</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">delete</span><span class="p">[]</span> <span class="n">p</span><span class="p">;</span>
+
+  <span class="k">const</span> <span class="kt">int</span> <span class="n">num_months</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">months</span><span class="p">[</span><span class="n">num_months</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"gennaio "</span><span class="p">,</span> <span class="s">"febbraio "</span><span class="p">,</span> <span class="s">"marzo "</span><span class="p">,</span> <span class="s">"aprile "</span><span class="p">,</span>
+        <span class="s">"maggio "</span> <span class="p">,</span> <span class="s">"giugno "</span><span class="p">,</span> <span class="s">"luglio "</span><span class="p">,</span> <span class="s">"agosto "</span><span class="p">,</span> <span class="s">"settembre "</span><span class="p">,</span>
+        <span class="s">"ottobre "</span><span class="p">,</span> <span class="s">"novembre "</span><span class="p">,</span> <span class="s">"dicembre"</span> <span class="p">};</span>
+
+    <span class="kt">char</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">num_months</span><span class="p">);</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"months : "</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">delete</span><span class="p">[]</span> <span class="n">p</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div>
+<p><strong>Assignement 3</strong>: 
+Write a C ++ function that receives as parameters the constant pointers to two strings <code>str1</code> and <code>str2</code> and returns as a return value the pointer to a new string, given by the concatenation of <code>str1</code> and <code>str2</code>. The function will have to dynamically allocate memory for the new string. It will be the responsibility of the calling program to deallocate the memory allocated by the function. Then write a C ++ program to verify that the function works correctly. The program will ask the user to enter two strings from the keyboard and will print their concatenation on the screen. Example: if <code>str1</code> is &quot;Hello,&quot; and <code>str2</code> is &quot;how are you?&quot;, The resulting string will be &quot;Hello, how are you?&quot;. Note: to know the length of a string you can use the <code>strlen</code> library function, available in <code>&lt;cstring&gt;</code>. To know the exact behavior of <code>strlen</code>, see the corresponding man page.</p>
+
+<p>To do more: extend the function so that it receives as parameters an array of pointers to characters and its size <code>n</code> (an integer) and returns as a return value the pointer to a new string, given by the concatenation of all strings pointed to by the pointers contained in the array. Therefore, modify the test program in order to verify the correct functioning of the function thus extended.</p>
+
+<p><strong>Solution</strong>:</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e9-a4'>[E9][A4]</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">px</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">px</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="p">[</span><span class="n">d</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">px</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kt">int</span> <span class="n">dim</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a real value: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">==</span> <span class="n">dim</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">double</span><span class="o">*</span> <span class="n">pt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="p">[</span><span class="n">dim</span> <span class="o">+</span> <span class="n">d</span><span class="p">];</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                <span class="n">pt</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">px</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+            <span class="n">pt</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+            <span class="k">delete</span><span class="p">[]</span> <span class="n">px</span><span class="p">;</span>
+            <span class="n">px</span> <span class="o">=</span> <span class="n">pt</span><span class="p">;</span>
+            <span class="n">dim</span> <span class="o">+=</span> <span class="n">d</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+            <span class="n">px</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="n">k</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a value: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Values : "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"{ "</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">px</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">px</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">px</span><span class="p">[</span><span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" } "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">sum</span> <span class="o">+=</span> <span class="n">px</span><span class="p">[</span><span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"sum : "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">delete</span><span class="p">[]</span> <span class="n">px</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="nl">sum:</span> <span class="mi">10</span>
+</code></pre></div>
+<p><strong>Assignement 4</strong>: 
+Reallocation is a technique that can be used in the event that the data to be processed are received at a later time and their exact quantity is not known until they are all received. Basically, a data structure (such as an array) is pre-allocated by assigning it a reasonable initial size for the problem being treated. The incoming data is stored in the data structure until it becomes full. If the data structure is full and more data arrives, the data structure is reallocated. That is, a new, larger data structure is created (for example, a multiple dimension array of the previous dimension) and the data is copied into the new data structure. This procedure can be repeated if necessary, gradually increasing the size of the data structure, until all the data have been received.</p>
+
+<p>To apply the reallocation technique, write a C ++ program that works as follows: </p>
+
+<ul>
+<li>Declare an integer constant and initialize it to 10. - Declare a <code>px</code> pointer to real number and initialize it to <code>NULL</code>. </li>
+<li>Dynamically allocate an array of real numbers, assign the pointer to <code>px</code> and initialize all elements of the array to zero. </li>
+<li>Ask the user to enter a sequence of null positive real numbers from the keyboard. The user can enter values ​​as long as he wishes up to a maximum of 20 values ​​and will indicate the end of the sequence by entering a negative number. The sequence ends however, after 20 values ​​have been entered. </li>
+<li>Enter each value provided by the user in the array pointed to by <code>px</code>.
+In the event that the array is full (or deletions have been inserted), the program will reallocate the array by adding further deletions. The reallocation occurs as follows: the program declares a pointer pt to real number, dynamically allocates an array of (2 * d) elements and assigns the pointer to pt, copies all the elements of the array pointed to in the array pointed to by pt from <code>px</code>, adds the additional element entered by the user to the array pointed to by pt, destroys the array pointed to by <code>px</code>, and assigns pt to <code>px</code>. </li>
+<li>Once the sequence values ​​have been entered, the program prints the contents of the array pointed to by <code>px</code> on the screen, calculates and prints the sum of the values ​​entered on the screen, deallocate the memory used and terminate.</li>
+</ul>
+
+<p>To do more: modify the program so that it can process sequences of any length (ie not limited to 20 values). Each time the array pointed to by <code>px</code> is full, it will be reallocated, adding d more elements.</p>
+
+<p><strong>Solution</strong>:</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e9-a5'>[E9][A5]</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;cstring&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">str_max_dim</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="nc">student</span> <span class="p">{</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">surname</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">student</span><span class="o">*</span> <span class="nf">read</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">filename</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">filename</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+
+    <span class="n">fstream</span> <span class="n">fin</span><span class="p">;</span>
+    <span class="n">fin</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">fin</span><span class="p">)</span> 
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+
+    <span class="n">fin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">fin</span><span class="p">.</span><span class="n">eof</span><span class="p">()</span> <span class="o">||</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+
+    <span class="n">student</span><span class="o">*</span> <span class="n">pdati</span> <span class="o">=</span> <span class="k">new</span> <span class="n">student</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pdati</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+
+    <span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="n">str_max_dim</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">student</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pdati</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">pdati</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+        <span class="n">p</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="n">fin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+        <span class="n">p</span><span class="o">-&gt;</span><span class="n">surname</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="n">fin</span> <span class="o">&gt;&gt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">fin</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">pdati</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">print</span> <span class="p">(</span><span class="n">student</span><span class="o">*</span> <span class="n">pdati</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pdati</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">student</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pdati</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">pdati</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">surname</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">id</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">student</span><span class="o">*</span> <span class="nf">find</span><span class="p">(</span><span class="n">student</span><span class="o">*</span> <span class="n">pdati</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pdati</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">student</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pdati</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">pdati</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">id</span> <span class="o">==</span> <span class="n">id</span><span class="p">)</span> 
+                <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">dealloc</span> <span class="p">(</span><span class="n">student</span><span class="o">*</span> <span class="n">pdati</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pdati</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">student</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pdati</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">pdati</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">delete</span><span class="p">[]</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">;</span>
+            <span class="k">delete</span><span class="p">[]</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">surname</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">delete</span><span class="p">[]</span> <span class="n">pdati</span><span class="p">;</span> 
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="kt">char</span> <span class="n">file</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter file name: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">file</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">student</span><span class="o">*</span> <span class="n">pstudents</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pstudents</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Data of "</span> <span class="o">&lt;&lt;</span> <span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="s">" students: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">print</span><span class="p">(</span><span class="n">pstudents</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+        <span class="n">dealloc</span><span class="p">(</span><span class="n">pstudents</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+
+        <span class="c1">// Parte aggiuntiva</span>
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire un numero di matricola: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
+        <span class="n">student</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">pstudents</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Si tratta dello studente "</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">surname</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Non ci sono studenti con questo numero di matricola"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>        
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div>
+<p><strong>Assignement 5</strong>: 
+In order to manage students who attend a university course of study, develop the following in C ++ language: </p>
+
+<ul>
+<li>The student structure having the following fields: the pointer to a string that contains the student&#39;s name, the pointer to a string that contains the student&#39;s surname, the student&#39;s registration number (an integer number). </li>
+<li>The function <code>read</code> that receives as a parameter the pointer to a string that contains the name of a file and as an output parameter (ie by reference) an integer returns as a return value a pointer to an array of student-type structures. The files that the function reads are organized as follows: the first line contains an integer that represents the number of students whose data is stored in the file, the following lines contain the data relating to each student (name, surname and matriculation number ). The function opens for reading the file whose name is passed as a parameter, reads the first line of the file, dynamically allocates an array of student-type structures of the
+read size, reads the subsequent lines of the file and copies their contents into the fields of the structures contained in the array (each line of the file corresponds to a structure in the array). At the end, the function closes the file, copies the size of the allocated array to the output parameter n and returns the pointer to the array itself. In the event that the reading operation is unsuccessful, the function returns NULL. </li>
+<li>The function <code>prints</code> that it receives as parameters an array of student-type structures and its size (an integer) and, using pointer arithmetic, scans the array passed as a parameter and prints on the screen the value of the fields of the structures contained in the array. </li>
+<li>The <code>deallocates</code> function that receives as parameters an array of student-type structures and its size (an integer) and operates as follows: scans the array and deallocates the strings pointed to by the pointers that make up the fields of the structures contained in the array and, when the scan is complete, deallocate the entire array. </li>
+<li>The <code>main</code> function that operates as follows: ask the user to enter the name of a file from the keyboard; call the read function by passing it the name of the file entered by the user; if the reading was successful, you call the print function by passing it the array pointed to by the pointer returned by read function and, subsequently, the deallocates function, also passing to it the array pointed to by the pointer returned by the read function.</li>
+</ul>
+
+<p>Example: the read function processes files organized as follows:
+ 4 
+Mario Rossi 123456 
+Giovanna Neri 123457 
+Paolo Verdi 123458 
+Michela Bianchi 123459 </p>
+
+<p>To do more: add the search function to search for a student within an array of student-type structures. The function receives as a parameter the array of structures, its size and a serial number (an integer) and returns a pointer to a student-type structure as a return value. If the search is successful, the function returns the pointer to the element of the array whose serial number corresponds to the one passed as a parameter, otherwise, if the search fails, the function returns NULL. Then modify the main function to verify that the search function works correctly.</p>
+
+<p><strong>Solution</strong>:</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e9-a6'>[E9][A6]</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="nc">RowOrder</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">code</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">description</span><span class="p">[</span><span class="n">dim</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">num_items</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">cost</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">insertRowOrder</span><span class="p">(</span><span class="n">RowOrder</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter code: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">r</span><span class="p">.</span><span class="n">code</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">code</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Warning: code must be positive"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">code</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter description: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">r</span><span class="p">.</span><span class="n">description</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter items number: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">r</span><span class="p">.</span><span class="n">num_items</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">num_items</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Warning: number of items must be positive"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">num_items</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter price: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">r</span><span class="p">.</span><span class="n">cost</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">cost</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Warning: price must be positive"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">cost</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Code: "</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">.</span><span class="n">code</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Description: "</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">.</span><span class="n">description</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Items number: "</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">.</span><span class="n">num_items</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Price: "</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">.</span><span class="n">cost</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">printRowOrder</span><span class="p">(</span><span class="n">RowOrder</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Code: "</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">.</span><span class="n">code</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Description: "</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">.</span><span class="n">description</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Items number: "</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">.</span><span class="n">num_items</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Price: "</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">.</span><span class="n">cost</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">double</span> <span class="nf">costRowOrder</span><span class="p">(</span><span class="n">RowOrder</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">r</span><span class="p">.</span><span class="n">num_items</span> <span class="o">*</span> <span class="n">r</span><span class="p">.</span><span class="n">cost</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">RowOrder</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"How many rows do you want to enter? "</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Must be a positive number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RowOrder</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">insertRowOrder</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="kt">double</span> <span class="n">cost_tot</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"--- Order summary: ---"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printRowOrder</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+        <span class="n">cost_tot</span> <span class="o">+=</span> <span class="n">costRowOrder</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Total cost: "</span> <span class="o">&lt;&lt;</span> <span class="n">cost_tot</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Do you want to save the file (y/n)? "</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">pick</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">pick</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">pick</span> <span class="o">!=</span> <span class="sc">'y'</span> <span class="o">&amp;&amp;</span> <span class="n">pick</span> <span class="o">!=</span> <span class="sc">'n'</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire s o n"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">pick</span> <span class="o">!=</span> <span class="sc">'y'</span> <span class="o">&amp;&amp;</span> <span class="n">pick</span> <span class="o">!=</span> <span class="sc">'n'</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pick</span> <span class="o">==</span> <span class="sc">'y'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il nome del file: "</span><span class="p">;</span>
+        <span class="kt">char</span> <span class="n">filename</span><span class="p">[</span><span class="n">dim</span><span class="p">];</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">filename</span><span class="p">;</span>
+        <span class="n">fstream</span> <span class="n">fout</span><span class="p">;</span>
+        <span class="n">fout</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">out</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">RowOrder</span><span class="o">*</span> <span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span> <span class="n">q</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="n">q</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">fout</span> <span class="o">&lt;&lt;</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">code</span> <span class="o">&lt;&lt;</span> <span class="sc">'\t'</span> <span class="o">&lt;&lt;</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">description</span> <span class="o">&lt;&lt;</span> <span class="sc">'\t'</span> <span class="o">&lt;&lt;</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">num_items</span> <span class="o">&lt;&lt;</span> <span class="sc">'\t'</span> <span class="o">&lt;&lt;</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">cost</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">fout</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">delete</span><span class="p">[]</span> <span class="n">p</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div>
+<p><strong>Assignement 6</strong>: 
+In order to create a program for the management of orders received by a company, develop the following in C ++ language:</p>
+
+<ul>
+<li><p>The <code>rowOrder</code> structure for the management of information relating to the order of a single product by a customer. The structure will have the following fields: the product code (a
+integer), the product description (a string of 63 characters), the number of pieces ordered (an integer) and the unit cost (a real number). </p></li>
+<li><p>The function <code>InsertRowOrder</code> that receives an <code>RowOrder</code> type structure as a parameter for reference, asks the user to enter the values ​​for its fields from the keyboard and assigns them to the fields of the structure passed as a parameter. The function will verify that the values ​​entered for the fields relating to the code, the number of pieces and the unit cost are positive or null (otherwise the entry is repeated until the values ​​are valid). The function does not return any return values. </p></li>
+<li><p>The <code>printRowOrder</code> function that receives as a parameter a structure of the <code>RowOrder</code> type and prints the value of its fields on the screen. The function does not return any return values. </p></li>
+<li><p>The <code>CostRowOrder</code> function which receives as a parameter a structure of the <code>RowOrder</code> type and returns its cost as a return value (a real number given by the number of ordered pieces multiplied by the unit cost of the piece). </p></li>
+<li><p>A C ++ program that operates as follows: you declare a pointer to a structure of type <code>RowOrder</code> and initialize it to <code>NULL</code>; ask the user to enter from the keyboard the number <code>n</code> of lines of which the order is composed (n must be a positive integer); dynamically allocates an array of n <code>RowOrder</code> structures and assigns the pointer to <code>p</code> (if the dynamic allocation fails, the program will terminate by returning -1); acquire the data relating to the order by calling the <code>insertRowOrder</code> function for each element of the array pointed to by <code>p</code>; scan the array pointed to by <code>p</code> again, printing the content and cost of each order line on the screen (or by calling the printRowOrder and <code>RowOrder cost</code> function for each element of the array pointed to by p); print on the screen the total cost of the order (ie the sum of the costs of the individual order lines), deallocate the memory used and terminate.</p></li>
+</ul>
+
+<p>To do more: add the ability to save the order that the user has entered on file. For this purpose, the program will ask the user to enter the file name, will open this file for writing, will scan the array pointed to by p and will write the information contained in the array to the file (choose an appropriate format to write each line of order in the file).</p>
 
 <p><strong>Solution</strong>:</p>
 
