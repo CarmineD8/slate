@@ -342,6 +342,9 @@
                   <li>
                     <a href="#practical-examples-9" class="toc-h2 toc-link" data-title="Practical examples - 9">Practical examples - 9</a>
                   </li>
+                  <li>
+                    <a href="#practical-examples-10" class="toc-h2 toc-link" data-title="Practical examples - 10">Practical examples - 10</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -8670,6 +8673,680 @@ integer), the product description (a string of 63 characters), the number of pie
 <p><strong>Solution</strong>:</p>
 
 <p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h2 id='practical-examples-10'>Practical examples - 10</h2>
+<p>In this section, we will learn about recursive functions and templates</p>
+<h3 id='e10-a1-recursive-functions'>[E10][A1] Recursive functions</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">pow</span><span class="p">(</span><span class="kt">int</span> <span class="n">base</span><span class="p">,</span> <span class="kt">int</span> <span class="n">esponente</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">esponente</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">base</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">esponente</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">double</span> <span class="nf">pow2</span><span class="p">(</span><span class="kt">int</span> <span class="n">base</span><span class="p">,</span> <span class="kt">int</span> <span class="n">esponente</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">esponente</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">base</span> <span class="o">*</span> <span class="n">pow2</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">esponente</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">esponente</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">base</span><span class="p">)</span> <span class="o">*</span> <span class="n">pow2</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">esponente</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">'n'</span><span class="p">;</span>
+
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter base value: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter exp value: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="s">" ^ "</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">" is "</span> <span class="o">&lt;&lt;</span> <span class="n">pow</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="s">" ^ "</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">" is "</span> <span class="o">&lt;&lt;</span> <span class="n">pow2</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Proceed (s/n)? "</span><span class="p">;</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="sc">'s'</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">!=</span> <span class="sc">'n'</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Warning: enter s or n"</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="sc">'s'</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">!=</span> <span class="sc">'n'</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'s'</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div>
+<p><strong>Assignement 1</strong>: 
+Write a recursive function in C ++ which, given two integers <code>M</code> and <code>N</code> received as parameters, verifies that <code>N</code> is positive or null (otherwise, if <code>N</code> is negative, the function terminates by returning <code>-1</code>), calculates and returns as a return value the power MN (an integer). Then write a C ++ program to verify that the function works correctly. The program will ask the user to enter a two integer keyboard, call the function and print its return value on the screen. The operations will be repeated as long as the user wishes. To do more: extend the function so that it can receive a negative exponent. In that case, the function will return the value <code>M (-N) = 1 / MN</code>.</p>
+
+<p><strong>Solution</strong>:</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e10-a2-recursive-functions'>[E10][A2] Recursive functions</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">long</span> <span class="kt">int</span> <span class="nf">factorial</span><span class="p">(</span><span class="kt">long</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span> 
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> 
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span> 
+    <span class="k">else</span> 
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> 
+<span class="p">}</span> 
+
+<span class="kt">double</span> <span class="nf">sin_taylor</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span> 
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">pow</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="n">sin_taylor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span> 
+    <span class="p">}</span> <span class="k">else</span> 
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> 
+<span class="p">}</span> 
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">'n'</span><span class="p">;</span>
+
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter x to compute Taylor approximation: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter n : "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"The result is sin("</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">") e': "</span> <span class="o">&lt;&lt;</span> <span class="n">sin_taylor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Proceed (s/n)? "</span><span class="p">;</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="sc">'s'</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">!=</span> <span class="sc">'n'</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Warning: enter s or n"</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="sc">'s'</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">!=</span> <span class="sc">'n'</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'s'</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div>
+<p><strong>Assignement 2</strong>: 
+Write a recursive function in C ++ which, received as a parameter a real number <code>x</code>, calculates the value of <code>sin (x)</code> using the Taylor expansion up to the <code>nth</code> term. Then write a program to verify the correct functioning of the function. The program will ask the user to enter the values ​​of <code>x</code> (a real number) and n (an integer), will call the function and print its return value on the screen. These operations can be repeated as long as the user wishes. Note: Factorial can also be implemented using a recursive function. To do more: what is the value of n beyond which the function starts returning invalid values? Why is this happening?</p>
+
+<p><strong>Solution</strong>:</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e10-a3-template'>[E10][A3] Template</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">&gt;</span>
+<span class="kt">int</span> <span class="nf">countDistinct</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">)</span>
+            <span class="n">c</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">&gt;</span>
+<span class="kt">int</span> <span class="nf">countDistinct2</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">double</span> <span class="n">f</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">n</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+                <span class="n">f</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">n</span><span class="p">;</span>
+                <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">n</span><span class="p">;</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> 
+            <span class="n">c</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">v</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+    <span class="kt">double</span> <span class="n">w</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">0.0</span> <span class="p">};</span>
+    <span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">fr1</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+    <span class="kt">double</span> <span class="n">fr2</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+    <span class="kt">double</span> <span class="n">fr3</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+
+    <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">'n'</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter integer values for array of dim "</span> <span class="o">&lt;&lt;</span> <span class="n">dim</span> <span class="o">&lt;&lt;</span> <span class="s">" ..."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">dim</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter value at index "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span><span class="p">;</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter integer values for array of dim "</span> <span class="o">&lt;&lt;</span> <span class="n">dim</span> <span class="o">&lt;&lt;</span> <span class="s">" ..."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">dim</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter value at index "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span><span class="p">;</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a string of "</span> <span class="o">&lt;&lt;</span> <span class="n">dim</span> <span class="o">&lt;&lt;</span> <span class="s">" chars"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Number of distinct elements: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"For the array of integers: "</span> <span class="o">&lt;&lt;</span> <span class="n">countDistinct2</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">fr1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Elements frequency: {"</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fr1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fr1</span><span class="p">[</span><span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"}"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"For the array of real numbers: "</span> <span class="o">&lt;&lt;</span> <span class="n">countDistinct2</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">fr2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Elements frequency: {"</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fr2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fr2</span><span class="p">[</span><span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"}"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"For the string: "</span> <span class="o">&lt;&lt;</span> <span class="n">countDistinct2</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">fr3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Elements frequency: {"</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fr3</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fr3</span><span class="p">[</span><span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"}"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Proceed (s/n)? "</span><span class="p">;</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="sc">'s'</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">!=</span> <span class="sc">'n'</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter s or n"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="sc">'s'</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">!=</span> <span class="sc">'n'</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'s'</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div>
+<p><strong>Assignement 3</strong>: 
+Write the C ++ <code>countDistinct</code> function template that receives as parameters an array <code>a</code> of elements of type <code>T</code> and its dimension <code>n</code> (an integer), calculates and returns as a return value the number of distinct elements contained in the array <code>a</code> (a whole number). Then write a program to verify the correct functioning of the function template. The program will ask the user to enter the values ​​from the keyboard for an array of 10 integers, for an array of 10 real numbers and for a string containing up to 9 characters, it will call countDistinct for each of the three arrays and print the three on the screen return values. These operations can be repeated as long as the user wishes.
+Note: to know the actual size of the string entered by the user, you can use the <code>strlen</code> function available in the <code>cstring</code> library. Example: given the array a = {1, 3, 5, 6, 5, 2, 1, 5, 3, 6} (n = 10), the function will return 5. The array a contains 5 distinct values ​​(for the precision is the values: 1, 2, 3, 5, 6).</p>
+
+<p>To do more: extend the <code>countDistinct</code> function template so that it receives as a parameter an additional array <code>f</code> of real numbers, of the same size as array <code>a</code>. The function will assign to each element of <code>f</code> the frequency of the corresponding element of <code>a</code>. The frequency of an element of an array is defined as the number of times the element appears in the array divided by the size of the array. In the case of the example shown above, the array <code>f</code> will therefore be the following: f = {0.2, 0.2, 0.3, 0.2, 0.3, 0.1, 0.2, 0.3, 0.2, 0.2}. Element 1 appears 2 times out of 10, element 3 appears 2 times out of 10, element 5 appears 3 times out of 10 and so on. </p>
+
+<p><strong>Solution</strong>:</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e10-a4-template'>[E10][A4] Template</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">&gt;</span>
+<span class="n">T</span> <span class="nf">sum</span><span class="p">(</span><span class="n">T</span><span class="o">**</span> <span class="n">pM</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">T</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="o">**</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pM</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">pM</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">q</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span> <span class="n">q</span> <span class="o">&lt;</span> <span class="p">(</span><span class="o">*</span><span class="n">p</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="n">q</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="o">*</span><span class="n">q</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">&gt;</span>
+<span class="n">T</span> <span class="nf">product</span><span class="p">(</span><span class="n">T</span><span class="o">**</span> <span class="n">pM</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">T</span> <span class="n">pr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="o">**</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pM</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">pM</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">q</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span> <span class="n">q</span> <span class="o">&lt;</span> <span class="p">(</span><span class="o">*</span><span class="n">p</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="n">q</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">pr</span> <span class="o">*=</span> <span class="o">*</span><span class="n">q</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">pr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">&gt;</span>
+<span class="n">T</span> <span class="nf">trace</span><span class="p">(</span><span class="n">T</span><span class="o">**</span> <span class="n">pM</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">T</span> <span class="n">tr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="o">**</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pM</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">pM</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">tr</span> <span class="o">+=</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">p</span> <span class="o">+</span> <span class="n">k</span><span class="p">);</span>
+        <span class="n">k</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">tr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="p">(</span><span class="o">*</span><span class="n">pf</span><span class="p">[</span><span class="n">dim</span><span class="p">])(</span><span class="kt">double</span><span class="o">**</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="p">{</span><span class="n">sum</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">trace</span><span class="p">};</span>
+    <span class="kt">int</span> <span class="n">d</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter matrix dim: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">d</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">double</span><span class="o">**</span> <span class="n">pData</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">*</span><span class="p">[</span><span class="n">d</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">pData</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">pData</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="p">[</span><span class="n">d</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">pData</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">;</span> <span class="n">h</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"enter elment at index ("</span> <span class="o">&lt;&lt;</span> <span class="n">h</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">"): "</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">pData</span><span class="p">[</span><span class="n">h</span><span class="p">][</span><span class="n">k</span><span class="p">];</span>
+            <span class="p">}</span>
+        <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"what you want to compute? "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"1 - sum"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"2 - product"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"3 - trace"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">s</span> <span class="o">&gt;</span> <span class="n">dim</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"enter a value between 1 and "</span> <span class="o">&lt;&lt;</span> <span class="n">dim</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">s</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">s</span> <span class="o">&gt;</span> <span class="n">dim</span><span class="p">);</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Result: "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="o">*</span><span class="n">pf</span><span class="p">[</span><span class="n">s</span><span class="o">-</span><span class="mi">1</span><span class="p">])(</span><span class="n">pData</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">delete</span><span class="p">[]</span> <span class="n">pData</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="k">delete</span><span class="p">[]</span> <span class="n">pData</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div>
+<p><strong>Assignement 4</strong>: 
+We want to create a C ++ program to perform simple processing on square arrays of generic elements. To do this, implement the following function templates:</p>
+
+<ul>
+<li>The <code>sum</code> function template that receives as parameters a pointer <code>pM</code> to a pointer to an object of type <code>T</code> and an integer returns as a return value an object of type <code>T</code>. The pointer <code>pM</code> points to a square matrix of n rows and n columns of objects of type T. The function calculates and returns the sum of the elements of the array pointed to by <code>pM</code> as a return value.</li>
+<li>The <code>product</code> function template that receives as parameters a pointer <code>pM</code> to a pointer to an object of type T and an integer returns as a return value an object of type T. The pointer <code>pM</code> points to a square matrix of n lines and n columns of objects of type T. The function calculates and returns the product of the elements of the array pointed to by <code>pM</code> as a return value.</li>
+<li>The function template <code>trace</code> that it receives as parameters a pointer <code>pM</code> to a pointer to an object of type T and an integer returns as a return value an object of type T. The pointer <code>pM</code> points to a square matrix of <code>n</code> lines and <code>n</code> columns of objects of type <code>T</code>. The function calculates and returns the trace of the elements of the array pointed to by <code>pM</code> as a return value. Remember that the trace of a square matrix is ​​given by the sum of the elements on the main diagonal. So write a C ++ program that works as follows:</li>
+<li>Ask the user to enter the dimension <code>d</code> (an integer) of the square matrices to be processed from the keyboard.</li>
+<li>Dynamically allocate a matrix of <code>d x d</code> real numbers. To do this, you declare a pointer to a pointer to a real number pData, dynamically allocate an array of d pointers to real numbers and assign the pointer to pData, dynamically allocate d arrays of real numbers and assign pointers to the elements of the array pointed to by pData.</li>
+<li>Ask the user to enter the value of each element of the matrix thus allocated from the keyboard.</li>
+<li>Call sum, product and track and print their return values ​​on screen.</li>
+<li>Deallocate previously allocated memory and terminate.</li>
+</ul>
+
+<p>To do more: use function pointers to allow the user to choose which function to call. To do this, the program will implement the following additional steps:</p>
+
+<ul>
+<li>Declare an array <code>pf</code> of three pointers to functions that take as parameters a pointer to pointer to real number and an integer and return a real number as a return value.</li>
+<li>Initialize the elements of the <code>pf</code> array with the addresses of the three previously implemented function templates (<code>sum</code>, <code>product</code>, <code>trace</code>).</li>
+<li>Then ask the user to choose which operation he wants to apply to the matrix pointed to by pData, among the three previously implemented and whose pointers are available in the <code>pf</code> array.</li>
+<li>Finally, using the pointer contained in the <code>pf</code> array, you call the function corresponding to the desired operation and print the result on the screen.</li>
+</ul>
+
+<p><strong>Solution</strong>:</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e10-a5-template'>[E10][A5] Template</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">&gt;</span>
+<span class="n">T</span><span class="o">*</span> <span class="nf">Subsample</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">m</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">m</span> <span class="o">&gt;</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="n">m</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">m</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">T</span><span class="o">*</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">T</span><span class="p">[</span><span class="n">m</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> 
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">k</span><span class="p">)</span>
+        <span class="n">s</span><span class="p">[</span><span class="n">i</span> <span class="o">/</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">v</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter "</span> <span class="o">&lt;&lt;</span> <span class="n">dim</span> <span class="o">&lt;&lt;</span> <span class="s">" integers: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">dim</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a number between 1 and "</span> <span class="o">&lt;&lt;</span> <span class="n">dim</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="n">dim</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a number between 1 and "</span> <span class="o">&lt;&lt;</span> <span class="n">dim</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="n">dim</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Subsample</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">delete</span><span class="p">[]</span> <span class="n">p</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div>
+<p><strong>Assignement 5</strong>: 
+Write the function template <code>Subsample</code> that receives as parameters an array with elements of generic type <code>T</code>, its dimension <code>n</code> (a positive integer) and a second integer m such that <code>0 &lt;m≤ n / 2</code>. The function template returns as a return value a pointer to an array of elements of generic type T and operates as follows: it calculates the quotient of the division of n by m, rounded to the next higher integer), dynamically allocates an array s of m elements of type generic T, copies an element every <code>k</code> of the array <code>a</code> into <code>s</code>, starting from the first element of <code>a</code>. For example, assuming that T is instantiated with the concrete type inte that are given <code>a = {3, 2, 8, 5, 4, 9, 6, 1, 2, 1}</code> <code>(n = 10)</code> and <code>m = 3</code>, the template function will allocate an array <code>s</code> of 3 elements and fill it by copying one element every 4 elements of <code>a</code> (it will then copy the first, fifth and ninth elements of <code>a</code>), that is, we will have <code>s = {3, 4, 2}</code>. If the value of <code>n</code> or <code>m</code> is invalid, the function template returns NULL. Suppose the function template is instantiated with a concrete type with an assignment operator. Then write a C ++ program that operates as follows: declare an array <code>v</code> of 10 integers and ask the user to enter their values ​​from the keyboard, ask the user to enter an integer <code>t</code> between 1 and 5 (in the case of entering an invalid value, the program will ask you to repeat the entry until a valid value is received), you call the function template <code>Subsample</code> passing the array <code>v</code>, its size and the size of the new array <code>t</code> as parameters, print a display the values ​​contained in the array pointed to by the pointer that the function template returns as a return value (this array will have dimension t), deallocate that array and terminate.</p>
+
+<p><strong>Solution</strong>:</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
