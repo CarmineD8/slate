@@ -348,6 +348,9 @@
                   <li>
                     <a href="#practical-examples-11" class="toc-h2 toc-link" data-title="Practical examples - 11">Practical examples - 11</a>
                   </li>
+                  <li>
+                    <a href="#practical-examples-12" class="toc-h2 toc-link" data-title="Practical examples - 12">Practical examples - 12</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -11440,6 +11443,1199 @@ zero to the corresponding attribute of the match class. The manufacturer will us
 </ul>
 
 <p>Then write a C ++ program to verify the correct functioning of the match class. The program will ask the user to enter information relating to a game and then reprint them on the screen.</p>
+
+<p><strong>Solution</strong>:</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h2 id='practical-examples-12'>Practical examples - 12</h2>
+<p>In this section, we will learn about classes and dynamic allocation</p>
+<h3 id='e12-a1'>[E12][A1]</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;cstring&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Interfaccia della classe data</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+
+<span class="k">class</span> <span class="nc">data</span> <span class="p">{</span>
+<span class="nl">public:</span>
+
+    <span class="c1">// Costruttori</span>
+    <span class="n">data</span><span class="p">();</span>
+    <span class="n">data</span><span class="p">(</span><span class="kt">int</span> <span class="n">giorno</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mese</span><span class="p">,</span> <span class="kt">int</span> <span class="n">anno</span><span class="p">);</span>
+    <span class="n">data</span><span class="p">(</span><span class="k">const</span> <span class="n">data</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">);</span>
+
+    <span class="c1">// Distruttore</span>
+    <span class="o">~</span><span class="n">data</span><span class="p">();</span>
+
+    <span class="c1">// Selettori</span>
+    <span class="kt">int</span> <span class="n">get_giorno</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">get_mese</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">get_anno</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="c1">// Modificatori</span>
+    <span class="kt">void</span> <span class="n">set_giorno</span><span class="p">(</span><span class="kt">int</span> <span class="n">giorno</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="n">set_mese</span><span class="p">(</span><span class="kt">int</span> <span class="n">mese</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="n">set_anno</span><span class="p">(</span><span class="kt">int</span> <span class="n">anno</span><span class="p">);</span>
+
+    <span class="c1">// Operazioni</span>
+    <span class="kt">void</span> <span class="n">inserisci</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">stampa</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="n">data</span> <span class="n">successiva</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="n">data</span> <span class="n">precedente</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+<span class="nl">private:</span>
+
+    <span class="c1">// Dati membro</span>
+    <span class="kt">int</span> <span class="n">_giorno</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">_mese</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">_anno</span><span class="p">;</span>
+
+    <span class="c1">// Funzioni di supporto</span>
+    <span class="kt">int</span> <span class="n">num_giorni</span><span class="p">(</span><span class="kt">int</span> <span class="n">mese</span><span class="p">,</span> <span class="kt">int</span> <span class="n">anno</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">valida</span><span class="p">(</span><span class="kt">int</span> <span class="n">giorno</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mese</span><span class="p">,</span> <span class="kt">int</span> <span class="n">anno</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Costruttori della classe data</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+
+<span class="n">data</span><span class="o">::</span><span class="n">data</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">_giorno</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">_mese</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">_anno</span> <span class="o">=</span> <span class="mi">1900</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">data</span><span class="o">::</span><span class="n">data</span><span class="p">(</span><span class="kt">int</span> <span class="n">giorno</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mese</span><span class="p">,</span> <span class="kt">int</span> <span class="n">anno</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">valida</span><span class="p">(</span><span class="n">giorno</span><span class="p">,</span> <span class="n">mese</span><span class="p">,</span> <span class="n">anno</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">_giorno</span> <span class="o">=</span> <span class="n">giorno</span><span class="p">;</span>
+        <span class="n">_mese</span> <span class="o">=</span> <span class="n">mese</span><span class="p">;</span>
+        <span class="n">_anno</span> <span class="o">=</span> <span class="n">anno</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="n">_giorno</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">_mese</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">_anno</span> <span class="o">=</span> <span class="mi">1900</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">data</span><span class="o">::</span><span class="n">data</span><span class="p">(</span><span class="k">const</span> <span class="n">data</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">_giorno</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">_giorno</span><span class="p">;</span>
+    <span class="n">_mese</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">_mese</span><span class="p">;</span>
+    <span class="n">_anno</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">_anno</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Distruttore della classe data</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+
+<span class="n">data</span><span class="o">::~</span><span class="n">data</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Selettori della classe data</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+
+<span class="kt">int</span> <span class="n">data</span><span class="o">::</span><span class="n">get_giorno</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">_giorno</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">data</span><span class="o">::</span><span class="n">get_mese</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">_mese</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">data</span><span class="o">::</span><span class="n">get_anno</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">_anno</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Modificatori della classe data</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+
+<span class="kt">void</span> <span class="n">data</span><span class="o">::</span><span class="n">set_giorno</span><span class="p">(</span><span class="kt">int</span> <span class="n">giorno</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">valida</span><span class="p">(</span><span class="n">giorno</span><span class="p">,</span> <span class="n">_mese</span><span class="p">,</span> <span class="n">_anno</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">_giorno</span> <span class="o">=</span> <span class="n">giorno</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">data</span><span class="o">::</span><span class="n">set_mese</span><span class="p">(</span><span class="kt">int</span> <span class="n">mese</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">valida</span><span class="p">(</span><span class="n">_giorno</span><span class="p">,</span> <span class="n">mese</span><span class="p">,</span> <span class="n">_anno</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">_mese</span> <span class="o">=</span> <span class="n">mese</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">data</span><span class="o">::</span><span class="n">set_anno</span><span class="p">(</span><span class="kt">int</span> <span class="n">anno</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">_anno</span> <span class="o">=</span> <span class="n">anno</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Operazioni</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+
+<span class="kt">void</span> <span class="n">data</span><span class="o">::</span><span class="n">inserisci</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">g</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire giorno: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">g</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire mese: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire anno: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">valida</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Attenzione: la data inserita non e' valida"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">valida</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">a</span><span class="p">));</span>
+    <span class="n">set_giorno</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>
+    <span class="n">set_mese</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+    <span class="n">set_anno</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">data</span><span class="o">::</span><span class="n">stampa</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">get_giorno</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"/"</span> <span class="o">&lt;&lt;</span> <span class="n">get_mese</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"/"</span> <span class="o">&lt;&lt;</span> <span class="n">get_anno</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">data</span> <span class="n">data</span><span class="o">::</span><span class="n">successiva</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+
+    <span class="kt">int</span> <span class="n">giorno_successiva</span> <span class="o">=</span> <span class="n">get_giorno</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">mese_successiva</span> <span class="o">=</span> <span class="n">get_mese</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">anno_successiva</span> <span class="o">=</span> <span class="n">get_anno</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">giorno_successiva</span> <span class="o">&gt;</span> <span class="n">num_giorni</span><span class="p">(</span><span class="n">get_mese</span><span class="p">(),</span> <span class="n">get_anno</span><span class="p">()))</span> <span class="p">{</span>
+        <span class="n">giorno_successiva</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">mese_successiva</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mese_successiva</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">mese_successiva</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">anno_successiva</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">data</span><span class="p">(</span><span class="n">giorno_successiva</span><span class="p">,</span> <span class="n">mese_successiva</span><span class="p">,</span> <span class="n">anno_successiva</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">data</span> <span class="n">data</span><span class="o">::</span><span class="n">precedente</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">giorno_precedente</span> <span class="o">=</span> <span class="n">get_giorno</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">mese_precedente</span> <span class="o">=</span> <span class="n">get_mese</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">anno_precedente</span> <span class="o">=</span> <span class="n">get_anno</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">giorno_precedente</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">mese_precedente</span><span class="o">--</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mese_precedente</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">mese_precedente</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+            <span class="n">anno_precedente</span><span class="o">--</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">giorno_precedente</span> <span class="o">=</span> <span class="n">num_giorni</span><span class="p">(</span><span class="n">mese_precedente</span><span class="p">,</span> <span class="n">anno_precedente</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">data</span><span class="p">(</span><span class="n">giorno_precedente</span><span class="p">,</span> <span class="n">mese_precedente</span><span class="p">,</span> <span class="n">anno_precedente</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Funzioni di supporto della classe data</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+
+<span class="kt">int</span> <span class="n">data</span><span class="o">::</span><span class="n">num_giorni</span><span class="p">(</span><span class="kt">int</span> <span class="n">mese</span><span class="p">,</span> <span class="kt">int</span> <span class="n">anno</span><span class="p">)</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">mese</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">1</span><span class="p">:</span> <span class="k">case</span> <span class="mi">3</span><span class="p">:</span> <span class="k">case</span> <span class="mi">5</span><span class="p">:</span> <span class="k">case</span> <span class="mi">7</span><span class="p">:</span> <span class="k">case</span> <span class="mi">8</span><span class="p">:</span> <span class="k">case</span> <span class="mi">10</span><span class="p">:</span> <span class="k">case</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">31</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">4</span><span class="p">:</span> <span class="k">case</span> <span class="mi">6</span><span class="p">:</span> <span class="k">case</span> <span class="mi">9</span><span class="p">:</span> <span class="k">case</span> <span class="mi">11</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">30</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(((</span><span class="n">anno</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">anno</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">))</span> <span class="o">||</span> <span class="p">(</span><span class="n">anno</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+                <span class="k">return</span> <span class="mi">29</span><span class="p">;</span>
+            <span class="k">else</span>
+                <span class="k">return</span> <span class="mi">28</span><span class="p">;</span>
+        <span class="nl">default:</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">data</span><span class="o">::</span><span class="n">valida</span><span class="p">(</span><span class="kt">int</span> <span class="n">giorno</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mese</span><span class="p">,</span> <span class="kt">int</span> <span class="n">anno</span><span class="p">)</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">mese</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">mese</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">giorno</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">giorno</span> <span class="o">&gt;</span> <span class="n">num_giorni</span><span class="p">(</span><span class="n">mese</span><span class="p">,</span> <span class="n">anno</span><span class="p">))</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Interfaccia della classe stampe</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+
+<span class="k">class</span> <span class="nc">stampe</span> <span class="p">{</span>
+<span class="nl">public:</span>
+
+    <span class="c1">// Costruttori</span>
+    <span class="n">stampe</span><span class="p">();</span>
+    <span class="n">stampe</span><span class="p">(</span><span class="n">data</span> <span class="n">d</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">pagine</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
+    <span class="n">stampe</span><span class="p">(</span><span class="k">const</span> <span class="n">stampe</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">);</span>
+
+    <span class="c1">// Distruttore</span>
+    <span class="o">~</span><span class="n">stampe</span><span class="p">();</span>
+
+    <span class="c1">// Selettori</span>
+    <span class="n">data</span> <span class="n">get_data</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">get_stampante</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">get_numero_stampe</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">get_pagine_stampate</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="c1">// Modificatori</span>
+    <span class="kt">void</span> <span class="n">set_data</span><span class="p">(</span><span class="n">data</span> <span class="n">d</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">set_pagine_stampate</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">pagine</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
+
+    <span class="c1">// Operazioni</span>
+    <span class="kt">int</span> <span class="n">leggi</span><span class="p">(</span><span class="kt">char</span> <span class="n">nomefile</span><span class="p">[]);</span>
+    <span class="kt">void</span> <span class="n">stampa</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">totale_pagine</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">intervallo_pagine</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">m</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">M</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+<span class="nl">private:</span>
+    <span class="n">data</span> <span class="n">_d</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">_s</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">_n</span><span class="p">;</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">_p</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Costruttori della classe stampe</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+
+<span class="n">stampe</span><span class="o">::</span><span class="n">stampe</span><span class="p">()</span> <span class="o">:</span> <span class="n">_d</span><span class="p">(),</span> <span class="n">_s</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">_n</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">_p</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="n">stampe</span><span class="o">::</span><span class="n">stampe</span><span class="p">(</span><span class="n">data</span> <span class="n">d</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">pagine</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">_d</span><span class="p">(),</span> <span class="n">_s</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">_n</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">_p</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span>
+<span class="p">{</span>        
+    <span class="n">set_data</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+    <span class="n">set_pagine_stampate</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">pagine</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">stampe</span><span class="o">::</span><span class="n">stampe</span><span class="p">(</span><span class="k">const</span> <span class="n">stampe</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">_d</span><span class="p">(),</span> <span class="n">_s</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">_n</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">_p</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n_stampe</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">get_numero_stampe</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n_stampe</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+
+    <span class="n">set_data</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">get_data</span><span class="p">());</span>
+    <span class="n">set_pagine_stampate</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">get_stampante</span><span class="p">(),</span> 
+                        <span class="n">s</span><span class="p">.</span><span class="n">get_pagine_stampate</span><span class="p">(),</span> 
+                        <span class="n">n_stampe</span><span class="p">);</span>       
+<span class="p">}</span>
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Distruttore della classe stampe</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+
+<span class="n">stampe</span><span class="o">::~</span><span class="n">stampe</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">_p</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">delete</span><span class="p">[]</span> <span class="n">_p</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Selettori della classe stampe</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+
+<span class="n">data</span> <span class="n">stampe</span><span class="o">::</span><span class="n">get_data</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">_d</span><span class="p">;</span>    
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">stampe</span><span class="o">::</span><span class="n">get_stampante</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">_s</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">stampe</span><span class="o">::</span><span class="n">get_numero_stampe</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">_n</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">stampe</span><span class="o">::</span><span class="n">get_pagine_stampate</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">_p</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Modificatori della classe stampe</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+
+<span class="kt">void</span> <span class="n">stampe</span><span class="o">::</span><span class="n">set_data</span><span class="p">(</span><span class="n">data</span> <span class="n">d</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// si potrà semplificare appena avremo fatto l'operatore di assegnamento!</span>
+    <span class="n">_d</span><span class="p">.</span><span class="n">set_giorno</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">get_giorno</span><span class="p">());</span>
+    <span class="n">_d</span><span class="p">.</span><span class="n">set_mese</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">get_mese</span><span class="p">());</span>
+    <span class="n">_d</span><span class="p">.</span><span class="n">set_anno</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">get_anno</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">stampe</span><span class="o">::</span><span class="n">set_pagine_stampate</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">pagine</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Verifica della validità dei dati</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">pagine</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">pagine</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pagine</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">_p</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+            <span class="k">delete</span> <span class="p">[]</span> <span class="n">_p</span><span class="p">;</span>
+        <span class="n">_p</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+        <span class="n">_n</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="n">_s</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Operazioni della classe stampe</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////</span>
+
+<span class="kt">int</span> <span class="n">stampe</span><span class="o">::</span><span class="n">leggi</span><span class="p">(</span><span class="kt">char</span> <span class="n">nomefile</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="n">fstream</span> <span class="n">fin</span><span class="p">;</span>
+    <span class="n">fin</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">nomefile</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
+
+    <span class="c1">// prima riga</span>
+    <span class="kt">int</span> <span class="n">giorno</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kt">int</span> <span class="n">mese</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kt">int</span> <span class="n">anno</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">fin</span> <span class="o">&gt;&gt;</span> <span class="n">giorno</span> <span class="o">&gt;&gt;</span> <span class="n">mese</span> <span class="o">&gt;&gt;</span> <span class="n">anno</span><span class="p">;</span>
+    <span class="n">data</span> <span class="n">d</span><span class="p">(</span><span class="n">giorno</span><span class="p">,</span> <span class="n">mese</span><span class="p">,</span> <span class="n">anno</span><span class="p">);</span>
+
+    <span class="c1">// seconda riga</span>
+    <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">fin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fin</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// terza riga</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">fin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fin</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fin</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// righe successive</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fin</span> <span class="o">&gt;&gt;</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">fin</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">fin</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">_p</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">delete</span> <span class="p">[]</span> <span class="n">_p</span><span class="p">;</span>
+    <span class="n">_p</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+    <span class="n">set_data</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+    <span class="n">_s</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+    <span class="n">_n</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">stampe</span><span class="o">::</span><span class="n">stampa</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n_stampe</span> <span class="o">=</span> <span class="n">get_numero_stampe</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="n">get_stampante</span><span class="p">();</span>
+    <span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">get_pagine_stampate</span><span class="p">();</span>
+
+    <span class="n">get_data</span><span class="p">().</span><span class="n">stampa</span><span class="p">();</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">": stampante n. "</span> <span class="o">&lt;&lt;</span> <span class="n">id</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"pagine stampate: "</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_stampe</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">[</span><span class="n">n_stampe</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">stampe</span><span class="o">::</span><span class="n">totale_pagine</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n_stampe</span> <span class="o">=</span> <span class="n">get_numero_stampe</span><span class="p">();</span>
+    <span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">get_pagine_stampate</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">totale</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_stampe</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">totale</span> <span class="o">+=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="k">return</span> <span class="n">totale</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">stampe</span><span class="o">::</span><span class="n">intervallo_pagine</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">m</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">M</span><span class="p">)</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n_stampe</span> <span class="o">=</span> <span class="n">get_numero_stampe</span><span class="p">();</span>
+    <span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">get_pagine_stampate</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="n">M</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_stampe</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">)</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">M</span><span class="p">)</span>
+            <span class="n">M</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Funzione main</span>
+<span class="c1">////////////////////////////////////////////////////////////////////</span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">giorno</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="kt">char</span> <span class="n">mese</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="kt">char</span> <span class="n">anno</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire la data per la quale si vogliono elaborare i dati"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Giorno: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">giorno</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Mese: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">mese</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Anno: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">anno</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il numero di stampanti in dotazione: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">k</span><span class="p">;</span>   
+
+    <span class="n">stampe</span><span class="o">*</span> <span class="n">ps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">stampe</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ps</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Attenzione: non e' stato possibile allocare la memoria"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">pagine_totali</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">pmin</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">pmax</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">ptot</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pmin</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">pmax</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">ptot</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Attenzione: non e' stato possibile allocare la memoria"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">file</span><span class="p">[</span><span class="mi">128</span><span class="p">]</span> <span class="o">=</span> <span class="s">"stampe_"</span><span class="p">;</span>
+        <span class="n">strcat</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">anno</span><span class="p">);</span>
+        <span class="n">strcat</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">mese</span><span class="p">);</span>
+        <span class="n">strcat</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">giorno</span><span class="p">);</span>
+        <span class="n">strcat</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">"_"</span><span class="p">);</span>
+        <span class="n">strcat</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">to_string</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="n">c_str</span><span class="p">());</span>
+        <span class="n">strcat</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">".txt"</span><span class="p">);</span>
+
+        <span class="cm">/* In alternativa 
+        char file[128] = "";
+        sprintf(file, "stampe_%s%s%s_%d.txt", anno, mese, giorno, i + 1);
+        */</span>
+
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Sto caricando il file "</span> <span class="o">&lt;&lt;</span> <span class="n">file</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">ps</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">leggi</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Attenzione: errore nella lettura del file"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">ps</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">stampa</span><span class="p">();</span>
+        <span class="n">ptot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ps</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">totale_pagine</span><span class="p">();</span>
+        <span class="n">pagine_totali</span> <span class="o">+=</span> <span class="n">ptot</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">ps</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">intervallo_pagine</span><span class="p">(</span><span class="n">pmin</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">pmax</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Sono state stampate in tutto "</span> <span class="o">&lt;&lt;</span> <span class="n">pagine_totali</span> <span class="o">&lt;&lt;</span> <span class="s">" pagine"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">fstream</span> <span class="n">fout</span><span class="p">;</span>
+    <span class="n">fout</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">"analisi.txt"</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">out</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">g</span> <span class="o">=</span> <span class="n">ps</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">get_data</span><span class="p">().</span><span class="n">get_giorno</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">ps</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">get_data</span><span class="p">().</span><span class="n">get_mese</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">ps</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">get_data</span><span class="p">().</span><span class="n">get_anno</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="n">ps</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">get_stampante</span><span class="p">();</span>
+        <span class="n">fout</span> <span class="o">&lt;&lt;</span> <span class="n">g</span> <span class="o">&lt;&lt;</span> <span class="s">"/"</span> <span class="o">&lt;&lt;</span> <span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="s">"/"</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">", stampante n. "</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span> 
+             <span class="o">&lt;&lt;</span> <span class="n">pmin</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">pmax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">ptot</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">fout</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+
+    <span class="k">delete</span> <span class="p">[]</span> <span class="n">ps</span><span class="p">;</span>
+    <span class="k">delete</span> <span class="p">[]</span> <span class="n">pmin</span><span class="p">;</span>
+    <span class="k">delete</span> <span class="p">[]</span> <span class="n">pmax</span><span class="p">;</span>
+    <span class="k">delete</span> <span class="p">[]</span> <span class="n">ptot</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div>
+<p><strong>Assignement 1</strong>: 
+The owner of a copy shop wishes to process data relating to the pages printed daily by each printer of his copy shop. The number of printed pages is reported in a collection of text files. In particular, there is a text file for each printer that the copy shop is equipped with and for each day of opening. The data inside each text file is organized as follows: the first line shows the day, month and year to which the data refers (three whole numbers), the second line shows the printer identification code s (an integer), the third line shows the number n of printing operations that the printer performed on that day (an integer), the following n lines show the number of pages printed for each of the n printing operations performed ( an integer for each row).</p>
+
+<p>On that day, printer number 2 then carried out 5 printing operations, for which the printed pages are those shown in the file (112, 30, 51, 12 and 98 respectively). To process such data, develop the print class in C ++ language with the following attributes: a _d object of type date to represent the date to which the data refer (you can use the date class developed in the previous exercise), the number _s of the printer (an integer), the number _n of printing operations performed (an integer), the _p pointer to an array of _n integers containing the number of pages printed for each print operation. Furthermore, the following methods are implemented: </p>
+
+<ul>
+<li>The default constructor that (using the initialization list) initializes the _d object by means of the default constructor of the given class, initializes the printer number and the number of operations to 0. prints the _p pointer to NULL. </li>
+<li>A constructor with parameters that receives as input (i.e. as parameters) an object d of the given class, the number s of a printer of the copy shop (an integer), an array pages of integers (passed to the constructor through a pointer to a constant of integer type) and its size n. The constructor dynamically allocates an array of n integers. If dynamic allocation is successful, the constructor initializes _n with the value of the parameter n, assigns the pointer to the allocated array to _p and copies the values ​​of the elements of the page array to it, initializes the attributes of the _d object with the values ​​of the attributes of the object de _s assigning it the value of the parameter s. Otherwise, all attributes are initialized with the same values ​​assigned by the default constructor. For simplicity, assume that the values ​​passed as parameters are valid. Note: the modifiers of the print class can be used if necessary.</li>
+<li>The copy constructor. In the event that the dynamic allocation fails, all the attributes are initialized with the same values ​​assigned by the default constructor. Warning: if the _p pointer contained in the object passed as a parameter is valid, the copy constructor will have to copy the entire array pointed to _p (and not just the pointer!). Note: the modifiers of the print class can be used if necessary. </li>
+<li>The destroyer. Attention: in the event that the object being destroyed contains a valid _p pointer, the destructor will have to deallocate the targeted memory area. - The selectors (one for each attribute). Warning: the selector for the array pointed to by _p will return a pointer to an integer constant. </li>
+<li>The modifier for the date to which the data refer. </li>
+<li>The modifier for the printer number and for the array of printed pages that receives as input (i.e. as parameters) the number s of the new printer (an integer), an array of whole page numbers (passed to the modifier through a pointer a constant of integer type) containing the new values ​​of the printed pages and its size returns an integer as a return value. The modifier works as follows: declares a pointer p to an array of integers, dynamically allocates an array of n integers, and assigns its pointer to p. If the dynamic allocation is successful, the method assigns to each element of the array pointed to by p the value of the corresponding element of the page array, deallocates (if it exists) the array pointed to by _p, assigns the value of p to the pointer _p, the value of na _n, the value of sa _s and ends by returning 1. Otherwise, the modifier does not change the data and returns -1. Assume that the values ​​assumed by the current parameters passed to the modifier are always valid.</li>
+<li>The method reads that it takes a string of characters file name as a parameter and returns an integer as a return value. The string filename represents the name of a file whose format is the one specified above. The method opens the file, reads the values ​​contained in the first line of the file and saves them in a temporary object d of the given class, then reads the second line of the file and saves its value in a temporary variable s of the integer type, then reads the number n contained in the third line of the file and dynamically allocates an array of n integers. If the allocation is successful, the method deallocates the memory possibly pointed to by _p (thus verifying that _p is not a null pointer), assigns _p the pointer to the memory just allocated, reads the next lines of the file and copies the values ​​in the corresponding elements of the array pointed to by _p, closes the file, assigns the attributes of the object _d the value of the attributes of the temporary object d (for this purpose the appropriate modifier of the print class can be used), assigns to attribute _s the value of the temporary variable s, it assigns the value of the temporary variable to the _n attribute, ending by returning 1. If the dynamic allocation fails, the method does not modify the value of the attributes and ends by returning -1. For simplicity, assume that the file exists, is not empty and that the data it contains is valid.
+Note: you can possibly take advantage of the print class modifiers, but at the price of an additional copy of the data in the modifier for the printer number and for the array of printed pages. This can possibly reduce performance in the case of very large files. </li>
+<li>The method prints the current value of the attributes on the screen according to the following format: “<code>&lt;day&gt; / &lt;month&gt; / &lt;year&gt;</code>, printer n. <code>&lt;printer number&gt;</code> number of prints made: <code>&lt;number of prints&gt;</code> pages printed: <code>&lt;number&gt;, &lt;number&gt;, &lt;number&gt;, ..., &lt;number&gt;</code> &quot;where <code>&lt;day&gt;</code>, <code>&lt;month&gt;</code> and <code>&lt;year&gt;</code> respectively represent the attribute values ​​of the _d object of the given class, <code>&lt;printer number&gt;</code> represents the value of _s, <code>&lt;number of prints&gt;</code> represents the value of _n and <code>&lt;number&gt;</code> represents the value of each element of the array pointed to by _p. </li>
+<li>The total_page method that calculates and returns the total number of pages printed (an integer). The method calculates and returns the sum of the values ​​contained in the array pointed to by _p. If the value of the _p pointer is invalid, the method returns -1.</li>
+<li>The page_range method which calculates the minimum and maximum number of printed pages (two integers). The method returns these values ​​as two output parameters m and M (that is, two integers passed by reference) and returns an integer as the return value. The method scans the array pointed to by _p and calculates the minimum and maximum values. Then assign the minimum to m and the maximum to M. If the value of the pointer _p is not valid, the method assigns the value 0 am and M and returns -1, otherwise it returns 1. </li>
+</ul>
+
+<p>Finally, write a program that operates as follows: </p>
+
+<ol>
+<li>Ask the user to enter from the keyboard the number k of files to be processed (an integer). </li>
+<li>Define a pointer ps to an object of type prints, dynamically allocate an array of k objects of type print and assign the pointer to ps. In the event that the dynamic allocation fails, the program prints an error message on the screen and terminates. </li>
+<li>Define the variable pages_totals (an integer) to represent the total number of pages printed and initialize it to 0. </li>
+<li>For each element of the array pointed to by ps:</li>
+</ol>
+
+<ul>
+<li>Ask the user to enter from the keyboard the name of the file to be processed (a string containing a maximum of 127 characters plus the null character) </li>
+<li>Invoke the method read of the corresponding element of the array, passing to the method the name of the file entered by the user. </li>
+<li>If the call to the read method fails, the program prints an error message on the screen and terminates. Otherwise, the program invokes the print method of the same object to display the data just read. </li>
+<li>Invoke the total_pages method and add the value returned by the method to the current content of the total_pages variable.</li>
+</ul>
+
+<ol>
+<li>Print the total number of printed pages, ie the value of the total_pages variable. </li>
+<li>Deallochi the array pointed to by ps and terms.</li>
+</ol>
+
+<p>To do more </p>
+
+<ol>
+<li>Add checks to evaluate the validity of the data. The printer identification code and the number of printing operations performed must be positive numbers, the number of pages printed must be greater than or equal to zero. In case of invalid values: The parameterized constructor initializes the attributes with the same values ​​used by the default constructor, the modifiers and the read method do not change the value of the attributes. The checks relating to day, month and year can be omitted if made within the given class. </li>
+<li>In addition to calculating the total number of printed pages, also calculate, for each file, the minimum number of printed pages, the maximum number of printed pages, and the total number of printed pages. The minimum and maximum numbers of printed pages can be obtained by invoking the page_range method on each element of the array pointed to by ps. Save these results in the analysis.txt file, writing a line for each element of the array pointed to by ps and adopting the following format: &quot;<code>&lt;day&gt; / &lt;month&gt; / &lt;year&gt;</code>, printer n. <code>&lt;printer number&gt;</code>: <code>&lt;min&gt;, &lt;max&gt;, &lt;tot&gt;</code> &quot;where <code>&lt;day&gt;</code>, <code>&lt;month&gt;</code>, <code>&lt;year&gt;</code> and <code>&lt;printer number&gt;</code> are defined as for the print method and <code>&lt;min&gt;</code>, <code>&lt;max&gt;</code> and <code>&lt;tot&gt;</code> are the minimum, maximum and total number of pages printed.</li>
+<li>Replace the part relating to the input received by the user, asking to enter a date and the number of printers supplied with the copy shop from the keyboard. Knowing that the file names follow the format &quot;prints_ <code>&lt;year&gt; &lt;month&gt; &lt;day&gt; _ &lt;printer number&gt;</code> .txt&quot; (for example prints_20210420_2.txt), dynamically allocate the array pointed to by ps with a size equal to the number of printers and automatically generate the name of the files to use in calls to read. Assume that the input is valid and that, for each day, the files containing the data exist and are in the same folder where the executable file is also located. Tip: to construct the filename, it may be convenient to read day, month and year as three character strings from the keyboard. Furthermore, to convert the identification code of the
+printer in a character string, you can use the to_string (<code>&lt;code&gt;</code>) instruction. c_str (), being <code>&lt;code&gt;</code> this identification code. To concatenate the elements of the filename you can use the strcat function available in the cstring library. Alternatively, you can construct the filename using the sprintf function.</li>
+</ol>
+
+<p><strong>Solution</strong>:</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='e12-a2'>[E12][A2]</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">nr</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">nc</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Dipendenti</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">Dipendenti</span><span class="p">();</span>
+    <span class="n">Dipendenti</span><span class="p">(</span><span class="kt">double</span> <span class="n">s</span><span class="p">[</span><span class="n">nc</span><span class="p">],</span> <span class="kt">int</span> <span class="n">D</span><span class="p">[</span><span class="n">nr</span><span class="p">][</span><span class="n">nc</span><span class="p">]);</span>
+    <span class="n">Dipendenti</span><span class="p">(</span><span class="k">const</span> <span class="n">Dipendenti</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">);</span>
+    <span class="o">~</span><span class="n">Dipendenti</span><span class="p">();</span>
+    <span class="k">const</span> <span class="kt">double</span><span class="o">*</span> <span class="n">getStipendi</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">getDipendenti</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="n">setStipendi</span><span class="p">(</span><span class="kt">double</span> <span class="n">s</span><span class="p">[</span><span class="n">nc</span><span class="p">]);</span>
+    <span class="kt">void</span> <span class="n">setDipendenti</span><span class="p">(</span><span class="kt">int</span> <span class="n">D</span><span class="p">[</span><span class="n">nr</span><span class="p">][</span><span class="n">nc</span><span class="p">]);</span>
+    <span class="kt">int</span> <span class="n">totaleDipendenti</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="n">estremiStipendio</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">dipMax</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">dipMin</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+<span class="nl">private:</span>
+    <span class="kt">double</span> <span class="n">_s</span><span class="p">[</span><span class="n">nc</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">_D</span><span class="p">[</span><span class="n">nr</span><span class="p">][</span><span class="n">nc</span><span class="p">];</span>
+<span class="p">};</span>
+
+<span class="n">Dipendenti</span><span class="o">::</span><span class="n">Dipendenti</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">nc</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">_s</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nr</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nc</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">_D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Dipendenti</span><span class="o">::</span><span class="n">Dipendenti</span><span class="p">(</span><span class="kt">double</span> <span class="n">s</span><span class="p">[</span><span class="n">nc</span><span class="p">],</span> <span class="kt">int</span> <span class="n">D</span><span class="p">[</span><span class="n">nr</span><span class="p">][</span><span class="n">nc</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">nc</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">_s</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nr</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nc</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">_D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="n">Dipendenti</span><span class="o">::</span><span class="n">Dipendenti</span><span class="p">(</span><span class="k">const</span> <span class="n">Dipendenti</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">nc</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">_s</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">_s</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nr</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nc</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">_D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">_D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="n">Dipendenti</span><span class="o">::~</span><span class="n">Dipendenti</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="k">const</span> <span class="kt">double</span><span class="o">*</span> <span class="n">Dipendenti</span><span class="o">::</span><span class="n">getStipendi</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">_s</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">Dipendenti</span><span class="o">::</span><span class="n">getDipendenti</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">h</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="n">nr</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">k</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">nc</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">_D</span><span class="p">[</span><span class="n">h</span><span class="p">][</span><span class="n">k</span><span class="p">];</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Dipendenti</span><span class="o">::</span><span class="n">setStipendi</span><span class="p">(</span><span class="kt">double</span> <span class="n">s</span><span class="p">[</span><span class="n">nc</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">nc</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">_s</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Dipendenti</span><span class="o">::</span><span class="n">setDipendenti</span><span class="p">(</span><span class="kt">int</span> <span class="n">D</span><span class="p">[</span><span class="n">nr</span><span class="p">][</span><span class="n">nc</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nr</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nc</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">_D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">_D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">Dipendenti</span><span class="o">::</span><span class="n">totaleDipendenti</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">somma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nr</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nc</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">somma</span> <span class="o">+=</span> <span class="n">_D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+    <span class="k">return</span> <span class="n">somma</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Dipendenti</span><span class="o">::</span><span class="n">estremiStipendio</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">dipMax</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">dipMin</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">stip</span><span class="p">[</span><span class="n">nr</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nr</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nc</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">stip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">_s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">_D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+
+    <span class="kt">double</span> <span class="n">Min</span> <span class="o">=</span> <span class="n">stip</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="kt">double</span> <span class="n">Max</span> <span class="o">=</span> <span class="n">stip</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">iMin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kt">int</span> <span class="n">iMax</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">nr</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">stip</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">Max</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">iMax</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
+                <span class="n">Max</span> <span class="o">=</span> <span class="n">stip</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">stip</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">Min</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">iMin</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
+            <span class="n">Min</span> <span class="o">=</span> <span class="n">stip</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">dipMax</span> <span class="o">=</span> <span class="n">iMax</span><span class="p">;</span>
+    <span class="n">dipMin</span> <span class="o">=</span> <span class="n">iMin</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">stp</span><span class="p">[</span><span class="n">nc</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">0.0</span> <span class="p">};</span>
+    <span class="kt">int</span> <span class="n">Dip</span><span class="p">[</span><span class="n">nr</span><span class="p">][</span><span class="n">nc</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+    <span class="n">fstream</span> <span class="n">fin</span><span class="p">;</span>
+    <span class="n">fin</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">"Data.txt"</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">fin</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">nc</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">fin</span> <span class="o">&gt;&gt;</span> <span class="n">stp</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nr</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nc</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">fin</span> <span class="o">&gt;&gt;</span> <span class="n">Dip</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+    <span class="n">fin</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="n">Dipendenti</span><span class="o">*</span> <span class="n">pdip</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Dipendenti</span><span class="p">(</span><span class="n">stp</span><span class="p">,</span> <span class="n">Dip</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">DMin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kt">int</span> <span class="n">DMax</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Numero dipendenti: "</span> <span class="o">&lt;&lt;</span> <span class="n">pdip</span><span class="o">-&gt;</span><span class="n">totaleDipendenti</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">pdip</span><span class="o">-&gt;</span><span class="n">estremiStipendio</span><span class="p">(</span><span class="n">DMax</span><span class="p">,</span> <span class="n">DMin</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Dipartimento piu' costoso: "</span> <span class="o">&lt;&lt;</span> <span class="n">DMax</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Dipartimento meno costoso: "</span> <span class="o">&lt;&lt;</span> <span class="n">DMin</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">delete</span> <span class="n">pdip</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight c tab-c"><code>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+</code></pre></div>
+<p><strong>Assignement 2</strong>: 
+A company has eight departments. Employees working in each department can belong to one of five different salary classes. In order to manage the employees of the company, create the Employees class in C ++ language with the following attributes: an array _s of five real numbers to represent the salary corresponding to each of the five salary classes and a matrix of integers _D of eight rows and five columns whose elements represent, for each department, the number of employees belonging to each salary class. If, for example, the element in the third row and fourth column of _D were worth 10, it would mean that 10 employees belonging to the fourth salary class work in the third department. In addition, the following methods are implemented: </p>
+
+<ul>
+<li>The default constructor that initializes all elements of the array _s and matrix _D to zero. </li>
+<li>The constructor with parameters that receives as parameters an array of five real numbers and a matrix of integers of eight rows and five columns and assigns them to the array _s and matrix _D respectively. For simplicity, assume that the values ​​passed to the constructor are always valid. </li>
+<li>The copy constructor. </li>
+<li>The destroyer. </li>
+<li>The selectors for the array _s and for the matrix _D. The selector for _s will return a constant pointer to the array itself as a return value. The selector for _D will receive as input (ie as parameters) two integers h and k and will return as a return value the element of the _D array of indices h and k (an integer). If the value of at least one of the two parameters h and knon is valid, the method will return -1. </li>
+<li>The modifiers for the array _s and for the matrix _D. For simplicity, assume that the array passed as a parameter to the modifier for _s and the array passed as a parameter to the modifier for _D have the correct size and their elements assume valid values. </li>
+<li>The total Employees method that calculates and returns the total number of company employees as a return value (an integer given by the sum of the elements of the _D matrix). </li>
+<li>The extreme Salary method which calculates and returns as output parameters (ie passed by reference) the indices of the two departments (two integers) for which the company spends the maximum amount and the minimum amount for employee salaries. The method returns no return value.</li>
+</ul>
+
+<p>Then write the main function that operates as follows:</p>
+
+<ul>
+<li>Declare an array stp of five real numbers and a matrix of integers Dip of eight rows and five columns </li>
+<li>Open the Data.txt file for reading. This file contains five real numbers in the first row that represent the salaries associated with each salary class and in the next eight lines, for each row, five integers representing the number of employees classified in each salary class for the department corresponding to the row in question. . For simplicity, assume that the values ​​contained in the file are valid. In case the Data.txt file does not exist, main ends with a return value -1. </li>
+<li>Read the first line of the Data.txt file by assigning their values ​​to the elements of the stp array and the subsequent lines by assigning their values ​​to the elements of the Dip array. </li>
+<li>Using the parameterized constructor, you dynamically allocate a pdip object of type Employees, passing the array stpe the Dip array as parameters to the constructor. </li>
+<li>Invoke the total Employee and Extreme Salary methods on this object and print the result on the screen. </li>
+<li>Deallocate the pdip object and terms.</li>
+</ul>
 
 <p><strong>Solution</strong>:</p>
 
