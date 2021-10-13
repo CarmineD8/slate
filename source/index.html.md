@@ -27,7 +27,7 @@ Section in progress...
 
 # Examples
 
-## Practical examples - 1
+## Practical examples - Hello
 
 ### [E0] "Hello, World!" Program 
 
