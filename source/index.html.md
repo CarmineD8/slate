@@ -157,7 +157,7 @@ int main() {
 }
 ```
 
-> The above command returns:
+> L'esecuzione del programma ha come risultato:
 
 ```cpp
 ```
@@ -208,7 +208,7 @@ int main() {
 }
 ```
 
-> The above command returns:
+> L'esecuzione del programma ha come risultato:
 
 ```cpp
 ```
@@ -262,7 +262,7 @@ int main() {
 }
 ```
 
-> The above command returns:
+> L'esecuzione del programma ha come risultato:
 
 ```cpp
 ```
@@ -313,7 +313,7 @@ int main() {
 }
 ```
 
-> The above command returns:
+> L'esecuzione del programma ha come risultato:
 
 ```cpp
 ```
