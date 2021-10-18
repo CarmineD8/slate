@@ -36,7 +36,7 @@ Potete fare riferimento a queste slide: [Prima Esercitazione](https://unigeit-my
 #include <iostream>
 
 int main() {
-  // displays the string inside quotation
+  // stampa a schermo la stringa tra virgolette
   std::cout << "Hello, World!";
   return 0;
 }
@@ -68,7 +68,7 @@ Ma come funziona?
    Lo statement `return 0;` è l'istruzione che termina la funzione main().
 
 <aside class="notice">
-Dobbiamo usare iostream per poter utilizzare std::cout
+Dobbiamo includere iostream per poter utilizzare std::cout
 </aside>
 
 <aside class="notice">
