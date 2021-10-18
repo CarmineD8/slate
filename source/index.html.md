@@ -22,7 +22,7 @@ Benvenuti alla pagina git di Fondamenti di Informatica! Qui verranno presentate 
 
 # Tutorial 
 
-In questo corso, useremo Code::Blocks per sviluppare i nostri programmi. Potete fare riferimento a queste slide [Prima Esercitazione](https://link-url-here.org) per alcune informazioni relative all'installazione dell'IDE.
+In questo corso, useremo [Code::Blocks](https://www.codeblocks.org/) per sviluppare i nostri programmi. Potete fare riferimento a queste slide [Prima Esercitazione](https://link-url-here.org) per alcune informazioni relative all'installazione dell'IDE.
 
 # Esempi
 
