@@ -53,7 +53,7 @@ E' il classico esempio, che trovate quando inizializzate un progetto in Code::Bl
 Ma come funziona?
 
 
-* `// Your First C++ Program`
+* `// stampa a schermo la stringa tra virgolette`
   In C++, ogni linea di codice che inizia con `//` è un commento. I commenti servono solo a far capire meglio il codice a tutti coloro che lo leggono (compreso il programmatore stesso che lo ha scritto!).
   E' completamente ignorato dal compilatore C++-
 * `#include <iostream>`
