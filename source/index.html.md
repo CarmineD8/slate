@@ -47,8 +47,6 @@ int main() {
 Hello, World!
 ```
 
-[E1_0]
-
 E' il classico esempio, che trovate quando inizializzate un progetto in Code::Blocks
 
 Ma come funziona?
