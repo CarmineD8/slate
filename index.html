@@ -624,7 +624,104 @@ Lo stesso simbolo '/' in C++ si usa anche nelle divisioni tra numeri con la virg
 <br>
 <br>
 <br> </p>
-<h2 id='esercitazione-seconda-esercitazione'>Esercitazione - Seconda esercitazione</h2><h3 id='esercizio2_0-risolutore-di-equazioni-di-secondo-grado'>[Esercizio2_0] Risolutore di equazioni di secondo grado</h3>
+<h2 id='esercitazione-seconda-esercitazione'>Esercitazione - Seconda esercitazione</h2><h3 id='esercizio2_0-risolutore-di-equazioni-di-secondo-grado'>[Esercizio2_0] Risolutore di equazioni di secondo grado</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">//risolutore di equazioni di secondo grado</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">root1</span><span class="p">,</span> <span class="n">root2</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci i coefficienti dell'equazione di secondo grado: ax^2 + bx + c = 0"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">c</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                <span class="c1">// se i tre coefficienti sono 0, qualsiasi valore di x risolve l'equazione</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"L'equazione ha infinite soluzioni"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="k">else</span>
+                <span class="p">{</span>
+                <span class="c1">// l'equazione è di tipo c = 0, con c!=0.</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"L'equazione non ha soluzione"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="c1">// risolviamo l'equazione di primo grado</span>
+            <span class="n">root1</span> <span class="o">=</span> <span class="o">-</span><span class="n">c</span><span class="o">/</span><span class="n">b</span><span class="p">;</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"L'equazione ha una soluzione reale: x = "</span> <span class="o">&lt;&lt;</span> <span class="n">root1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">pow</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">){</span>
+            <span class="n">root1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">);</span>
+            <span class="n">root2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">root1</span><span class="o">==</span><span class="n">root2</span><span class="p">){</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"L'equazione ha due soluzione reali e coincidenti: x = "</span> <span class="o">&lt;&lt;</span> <span class="n">root1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span><span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"L'equazione ha due soluzione reali distinte: x = "</span> <span class="o">&lt;&lt;</span> <span class="n">root1</span> <span class="o">&lt;&lt;</span> <span class="s">" e x = "</span>
+                    <span class="o">&lt;&lt;</span> <span class="n">root2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="c1">// se il discriminante è minore di zero, l'equazione non ha soluzioni reali</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"L'equazione non ha soluzioni reali!"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>L&#39;esecuzione del programma ha come risultato:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Inserisci</span> <span class="n">i</span> <span class="n">coefficienti</span> <span class="n">dell</span><span class="err">'</span><span class="n">equazione</span> <span class="n">di</span> <span class="n">secondo</span> <span class="n">grado</span><span class="o">:</span> <span class="n">ax</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">bx</span> <span class="o">+</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="mi">4</span>
+<span class="mi">12</span>
+<span class="mi">6</span>
+<span class="n">L</span><span class="err">'</span><span class="n">equazione</span> <span class="n">ha</span> <span class="n">due</span> <span class="n">soluzione</span> <span class="n">reali</span> <span class="n">distinte</span><span class="o">:</span> <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.36603</span> <span class="n">e</span> <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.633975</span>
+</code></pre></div>
+<p>Il programma prevede l&#39;utilizzo di istruzioni condizionali e variabili di tipo double per esplorare tutti i possibili casi da valutare per la soluzione di un&#39;equazione di secondo grado.</p>
+
+<aside class="notice">
+
+In particolare nel caso di programmi più complessi, può essere utile inserire dei commenti nel codice, per aumentarne la leggibilità. Uno dei possibili modi di farlo è utilizzare '\\'
+
+</aside>
+
+<p><br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
