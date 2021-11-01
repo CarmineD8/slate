@@ -693,6 +693,26 @@ In particolare nel caso di programmi più complessi, può essere utile inserire 
 
 </aside>
 
+<aside class="notice">
+
+math.h VS cmath
+
+La libreria C++ include le stesse definizioni di quella C, con le seguenti differenze:
+
+- Ogni header ha lo stesso nome di quello utilizzato in C, ma con un prefisso "c" e nessuna estensione. Per esempio, l'equivalente in C++ dell'header stdlib.h e cstdlib.
+
+- Ogni elemento della libreria è definito nel namespace std.
+
+Raccomandiamo l'uso di cmath quando si usa il C++.
+
+</aside>
+
+<aside class="notice">
+
+E' possibile esplorare le librerie C++ [qui](http://www.cplusplus.com/reference/)
+
+</aside>
+
 <p><br>
 <br>
 <br>
@@ -721,7 +741,52 @@ In particolare nel caso di programmi più complessi, può essere utile inserire 
 <br>
 <br>
 <br></p>
+<h3 id='assignment2_1-programma-che-controlla-l-39-immissione-di-una-password'>[Assignment2_1] Programma che controlla l&#39;immissione di una password</h3>
+<p>Creare un programma che fa inserire all&#39;utente 4 caratteri e verifica che ci sia almeno una lettera minuscola, una maiuscola e una cifra.</p>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code>
+<span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="p">...</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 
+</code></pre></div>
+<blockquote>
+<p>L&#39;esecuzione del programma ha come risultato:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<aside class="notice">
+
+Il valore ASCII dei caratteri minuscoli va da 97 to 122
+
+Il valore ASCII dei caratteri maiuscoli va da 65 to 90
+
+Il valore ASCII delle cifre va da 48 a 57.
+
+[Qui](https://www.oppo.it/tabelle/tabella_ascii.htm) potete trovare una tabella riassuntiva.
+
+</aside>
+
+<p><br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='assignment2_2-esercizio-con-switch-statement'>[Assignment2_2] Esercizio con switch statement</h3>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
