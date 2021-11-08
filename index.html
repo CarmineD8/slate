@@ -1212,6 +1212,70 @@ Il ciclo do-while esegue il corpo dell'iterazione almeno una volta, ma il ciclo 
 <br>
 <br>
 <br></p>
+<h3 id='esercizio-3_0-calcolatore-di-numeri-primi'>[Esercizio 3_0] Calcolatore di numeri primi</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp"># include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">num</span><span class="p">,</span> <span class="n">primo</span><span class="p">;</span>
+    <span class="k">do</span><span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci un numero intero maggiore di 1: "</span> <span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">num</span> <span class="o">&lt;</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"I numeri primi compresi tra 0 e il numero immesso sono: "</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">primo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">--</span><span class="p">){</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="n">j</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+                <span class="n">primo</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">primo</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>L&#39;esecuzione del programma ha come risultato:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Inserisci</span> <span class="n">un</span> <span class="n">numero</span> <span class="n">intero</span> <span class="n">maggiore</span> <span class="n">di</span> <span class="mi">1</span><span class="o">:</span> <span class="mi">1000</span>
+<span class="n">I</span> <span class="n">numeri</span> <span class="n">primi</span> <span class="n">compresi</span> <span class="n">tra</span> <span class="mi">0</span> <span class="n">e</span> <span class="n">il</span> <span class="n">numero</span> <span class="n">immesso</span> <span class="n">sono</span><span class="o">:</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">5</span> <span class="mi">7</span> <span class="mi">11</span> <span class="mi">13</span> <span class="mi">17</span> <span class="mi">19</span> <span class="mi">23</span> <span class="mi">29</span> <span class="mi">31</span> <span class="mi">37</span> <span class="mi">41</span> <span class="mi">43</span> <span class="mi">47</span> <span class="mi">53</span> <span class="mi">59</span> <span class="mi">61</span> <span class="mi">67</span> <span class="mi">71</span> <span class="mi">73</span> <span class="mi">79</span> <span class="mi">83</span> <span class="mi">89</span> <span class="mi">97</span> <span class="mi">101</span> <span class="mi">103</span> <span class="mi">107</span> <span class="mi">109</span> <span class="mi">113</span> <span class="mi">127</span> <span class="mi">131</span> <span class="mi">137</span> <span class="mi">139</span> <span class="mi">149</span> <span class="mi">151</span> <span class="mi">157</span> <span class="mi">163</span> <span class="mi">167</span> <span class="mi">173</span> <span class="mi">179</span> <span class="mi">181</span> <span class="mi">191</span> <span class="mi">193</span> <span class="mi">197</span> <span class="mi">199</span> <span class="mi">211</span> <span class="mi">223</span> <span class="mi">227</span> <span class="mi">229</span> <span class="mi">233</span> <span class="mi">239</span> <span class="mi">241</span> <span class="mi">251</span> <span class="mi">257</span> <span class="mi">263</span> <span class="mi">269</span> <span class="mi">271</span> <span class="mi">277</span> <span class="mi">281</span> <span class="mi">283</span> <span class="mi">293</span> <span class="mi">307</span> <span class="mi">311</span> <span class="mi">313</span> <span class="mi">317</span> <span class="mi">331</span> <span class="mi">337</span> <span class="mi">347</span> <span class="mi">349</span> <span class="mi">353</span> <span class="mi">359</span> <span class="mi">367</span> <span class="mi">373</span> <span class="mi">379</span> <span class="mi">383</span> <span class="mi">389</span> <span class="mi">397</span> <span class="mi">401</span> <span class="mi">409</span> <span class="mi">419</span> <span class="mi">421</span> <span class="mi">431</span> <span class="mi">433</span> <span class="mi">439</span> <span class="mi">443</span> <span class="mi">449</span> <span class="mi">457</span> <span class="mi">461</span> <span class="mi">463</span> <span class="mi">467</span> <span class="mi">479</span> <span class="mi">487</span> <span class="mi">491</span> <span class="mi">499</span> <span class="mi">503</span> <span class="mi">509</span> <span class="mi">521</span> <span class="mi">523</span> <span class="mi">541</span> <span class="mi">547</span> <span class="mi">557</span> <span class="mi">563</span> <span class="mi">569</span> <span class="mi">571</span> <span class="mi">577</span> <span class="mi">587</span> <span class="mi">593</span> <span class="mi">599</span> <span class="mi">601</span> <span class="mi">607</span> <span class="mi">613</span> <span class="mi">617</span> <span class="mi">619</span> <span class="mi">631</span> <span class="mi">641</span> <span class="mi">643</span> <span class="mi">647</span> <span class="mi">653</span> <span class="mi">659</span> <span class="mi">661</span> <span class="mi">673</span> <span class="mi">677</span> <span class="mi">683</span> <span class="mi">691</span> <span class="mi">701</span> <span class="mi">709</span> <span class="mi">719</span> <span class="mi">727</span> <span class="mi">733</span> <span class="mi">739</span> <span class="mi">743</span> <span class="mi">751</span> <span class="mi">757</span> <span class="mi">761</span> <span class="mi">769</span> <span class="mi">773</span> <span class="mi">787</span> <span class="mi">797</span> <span class="mi">809</span> <span class="mi">811</span> <span class="mi">821</span> <span class="mi">823</span> <span class="mi">827</span> <span class="mi">829</span> <span class="mi">839</span> <span class="mi">853</span> <span class="mi">857</span> <span class="mi">859</span> <span class="mi">863</span> <span class="mi">877</span> <span class="mi">881</span> <span class="mi">883</span> <span class="mi">887</span> <span class="mi">907</span> <span class="mi">911</span> <span class="mi">919</span> <span class="mi">929</span> <span class="mi">937</span> <span class="mi">941</span> <span class="mi">947</span> <span class="mi">953</span> <span class="mi">967</span> <span class="mi">971</span> <span class="mi">977</span> <span class="mi">983</span> <span class="mi">991</span> <span class="mi">997</span>
+</code></pre></div>
+<p>Il programma chiede all&#39;utente di inserire un numero, e calcola tutti i numeri primi compresi tra zero e il numero immesso.</p>
+
+<aside class="notice">
+
+Il cicli possono essere anche annidati, ossia possiamo avere un ciclo for (o while) all'interno di un altro ciclo for (o while)
+
+</aside>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
 
       </div>
       <div class="dark-box">
