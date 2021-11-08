@@ -670,7 +670,6 @@ Lo stesso simbolo '/' in C++ si usa anche nelle divisioni tra numeri con la virg
         <span class="k">else</span><span class="p">{</span>
             <span class="c1">// se il discriminante è minore di zero, l'equazione non ha soluzioni reali</span>
             <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"L'equazione non ha soluzioni reali!"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
@@ -749,18 +748,36 @@ Raccomandiamo l'uso di cmath quando si usa il C++.
 <br></p>
 <h3 id='assignment2_1-programma-che-controlla-l-39-immissione-di-una-password'>[Assignment2_1] Programma che controlla l&#39;immissione di una password</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
 <span class="cp">#include &lt;iostream&gt;
+#include &lt;cmath&gt;
 </span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="p">...</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    <span class="kt">char</span> <span class="n">a</span> <span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci una password di quattro caratteri:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">&gt;&gt;</span> <span class="n">d</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">minuscolo</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">&gt;=</span><span class="mi">97</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">&lt;=</span> <span class="mi">122</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">b</span><span class="o">&gt;=</span><span class="mi">97</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="o">&lt;=</span> <span class="mi">122</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">c</span><span class="o">&gt;=</span><span class="mi">97</span> <span class="o">&amp;&amp;</span> <span class="n">c</span><span class="o">&lt;=</span> <span class="mi">122</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">d</span><span class="o">&gt;=</span><span class="mi">97</span> <span class="o">&amp;&amp;</span> <span class="n">d</span><span class="o">&lt;=</span> <span class="mi">122</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">maiuscolo</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">&gt;=</span><span class="mi">65</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">&lt;=</span> <span class="mi">90</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">b</span><span class="o">&gt;=</span><span class="mi">65</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="o">&lt;=</span> <span class="mi">90</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">c</span><span class="o">&gt;=</span><span class="mi">65</span> <span class="o">&amp;&amp;</span> <span class="n">c</span><span class="o">&lt;=</span> <span class="mi">90</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">d</span><span class="o">&gt;=</span><span class="mi">65</span> <span class="o">&amp;&amp;</span> <span class="n">d</span><span class="o">&lt;=</span> <span class="mi">90</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">cifra</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">&gt;=</span><span class="mi">48</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">&lt;=</span> <span class="mi">57</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">b</span><span class="o">&gt;=</span><span class="mi">48</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="o">&lt;=</span> <span class="mi">57</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">c</span><span class="o">&gt;=</span><span class="mi">48</span> <span class="o">&amp;&amp;</span> <span class="n">c</span><span class="o">&lt;=</span> <span class="mi">57</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">d</span><span class="o">&gt;=</span><span class="mi">48</span> <span class="o">&amp;&amp;</span> <span class="n">d</span><span class="o">&lt;=</span> <span class="mi">57</span><span class="p">);</span>
 
+    <span class="k">if</span> <span class="p">(</span><span class="n">minuscolo</span> <span class="o">&amp;&amp;</span> <span class="n">maiuscolo</span> <span class="o">&amp;&amp;</span> <span class="n">cifra</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Password OK!"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La password non va bene"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>L&#39;esecuzione del programma ha come risultato:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Inserisci</span> <span class="n">una</span> <span class="n">password</span> <span class="n">di</span> <span class="n">quattro</span> <span class="n">caratteri</span><span class="o">:</span>
+<span class="n">P4ss</span>
+<span class="n">Password</span> <span class="n">OK</span><span class="o">!</span>
+</code></pre></div>
 <p>Creare un programma che fa inserire all&#39;utente 4 caratteri e verifica che ci sia almeno una lettera minuscola, una maiuscola e una cifra. Utilizzare l&#39;operatore condizionale if.</p>
 
 <aside class="notice">
@@ -783,7 +800,20 @@ Il valore ASCII delle cifre va da 48 a 57.
 
 <p><a href="https://www.oppo.it/tabelle/tabella_ascii.htm">Qui</a> potete trovare una tabella riassuntiva.</p>
 
+<aside class="notice">
+Gli operatori logici possono essere utili per raggruppare alcune condizioni e evitare l'utilizzo di operatori condizionali in cascata.
+</aside>
+
 <p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br></p>
 <h3 id='assignment2_2-programma-che-controlla-l-39-immissione-di-una-vocale'>[Assignment2_2] Programma che controlla l&#39;immissione di una vocale</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
