@@ -966,23 +966,135 @@ Lettere maiuscole e minuscole hanno codifiche ASCII diverse, e vanno quindi cons
 <br>
 <br>
 <br></p>
-<h3 id='assignment2_4-calcolatore-di-stagione'>[Assignment2_4] Calcolatore di stagione</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
-<span class="cp">#include &lt;iostream&gt;
+<h3 id='assignment2_4-calcolatore-di-stagione'>[Assignment2_4] Calcolatore di stagione</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 </span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="p">...</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">giorno</span><span class="p">,</span> <span class="n">mese</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci il giorno e il mese dell'anno"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">giorno</span> <span class="o">&gt;&gt;</span> <span class="n">mese</span><span class="p">;</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">mese</span><span class="p">){</span>
+        <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">giorno</span> <span class="o">&gt;</span><span class="mi">31</span> <span class="o">||</span> <span class="n">giorno</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">){</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La data e' sbagliata!"</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">9</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">11</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">giorno</span> <span class="o">&gt;</span><span class="mi">30</span> <span class="o">||</span> <span class="n">giorno</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">){</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La data e' sbagliata!"</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">giorno</span> <span class="o">&gt;</span><span class="mi">29</span> <span class="o">||</span> <span class="n">giorno</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">){</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La data e' sbagliata!"</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="nl">default:</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Questo mese non esiste!"</span><span class="p">;</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">mese</span><span class="p">){</span>
+        <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inverno!"</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Primavera"</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">8</span><span class="p">:</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Estate"</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">11</span><span class="p">:</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Autunno"</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">giorno</span> <span class="o">&gt;=</span><span class="mi">20</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Primavera"</span><span class="p">;</span>
+            <span class="k">else</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inverno"</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">giorno</span> <span class="o">&gt;=</span><span class="mi">21</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Estate"</span><span class="p">;</span>
+            <span class="k">else</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Primavera"</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">9</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">giorno</span> <span class="o">&gt;=</span><span class="mi">22</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Autunno"</span><span class="p">;</span>
+            <span class="k">else</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Estate"</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">giorno</span> <span class="o">&gt;=</span><span class="mi">21</span><span class="p">)</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inverno"</span><span class="p">;</span>
+            <span class="k">else</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Autunno"</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
 </code></pre></div>
 <blockquote>
 <p>L&#39;esecuzione del programma ha come risultato:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Inserisci</span> <span class="n">il</span> <span class="n">giorno</span> <span class="n">e</span> <span class="n">il</span> <span class="n">mese</span> <span class="n">dell</span><span class="err">'</span><span class="n">anno</span>
+<span class="mi">29</span> <span class="mi">2</span>
+<span class="n">Inverno</span><span class="o">!</span>
+</code></pre></div>
 <p>Scrivere un programma che chieda all&#39;utente di immettere due interi, relativi al giorno e al mese, e restituisca la stagione corrispondente. Utilizzare sia l&#39;operatore switch che if.</p>
 
+<aside class="notice">
+
+Nella soluzione proposta, viene usato due volte l'operatore switch: la prima volta per calcolare l'esattezza della data, la seconda volta per calcolare la stagione. 
+
+</aside>
+
 <p><br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
