@@ -1505,7 +1505,203 @@ Il ciclo do-while può essere molto utile per descrivere in forma compatta itera
 <br>
 <br>
 <br></p>
-<h2 id='quarta-esercitazione'>Quarta esercitazione</h2><h3 id='esercizio-4_0'>[Esercizio 4_0]</h3>
+<h2 id='quarta-esercitazione'>Quarta esercitazione</h2><h3 id='esercizio-4_0-programma-per-contare-vocali-e-consonanti-in-una-frase'>[Esercizio 4_0] Programma per contare vocali e consonanti in una frase.</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">controllo_vocale</span> <span class="p">(</span><span class="kt">char</span> <span class="n">carattere</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">ritorno</span><span class="p">;</span>
+   <span class="k">switch</span> <span class="p">(</span><span class="n">carattere</span><span class="p">){</span>
+        <span class="k">case</span> <span class="sc">'a'</span><span class="p">:</span>
+        <span class="k">case</span> <span class="sc">'A'</span><span class="p">:</span>
+        <span class="k">case</span> <span class="sc">'e'</span><span class="p">:</span>
+        <span class="k">case</span> <span class="sc">'E'</span><span class="p">:</span>
+        <span class="k">case</span> <span class="sc">'i'</span><span class="p">:</span>
+        <span class="k">case</span> <span class="sc">'I'</span><span class="p">:</span>
+        <span class="k">case</span> <span class="sc">'o'</span><span class="p">:</span>
+        <span class="k">case</span> <span class="sc">'O'</span><span class="p">:</span>
+        <span class="k">case</span> <span class="sc">'u'</span><span class="p">:</span>
+        <span class="k">case</span> <span class="sc">'U'</span><span class="p">:</span>
+            <span class="n">ritorno</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="nl">default:</span>
+            <span class="n">ritorno</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">ritorno</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">a</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">conta</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">contavocali</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">contaconsonanti</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci una frase, metti il punto quando hai finito: "</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="sc">'.'</span><span class="p">)</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">controllo_vocale</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+            <span class="n">contavocali</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">contaconsonanti</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">conta</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hai inserito "</span> <span class="o">&lt;&lt;</span> <span class="n">conta</span> <span class="o">&lt;&lt;</span> <span class="s">" lettere, di cui "</span> <span class="o">&lt;&lt;</span>
+    <span class="n">contavocali</span> <span class="o">&lt;&lt;</span> <span class="s">" vocali e "</span> <span class="o">&lt;&lt;</span> <span class="n">contaconsonanti</span> <span class="o">&lt;&lt;</span> <span class="s">" consonanti."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>L&#39;esecuzione del programma ha come risultato:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Inserisci</span> <span class="n">una</span> <span class="n">frase</span><span class="p">,</span> <span class="n">metti</span> <span class="n">il</span> <span class="n">punto</span> <span class="n">quando</span> <span class="n">hai</span> <span class="n">finito</span><span class="o">:</span> <span class="n">faccio</span> <span class="n">una</span> <span class="n">prova</span> <span class="n">per</span> <span class="n">vedere</span> <span class="n">se</span> <span class="n">funziona</span><span class="p">.</span>
+<span class="n">Hai</span> <span class="n">inserito</span> <span class="mi">33</span> <span class="n">lettere</span><span class="p">,</span> <span class="n">di</span> <span class="n">cui</span> <span class="mi">16</span> <span class="n">vocali</span> <span class="n">e</span> <span class="mi">17</span> <span class="n">consonanti</span><span class="p">.</span>
+
+</code></pre></div>
+<p>Il programma consente all&#39;utente di inserire una frase, e stampa a terminale il numero totale di caratteri, di vocali e di consonanti.</p>
+
+<p>Possiamo riutilizzare parte del codice già sviluppato nell&#39;esercitazione 2, per verificare se una lettera è una consonante o una vocale.</p>
+
+<aside class="notice">
+
+L'istruzione break permette di terminare un ciclo iterativo, saltando alla prima istruzione fuori dal ciclo.
+
+</aside>
+
+<aside class="notice">
+
+Utilizzare funzioni permette di riutilizzare codice già sviluppato in precedenza, e di rendere il codice più leggibile nella funzione main.
+
+</aside>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='esercizio-4_1-riduzione-di-frazioni'>[Esercizio 4_1] Riduzione di frazioni</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">riduco</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">num</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">den</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">massimo</span><span class="p">,</span> <span class="n">mcd</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">num</span><span class="o">&gt;</span><span class="n">den</span><span class="p">)</span>
+        <span class="n">massimo</span><span class="o">=</span><span class="n">num</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">massimo</span><span class="o">=</span><span class="n">den</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">massimo</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">num</span><span class="o">%</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">den</span><span class="o">%</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">)){</span>
+            <span class="n">mcd</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">num</span><span class="o">=</span><span class="n">num</span><span class="o">/</span><span class="n">mcd</span><span class="p">;</span>
+    <span class="n">den</span><span class="o">=</span><span class="n">den</span><span class="o">/</span><span class="n">mcd</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">,</span> <span class="n">den1</span><span class="p">,</span> <span class="n">den2</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">op1</span><span class="p">,</span> <span class="n">op2</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci due frazioni:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num1</span> <span class="o">&gt;&gt;</span> <span class="n">op1</span> <span class="o">&gt;&gt;</span> <span class="n">den1</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num2</span> <span class="o">&gt;&gt;</span> <span class="n">op2</span> <span class="o">&gt;&gt;</span> <span class="n">den2</span><span class="p">;</span>
+    <span class="n">riduco</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">den1</span><span class="p">);</span>
+    <span class="n">riduco</span><span class="p">(</span><span class="n">num2</span><span class="p">,</span> <span class="n">den2</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La prima frazione si puo' ridurre a: "</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span> <span class="o">&lt;&lt;</span> <span class="n">op1</span> <span class="o">&lt;&lt;</span> <span class="n">den1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La seconda frazione si puo' ridurre a: "</span> <span class="o">&lt;&lt;</span> <span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">op2</span> <span class="o">&lt;&lt;</span> <span class="n">den2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>L&#39;esecuzione del programma ha come risultato:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Inserisci</span> <span class="n">due</span> <span class="n">frazioni</span><span class="o">:</span>
+<span class="mi">2</span><span class="o">/</span><span class="mi">12</span>
+<span class="mi">27</span><span class="o">/</span><span class="mi">63</span>
+<span class="n">La</span> <span class="n">prima</span> <span class="n">frazione</span> <span class="n">si</span> <span class="n">puo</span><span class="err">'</span> <span class="n">ridurre</span> <span class="n">a</span><span class="o">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span>
+<span class="n">La</span> <span class="n">seconda</span> <span class="n">frazione</span> <span class="n">si</span> <span class="n">puo</span><span class="err">'</span> <span class="n">ridurre</span> <span class="n">a</span><span class="o">:</span> <span class="mi">3</span><span class="o">/</span><span class="mi">7</span>
+</code></pre></div>
+<p>Il programma chiede all&#39;utente di inserire due frazioni, e le riduce ai minimi termini.</p>
+
+<p>In questo esercizio, voglio usare una funzione per effettuare la riduzione delle funzioni ai minimi termini. In questo caso può essere utile passare i parametri per riferimento, così da modificare anche i valori di numeratore e denominatore nella nostra funzione main.</p>
+
+<aside class="notice">
+
+Con il passaggio di parametri per riferimento, alla funzione viene passato l'indirizzo e non il valore dell'argomento. Questo approccio richiede meno memoria rispetto alla chiamata per valore, e soprattutto consente di modificare il valore delle variabili che sono ad un livello di visibilità esterno alla funzione.
+
+</aside>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
