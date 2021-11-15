@@ -1352,21 +1352,73 @@ Con piccole modifiche nei cicli for, si possono ottenere pattern diversi.
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br></p>
-<h3 id='assignment-3_3-programma-per-calcolare-numeri-pari-e-dispari'>[Assignment 3_3] Programma per calcolare numeri pari e dispari</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp"># include &lt;iostream&gt;
+<h3 id='assignment-3_3-programma-per-calcolare-numeri-pari-e-dispari'>[Assignment 3_3] Programma per calcolare numeri pari e dispari</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 </span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="p">...</span>
-<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">contapari</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">contadispari</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">do</span><span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Ciao! Inserisci un numero intero maggiore di zero (-1 per uscire): "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num</span> <span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Grazie! "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Numero non valido"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">num</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+            <span class="n">contapari</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="n">contadispari</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">num</span> <span class="o">!=-</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hai immesso "</span> <span class="o">&lt;&lt;</span> <span class="n">contapari</span> <span class="o">&lt;&lt;</span> <span class="s">" numeri pari!"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hai immesso "</span> <span class="o">&lt;&lt;</span> <span class="n">contadispari</span> <span class="o">&lt;&lt;</span> <span class="s">" numeri dispari!"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
+
 </code></pre></div>
 <blockquote>
 <p>L&#39;esecuzione del programma ha come risultato:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Ciao</span><span class="o">!</span> <span class="n">Inserisci</span> <span class="n">un</span> <span class="n">numero</span> <span class="n">intero</span> <span class="n">maggiore</span> <span class="n">di</span> <span class="n">zero</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="n">per</span> <span class="n">uscire</span><span class="p">)</span><span class="o">:</span> <span class="mi">10</span>
+<span class="n">Ciao</span><span class="o">!</span> <span class="n">Inserisci</span> <span class="n">un</span> <span class="n">numero</span> <span class="n">intero</span> <span class="n">maggiore</span> <span class="n">di</span> <span class="n">zero</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="n">per</span> <span class="n">uscire</span><span class="p">)</span><span class="o">:</span> <span class="mi">4</span>
+<span class="n">Ciao</span><span class="o">!</span> <span class="n">Inserisci</span> <span class="n">un</span> <span class="n">numero</span> <span class="n">intero</span> <span class="n">maggiore</span> <span class="n">di</span> <span class="n">zero</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="n">per</span> <span class="n">uscire</span><span class="p">)</span><span class="o">:</span> <span class="mi">8</span>
+<span class="n">Ciao</span><span class="o">!</span> <span class="n">Inserisci</span> <span class="n">un</span> <span class="n">numero</span> <span class="n">intero</span> <span class="n">maggiore</span> <span class="n">di</span> <span class="n">zero</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="n">per</span> <span class="n">uscire</span><span class="p">)</span><span class="o">:</span> <span class="mi">3</span>
+<span class="n">Ciao</span><span class="o">!</span> <span class="n">Inserisci</span> <span class="n">un</span> <span class="n">numero</span> <span class="n">intero</span> <span class="n">maggiore</span> <span class="n">di</span> <span class="n">zero</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="n">per</span> <span class="n">uscire</span><span class="p">)</span><span class="o">:</span> <span class="mi">7</span>
+<span class="n">Ciao</span><span class="o">!</span> <span class="n">Inserisci</span> <span class="n">un</span> <span class="n">numero</span> <span class="n">intero</span> <span class="n">maggiore</span> <span class="n">di</span> <span class="n">zero</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="n">per</span> <span class="n">uscire</span><span class="p">)</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">Grazie</span><span class="o">!</span>
+<span class="n">Hai</span> <span class="n">immesso</span> <span class="mi">3</span> <span class="n">numeri</span> <span class="n">pari</span><span class="o">!</span>
+<span class="n">Hai</span> <span class="n">immesso</span> <span class="mi">2</span> <span class="n">numeri</span> <span class="n">dispari</span><span class="o">!</span>
+</code></pre></div>
 <p>Scrivere un programma che permetta all&#39;utente di inserire una serie di numeri positivi interi, finché non viene inserito il valore -1: a quel punto, il programma dice quanti numeri pari e dispari sono stati immessi. (hint: usare un ciclo do - while)</p>
+
+<aside class="notice">
+
+Il ciclo do-while può essere molto utile per descrivere in forma compatta iterazioni che sicuramente si devono ripetere almeno una volta.
+
+</aside>
 
 <p><br>
 <br>
@@ -1376,23 +1428,61 @@ Con piccole modifiche nei cicli for, si possono ottenere pattern diversi.
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br></p>
-<h3 id='assignment-3_4-programma-per-calcolare-il-numero-di-cifre-di-un-numero'>[Assignment 3_4] Programma per calcolare il numero di cifre di un numero</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp"># include &lt;iostream&gt;
+<h3 id='assignment-3_4-programma-per-calcolare-il-numero-di-cifre-di-un-numero'>[Assignment 3_4] Programma per calcolare il numero di cifre di un numero</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 </span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="p">...</span>
-<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">contacifre</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">do</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire un numero intero maggiore di zero: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">num</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">);</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="n">num</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span>
+        <span class="n">num</span><span class="o">=</span><span class="n">num</span><span class="o">/</span><span class="mi">10</span><span class="p">;</span>
+        <span class="n">contacifre</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Il numero immesso ha "</span> <span class="o">&lt;&lt;</span> <span class="n">contacifre</span> <span class="o">&lt;&lt;</span> <span class="s">" cifre!"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>L&#39;esecuzione del programma ha come risultato:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Inserire</span> <span class="n">un</span> <span class="n">numero</span> <span class="n">intero</span> <span class="n">maggiore</span> <span class="n">di</span> <span class="n">zero</span><span class="o">:</span> <span class="o">-</span><span class="mi">5</span>
+<span class="n">Inserire</span> <span class="n">un</span> <span class="n">numero</span> <span class="n">intero</span> <span class="n">maggiore</span> <span class="n">di</span> <span class="n">zero</span><span class="o">:</span> <span class="mi">15623</span>
+<span class="n">Il</span> <span class="n">numero</span> <span class="n">immesso</span> <span class="n">ha</span> <span class="mi">5</span> <span class="n">cifre</span><span class="o">!</span>
+
+</code></pre></div>
 <p>Scrivere un programma che chieda all&#39;utente di inserire un numero intero e calcoli di quante cifre è composto (hint: usare un ciclo while).</p>
 
 <p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
