@@ -1623,12 +1623,12 @@ Utilizzare funzioni permette di riutilizzare codice già sviluppato in precedenz
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
 <span class="kt">void</span> <span class="nf">riduco</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">num</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">den</span><span class="p">){</span>
-    <span class="kt">int</span> <span class="n">massimo</span><span class="p">,</span> <span class="n">mcd</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">minimo</span><span class="p">,</span> <span class="n">mcd</span><span class="p">;</span>
     <span class="k">if</span><span class="p">(</span><span class="n">num</span><span class="o">&gt;</span><span class="n">den</span><span class="p">)</span>
-        <span class="n">massimo</span><span class="o">=</span><span class="n">num</span><span class="p">;</span>
+        <span class="n">minimo</span><span class="o">=</span><span class="n">num</span><span class="p">;</span>
     <span class="k">else</span>
-        <span class="n">massimo</span><span class="o">=</span><span class="n">den</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">massimo</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">minimo</span><span class="o">=</span><span class="n">den</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">minimo</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
         <span class="k">if</span> <span class="p">((</span><span class="n">num</span><span class="o">%</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">den</span><span class="o">%</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">)){</span>
             <span class="n">mcd</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
         <span class="p">}</span>
