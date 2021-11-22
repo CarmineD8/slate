@@ -27,7 +27,7 @@ Potete fare riferimento a queste slide: [Prima Esercitazione](https://unigeit-my
 
 # Esercitazioni
 
-## Esercitazione - Prima esercitazione
+## Prima esercitazione - "Hello World" e variabili intere
 
 ### [Esercizio1_0] Programma "Hello World"
 
@@ -363,7 +363,7 @@ Data l'immutabilità di una variabile const, la sua inizializzazione deve essere
 <br> 
 
 
-## Esercitazione - Seconda esercitazione
+## Seconda esercitazione - Char, float e double - Statement if e switch
 
 ### [Esercizio2_0] Risolutore di equazioni di secondo grado
 
@@ -414,7 +414,6 @@ int main()
         else{
             // se il discriminante è minore di zero, l'equazione non ha soluzioni reali
             cout << "L'equazione non ha soluzioni reali!" << endl;
-            return 0;
         }
     }
     return 0;
@@ -501,17 +500,34 @@ E' possibile esplorare le librerie C++ [qui](http://www.cplusplus.com/reference/
 
 #include <iostream>
 
+using namespace std;
+
 int main()
 {
-  ...
-  return 0;
-}
+    char a ,b, c, d;
+    cout << "Inserisci una password di quattro caratteri:" << endl;
+    cin >> a >> b >> c >> d;
+    int minuscolo = (a>=97 && a<= 122) || (b>=97 && b<= 122) || (c>=97 && c<= 122) || (d>=97 && d<= 122);
+    int maiuscolo = (a>=65 && a<= 90) || (b>=65 && b<= 90) || (c>=65 && c<= 90) || (d>=65 && d<= 90);
+    int cifra = (a>=48 && a<= 57) || (b>=48 && b<= 57) || (c>=48 && c<= 57) || (d>=48 && d<= 57);
 
+    if (minuscolo && maiuscolo && cifra){
+        cout << "Password OK!" << endl;
+    }
+    else{
+        cout << "La password non va bene" << endl;
+    }
+
+    return 0;
+}
 ```
 
 > L'esecuzione del programma ha come risultato:
 
 ```cpp
+Inserisci una password di quattro caratteri:
+P4ss
+Password OK!
 ```
 
 Creare un programma che fa inserire all'utente 4 caratteri e verifica che ci sia almeno una lettera minuscola, una maiuscola e una cifra. Utilizzare l'operatore condizionale if.
@@ -535,9 +551,22 @@ Il valore ASCII delle cifre va da 48 a 57.
 
 </aside>
 
-
 [Qui](https://www.oppo.it/tabelle/tabella_ascii.htm) potete trovare una tabella riassuntiva.
 
+<aside class="notice">
+Gli operatori logici possono essere utili per raggruppare alcune condizioni e evitare l'utilizzo di operatori condizionali in cascata.
+</aside>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -545,20 +574,42 @@ Il valore ASCII delle cifre va da 48 a 57.
 ### [Assignment2_2] Programma che controlla l'immissione di una vocale
 
 ```cpp
-
 #include <iostream>
+
+using namespace std;
 
 int main()
 {
-  ...
-  return 0;
+    char a;
+    cout << "Inserisci una lettera, grazie!" << endl;
+    cin >> a;
+    switch (a){
+        case 'a':
+        case 'A':
+        case 'e':
+        case 'E':
+        case 'i':
+        case 'I':
+        case 'o':
+        case 'O':
+        case 'u':
+        case 'U':
+            cout << "Hai inserito una vocale!" << endl;
+            break;
+        default:
+            cout << "Non hai inserito una vocale!" << endl;
+            break;
+    }
+    return 0;
 }
-
 ```
 
 > L'esecuzione del programma ha come risultato:
 
 ```cpp
+Inserisci una lettera, grazie!
+I
+Hai inserito una vocale!
 ```
 
 Creare un programma che fa inserire all'utente un carattere, e verifica che il carattere immesso sia una vocale o meno, utilizzando lo statement "switch".
@@ -569,6 +620,31 @@ Se nessuna delle etichette ha un valore corrispondente a quello dell'espressione
 
 </aside>
 
+<aside class="notice">
+
+Usando l'operatore switch, può essere utile raggruppare i casi insieme, ma bisogna fare attenzione alla leggibilità del codice.
+
+</aside>
+
+<aside class="notice">
+
+Lettere maiuscole e minuscole hanno codifiche ASCII diverse, e vanno quindi considerate come casi separati.
+
+</aside>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -580,20 +656,45 @@ Se nessuna delle etichette ha un valore corrispondente a quello dell'espressione
 ### [Assignment2_3] Convertitore lire - euro / euro - lire
 
 ```cpp
-
 #include <iostream>
+
+using namespace std;
 
 int main()
 {
-  ...
-  return 0;
+    double num, num_conv;
+    char a;
+    cout << "Convertitore Euro-Lire / Lire-Euro" << endl;
+    cout << "Premi l per convertire un valore da euro a lire, " <<
+            "e per convertire un valore da lire a euro" << endl;
+    cin >> a;
+    if (a == 'l'){
+        cout << "Inserisci la cifra in euro: ";
+        cin >> num;
+        num_conv = num * 1936.27;
+        cout << "La cifra in lire e' " << num_conv << endl;
+    }
+    else if (a == 'e'){
+        cout << "Inserisci la cifra in lire: ";
+        cin >> num;
+        num_conv = num / 1936.27;
+        cout << "La cifra in euro e' " << num_conv << endl;
+    }
+    else {
+        cout << "La lettera immessa e' sbagliata!" << endl;
+    }
+    return 0;
 }
-
 ```
 
 > L'esecuzione del programma ha come risultato:
 
 ```cpp
+Convertitore Euro-Lire / Lire-Euro
+Premi l per convertire un valore da euro a lire, e per convertire un valore da lire a euro
+e
+Inserisci la cifra in lire: 20000
+La cifra in euro e' 10.3291
 ```
 
 Creare un programma che chieda all'utente se vuole immettere un valore in euro o in lire, acquisisca il valore dall'utente e restituisca il valore convertito nell'altra valuta.
@@ -611,17 +712,115 @@ Creare un programma che chieda all'utente se vuole immettere un valore in euro o
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### [Assignment2_4] Calcolatore di stagione
 
 ```cpp
-
 #include <iostream>
+
+using namespace std;
 
 int main()
 {
-  ...
-  return 0;
+    int giorno, mese;
+    cout << "Inserisci il giorno e il mese dell'anno" << endl;
+    cin >> giorno >> mese;
+    switch (mese){
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            if (giorno >31 || giorno <0){
+                cout << "La data e' sbagliata!";
+                return 0;
+            }
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            if (giorno >30 || giorno <0){
+                cout << "La data e' sbagliata!";
+                return 0;
+            }
+            break;
+        case 2:
+            if (giorno >29 || giorno <0){
+                cout << "La data e' sbagliata!";
+                return 0;
+            }
+            break;
+        default:
+            cout << "Questo mese non esiste!";
+            return 0;
+    }
+    switch (mese){
+        case 1:
+        case 2:
+            cout << "Inverno!";
+            break;
+        case 4:
+        case 5:
+            cout << "Primavera";
+            break;
+        case 7:
+        case 8:
+            cout << "Estate";
+            break;
+        case 10:
+        case 11:
+            cout << "Autunno";
+            break;
+        case 3:
+            if (giorno >=20)
+                cout << "Primavera";
+            else
+                cout << "Inverno";
+            break;
+        case 6:
+            if (giorno >=21)
+                cout << "Estate";
+            else
+                cout << "Primavera";
+            break;
+        case 9:
+            if (giorno >=22)
+                cout << "Autunno";
+            else
+                cout << "Estate";
+            break;
+        case 12:
+            if (giorno >=21)
+                cout << "Inverno";
+            else
+                cout << "Autunno";
+            break;
+    }
+    return 0;
 }
 
 ```
@@ -629,9 +828,18 @@ int main()
 > L'esecuzione del programma ha come risultato:
 
 ```cpp
+Inserisci il giorno e il mese dell'anno
+29 2
+Inverno!
 ```
 
 Scrivere un programma che chieda all'utente di immettere due interi, relativi al giorno e al mese, e restituisca la stagione corrispondente. Utilizzare sia l'operatore switch che if.
+
+<aside class="notice">
+
+Nella soluzione proposta, viene usato due volte l'operatore switch: la prima volta per calcolare l'esattezza della data, la seconda volta per calcolare la stagione. 
+
+</aside>
 
 <br>
 <br>
@@ -646,4 +854,1253 @@ Scrivere un programma che chieda all'utente di immettere due interi, relativi al
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Terza esercitazione - Cicli while, do-while e for
+
+### [Esercizio 3_0] Calcolatrice do-while
+
+```cpp
+# include <iostream>
+
+int main()
+{
+  char op;
+  float num1, num2;
+  char flag = 'y';
+
+  do {
+
+    std::cout << "Inserisci l'operazione: ( es: 3 + 5): ";
+    std::cin >> num1 >> op >>  num2;
+
+    switch(op)
+    {
+      case '+':
+        std::cout << num1+num2 << std::endl;
+        break;
+
+      case '-':
+        std::cout << num1-num2 << std::endl;
+        break;
+
+      case '*':
+        std::cout << num1*num2 << std::endl;
+        break;
+
+      case '/':
+        if (num2 == 0){
+          std::cout << "Errore! Non posso dividere per 0" << std::endl;
+          break;
+        }
+        std::cout << num1/num2 << std::endl;
+        break;
+
+      default:
+        std::cout << "Errore! Questo operatore non e' supportato";
+        break;
+    }
+
+    std::cout << "Premi y per continuare, qualsiasi altra lettera per uscire ";
+    std::cin >> flag;
+
+  } while (flag == 'y');
+
+  std::cout << "Esco dal programma";
+
+  return 0;
+}
+```
+
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+Inserisci l'operazione: ( es: 3 + 5): 12 / 0
+Errore! Non posso dividere per 0
+Premi y per continuare, qualsiasi altra lettera per uscire y
+Inserisci l'operazione: ( es: 3 + 5): 12 / 10
+1.2
+Premi y per continuare, qualsiasi altra lettera per uscire y
+Inserisci l'operazione: ( es: 3 + 5): 7 * 8
+56
+Premi y per continuare, qualsiasi altra lettera per uscire n
+Esco dal programma
+```
+
+Il programma consente all'utente di inserire due numeri e un'operazione, e stampa a terminale il risultato dell'operazione. Una volta eseguita l'operazione, il programma chiede all'utente se continuare o interrompere. Nel primo caso, chiede nuovamente di inserire numeri e operazione.
+
+<aside class="notice">
+
+Il ciclo do-while esegue il corpo dell'iterazione almeno una volta, ma il ciclo viene ripetuto solo se la condizione è verificata.
+
+</aside>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+### [Esercizio 3_1] Calcolatore di numeri primi
+
+```cpp
+# include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int num, primo;
+    do{
+        cout << "Inserisci un numero intero maggiore di 1: " ;
+        cin >> num;
+    } while (num <1);
+    cout << "I numeri primi compresi tra 0 e il numero immesso sono: ";
+    for (int i=2; i<=num; i++){
+        primo = 1;
+        for (int j=i-1; j>1; j--){
+            if (i%j==0){
+                primo = 0;
+            }
+        }
+        if (primo == 1){
+            cout << i << " ";
+        }
+    }
+  return 0;
+}
+```
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+Inserisci un numero intero maggiore di 1: 1000
+I numeri primi compresi tra 0 e il numero immesso sono: 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 193 197 199 211 223 227 229 233 239 241 251 257 263 269 271 277 281 283 293 307 311 313 317 331 337 347 349 353 359 367 373 379 383 389 397 401 409 419 421 431 433 439 443 449 457 461 463 467 479 487 491 499 503 509 521 523 541 547 557 563 569 571 577 587 593 599 601 607 613 617 619 631 641 643 647 653 659 661 673 677 683 691 701 709 719 727 733 739 743 751 757 761 769 773 787 797 809 811 821 823 827 829 839 853 857 859 863 877 881 883 887 907 911 919 929 937 941 947 953 967 971 977 983 991 997
+```
+
+Il programma chiede all'utente di inserire un numero, e calcola tutti i numeri primi compresi tra zero e il numero immesso.
+
+<aside class="notice">
+
+I cicli possono essere anche annidati, ossia possiamo avere un ciclo for (o while) all'interno di un altro ciclo for (o while)
+
+</aside>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [Assignment 3_2]  Programma per stampare un pattern
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int num;
+    cout << "Ciao! Inserisci un numero: ";
+    cin >> num ;
+
+    for (int i=0; i < num; i++){
+        for (int j=0; j<num; j++){
+            cout << "*";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+```
+
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+Ciao! Inserisci un numero: 8
+********
+********
+********
+********
+********
+********
+********
+********
+```
+
+Sviluppare un programma che chieda all'utente un numero e stampi a terminale un pattern predefinito a seconda del numero inserito. 
+
+<aside class="notice">
+
+Con piccole modifiche nei cicli for, si possono ottenere pattern diversi.
+
+</aside>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [Assignment 3_3] Programma per calcolare numeri pari e dispari
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int num;
+    int contapari = 0;
+    int contadispari = 0;
+
+    do{
+        cout << "Ciao! Inserisci un numero intero maggiore di zero (-1 per uscire): ";
+        cin >> num ;
+        if (num == -1) {
+            cout << "Grazie! " << endl;
+        }
+        else if (num <= 0){
+            cout << "Numero non valido" << endl;
+        }
+        else if(num%2==0){
+            contapari++;
+        }
+        else{
+            contadispari++;
+        }
+    }while(num !=-1);
+
+    cout << "Hai immesso " << contapari << " numeri pari!" << endl;
+    cout << "Hai immesso " << contadispari << " numeri dispari!" << endl;
+
+
+
+    return 0;
+}
+
+```
+
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+Ciao! Inserisci un numero intero maggiore di zero (-1 per uscire): 10
+Ciao! Inserisci un numero intero maggiore di zero (-1 per uscire): 4
+Ciao! Inserisci un numero intero maggiore di zero (-1 per uscire): 8
+Ciao! Inserisci un numero intero maggiore di zero (-1 per uscire): 3
+Ciao! Inserisci un numero intero maggiore di zero (-1 per uscire): 7
+Ciao! Inserisci un numero intero maggiore di zero (-1 per uscire): -1
+Grazie!
+Hai immesso 3 numeri pari!
+Hai immesso 2 numeri dispari!
+```
+Scrivere un programma che permetta all'utente di inserire una serie di numeri positivi interi, finché non viene inserito il valore -1: a quel punto, il programma dice quanti numeri pari e dispari sono stati immessi. (hint: usare un ciclo do - while)
+
+<aside class="notice">
+
+Il ciclo do-while può essere molto utile per descrivere in forma compatta iterazioni che sicuramente si devono ripetere almeno una volta.
+
+</aside>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [Assignment 3_4] Programma per calcolare il numero di cifre di un numero
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int num;
+    int contacifre = 0;
+
+    do {
+    cout << "Inserire un numero intero maggiore di zero: ";
+    cin >> num;
+    } while (num<=0);
+
+    while(num>0){
+        num=num/10;
+        contacifre++;
+    }
+
+    cout << "Il numero immesso ha " << contacifre << " cifre!" << endl;
+
+    return 0;
+}
+```
+
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+Inserire un numero intero maggiore di zero: -5
+Inserire un numero intero maggiore di zero: 15623
+Il numero immesso ha 5 cifre!
+
+```
+
+Scrivere un programma che chieda all'utente di inserire un numero intero e calcoli di quante cifre è composto (hint: usare un ciclo while).
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Quarta esercitazione - Funzioni. Passaggio di parametri per valore e per riferimento
+
+### [Esercizio 4_0] Programma per contare vocali e consonanti in una frase. 
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int controllo_vocale (char carattere){
+    int ritorno;
+   switch (carattere){
+        case 'a':
+        case 'A':
+        case 'e':
+        case 'E':
+        case 'i':
+        case 'I':
+        case 'o':
+        case 'O':
+        case 'u':
+        case 'U':
+            ritorno = 1;
+            break;
+        default:
+            ritorno = 0;
+            break;
+    }
+    return ritorno;
+}
+
+
+int main()
+{
+    char a;
+    int conta = 0;
+    int contavocali = 0;
+    int contaconsonanti = 0;
+    cout << "Inserisci una frase, metti il punto quando hai finito: ";
+    while (1){
+        cin >> a;
+        if (a == '.')
+            break;
+        if (controllo_vocale(a))
+            contavocali++;
+        else
+            contaconsonanti++;
+        conta++;
+    }
+
+    cout << "Hai inserito " << conta << " lettere, di cui " <<
+    contavocali << " vocali e " << contaconsonanti << " consonanti." << endl;
+}
+
+```
+
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+Inserisci una frase, metti il punto quando hai finito: faccio una prova per vedere se funziona.
+Hai inserito 33 lettere, di cui 16 vocali e 17 consonanti.
+
+```
+
+Il programma consente all'utente di inserire una frase, e stampa a terminale il numero totale di caratteri, di vocali e di consonanti.
+
+Possiamo riutilizzare parte del codice già sviluppato nell'esercitazione 2, per verificare se una lettera è una consonante o una vocale.
+
+<aside class="notice">
+
+L'istruzione break permette di terminare un ciclo iterativo, saltando alla prima istruzione fuori dal ciclo.
+
+</aside>
+
+<aside class="notice">
+
+Utilizzare funzioni permette di riutilizzare codice già sviluppato in precedenza, e di rendere il codice più leggibile nella funzione main.
+
+</aside>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [Esercizio 4_1] Riduzione di frazioni
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+void riduco(int& num, int& den){
+    int minimo, mcd;
+    if(num>den)
+        minimo=num;
+    else
+        minimo=den;
+    for (int i=1;i<=minimo;i++){
+        if ((num%i==0) && (den%i==0)){
+            mcd=i;
+        }
+    }
+    num=num/mcd;
+    den=den/mcd;
+}
+
+int main()
+{
+    int num1, num2, den1, den2;
+    char op1, op2;
+    cout << "Inserisci due frazioni:" << endl;
+    cin >> num1 >> op1 >> den1;
+    cin >> num2 >> op2 >> den2;
+    riduco(num1, den1);
+    riduco(num2, den2);
+    cout << "La prima frazione si puo' ridurre a: " << num1 << op1 << den1 << endl;
+    cout << "La seconda frazione si puo' ridurre a: " << num2 << op2 << den2 << endl;
+    return 0;
+}
+
+```
+
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+Inserisci due frazioni:
+2/12
+27/63
+La prima frazione si puo' ridurre a: 1/6
+La seconda frazione si puo' ridurre a: 3/7
+```
+
+Il programma chiede all'utente di inserire due frazioni, e le riduce ai minimi termini.
+
+In questo esercizio, voglio usare una funzione per effettuare la riduzione delle funzioni ai minimi termini. In questo caso può essere utile passare i parametri per riferimento, così da modificare anche i valori di numeratore e denominatore nella nostra funzione main.
+
+<aside class="notice">
+
+Con il passaggio di parametri per riferimento, alla funzione viene passato l'indirizzo e non il valore dell'argomento. Questo approccio richiede meno memoria rispetto alla chiamata per valore, e soprattutto consente di modificare il valore delle variabili che sono ad un livello di visibilità esterno alla funzione.
+
+</aside>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [Assignment 4_2] Calcolo del numero di cifre
+
+```cpp
+
+#include <iostream>
+
+using namespace std;
+
+int contacifre (int a){
+    int cifre = 0;
+    while(a!=0){
+        a=a/10;
+        cifre++;
+    }
+    return cifre;
+}
+
+int main()
+{
+    int num;
+    int cifre = 0;
+	cout << "Inserisci numeri interi. Puoi uscire dal programma inserendo -1: " << endl;
+	do {
+        cin >> num;
+        if (num == 0 || num == -1)
+            continue;
+        else
+            cifre = cifre + contacifre (num);
+	} while(num!=-1);
+	cout << "Hai inserito un totale di: " << cifre << " cifre! " << endl;
+	return 0;
+}
+```
+
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+Inserisci numeri interi. Puoi uscire dal programma inserendo -1:
+154
+-23
+212
+-1
+Hai inserito un totale di: 8 cifre!
+```
+
+Scrivere un programma che chieda all'utente di inserire dei numeri interi, finché l'utente non inserisce -1 (per uscire dal ciclo).
+
+A quel punto, il programma stampa il numero di cifre totale immesso dall'utente.
+
+Hint: usare un ciclo while (o do-while) per gestire l'inserimento dei numeri
+
+Hint: usare una funzione per contare il numero di cifre di ogni numero inserito (vedi Assignment 3_4)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [Assignment 4_3] Calcolo di minuti e secondi
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int timeconv (int& minuti, int& sec, int& ms){
+    sec = ms/1000;
+    minuti = sec/60;
+    sec = sec%60;
+    ms = ms%1000;
+}
+
+int main()
+{
+    int ms1, ms2;
+    int sec1, sec2;
+    int min1, min2;
+    cout << "Inserisci un tempo in millisecondi: ";
+    cin >> ms1;
+    while (ms1 <0){
+        cout << "Per favore, inserisci un numero positivo: ";
+        cin >> ms1;
+    }
+    cout << "Inserisci un altro tempo in millisecondi: ";
+    cin >> ms2;
+    while (ms2 <0){
+        cout << "Per favore, inserisci un numero positivo: ";
+        cin >> ms2;
+    }
+    timeconv(min1, sec1, ms1);
+    timeconv(min2, sec2, ms2);
+    if (min1 == min2){
+        cout << "I tempi immessi corrispondono agli stessi minuti!" << endl;
+    }
+    cout << min1 << " minuti, " << sec1 << " secondi, " << ms1 << " millisecondi" << endl;
+    cout << min2 << " minuti, " << sec2 << " secondi, " << ms2 << " millisecondi" << endl;
+}
+```
+
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+Inserisci un tempo in millisecondi: 100500
+Inserisci un altro tempo in millisecondi: 110050
+I tempi immessi corrispondono agli stessi minuti!
+1 minuti, 40 secondi, 500 millisecondi
+1 minuti, 50 secondi, 50 millisecondi
+```
+
+Creare un programma che, dopo aver chiesto all'utente di inserire due tempi dati in millisecondi, restituisca per entrambi l'equivalente in termini di minuti, secondi, millisecondi, e controlli se corrispondono agli stessi minuti.
+
+Hint: usare una funzione passando i parametri per riferimento.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [Assignment 4_4] Differenza tra maggiore e minore
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+double trovaminimo (double a1, double a2, double a3){
+    double minimo;
+    if (a1 < a2){
+        if (a1 < a3)
+            minimo = a1;
+        else
+            minimo = a3;
+    }
+    else {
+        if (a2 < a3)
+            minimo = a2;
+        else
+            minimo = a3;
+    }
+    return minimo;
+}
+
+double trovamassimo (double a1, double a2, double a3){
+    double massimo;
+    if (a1 > a2){
+        if (a1 > a3)
+            massimo = a1;
+        else
+            massimo = a3;
+    }
+    else {
+        if (a2 > a3)
+            massimo = a2;
+        else
+            massimo = a3;
+    }
+    return massimo;
+}
+
+double differenza (double a1, double a2, double a3){
+    double minimo, massimo, diff;
+    minimo = trovaminimo (a1, a2, a3);
+    massimo = trovamassimo (a1, a2, a3);
+    diff = massimo - minimo;
+    return diff;
+}
+
+int main()
+{
+    double num1, num2, num3;
+    cout << "Inserisci tre numeri: " << endl;
+    cin >> num1 >> num2 >> num3;
+    cout << "La differenza tra il numero piu' grande e il piccolo e': " << differenza(num1, num2, num3);
+}
+```
+
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+Inserisci tre numeri:
+43
+76
+-14
+La differenza tra il numero piu' grande e il piccolo e': 90
+```
+
+Scrivere un programma che chieda all'utente di inserire tre numeri (non necessariamente interi), e restituisca la differenza tra il numero più grande e il numero più piccolo immesso dall'utente. 
+
+Hint: E' possibile creare una funzione che restituisca la differenza dei tre numeri, e a sua volta chiami una funzione per il calcolo del massimo, e una per il calcolo del minimo.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Quinta esercitazione - Array e Stringhe
+
+### [Esercizio 5_0] Scambio degli elementi di un array
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+void ordina_array(double arr[], int dim){
+    double minimo = arr[0];
+    int index_min = 0;
+    double massimo = arr[0];
+    int index_max = 0;
+    for (int i=1;i<dim;i++){
+        if (arr[i]<minimo){
+            minimo=arr[i];
+            index_min = i;
+        }
+        if (arr[i] > massimo){
+            massimo = arr[i];
+            index_max = i;
+        }
+    }
+    double temp = arr[index_min];
+    arr[index_min] = arr[index_max];
+    arr[index_max] = temp;
+}
+
+int main()
+{
+    int dim;
+    cout << "Di quanti elementi vuoi che sia l'array? ";
+    cin >> dim;
+    double arr[dim];
+     cout << "Per favore, inserisci " << dim << " numeri: ";
+    for (int i=0;i<dim;i++){
+        cin >> arr[i];
+    }
+    ordina_array (arr, dim);
+    cout << "Grazie. Ecco la lista di numeri con massimo e minimo invertiti: ";
+    for (int i=0;i<dim;i++){
+        cout << arr[i] << " ";
+    }
+}
+
+```
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+Di quanti elementi vuoi che sia l'array? 4
+Per favore, inserisci 4 numeri:  13 4 2 -5
+Grazie. Ecco la lista di numeri con massimo e minimo invertiti: -5 4 2 13
+```
+
+Creare un programma che chieda all'utente di inserire dei numeri, li inserisca in un array, e scambi il numero minore con il maggiore.
+
+<aside class="notice">
+L'intero dim viene acquisito dall'utente e utilizzato in tutti i cicli for. Una eventuale modifica di questo intero potrebbe causare errori in runtime.
+</aside>
+
+<aside class="notice">
+L'array viene sempre passato ad una funzione per riferimento.
+</aside>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [Esercizio 5_1] Lettere in rima
+```cpp
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+int main()
+{
+    const int dim = 256;
+    int contarima = 0, len1, len2, len;
+    char stringa1[dim], stringa2[dim];
+    cin.getline(stringa1, dim, '\n');
+    cin.getline(stringa2, dim, '\n');
+    len1 = strlen(stringa1);
+    len2 = strlen(stringa2);
+
+    if (len1 < len2)
+        len = len1;
+    else
+        len = len2;
+
+    for (int i=1; i<=len; i++){
+        if(stringa1[len1-i]==stringa2[len2-i])
+            contarima++;
+        else
+            break;
+    }
+    cout << "Le lettere che fanno rima sono: " << contarima << endl;
+}
+```
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+proviamo con questa frase
+questo esercizio di base
+Le lettere che fanno rima sono: 3
+```
+
+Creare un programma che chieda all'utente di inserire due stringhe, e conti il numero di lettere che "fanno rima", ovvero il numero di lettere uguali in fondo alle due stringhe.
+
+<aside class="notice">
+Per lavorare con le stringhe, è necessario includere l'header cstring.
+</aside>
+
+<aside class="notice">
+La funzione cin.getline permette di acquisire una stringa fino a che l'utente immette il carattere passato come terzo argomento della funzione.
+</aside>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [Esercizio 5_2] Programma che riempie un array di interi con numeri random.
+
+```cpp
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+int main()
+{
+}
+
+```
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+
+```
+
+Creare un programma che, dopo aver chiesto all'utente di inserire la dimensione di un array, li riempia con interi random compresi tra 0 e 99.
+
+<aside class="notice">
+Potete utilizzare la funzione rand() per generare un intero random. Per limitarlo tra 0 e 99, basta considerare il modulo della divisione per 100:   rand()%100;
+</aside>
+
+<aside class="notice">
+Per far sì che rand() sia realmente random, devo inizializzare il «seed» della funzione in maniera casuale. Posso farlo con: srand(time(NULL));
+</aside>
+
+<aside class="notice">
+Per poter usare le funzioni rand e time, dovete includere anche gli header ctime e cstdlib.
+</aside>
+
+
+### [Esercizio 5_3] Moltiplicazione di array
+
+```cpp
+#include <iostream>
+
+int main()
+{
+}
+
+```
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+
+```
+
+Creare un programma che, dopo aver chiesto all'utente di inserire la dimensione e gli elementi di due array, li moltiplichi tra di loro e stampi il risultato finale. Utilizzare una funzione per moltiplicare gli array.
+
+<aside class="notice">
+Non è possibile moltiplicare direttamente gli array. E' necessario utilizzare un ciclo for.
+</aside>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+### [Esercizio 5_4] Inversione di array
+
+```cpp
+#include <iostream>
+
+int main()
+{
+}
+
+```
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+
+```
+
+Creare un programma che, dopo aver chiesto all'utente di inserire la dimensione e gli elementi di un array, lo inverta e stampi il risultato finale. Utilizzare una funzione per l'inversione dell'array.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [Esercizio 5_5] Numero di doppie in una stringa
+
+```cpp
+#include <iostream>
+#include <cstring>
+
+int main()
+{
+}
+
+```
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+
+```
+Creare un programma che chieda all'utente di inserire due stringhe, le concateni, e conti il numero di doppie contenute nella stringa complessiva.
+
+<aside class="notice">
+Per concatenare due stringhe potete usare la funzione strcat(s,t).
+</aside>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 
