@@ -1707,19 +1707,41 @@ Con il passaggio di parametri per riferimento, alla funzione viene passato l'ind
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
 <span class="kt">int</span> <span class="nf">contacifre</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">){</span>
-     <span class="p">[...]</span>
+    <span class="kt">int</span> <span class="n">cifre</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">a</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+        <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="o">/</span><span class="mi">10</span><span class="p">;</span>
+        <span class="n">cifre</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">cifre</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="p">[...]</span>
+    <span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">cifre</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci numeri interi. Puoi uscire dal programma inserendo -1: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">num</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">continue</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">cifre</span> <span class="o">=</span> <span class="n">cifre</span> <span class="o">+</span> <span class="n">contacifre</span> <span class="p">(</span><span class="n">num</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">while</span><span class="p">(</span><span class="n">num</span><span class="o">!=-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hai inserito un totale di: "</span> <span class="o">&lt;&lt;</span> <span class="n">cifre</span> <span class="o">&lt;&lt;</span> <span class="s">" cifre! "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
+<span class="err">}</span>
 </code></pre></div>
 <blockquote>
 <p>L&#39;esecuzione del programma ha come risultato:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Inserisci</span> <span class="n">numeri</span> <span class="n">interi</span><span class="p">.</span> <span class="n">Puoi</span> <span class="n">uscire</span> <span class="n">dal</span> <span class="n">programma</span> <span class="n">inserendo</span> <span class="o">-</span><span class="mi">1</span><span class="o">:</span>
+<span class="mi">154</span>
+<span class="o">-</span><span class="mi">23</span>
+<span class="mi">212</span>
+<span class="o">-</span><span class="mi">1</span>
+<span class="n">Hai</span> <span class="n">inserito</span> <span class="n">un</span> <span class="n">totale</span> <span class="n">di</span><span class="o">:</span> <span class="mi">8</span> <span class="n">cifre</span><span class="o">!</span>
+</code></pre></div>
 <p>Scrivere un programma che chieda all&#39;utente di inserire dei numeri interi, finché l&#39;utente non inserisce -1 (per uscire dal ciclo).</p>
 
 <p>A quel punto, il programma stampa il numero di cifre totale immesso dall&#39;utente.</p>
@@ -1737,29 +1759,66 @@ Con il passaggio di parametri per riferimento, alla funzione viene passato l'ind
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br></p>
-<h3 id='assignment-4_3-calcolo-di-minuti-e-secondi'>[Assignment 4_3] Calcolo di minuti e secondi</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
-<span class="cp">#include &lt;iostream&gt;
+<h3 id='assignment-4_3-calcolo-di-minuti-e-secondi'>[Assignment 4_3] Calcolo di minuti e secondi</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
-<span class="kt">void</span> <span class="nf">contamin</span> <span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">min</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">sec</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">msec</span><span class="p">){</span>
-     <span class="p">[...]</span>
+<span class="kt">int</span> <span class="nf">timeconv</span> <span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">minuti</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">sec</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">ms</span><span class="p">){</span>
+    <span class="n">sec</span> <span class="o">=</span> <span class="n">ms</span><span class="o">/</span><span class="mi">1000</span><span class="p">;</span>
+    <span class="n">minuti</span> <span class="o">=</span> <span class="n">sec</span><span class="o">/</span><span class="mi">60</span><span class="p">;</span>
+    <span class="n">sec</span> <span class="o">=</span> <span class="n">sec</span><span class="o">%</span><span class="mi">60</span><span class="p">;</span>
+    <span class="n">ms</span> <span class="o">=</span> <span class="n">ms</span><span class="o">%</span><span class="mi">1000</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="p">[...]</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">ms1</span><span class="p">,</span> <span class="n">ms2</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">sec1</span><span class="p">,</span> <span class="n">sec2</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">min1</span><span class="p">,</span> <span class="n">min2</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci un tempo in millisecondi: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">ms1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">ms1</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Per favore, inserisci un numero positivo: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">ms1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci un altro tempo in millisecondi: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">ms2</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">ms2</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Per favore, inserisci un numero positivo: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">ms2</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">timeconv</span><span class="p">(</span><span class="n">min1</span><span class="p">,</span> <span class="n">sec1</span><span class="p">,</span> <span class="n">ms1</span><span class="p">);</span>
+    <span class="n">timeconv</span><span class="p">(</span><span class="n">min2</span><span class="p">,</span> <span class="n">sec2</span><span class="p">,</span> <span class="n">ms2</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">min1</span> <span class="o">==</span> <span class="n">min2</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"I tempi immessi corrispondono agli stessi minuti!"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">min1</span> <span class="o">&lt;&lt;</span> <span class="s">" minuti, "</span> <span class="o">&lt;&lt;</span> <span class="n">sec1</span> <span class="o">&lt;&lt;</span> <span class="s">" secondi, "</span> <span class="o">&lt;&lt;</span> <span class="n">ms1</span> <span class="o">&lt;&lt;</span> <span class="s">" millisecondi"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">min2</span> <span class="o">&lt;&lt;</span> <span class="s">" minuti, "</span> <span class="o">&lt;&lt;</span> <span class="n">sec2</span> <span class="o">&lt;&lt;</span> <span class="s">" secondi, "</span> <span class="o">&lt;&lt;</span> <span class="n">ms2</span> <span class="o">&lt;&lt;</span> <span class="s">" millisecondi"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>L&#39;esecuzione del programma ha come risultato:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Inserisci</span> <span class="n">un</span> <span class="n">tempo</span> <span class="n">in</span> <span class="n">millisecondi</span><span class="o">:</span> <span class="mi">100500</span>
+<span class="n">Inserisci</span> <span class="n">un</span> <span class="n">altro</span> <span class="n">tempo</span> <span class="n">in</span> <span class="n">millisecondi</span><span class="o">:</span> <span class="mi">110050</span>
+<span class="n">I</span> <span class="n">tempi</span> <span class="n">immessi</span> <span class="n">corrispondono</span> <span class="n">agli</span> <span class="n">stessi</span> <span class="n">minuti</span><span class="o">!</span>
+<span class="mi">1</span> <span class="n">minuti</span><span class="p">,</span> <span class="mi">40</span> <span class="n">secondi</span><span class="p">,</span> <span class="mi">500</span> <span class="n">millisecondi</span>
+<span class="mi">1</span> <span class="n">minuti</span><span class="p">,</span> <span class="mi">50</span> <span class="n">secondi</span><span class="p">,</span> <span class="mi">50</span> <span class="n">millisecondi</span>
+</code></pre></div>
 <p>Creare un programma che, dopo aver chiesto all&#39;utente di inserire due tempi dati in millisecondi, restituisca per entrambi l&#39;equivalente in termini di minuti, secondi, millisecondi, e controlli se corrispondono agli stessi minuti.</p>
 
-<p>Hint: usare una funzione passando i parametri per riferimento (i parametri minuti e secondi possono essere inizializzati a 0 nel main.</p>
+<p>Hint: usare una funzione passando i parametri per riferimento.</p>
 
 <p><br>
 <br>
@@ -1774,29 +1833,103 @@ Con il passaggio di parametri per riferimento, alla funzione viene passato l'ind
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br></p>
-<h3 id='assignment-4_4-differenza-tra-maggiore-e-minore'>[Assignment 4_4] Differenza tra maggiore e minore</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code>
-<span class="cp">#include &lt;iostream&gt;
+<h3 id='assignment-4_4-differenza-tra-maggiore-e-minore'>[Assignment 4_4] Differenza tra maggiore e minore</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
-<span class="p">[...]</span>
+<span class="kt">double</span> <span class="nf">trovaminimo</span> <span class="p">(</span><span class="kt">double</span> <span class="n">a1</span><span class="p">,</span> <span class="kt">double</span> <span class="n">a2</span><span class="p">,</span> <span class="kt">double</span> <span class="n">a3</span><span class="p">){</span>
+    <span class="kt">double</span> <span class="n">minimo</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a1</span> <span class="o">&lt;</span> <span class="n">a2</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a1</span> <span class="o">&lt;</span> <span class="n">a3</span><span class="p">)</span>
+            <span class="n">minimo</span> <span class="o">=</span> <span class="n">a1</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">minimo</span> <span class="o">=</span> <span class="n">a3</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a2</span> <span class="o">&lt;</span> <span class="n">a3</span><span class="p">)</span>
+            <span class="n">minimo</span> <span class="o">=</span> <span class="n">a2</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">minimo</span> <span class="o">=</span> <span class="n">a3</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">minimo</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">double</span> <span class="nf">trovamassimo</span> <span class="p">(</span><span class="kt">double</span> <span class="n">a1</span><span class="p">,</span> <span class="kt">double</span> <span class="n">a2</span><span class="p">,</span> <span class="kt">double</span> <span class="n">a3</span><span class="p">){</span>
+    <span class="kt">double</span> <span class="n">massimo</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a1</span> <span class="o">&gt;</span> <span class="n">a2</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a1</span> <span class="o">&gt;</span> <span class="n">a3</span><span class="p">)</span>
+            <span class="n">massimo</span> <span class="o">=</span> <span class="n">a1</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">massimo</span> <span class="o">=</span> <span class="n">a3</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a2</span> <span class="o">&gt;</span> <span class="n">a3</span><span class="p">)</span>
+            <span class="n">massimo</span> <span class="o">=</span> <span class="n">a2</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">massimo</span> <span class="o">=</span> <span class="n">a3</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">massimo</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">double</span> <span class="nf">differenza</span> <span class="p">(</span><span class="kt">double</span> <span class="n">a1</span><span class="p">,</span> <span class="kt">double</span> <span class="n">a2</span><span class="p">,</span> <span class="kt">double</span> <span class="n">a3</span><span class="p">){</span>
+    <span class="kt">double</span> <span class="n">minimo</span><span class="p">,</span> <span class="n">massimo</span><span class="p">,</span> <span class="n">diff</span><span class="p">;</span>
+    <span class="n">minimo</span> <span class="o">=</span> <span class="n">trovaminimo</span> <span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">);</span>
+    <span class="n">massimo</span> <span class="o">=</span> <span class="n">trovamassimo</span> <span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">);</span>
+    <span class="n">diff</span> <span class="o">=</span> <span class="n">massimo</span> <span class="o">-</span> <span class="n">minimo</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">diff</span><span class="p">;</span>
+<span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="p">[...]</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">,</span> <span class="n">num3</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci tre numeri: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num1</span> <span class="o">&gt;&gt;</span> <span class="n">num2</span> <span class="o">&gt;&gt;</span> <span class="n">num3</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La differenza tra il numero piu' grande e il piccolo e': "</span> <span class="o">&lt;&lt;</span> <span class="n">differenza</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">,</span> <span class="n">num3</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>L&#39;esecuzione del programma ha come risultato:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Inserisci</span> <span class="n">tre</span> <span class="n">numeri</span><span class="o">:</span>
+<span class="mi">43</span>
+<span class="mi">76</span>
+<span class="o">-</span><span class="mi">14</span>
+<span class="n">La</span> <span class="n">differenza</span> <span class="n">tra</span> <span class="n">il</span> <span class="n">numero</span> <span class="n">piu</span><span class="err">'</span> <span class="n">grande</span> <span class="n">e</span> <span class="n">il</span> <span class="n">piccolo</span> <span class="n">e</span><span class="err">'</span><span class="o">:</span> <span class="mi">90</span>
+</code></pre></div>
 <p>Scrivere un programma che chieda all&#39;utente di inserire tre numeri (non necessariamente interi), e restituisca la differenza tra il numero più grande e il numero più piccolo immesso dall&#39;utente. </p>
 
 <p>Hint: E&#39; possibile creare una funzione che restituisca la differenza dei tre numeri, e a sua volta chiami una funzione per il calcolo del massimo, e una per il calcolo del minimo.</p>
 
 <p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
