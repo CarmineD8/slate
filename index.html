@@ -330,7 +330,7 @@
                     <a href="#quinta-esercitazione-array-e-stringhe" class="toc-h2 toc-link" data-title="Quinta esercitazione - Array e Stringhe">Quinta esercitazione - Array e Stringhe</a>
                   </li>
                   <li>
-                    <a href="#sesta-esercitazione-array-bidimensionali" class="toc-h2 toc-link" data-title="Sesta esercitazione - Array Bidimensionali">Sesta esercitazione - Array Bidimensionali</a>
+                    <a href="#sesta-esercitazione-array-bidimensionali-ordinamento-array" class="toc-h2 toc-link" data-title="Sesta esercitazione - Array Bidimensionali - Ordinamento Array">Sesta esercitazione - Array Bidimensionali - Ordinamento Array</a>
                   </li>
               </ul>
           </li>
@@ -2141,7 +2141,7 @@ La funzione cin.getline permette di acquisire una stringa fino a che l'utente im
 <br>
 <br>
 <br></p>
-<h3 id='esercizio-5_2-programma-che-riempie-un-array-di-interi-con-numeri-random'>[Esercizio 5_2] Programma che riempie un array di interi con numeri random.</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+<h3 id='assignment-5_2-programma-che-riempie-un-array-di-interi-con-numeri-random'>[Assignment 5_2] Programma che riempie un array di interi con numeri random.</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 #include &lt;ctime&gt;
 #include &lt;cstdlib&gt;
 </span>
@@ -2202,7 +2202,7 @@ Il carattere speciale '\b' torna indietro di uno spazio.
 <br>
 <br>
 <br></p>
-<h3 id='esercizio-5_3-moltiplicazione-di-array'>[Esercizio 5_3] Moltiplicazione di array</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+<h3 id='assignment-5_3-moltiplicazione-di-array'>[Assignment 5_3] Moltiplicazione di array</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
@@ -2282,7 +2282,7 @@ Non è possibile moltiplicare direttamente gli array. E' necessario utilizzare u
 <br>
 <br>
 <br></p>
-<h3 id='esercizio-5_4-inversione-di-array'>[Esercizio 5_4] Inversione di array</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+<h3 id='assignment-5_4-inversione-di-array'>[Assignment 5_4] Inversione di array</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
@@ -2355,7 +2355,7 @@ Non è possibile moltiplicare direttamente gli array. E' necessario utilizzare u
 <br>
 <br>
 <br></p>
-<h3 id='esercizio-5_5-numero-di-doppie-in-una-stringa'>[Esercizio 5_5] Numero di doppie in una stringa</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+<h3 id='assignment-5_5-numero-di-doppie-in-una-stringa'>[Assignment 5_5] Numero di doppie in una stringa</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -2428,7 +2428,250 @@ Per vedere se un carattere è effettivamente una lettera dell'alfabeto, è possi
 <br>
 <br>
 <br></p>
-<h2 id='sesta-esercitazione-array-bidimensionali'>Sesta esercitazione - Array Bidimensionali</h2><h3 id='esercizio-6_0'>[Esercizio 6_0]</h3>
+<h2 id='sesta-esercitazione-array-bidimensionali-ordinamento-array'>Sesta esercitazione - Array Bidimensionali - Ordinamento Array</h2><h3 id='esercizio-6_0-moltiplicazione-tra-matrici'>[Esercizio 6_0] - Moltiplicazione tra Matrici</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">riempiMatrice</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">dim</span><span class="p">][</span><span class="n">dim</span><span class="p">]){</span>
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Riga "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+        <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">stampaMatrice</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">dim</span><span class="p">][</span><span class="n">dim</span><span class="p">]){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">prodottoMatrici</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">dim</span><span class="p">][</span><span class="n">dim</span><span class="p">],</span> <span class="kt">int</span> <span class="n">b</span><span class="p">[</span><span class="n">dim</span><span class="p">][</span><span class="n">dim</span><span class="p">],</span> <span class="kt">int</span> <span class="n">c</span><span class="p">[</span><span class="n">dim</span><span class="p">][</span><span class="n">dim</span><span class="p">]){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+   <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">dim</span><span class="p">][</span><span class="n">dim</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="n">dim</span><span class="p">][</span><span class="n">dim</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="n">dim</span><span class="p">][</span><span class="n">dim</span><span class="p">];</span>
+
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci tutti gli elementi della matrice A: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="n">riempiMatrice</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La prima matrice e': "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="n">stampaMatrice</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci tutti gli elementi della seconda matrice B: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="n">riempiMatrice</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La seconda matrice e': "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="n">stampaMatrice</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+
+   <span class="n">prodottoMatrici</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La matrice prodotto e': "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="n">stampaMatrice</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<blockquote>
+<p>L&#39;esecuzione del programma ha come risultato:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Inserisci</span> <span class="n">tutti</span> <span class="n">gli</span> <span class="n">elementi</span> <span class="n">della</span> <span class="n">matrice</span> <span class="n">A</span><span class="o">:</span>
+<span class="n">Riga</span> <span class="mi">1</span><span class="o">:</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="n">Riga</span> <span class="mi">2</span><span class="o">:</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span>
+<span class="n">Riga</span> <span class="mi">3</span><span class="o">:</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span>
+<span class="n">La</span> <span class="n">prima</span> <span class="n">matrice</span> <span class="n">e</span><span class="err">'</span><span class="o">:</span>
+<span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span>
+<span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span>
+<span class="n">Inserisci</span> <span class="n">tutti</span> <span class="n">gli</span> <span class="n">elementi</span> <span class="n">della</span> <span class="n">seconda</span> <span class="n">matrice</span> <span class="n">B</span><span class="o">:</span>
+<span class="n">Riga</span> <span class="mi">1</span><span class="o">:</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span>
+<span class="n">Riga</span> <span class="mi">2</span><span class="o">:</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span>
+<span class="n">Riga</span> <span class="mi">3</span><span class="o">:</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span>
+<span class="n">La</span> <span class="n">seconda</span> <span class="n">matrice</span> <span class="n">e</span><span class="err">'</span><span class="o">:</span>
+<span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span>
+<span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span>
+<span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span>
+<span class="n">La</span> <span class="n">matrice</span> <span class="n">prodotto</span> <span class="n">e</span><span class="err">'</span><span class="o">:</span>
+<span class="mi">20</span> <span class="mi">26</span> <span class="mi">32</span>
+<span class="mi">47</span> <span class="mi">62</span> <span class="mi">77</span>
+<span class="mi">74</span> <span class="mi">98</span> <span class="mi">122</span>
+</code></pre></div>
+<p>Scriviamo un programma che chieda all&#39;utente di inserire gli elementi due matrici quadrate di dimensione 3, e ne calcoli il prodotto.</p>
+
+<aside class="notice">
+Anche gli array bidimensionali vengono sempre passati per riferimento.
+</aside>
+
+<aside class="notice">
+Per implementare il prodotto tra matrici posso utilizzare tre cicli for annidati!
+</aside>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='esercizio-6_1-ordinamento-con-algoritmo-selection-sort'>[Esercizio 6_1] - Ordinamento con Algoritmo Selection Sort</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+#include &lt;cstdlib&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">riempiArrRandom</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">dim</span><span class="p">){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="mi">100</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">stampaArr</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">dim</span><span class="p">){</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"["</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+    <span class="p">}</span>
+     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\b\b</span><span class="s">]</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">selectionSort</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">dim</span><span class="p">){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">indiceminimo</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;</span><span class="n">arr</span><span class="p">[</span><span class="n">indiceminimo</span><span class="p">]){</span>
+                <span class="n">indiceminimo</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">arr</span><span class="p">[</span><span class="n">indiceminimo</span><span class="p">];</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">indiceminimo</span><span class="p">]</span><span class="o">=</span><span class="n">temp</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+    <span class="kt">int</span> <span class="n">dim</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci la dimensione dell'array: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">dim</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="n">dim</span><span class="p">];</span>
+    <span class="n">riempiArrRandom</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">dim</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Ecco l'array con numeri random: "</span><span class="p">;</span>
+    <span class="n">stampaArr</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">dim</span><span class="p">);</span>
+    <span class="n">selectionSort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">dim</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Ecco l'array con numeri ordinati: "</span><span class="p">;</span>
+    <span class="n">stampaArr</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">dim</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>L&#39;esecuzione del programma ha come risultato:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Inserisci</span> <span class="n">la</span> <span class="n">dimensione</span> <span class="n">dell</span><span class="err">'</span><span class="n">array</span><span class="o">:</span> <span class="mi">100</span>
+<span class="n">Ecco</span> <span class="n">l</span><span class="err">'</span><span class="n">array</span> <span class="n">con</span> <span class="n">numeri</span> <span class="n">random</span><span class="o">:</span> <span class="p">[</span><span class="mi">62</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">99</span><span class="p">]</span>
+<span class="n">Ecco</span> <span class="n">l</span><span class="err">'</span><span class="n">array</span> <span class="n">con</span> <span class="n">numeri</span> <span class="n">ordinati</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">99</span><span class="p">]</span>
+</code></pre></div>
+<p>L&#39; idea di base di questo algoritmo è semplice: si cercano successivamente i minimi dell&#39;array.
+Questo algoritmo &quot;divide&quot; di fatto l&#39;array in due parti, la prima ordinata e le seconda non-ordinata, inizialmente la prima parte non conterrà alcun elemento.
+L&#39;algoritmo continuerà a cercherà il minimo tra gli elementi della parte non-ordinata e lo scambierà con il primo elemento della parte non ordinata, andando così ad aumentare di uno la dimensione della parte ordinata.
+L&#39;algoritmo termina quando la parte non-ordinata contiene un solo elemento, che sarà il massimo dell&#39;array, e quindi l&#39;array sarà completamente ordinato.</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
