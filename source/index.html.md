@@ -1979,22 +1979,39 @@ La funzione cin.getline permette di acquisire una stringa fino a che l'utente im
 <br>
 <br>
 
-### [Esercizio 5_2] Programma che riempie un array di interi con numeri random.
+### [Assignment 5_2] Programma che riempie un array di interi con numeri random.
 
 ```cpp
 #include <iostream>
-#include <cstdlib>
 #include <ctime>
+#include <cstdlib>
+
+using namespace std;
+
 
 int main()
 {
+    srand(time(NULL));
+    int dim;
+    cout << "Inserisci la dimensione dell'array: ";
+    cin >> dim;
+    int arr[dim];
+    for (int i=0;i<dim;i++){
+        arr[i]=rand()%100;
+    }
+    cout << "Ecco l'array con numeri random: [";
+     for (int i=0;i<dim;i++){
+        cout << arr[i] << ", ";
+    }
+    cout << "\b\b]";
+    return 0;
 }
-
 ```
 > L'esecuzione del programma ha come risultato:
 
 ```cpp
-
+Inserisci la dimensione dell'array: 5
+Ecco l'array con numeri random: [0, 73, 66, 69, 19]
 ```
 
 Creare un programma che, dopo aver chiesto all'utente di inserire la dimensione di un array, li riempia con interi random compresi tra 0 e 99.
@@ -2011,21 +2028,68 @@ Per far sì che rand() sia realmente random, devo inizializzare il «seed» dell
 Per poter usare le funzioni rand e time, dovete includere anche gli header ctime e cstdlib.
 </aside>
 
+<aside class="notice">
+Il carattere speciale '\b' torna indietro di uno spazio.
+</aside>
 
-### [Esercizio 5_3] Moltiplicazione di array
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [Assignment 5_3] Moltiplicazione di array
 
 ```cpp
 #include <iostream>
 
-int main()
-{
+using namespace std;
+
+void moltiplica_array(int arr1[], int arr2[], int arr_ris[], int dim){
+    for (int i=0;i<dim;i++){
+        arr_ris[i]=arr1[i]*arr2[i];
+    }
+
 }
 
+int main()
+{
+    int dim;
+    cout << "Inserisci la dimensione degli array: ";
+    cin >> dim;
+    int arr1[dim], arr2[dim], arr_ris[dim];
+    cout << "Inserisci gli elementi del primo array: ";
+    for (int i=0;i<dim;i++){
+        cin >> arr1[i];
+    }
+    cout << "Inserisci gli elementi del secondo array: ";
+    for (int i=0;i<dim;i++){
+        cin >> arr2[i];
+    }
+    moltiplica_array(arr1, arr2, arr_ris, dim);
+    cout << "L'array finale e': [";
+    for (int i=0;i<dim;i++){
+        cout << arr_ris[i] << ", ";
+    }
+    cout << "\b\b]";
+
+    return 0;
+}
 ```
 > L'esecuzione del programma ha come risultato:
 
 ```cpp
-
+Inserisci la dimensione degli array: 2
+Inserisci gli elementi del primo array: 2 4
+Inserisci gli elementi del secondo array: 4 8
+L'array finale e': [8, 32]
 ```
 
 Creare un programma che, dopo aver chiesto all'utente di inserire la dimensione e gli elementi di due array, li moltiplichi tra di loro e stampi il risultato finale. Utilizzare una funzione per moltiplicare gli array.
@@ -2040,22 +2104,73 @@ Non è possibile moltiplicare direttamente gli array. E' necessario utilizzare u
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-
-### [Esercizio 5_4] Inversione di array
+### [Assignment 5_4] Inversione di array
 
 ```cpp
 #include <iostream>
 
-int main()
-{
+using namespace std;
+
+void inverti_array(int arr[], int dim){
+    int arr_temp[dim];
+    for (int i=0;i<dim;i++){
+        arr_temp[i]=arr[dim-1-i];
+    }
+    for (int i=0;i<dim;i++){
+        arr[i]=arr_temp[i];
+    }
 }
 
+int main(){
+    int dim;
+    cout << "Inserisci la dimensione dell'array: ";
+    cin >> dim;
+    int arr[dim];
+    cout << "Inserisci gli elementi dell' array: ";
+    for (int i=0;i<dim;i++){
+        cin >> arr[i];
+    }
+    inverti_array(arr, dim);
+    cout << "Ecco l'array invertito: [";
+        for (int i=0;i<dim;i++){
+        cout << arr[i] << ", ";
+    }
+    cout << "\b\b]";
+    return 0;
+}
 ```
 > L'esecuzione del programma ha come risultato:
 
 ```cpp
-
+Inserisci la dimensione dell'array: 3
+Inserisci gli elementi dell' array: 3 6 9
+Ecco l'array invertito: [9, 6, 3]
 ```
 
 Creare un programma che, dopo aver chiesto all'utente di inserire la dimensione e gli elementi di un array, lo inverta e stampi il risultato finale. Utilizzare una funzione per l'inversione dell'array.
@@ -2070,27 +2185,201 @@ Creare un programma che, dopo aver chiesto all'utente di inserire la dimensione 
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-### [Esercizio 5_5] Numero di doppie in una stringa
+### [Assignment 5_5] Numero di doppie in una stringa
 
 ```cpp
 #include <iostream>
 #include <cstring>
 
-int main()
-{
+using namespace std;
+
+int main(){
+   const int dim = 256;
+   int len, j=0, contadoppie =0;
+   char stringa1[dim], stringa2[dim], stringa_res[dim];
+   cout << "Inserisci due frasi: " << endl;
+   cin.getline(stringa1, dim, '\n');
+   cin.getline(stringa2, dim, '\n');
+   strcat(stringa1, " ");
+   strcat(stringa1,stringa2);
+   len = strlen(stringa1);
+   for (int i=0;i<len;i++){
+        if ((isalpha(stringa1[i])>0) || stringa1[i]==' '){
+            stringa_res[j]=stringa1[i];
+            j++;
+        }
+   }
+   stringa_res[j]='\0';
+   len = strlen(stringa_res);
+   for (int i=0;i<len-1;i++){
+        if(stringa_res[i]==stringa_res[i+1])
+            contadoppie++;
+   }
+   cout << "Il numero di doppie e': " << contadoppie;
+}
+
+
+
+```
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+Inserisci due frasi:
+questa e' una prova. Inserisco due frasi!!!!!
+Per contare il numero di doppie. Saranno 11?
+Il numero di doppie e': 2
+```
+Creare un programma che chieda all'utente di inserire due stringhe, le concateni, elimini tutti i caratteri non alfabetici, e conti il numero di doppie contenute nella stringa complessiva.
+
+
+<aside class="notice">
+Per concatenare due stringhe potete usare la funzione strcat(s,t).
+</aside>
+
+<aside class="notice">
+Per vedere se un carattere è effettivamente una lettera dell'alfabeto, è possibile usare la funzione isalpha(c). La funzione restituisce 1 se è una lettera maiuscola, 2 se è una lettera minuscola, 0 se non è un carattere alfabetico.
+</aside>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Sesta esercitazione - Array Bidimensionali - Ordinamento Array
+
+### [Esercizio 6_0] - Moltiplicazione tra Matrici
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+const int dim = 3;
+
+void riempiMatrice(int a[dim][dim]){
+   for (int i=0;i<dim;i++){
+        cout << "Riga " << i+1 << ": ";
+        for (int j=0;j<dim;j++){
+            cin >> a[i][j];
+        }
+   }
+}
+
+void stampaMatrice(int a[dim][dim]){
+    for (int i=0;i<dim;i++){
+        for (int j=0;j<dim;j++){
+            cout << a[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+void prodottoMatrici(int a[dim][dim], int b[dim][dim], int c[dim][dim]){
+    for (int i=0;i<dim;i++){
+        for (int j=0;j<dim;j++){
+            c[i][j]=0;
+            for (int k=0;k<dim;k++){
+            c[i][j]=c[i][j] + a[i][k]*b[k][j];
+            }
+        }
+    }
+}
+
+
+int main(){
+   int a[dim][dim], b[dim][dim], c[dim][dim];
+
+   cout << "Inserisci tutti gli elementi della matrice A: " << endl;
+   riempiMatrice(a);
+   cout << "La prima matrice e': " << endl;
+   stampaMatrice(a);
+
+   cout << "Inserisci tutti gli elementi della seconda matrice B: " << endl;
+   riempiMatrice(b);
+   cout << "La seconda matrice e': " << endl;
+   stampaMatrice(b);
+
+   prodottoMatrici(a, b, c);
+   cout << "La matrice prodotto e': " << endl;
+   stampaMatrice(c);
 }
 
 ```
 > L'esecuzione del programma ha come risultato:
 
 ```cpp
-
+Inserisci tutti gli elementi della matrice A:
+Riga 1: 1 2 3
+Riga 2: 4 5 6
+Riga 3: 7 8 9
+La prima matrice e':
+1 2 3
+4 5 6
+7 8 9
+Inserisci tutti gli elementi della seconda matrice B:
+Riga 1: 2 3 4
+Riga 2: 3 4 5
+Riga 3: 4 5 6
+La seconda matrice e':
+2 3 4
+3 4 5
+4 5 6
+La matrice prodotto e':
+20 26 32
+47 62 77
+74 98 122
 ```
-Creare un programma che chieda all'utente di inserire due stringhe, le concateni, e conti il numero di doppie contenute nella stringa complessiva.
+
+Scriviamo un programma che chieda all'utente di inserire gli elementi due matrici quadrate di dimensione 3, e ne calcoli il prodotto.
 
 <aside class="notice">
-Per concatenare due stringhe potete usare la funzione strcat(s,t).
+Anche gli array bidimensionali vengono sempre passati per riferimento.
+</aside>
+
+<aside class="notice">
+Per implementare il prodotto tra matrici posso utilizzare tre cicli for annidati!
 </aside>
 
 <br>
@@ -2101,6 +2390,293 @@ Per concatenare due stringhe potete usare la funzione strcat(s,t).
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
+### [Esercizio 6_1] - Ordinamento con Algoritmo Selection Sort
+
+```cpp
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+
+void riempiArrRandom(int arr[], int dim){
+    for (int i=0;i<dim;i++){
+        arr[i]=rand()%100;
+    }
+}
+
+void stampaArr(int arr[], int dim){
+    cout << "[";
+    for (int i=0;i<dim;i++){
+        cout << arr[i] << ", ";
+    }
+     cout << "\b\b]\n";
+}
+
+void selectionSort(int arr[], int dim){
+    for (int i=0;i<dim;i++){
+        int indiceminimo = i;
+        for(int j=i+1;j<dim;j++){
+            if(arr[j]<arr[indiceminimo]){
+                indiceminimo = j;
+            }
+        }
+        int temp = arr[i];
+        arr[i]=arr[indiceminimo];
+        arr[indiceminimo]=temp;
+    }
+}
+
+int main(){
+    srand(time(NULL));
+    int dim;
+    cout << "Inserisci la dimensione dell'array: ";
+    cin >> dim;
+    int arr[dim];
+    riempiArrRandom(arr, dim);
+    cout << "Ecco l'array con numeri random: ";
+    stampaArr(arr,dim);
+    selectionSort(arr,dim);
+    cout << "Ecco l'array con numeri ordinati: ";
+    stampaArr(arr,dim);
+}
+```
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+Inserisci la dimensione dell'array: 100
+Ecco l'array con numeri random: [62, 12, 10, 36, 4, 96, 82, 11, 73, 17, 3, 87, 42, 3, 2, 37, 4, 56, 38, 13, 96, 38, 76, 37, 73, 46, 67, 53, 55, 3, 62, 6, 54, 25, 67, 27, 71, 31, 74, 99, 15, 90, 40, 40, 18, 96, 12, 12, 14, 54, 43, 37, 67, 74, 18, 6, 97, 32, 38, 65, 32, 45, 71, 43, 19, 32, 85, 10, 69, 9, 59, 64, 39, 67, 21, 32, 54, 87, 69, 58, 60, 33, 68, 19, 9, 85, 90, 94, 76, 78, 79, 71, 25, 61, 55, 84, 85, 74, 1, 99]
+Ecco l'array con numeri ordinati: [1, 2, 3, 3, 3, 4, 4, 6, 6, 9, 9, 10, 10, 11, 12, 12, 12, 13, 14, 15, 17, 18, 18, 19, 19, 21, 25, 25, 27, 31, 32, 32, 32, 32, 33, 36, 37, 37, 37, 38, 38, 38, 39, 40, 40, 42, 43, 43, 45, 46, 53, 54, 54, 54, 55, 55, 56, 58, 59, 60, 61, 62, 62, 64, 65, 67, 67, 67, 67, 68, 69, 69, 71, 71, 71, 73, 73, 74, 74, 74, 76, 76, 78, 79, 82, 84, 85, 85, 85, 87, 87, 90, 90, 94, 96, 96, 96, 97, 99, 99]
+```
+
+L' idea di base di questo algoritmo è semplice: si cercano successivamente i minimi dell'array.
+Questo algoritmo "divide" di fatto l'array in due parti, la prima ordinata e le seconda non-ordinata, inizialmente la prima parte non conterrà alcun elemento.
+L'algoritmo continuerà a cercherà il minimo tra gli elementi della parte non-ordinata e lo scambierà con il primo elemento della parte non ordinata, andando così ad aumentare di uno la dimensione della parte ordinata.
+L'algoritmo termina quando la parte non-ordinata contiene un solo elemento, che sarà il massimo dell'array, e quindi l'array sarà completamente ordinato.
+
+<aside class="notice">
+Come l'algoritmo BubbleSort, la complessità computazione di quest'algoritmo è O(n^2)
+</aside>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [Assignment 6_2] - Matrice Tabelline
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+   [...]
+   return 0;	
+}
+```
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+```
+Memorizzare in un array bidimensionale 10 x 10 la tavola pitagorica, (quella delle tabelline!), e stampare il contenuto della matrice (nella prima riga si dovrà trovare la tabellina del 1: 1 2 3 4 5 6 7 8 9 10).
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### [Assignment 6_3] - Somme righe e colonne
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+   [...]
+   return 0;	
+}
+```
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+```
+Scrivere un programma che chieda allutente di inserire i valori di una matrice 4x4 e trovi la riga e la colonna con somma più alta. 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+### [Assignment 6_4] - Triangolare superiore e inferiore
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+   [...]
+   return 0;	
+}
+```
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+```
+Creare un programma che chieda allutente di inserire la dimensione di una matrice, la riempia con numeri random, la stampi e verifichi se la somma delle celle sopra la diagonale principale sia maggiore o minore della somma delle celle sotto la diagonale principale. 
+
+<aside class="notice">
+Usando indici diversi di cicli for si possono calcolare le due somme
+</aside>
+
+<aside class="notice">
+Con le matrici, se la dimensione non è nota in fase di compilazione, non posso utilizzare funzioni. Vedremo poi alcune soluzioni con i puntatori che permettono di superare questo limite.
+</aside>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+### [Assignment 6_5] - Ordinamento con Insertion Sort
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+   [...]
+   return 0;	
+}
+```
+> L'esecuzione del programma ha come risultato:
+
+```cpp
+```
+Provare a scrivere un programma che implementi l'ordinamento di un array con algoritmo Insertion Sort. L'insertion Sort è un algoritmo di ordinamento che utilizza lo stesso metodo che un essere umano usa per ordinare le sue carte in mano. 
+
+L'algoritmo ha bisogno di due cicli for, uno più esterno su tutti gli elementi dell'array, quello più interno per calcolare il nuovo indice in cui inserire l'elemento. 
+
+Il passo successivo consiste nel far scorrere in avanti gli elementi dell'array, e inserire finalmente l'elemento nella posizione «corretta»
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
