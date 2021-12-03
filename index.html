@@ -2679,19 +2679,61 @@ Come l'algoritmo BubbleSort, la complessità computazione di quest'algoritmo è 
 <h3 id='assignment-6_2-matrice-tabelline'>[Assignment 6_2] - Matrice Tabelline</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">stampaMatrice</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">dim</span><span class="p">][</span><span class="n">dim</span><span class="p">]){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-   <span class="p">[...]</span>
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>    
+   <span class="kt">int</span> <span class="n">tabelline</span><span class="p">[</span><span class="n">dim</span><span class="p">][</span><span class="n">dim</span><span class="p">];</span>
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">tabelline</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="n">stampaMatrice</span><span class="p">(</span><span class="n">tabelline</span><span class="p">);</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>L&#39;esecuzione del programma ha come risultato:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span> <span class="mi">10</span>
+<span class="mi">2</span> <span class="mi">4</span> <span class="mi">6</span> <span class="mi">8</span> <span class="mi">10</span> <span class="mi">12</span> <span class="mi">14</span> <span class="mi">16</span> <span class="mi">18</span> <span class="mi">20</span>
+<span class="mi">3</span> <span class="mi">6</span> <span class="mi">9</span> <span class="mi">12</span> <span class="mi">15</span> <span class="mi">18</span> <span class="mi">21</span> <span class="mi">24</span> <span class="mi">27</span> <span class="mi">30</span>
+<span class="mi">4</span> <span class="mi">8</span> <span class="mi">12</span> <span class="mi">16</span> <span class="mi">20</span> <span class="mi">24</span> <span class="mi">28</span> <span class="mi">32</span> <span class="mi">36</span> <span class="mi">40</span>
+<span class="mi">5</span> <span class="mi">10</span> <span class="mi">15</span> <span class="mi">20</span> <span class="mi">25</span> <span class="mi">30</span> <span class="mi">35</span> <span class="mi">40</span> <span class="mi">45</span> <span class="mi">50</span>
+<span class="mi">6</span> <span class="mi">12</span> <span class="mi">18</span> <span class="mi">24</span> <span class="mi">30</span> <span class="mi">36</span> <span class="mi">42</span> <span class="mi">48</span> <span class="mi">54</span> <span class="mi">60</span>
+<span class="mi">7</span> <span class="mi">14</span> <span class="mi">21</span> <span class="mi">28</span> <span class="mi">35</span> <span class="mi">42</span> <span class="mi">49</span> <span class="mi">56</span> <span class="mi">63</span> <span class="mi">70</span>
+<span class="mi">8</span> <span class="mi">16</span> <span class="mi">24</span> <span class="mi">32</span> <span class="mi">40</span> <span class="mi">48</span> <span class="mi">56</span> <span class="mi">64</span> <span class="mi">72</span> <span class="mi">80</span>
+<span class="mi">9</span> <span class="mi">18</span> <span class="mi">27</span> <span class="mi">36</span> <span class="mi">45</span> <span class="mi">54</span> <span class="mi">63</span> <span class="mi">72</span> <span class="mi">81</span> <span class="mi">90</span>
+<span class="mi">10</span> <span class="mi">20</span> <span class="mi">30</span> <span class="mi">40</span> <span class="mi">50</span> <span class="mi">60</span> <span class="mi">70</span> <span class="mi">80</span> <span class="mi">90</span> <span class="mi">100</span>
+</code></pre></div>
 <p>Memorizzare in un array bidimensionale 10 x 10 la tavola pitagorica, (quella delle tabelline!), e stampare il contenuto della matrice (nella prima riga si dovrà trovare la tabellina del 1: 1 2 3 4 5 6 7 8 9 10).</p>
 
 <p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -2706,19 +2748,98 @@ Come l'algoritmo BubbleSort, la complessità computazione di quest'algoritmo è 
 <h3 id='assignment-6_3-somme-righe-e-colonne'>[Assignment 6_3] - Somme righe e colonne</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">trovamax</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">dim</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">index_max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">index_max</span><span class="p">]){</span>
+            <span class="n">index_max</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">index_max</span><span class="p">;</span>
+<span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-   <span class="p">[...]</span>
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>    
+   <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">dim</span><span class="p">][</span><span class="n">dim</span><span class="p">];</span>
+   <span class="kt">int</span> <span class="n">riga_max</span><span class="p">;</span>
+   <span class="kt">int</span> <span class="n">colonna_max</span><span class="p">;</span>
+   <span class="kt">int</span> <span class="n">sommarighe</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+   <span class="kt">int</span> <span class="n">sommacolonne</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Riempi una matrice quadrata 4 x 4 con numeri interi: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Riga "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;&lt;</span><span class="s">": "</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+        <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">sommarighe</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">sommarighe</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="n">sommacolonne</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">sommacolonne</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+   <span class="p">}</span>
+    <span class="n">riga_max</span> <span class="o">=</span> <span class="n">trovamax</span><span class="p">(</span><span class="n">sommarighe</span><span class="p">,</span> <span class="n">dim</span><span class="p">);</span>
+    <span class="n">colonna_max</span> <span class="o">=</span> <span class="n">trovamax</span><span class="p">(</span><span class="n">sommacolonne</span><span class="p">,</span> <span class="n">dim</span><span class="p">);</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La riga con la somma piu' alta e' la : "</span> <span class="o">&lt;&lt;</span> <span class="n">riga_max</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La colonna con la somma piu' alta e': "</span> <span class="o">&lt;&lt;</span> <span class="n">colonna_max</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>L&#39;esecuzione del programma ha come risultato:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
-<p>Scrivere un programma che chieda allutente di inserire i valori di una matrice 4x4 e trovi la riga e la colonna con somma più alta. </p>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Riempi</span> <span class="n">una</span> <span class="n">matrice</span> <span class="n">quadrata</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">4</span> <span class="n">con</span> <span class="n">numeri</span> <span class="n">interi</span><span class="o">:</span>
+<span class="n">Riga</span> <span class="mi">1</span><span class="o">:</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span>
+<span class="n">Riga</span> <span class="mi">2</span><span class="o">:</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span>
+<span class="n">Riga</span> <span class="mi">3</span><span class="o">:</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span>
+<span class="n">Riga</span> <span class="mi">4</span><span class="o">:</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span>
+<span class="n">La</span> <span class="n">riga</span> <span class="n">con</span> <span class="n">la</span> <span class="n">somma</span> <span class="n">piu</span><span class="err">'</span> <span class="n">alta</span> <span class="n">e</span><span class="err">'</span> <span class="n">la</span> <span class="o">:</span> <span class="mi">2</span>
+<span class="n">La</span> <span class="n">colonna</span> <span class="n">con</span> <span class="n">la</span> <span class="n">somma</span> <span class="n">piu</span><span class="err">'</span> <span class="n">alta</span> <span class="n">e</span><span class="err">'</span><span class="o">:</span> <span class="mi">4</span>
+</code></pre></div>
+<p>Scrivere un programma che chieda all&#39;utente di inserire i valori di una matrice 4x4 e trovi la riga e la colonna con somma più alta. </p>
 
 <p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -2731,22 +2852,57 @@ Come l'algoritmo BubbleSort, la complessità computazione di quest'algoritmo è 
 <br>
 <br></p>
 <h3 id='assignment-6_4-triangolare-superiore-e-inferiore'>[Assignment 6_4] - Triangolare superiore e inferiore</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+#include &lt;cstdlib&gt;
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-   <span class="p">[...]</span>
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>    
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+    <span class="kt">int</span> <span class="n">dim</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">sum_sup</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sum_inf</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci la dimensione della matrice: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">dim</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">dim</span><span class="p">][</span><span class="n">dim</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="mi">20</span><span class="p">;</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">sum_sup</span><span class="o">=</span><span class="n">sum_sup</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="n">sum_inf</span><span class="o">=</span><span class="n">sum_inf</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">sum_sup</span> <span class="o">&gt;</span> <span class="n">sum_inf</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La somma degli elementi della matrice triangolare superiore e' piu' alta"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">sum_sup</span> <span class="o">&lt;</span> <span class="n">sum_inf</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La somma degli elementi della matrice triangolare inferiore e' piu' alta"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Le due somme sono uguali"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>L&#39;esecuzione del programma ha come risultato:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
-<p>Creare un programma che chieda allutente di inserire la dimensione di una matrice, la riempia con numeri random, la stampi e verifichi se la somma delle celle sopra la diagonale principale sia maggiore o minore della somma delle celle sotto la diagonale principale. </p>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Inserisci</span> <span class="n">la</span> <span class="n">dimensione</span> <span class="n">della</span> <span class="n">matrice</span><span class="o">:</span> <span class="mi">4</span>
+<span class="mi">16</span> <span class="mi">14</span> <span class="mi">0</span> <span class="mi">1</span>
+<span class="mi">5</span> <span class="mi">10</span> <span class="mi">13</span> <span class="mi">19</span>
+<span class="mi">9</span> <span class="mi">6</span> <span class="mi">5</span> <span class="mi">9</span>
+<span class="mi">10</span> <span class="mi">19</span> <span class="mi">6</span> <span class="mi">16</span>
+<span class="n">La</span> <span class="n">somma</span> <span class="n">degli</span> <span class="n">elementi</span> <span class="n">della</span> <span class="n">matrice</span> <span class="n">triangolare</span> <span class="n">superiore</span> <span class="n">e</span><span class="err">'</span> <span class="n">piu</span><span class="err">'</span> <span class="n">alta</span>
+</code></pre></div>
+<p>Creare un programma che chieda all&#39;utente di inserire la dimensione di una matrice, la riempia con numeri random, la stampi e verifichi se la somma delle celle sopra la diagonale principale sia maggiore o minore della somma delle celle sotto la diagonale principale. </p>
 
 <aside class="notice">
-Usando indici diversi di cicli for si possono calcolare le due somme
+Usando indici diversi si possono calcolare le due somme nello stesso ciclo for.
 </aside>
 
 <aside class="notice">
@@ -2757,20 +2913,104 @@ Con le matrici, se la dimensione non è nota in fase di compilazione, non posso 
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br></p>
 <h3 id='assignment-6_5-ordinamento-con-insertion-sort'>[Assignment 6_5] - Ordinamento con Insertion Sort</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+#include &lt;cstdlib&gt;
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
+<span class="kt">void</span> <span class="nf">riempiArrRandom</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">dim</span><span class="p">){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="mi">100</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">stampaArr</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">dim</span><span class="p">){</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"["</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+    <span class="p">}</span>
+     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\b\b</span><span class="s">]</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">insertionSort</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">dim</span><span class="p">){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">insertionpoint</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">--</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&gt;</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                 <span class="n">insertionpoint</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&gt;=</span><span class="n">insertionpoint</span><span class="p">;</span><span class="n">j</span><span class="o">--</span><span class="p">){</span>
+            <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">insertionpoint</span><span class="p">]</span><span class="o">=</span><span class="n">temp</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-   <span class="p">[...]</span>
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>    
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+    <span class="kt">int</span> <span class="n">dim</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci la dimensione dell'array: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">dim</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="n">dim</span><span class="p">];</span>
+    <span class="n">riempiArrRandom</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">dim</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Ecco l'array con numeri random: "</span><span class="p">;</span>
+    <span class="n">stampaArr</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">dim</span><span class="p">);</span>
+    <span class="n">insertionSort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">dim</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Ecco l'array con numeri ordinati: "</span><span class="p">;</span>
+    <span class="n">stampaArr</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">dim</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>L&#39;esecuzione del programma ha come risultato:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Inserisci</span> <span class="n">la</span> <span class="n">dimensione</span> <span class="n">dell</span><span class="err">'</span><span class="n">array</span><span class="o">:</span> <span class="mi">50</span>
+<span class="n">Ecco</span> <span class="n">l</span><span class="err">'</span><span class="n">array</span> <span class="n">con</span> <span class="n">numeri</span> <span class="n">random</span><span class="o">:</span> <span class="p">[</span><span class="mi">91</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">48</span><span class="p">]</span>
+<span class="n">Ecco</span> <span class="n">l</span><span class="err">'</span><span class="n">array</span> <span class="n">con</span> <span class="n">numeri</span> <span class="n">ordinati</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">99</span><span class="p">]</span>
+</code></pre></div>
 <p>Provare a scrivere un programma che implementi l&#39;ordinamento di un array con algoritmo Insertion Sort. L&#39;insertion Sort è un algoritmo di ordinamento che utilizza lo stesso metodo che un essere umano usa per ordinare le sue carte in mano. </p>
 
 <p>L&#39;algoritmo ha bisogno di due cicli for, uno più esterno su tutti gli elementi dell&#39;array, quello più interno per calcolare il nuovo indice in cui inserire l&#39;elemento. </p>
@@ -2778,6 +3018,51 @@ Con le matrici, se la dimensione non è nota in fase di compilazione, non posso 
 <p>Il passo successivo consiste nel far scorrere in avanti gli elementi dell&#39;array, e inserire finalmente l&#39;elemento nella posizione «corretta»</p>
 
 <p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
