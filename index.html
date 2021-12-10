@@ -335,6 +335,9 @@
                   <li>
                     <a href="#settima-esercitazione-file" class="toc-h2 toc-link" data-title="Settima esercitazione - File">Settima esercitazione - File</a>
                   </li>
+                  <li>
+                    <a href="#ottava-esercitazione-strutture" class="toc-h2 toc-link" data-title="Ottava esercitazione - Strutture">Ottava esercitazione - Strutture</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -3168,13 +3171,60 @@ Se il file &quot;ciao.txt&quot; contiene il testo &quot;prova a fare l&#39;eserc
 <br>
 <br>
 <br>
+<br>
 <br></p>
-<h3 id='esercizio-7_1-lettura-da-file'>[Esercizio 7_1] - Lettura da file</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<h3 id='esercizio-7_1-lettura-da-file'>[Esercizio 7_1] - Lettura da file</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">fstream</span> <span class="n">fin</span><span class="p">(</span><span class="s">"input.txt"</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
+    <span class="kt">char</span> <span class="n">a</span><span class="p">,</span> <span class="n">a_back</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"inserisci il carattere "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">contatore1</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">contatore2</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">fin</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Errore nell'apertura del file"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">fin</span><span class="p">.</span><span class="n">eof</span><span class="p">()){</span>
+        <span class="n">a</span><span class="o">=</span><span class="sc">' '</span><span class="p">;</span>
+        <span class="n">fin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="n">a</span><span class="p">){</span>
+            <span class="n">contatore1</span><span class="o">++</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">a_back</span><span class="p">){</span>
+                <span class="n">contatore2</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">a_back</span><span class="o">=</span><span class="n">a</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">fin</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" Il carattere "</span><span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span><span class="s">" e' presente "</span><span class="o">&lt;&lt;</span>  <span class="n">contatore1</span> <span class="o">&lt;&lt;</span><span class="s">" volte"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">" Il carattere "</span><span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span><span class="s">" e' presente per due volte consecutive "</span><span class="o">&lt;&lt;</span>  <span class="n">contatore2</span> <span class="o">&lt;&lt;</span><span class="s">" volte"</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
 <blockquote>
 <p>L&#39;esecuzione del programma ha come risultato:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code></code></pre></div>
-<p>Scrivere un programma che ricevuto in ingresso un file chiamato &quot;input.txt&quot; e un carattere digitato da tastiera dall&#39;utente restituisca tramite la console quante volte quel carattere compare per due volte consecutive nel file &quot;input.txt&quot;.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>inserisci il carattere c
+ Il carattere c e' presente 5 volte
+ Il carattere c e' presente per due volte consecutive 2 volte
+</code></pre></div>
+<p>Scrivere un programma che ricevuto in ingresso un file chiamato &quot;input.txt&quot; e un carattere digitato da tastiera dall&#39;utente restituisca tramite la console quante volte quel carattere compare in generale, e quante volte compare per due volte consecutive nel file &quot;input.txt&quot;.</p>
+
+<aside class="notice">
+Prima di tentare di leggere o scrivere un file, è sempre una buona idea verificare che sia aperto con successo. Si può verificare con if(!fin).
+</aside>
+
+<aside class="notice">
+E' buona norma chiudere lo stream con la funzione close prima di uscire dal programma.
+</aside>
 
 <p><br>
 <br>
@@ -3192,12 +3242,59 @@ Se il file &quot;ciao.txt&quot; contiene il testo &quot;prova a fare l&#39;eserc
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br></p>
-<h3 id='esercizio-7_2-scrittura-su-file'>[Esercizio 7_2] - Scrittura su file</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<h3 id='esercizio-7_2-scrittura-su-file'>[Esercizio 7_2] - Scrittura su file</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">fstream</span> <span class="n">fout</span><span class="p">(</span><span class="s">"output.txt"</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">out</span><span class="p">);</span>
+    <span class="kt">char</span> <span class="n">a</span><span class="p">,</span> <span class="n">a_back</span><span class="o">=</span><span class="sc">' '</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserisci i caratteri da scrivere nel file. Inserisci 0 per andare a capo, 00 per uscire"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">fout</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Errore nell'apertura del file "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="sc">'0'</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">a_back</span><span class="o">==</span><span class="sc">'0'</span><span class="p">)</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">else</span>
+                <span class="n">fout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="n">fout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">a_back</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">fout</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
 <blockquote>
 <p>L&#39;esecuzione del programma ha come risultato:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code></code></pre></div>
+<div class="highlight"><pre class="highlight plaintext"><code>Inserisci i caratteri da scrivere nel file. Inserisci 0 per andare a capo, 00 per uscire
+Dopo questa frase vado a capo
+0
+Chiudo il programma
+00
+</code></pre></div>
 <p>Scrivere un programma che memorizza nel file &quot;output.txt&quot; quanto viene passato dall&#39;utente via tastiera (un carattere per volta), andando a capo quando viene passato uno 0 (zero) e chiudendo il file e il programma quando vengono passati due zeri consecutivi.</p>
 
 <p><br>
@@ -3216,12 +3313,76 @@ Se il file &quot;ciao.txt&quot; contiene il testo &quot;prova a fare l&#39;eserc
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br></p>
-<h3 id='esercizio-7_3-file-e-array'>[Esercizio 7_3] - File e array</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<h3 id='esercizio-7_3-file-e-array'>[Esercizio 7_3] - File e array</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">fstream</span> <span class="n">fin</span><span class="p">(</span><span class="s">"input.txt"</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
+    <span class="n">fstream</span> <span class="n">fout</span><span class="p">(</span><span class="s">"output.txt"</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">out</span><span class="p">);</span>
+    <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">contaoccorrenze</span><span class="p">[</span><span class="sc">'z'</span><span class="o">-</span><span class="sc">'a'</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">fin</span> <span class="o">||</span> <span class="o">!</span><span class="n">fout</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Problema nell'apertura del file!"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">fin</span><span class="p">.</span><span class="n">eof</span><span class="p">()){</span>
+        <span class="n">c</span><span class="o">=</span><span class="sc">' '</span><span class="p">;</span>
+        <span class="n">fin</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">((</span><span class="n">c</span><span class="o">&gt;=</span><span class="sc">'a'</span><span class="p">)</span><span class="o">&amp;&amp;</span><span class="p">(</span><span class="n">c</span><span class="o">&lt;=</span><span class="sc">'z'</span><span class="p">))</span> <span class="c1">//se c è una lettera minuscola</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">posizione</span><span class="o">=</span><span class="n">c</span><span class="o">-</span><span class="sc">'a'</span><span class="p">;</span> <span class="c1">//individuo il numero progressivo della lettera nell'alfabeto</span>
+            <span class="n">contaoccorrenze</span><span class="p">[</span><span class="n">posizione</span><span class="p">]</span><span class="o">++</span><span class="p">;</span> <span class="c1">//conto uno in più per quella lettera</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">((</span><span class="n">c</span><span class="o">&gt;=</span><span class="sc">'A'</span><span class="p">)</span><span class="o">&amp;&amp;</span><span class="p">(</span><span class="n">c</span><span class="o">&lt;=</span><span class="sc">'Z'</span><span class="p">))</span> <span class="c1">//se c è una lettera maiuscola faccio la stessa cosa</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">posizione</span><span class="o">=</span><span class="n">c</span><span class="o">-</span><span class="sc">'A'</span><span class="p">;</span>
+            <span class="n">contaoccorrenze</span><span class="p">[</span><span class="n">posizione</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">fin</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">26</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">c</span><span class="o">=</span><span class="sc">'a'</span><span class="o">+</span><span class="n">i</span><span class="p">;</span>
+        <span class="n">fout</span><span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span><span class="s">": "</span><span class="o">&lt;&lt;</span><span class="n">contaoccorrenze</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">fout</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Il file e' stato generato!"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
 <blockquote>
 <p>L&#39;esecuzione del programma ha come risultato:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code></code></pre></div>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Il</span> <span class="n">file</span> <span class="n">e</span><span class="err">'</span> <span class="n">stato</span> <span class="n">generato</span><span class="o">!</span>
+</code></pre></div>
 <p>Creare un programma che ricevuto in ingresso un file chiamato &quot;input.txt&quot; crei in uscita un file chiamato &quot;output.txt&quot; formato da tante righe quante sono le lettere dell&#39;alfabeto e per ogni riga viene riportata una lettera e quante volte quella lettera compare nel file &quot;input.txt&quot;.</p>
 
 <aside class="notice">
@@ -3243,8 +3404,30 @@ E' possibile creare un array di 26 interi, relativo ai contatori per le 26 lette
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br></p>
-
+<h2 id='ottava-esercitazione-strutture'>Ottava esercitazione - Strutture</h2><h3 id='esercizio-8_0'>[Esercizio 8_0] -</h3>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
