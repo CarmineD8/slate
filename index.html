@@ -3517,6 +3517,136 @@ C++ permette di passare strutture come parametri attuali alle funzioni sia per v
 <br>
 <br>
 <br>
+<br></p>
+<h3 id='esercizio-8_1-array-di-strutture'>[Esercizio 8_1] - Array di Strutture</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;cstring&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="nc">libro</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">titolo</span><span class="p">[</span><span class="n">dim</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">autore</span><span class="p">[</span><span class="n">dim</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">prezzo</span><span class="p">[</span><span class="n">dim</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">pagine</span><span class="p">[</span><span class="n">dim</span><span class="p">];</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">fstream</span> <span class="n">fin</span><span class="p">(</span><span class="s">"libri.txt"</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">fin</span><span class="p">){</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Errore nell'apertura del file"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">char</span> <span class="n">temp</span><span class="p">[</span><span class="n">dim</span><span class="p">];</span>
+  <span class="kt">int</span> <span class="n">conta</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">fin</span><span class="p">.</span><span class="n">eof</span><span class="p">()){</span>
+    <span class="n">fin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">dim</span><span class="p">,</span><span class="sc">'\n'</span><span class="p">);</span>
+    <span class="n">conta</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">libro</span> <span class="n">inventario</span><span class="p">[</span><span class="n">conta</span><span class="p">];</span>
+  <span class="n">fin</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+  <span class="n">fin</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">"libri.txt"</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
+  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">fin</span><span class="p">.</span><span class="n">eof</span><span class="p">()){</span>
+    <span class="n">fin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">inventario</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">titolo</span><span class="p">,</span><span class="n">dim</span><span class="p">,</span><span class="sc">','</span><span class="p">);</span>
+    <span class="n">fin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">inventario</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">autore</span><span class="p">,</span><span class="n">dim</span><span class="p">,</span><span class="sc">','</span><span class="p">);</span>
+    <span class="n">fin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">inventario</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">pagine</span><span class="p">,</span><span class="n">dim</span><span class="p">,</span><span class="sc">','</span><span class="p">);</span>
+    <span class="n">fin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">inventario</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">prezzo</span><span class="p">,</span><span class="n">dim</span><span class="p">,</span><span class="sc">'\n'</span><span class="p">);</span>
+    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">fin</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Di quale libro vuoi avere info?"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="sc">'\n'</span><span class="p">);</span>
+
+  <span class="kt">int</span> <span class="n">found</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">conta</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">inventario</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">titolo</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Il libro e' presente nel catalogo"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Il suo autore e': "</span> <span class="o">&lt;&lt;</span> <span class="n">inventario</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">autore</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Il libro ha "</span> <span class="o">&lt;&lt;</span> <span class="n">inventario</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">pagine</span> <span class="o">&lt;&lt;</span> <span class="s">" pagine"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Il libro costa "</span> <span class="o">&lt;&lt;</span> <span class="n">inventario</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">prezzo</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">found</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Il libro non e' in catalogo"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>L&#39;esecuzione del programma ha come risultato:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Di</span> <span class="n">quale</span> <span class="n">libro</span> <span class="n">vuoi</span> <span class="n">avere</span> <span class="n">info</span><span class="o">?</span>
+<span class="n">Il</span> <span class="n">giovane</span> <span class="n">Holden</span>
+<span class="n">Il</span> <span class="n">libro</span> <span class="n">e</span><span class="err">'</span> <span class="n">presente</span> <span class="n">nel</span> <span class="n">catalogo</span>
+<span class="n">Il</span> <span class="n">suo</span> <span class="n">autore</span> <span class="n">e</span><span class="err">'</span><span class="o">:</span>  <span class="n">J</span><span class="p">.</span><span class="n">D</span><span class="p">.</span> <span class="n">Salinger</span>
+<span class="n">Il</span> <span class="n">libro</span> <span class="n">ha</span>  <span class="mi">225</span> <span class="n">pagine</span>
+<span class="n">Il</span> <span class="n">libro</span> <span class="n">costa</span>  <span class="mi">15</span>
+</code></pre></div>
+<p>Scrivere un programma che prenda in ingresso un file di testo che descrive l&#39;inventario di una libreria, con quattro campi: titolo del libro, autore, pagine, costo. Es:</p>
+
+<p>Il codice da Vinci, Dan Brown, 500, 20
+Lo Hobbit, JRR Tolkien, 700, 35
+L&#39;alchimista, Paulo Coelho, 350, 25
+Il giovane Holden, J.D. Salinger, 225, 15
+Dieci piccoli indiani, Agatha Christie, 275, 18</p>
+
+<p>Il programma chiede quindi all&#39;utente di inserire il titolo di un libro, restituendo le altre informazioni (autore, pagine, costo) se il libro e&#39; presente nell&#39;inventario.</p>
+
+<aside class="notice">
+Nel caso di uno stream in lettura, è possibile usare la funzione getline per modificare il carattere terminatore della stringa.
+</aside>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -3530,7 +3660,50 @@ C++ permette di passare strutture come parametri attuali alle funzioni sia per v
 <br>
 <br>
 <br></p>
-<h3 id='esercizio-8_1-array-di-strutture'>[Esercizio 8_1] - Array di Strutture</h3>
+<h3 id='assignment-8_2-struttura-persona'>[Assignment 8_2] - Struttura Persona</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<blockquote>
+<p>L&#39;esecuzione del programma ha come risultato:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Il</span> <span class="n">file</span> <span class="n">e</span><span class="err">'</span> <span class="n">stato</span> <span class="n">generato</span><span class="o">!</span>
+</code></pre></div>
+<p>Il programma definisce una struct persona con campi nome, età, altezza e peso.
+Successivamente, chiede all&#39;utente di inserire i dati di tre persone. 
+Infine, restituisce il nome della persona più alta e della persona più giovane.</p>
+
+<aside class="notice">
+E' possibile risolvere l'esercizio con un array di strutture persona, o utilizzando tre struct persona. Utilizzando gli array, è però più semplice risalire alla persona più alta e quella più giovane.
+</aside>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='assignment-8_3-array-di-strutture-e-file'>[Assignment 8_3] - Array di strutture e file</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code></code></pre></div>
+<blockquote>
+<p>L&#39;esecuzione del programma ha come risultato:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="n">Il</span> <span class="n">file</span> <span class="n">e</span><span class="err">'</span> <span class="n">stato</span> <span class="n">generato</span><span class="o">!</span>
+</code></pre></div>
+<p>Il programma definisce una struct data che memorizza giorno, mese e anno.
+Legge poi dal file input.txt 5 date di nascita (in ogni riga del file ci saranno giorno, mese e anno separati da spazi), fa inserire all&#39;utente la data odierna e verifica quante date di nascita corrispondono a maggiorenni.</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
