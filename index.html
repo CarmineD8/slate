@@ -3898,22 +3898,82 @@ Legge poi dal file input.txt 5 date di nascita (in ogni riga del file ci saranno
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
+<span class="cp">#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
     <span class="c1">// Dichiarazioni</span>
     <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">c1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kt">int</span> <span class="n">c2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kt">int</span> <span class="n">c3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kt">int</span> <span class="n">c4</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="p">[...]</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">pa</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span> <span class="kt">int</span><span class="o">*</span> <span class="n">pb</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
+    <span class="kt">int</span><span class="o">**</span> <span class="n">ppa</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">pa</span><span class="p">;</span>
+    <span class="c1">// Un puntatore a costante si può anche assegnare l'indirizzo di una variabile,</span>
+    <span class="c1">// Ma non é vero il contrario: l'indirizzo di una costante può essere assegnato solo a un puntatore a costante.</span>
+    <span class="c1">// In altre parole il C++ accetta conversioni da puntatore a variabile a puntatore a costante, ma non viceversa.</span>
+    <span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">pca</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+
     <span class="c1">// Lettura di a e b</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire due numeri interi: "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">;</span>
+
     <span class="c1">// Stampa di a e b</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hai inserito i seguenti valori: "</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">pa</span> <span class="o">&lt;&lt;</span> <span class="s">" e "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">pb</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
     <span class="c1">// Stampa dei valori dei puntatori pa e pb</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"I puntatori pa e pb valgono: "</span> <span class="o">&lt;&lt;</span> <span class="n">pa</span> <span class="o">&lt;&lt;</span> <span class="s">" e "</span> <span class="o">&lt;&lt;</span> <span class="n">pb</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
     <span class="c1">// Stampa del valore di ppa</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Il puntatore a puntatore ppa vale: "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">ppa</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
     <span class="c1">// Stampa a video del valore puntato dal puntatore puntato da ppa</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Valore della variabile puntata dal puntatore al quale punta ppa: "</span> <span class="o">&lt;&lt;</span> <span class="o">**</span><span class="n">ppa</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
     <span class="c1">// Stampa del valore puntato dal puntatore a costante</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Il valore puntato dal puntatore a costante ppc vale: "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">pca</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
     <span class="c1">// Assegnamenti</span>
-    <span class="c1">// Svolgimento di operazioni su a</span>
+    <span class="n">c1</span> <span class="o">=</span> <span class="o">*</span><span class="n">pa</span><span class="p">;</span>
+    <span class="n">c2</span> <span class="o">=</span> <span class="o">**</span><span class="n">ppa</span><span class="p">;</span>
+    <span class="n">c3</span> <span class="o">=</span> <span class="o">*</span><span class="n">pca</span><span class="p">;</span>
+    <span class="n">c4</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Le variabili c1, c2, c3 e c4 hanno i seguenti valori: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"c1: "</span> <span class="o">&lt;&lt;</span> <span class="n">c1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"c2: "</span> <span class="o">&lt;&lt;</span> <span class="n">c2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"c3: "</span> <span class="o">&lt;&lt;</span> <span class="n">c3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"c4: "</span> <span class="o">&lt;&lt;</span> <span class="n">c4</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+        <span class="c1">// Svolgimento di operazioni su a</span>
+    <span class="n">a</span> <span class="o">+=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a adesso vale "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">pa</span> <span class="o">+=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a adesso vale "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="o">**</span><span class="n">ppa</span> <span class="o">+=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a adesso vale "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">r</span> <span class="o">+=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a adesso vale "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
     <span class="c1">// Assegnamento di pa e ripetizione delle operazioni precedenti</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">c1</span><span class="p">;</span>
+    <span class="n">pa</span> <span class="o">=</span> <span class="n">pb</span><span class="p">;</span>
+    <span class="n">a</span> <span class="o">+=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a adesso vale "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">pa</span> <span class="o">+=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a adesso vale "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="o">**</span><span class="n">ppa</span> <span class="o">+=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a adesso vale "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">r</span> <span class="o">+=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a adesso vale "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"b adesso vale "</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="c1">// *pca += 5;</span>
+    <span class="c1">// Non compila perché non posso modificare una variabile puntata da un puntatore a costante</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
+
 
 </code></pre></div>
 <p>Si scriva un programma C++ che operi come segue:</p>
@@ -3947,7 +4007,8 @@ Legge poi dal file input.txt 5 date di nascita (in ogni riga del file ci saranno
     <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">dim</span><span class="p">];</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    <span class="c1">//Inizializzazione dell'array a</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">dim</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span>
+        <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
         <span class="c1">// Acquisizione e verifica dell'input</span>
     <span class="k">do</span> <span class="p">{</span>
@@ -3957,11 +4018,39 @@ Legge poi dal file input.txt 5 date di nascita (in ogni riga del file ci saranno
             <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Attenzione: il numero deve essere compreso tra 3 e 5"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">);</span>
 
-    <span class="c1">// Assegnamento del valore 1 agli elementi corretti dell'array </span>
-    <span class="c1">// Stampa a video</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">n</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">dim</span><span class="p">);</span> <span class="n">p</span> <span class="o">+=</span> <span class="n">n</span><span class="p">)</span>
+        <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="c1">// Stampa a video</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a = {"</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">dim</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\b\b</span><span class="s">}"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="kt">char</span><span class="o">*</span> <span class="n">pc</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">pc</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">a</span><span class="p">;</span> <span class="n">pc</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)(</span><span class="n">a</span> <span class="o">+</span> <span class="n">dim</span><span class="p">);</span> <span class="n">pc</span> <span class="o">+=</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="o">*</span><span class="n">pc</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a = {"</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">dim</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\b\b</span><span class="s">}"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="c1">// Utilizzando un puntatore a char ci si sposta nell'array byte per byte.</span>
+    <span class="c1">// Si può quindi modificare separatamente ciascuno dei 4 byte che compongono un numero</span>
+    <span class="c1">// intero di tipo int. Il valore 10 viene quindi assegnato al quarto byte di ciascun</span>
+    <span class="c1">// numero intero a[i] che pertanto diventa 0x0000000A (in rappresentazione esadecimale).</span>
+    <span class="c1">// Tutti gli elementi di a assumono quindi valore pari a 10.</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">pc</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">a</span><span class="p">;</span> <span class="n">pc</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)(</span><span class="n">a</span> <span class="o">+</span> <span class="n">dim</span><span class="p">);</span> <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="o">*</span><span class="n">pc</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a = {"</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">dim</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\b\b</span><span class="s">}"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="c1">// In questo caso il valore 10 viene assegnato al secondo e al quarto byte di ciascun</span>
+    <span class="c1">// numero intero a[i] che pertanto diventa 0x000A000A (in rappresentazione esadecimale).</span>
+    <span class="c1">// Tutti gli elementi di a assumono quindi valore pari a 655370.</span>
 <span class="p">}</span>
+
 </code></pre></div>
 <p>Si scriva un programma C++ che operi come segue:</p>
 
@@ -3995,12 +4084,18 @@ Attenzione: per poter compilare il programma così modificato occorre convertire
 
 <span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">c</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="p">[...]</span>
+    <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="n">c</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">swap_2</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="p">[...]</span>
+    <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
@@ -4015,10 +4110,29 @@ Attenzione: per poter compilare il programma così modificato occorre convertire
     <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">z</span><span class="p">;</span>
     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
-    <span class="p">[...]</span>
+    <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">z</span><span class="p">);</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"I valori ruotati sono"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Primo numero: "</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Secondo numero: "</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Terzo numero: "</span> <span class="o">&lt;&lt;</span> <span class="n">z</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="c1">// Parte 2</span>
+    <span class="n">swap_2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"I valori ancora ruotati sono"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Primo numero: "</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Secondo numero: "</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Terzo numero: "</span> <span class="o">&lt;&lt;</span> <span class="n">z</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
+
+<span class="c1">// Se non si vogliono utilizzare i puntatori si può usare il passaggio per riferimento.</span>
+<span class="c1">// In C++, in realtà, è consigliabile utilizzare il passaggio per riferimento</span>
+<span class="c1">// anziché il passaggio per puntatore che deriva dal vecchio C.</span>
+
 </code></pre></div>
 <p>Si scriva la funzione C++ swap che riceva come parametri i puntatori a tre numeri interi a, b e c e ne ruoti i valori, ovvero: a b viene assegnato il valore di a, a c viene assegnato il valore di b e ad a viene assegnato il valore di c. Si scriva quindi un programma C++ per verificare il corretto funzionamento della funzione. Il programma chiederà all&#39;utente di immettere da tastiera tre numeri interi, chiamerà la funzione swap per ruotarne i valori e stamperà a video il risultato.</p>
 
@@ -4053,7 +4167,19 @@ Attenzione: per poter compilare il programma così modificato occorre convertire
 
 <span class="kt">void</span> <span class="nf">righe_negative</span><span class="p">(</span><span class="kt">int</span> <span class="n">A</span><span class="p">[</span><span class="n">dim</span><span class="p">][</span><span class="n">dim</span><span class="p">],</span> <span class="kt">int</span><span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">dim</span><span class="p">])</span>
 <span class="p">{</span>
-    <span class="p">[...]</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="o">**</span> <span class="n">parr</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span> <span class="n">parr</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">dim</span><span class="p">);</span> <span class="n">parr</span><span class="o">++</span><span class="p">)</span>
+        <span class="o">*</span><span class="n">parr</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">somma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kt">int</span><span class="o">**</span> <span class="n">pb</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">dim</span> <span class="o">*</span> <span class="n">dim</span><span class="p">);</span> <span class="n">p</span> <span class="o">+=</span> <span class="n">dim</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span> <span class="n">q</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">dim</span><span class="p">);</span> <span class="n">q</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">somma</span> <span class="o">+=</span> <span class="o">*</span><span class="n">q</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">somma</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="o">*</span><span class="n">pb</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+            <span class="n">pb</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">somma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 
@@ -4062,14 +4188,32 @@ Attenzione: per poter compilare il programma così modificato occorre convertire
     <span class="kt">int</span> <span class="n">matrice</span><span class="p">[</span><span class="n">dim</span><span class="p">][</span><span class="n">dim</span><span class="p">];</span>
     <span class="kt">int</span><span class="o">*</span> <span class="n">prighe</span><span class="p">[</span><span class="n">dim</span><span class="p">];</span>
 
-    <span class="c1">//Inserimento dei valori nella matrice</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire gli elementi di una matrice A ("</span> <span class="o">&lt;&lt;</span> <span class="n">dim</span> <span class="o">&lt;&lt;</span> <span class="s">" x "</span> <span class="o">&lt;&lt;</span> <span class="n">dim</span> <span class="o">&lt;&lt;</span> <span class="s">")"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">dim</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">dim</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Elemento A["</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">"]["</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">"]: "</span><span class="p">;</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">matrice</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
     <span class="n">righe_negative</span><span class="p">(</span><span class="n">matrice</span><span class="p">,</span> <span class="n">prighe</span><span class="p">);</span>
 
-    <span class="c1">//Stampare a schermo le righe con somma negativa</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Righe con somma negativa:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">prighe</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">dim</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="n">dim</span><span class="p">;</span> <span class="n">h</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">prighe</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">++</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">k</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Nessuna"</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
+
 </code></pre></div>
 <p>Si scriva la funzione C++ righenegative che riceva come parametri una matrice A di n righe e n colonne (n è dichiarato come una costante intera all&#39;inizio del programma) e un array di puntatori a numeri interi b. L&#39;array b è costituito anche esso dallo stesso numero costante n di elementi e la funzione lo inizializza in modo tale che tutti gli elementi siano NULL. La funzione scandirà la matrice A riga per riga ed inserirà nell&#39;array b i puntatori alle righe per le quali la somma degli elementi risulta essere un numero negativo. Si scriva quindi un programma C++ per verificare il corretto funzionamento della funzione: il programma chiederà all&#39;utente di immettere da tastiera gli elementi della matrice A, chiamerà la funzione righe_negative e stamperà a video le righe la cui somma degli elementi è un numero negativo.</p>
 
