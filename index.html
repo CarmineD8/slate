@@ -4345,20 +4345,22 @@ Attenzione: per poter compilare il programma così modificato occorre convertire
     <span class="k">return</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">scambia</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>
+<span class="kt">void</span> <span class="nf">scambia</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> 
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
     <span class="n">b</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">bubble_sort</span><span class="p">([...])</span>
+<span class="kt">void</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">pf</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">))</span>
 <span class="p">{</span>
-
-
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="n">pf</span><span class="p">)(</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]))</span>
+                <span class="n">scambia</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> 
 <span class="p">{</span>
     <span class="k">const</span> <span class="kt">int</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">w</span><span class="p">[</span><span class="n">dim</span><span class="p">];</span>
@@ -4367,8 +4369,28 @@ Attenzione: per poter compilare il programma così modificato occorre convertire
         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Valore "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span><span class="p">;</span>
         <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
     <span class="p">}</span>
-    <span class="c1">//fare scegliere all'utente se ordine crescente o decrescente</span>
-    <span class="c1">//chiamare la funzione bubble_sort nella maniera corretta</span>
+    <span class="kt">int</span> <span class="n">scelta</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Come si vogliono ordinare i dati? "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"1 - In senso crescente"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"2 - In senso decrescente"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">scelta</span><span class="p">;</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">scelta</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">bubble_sort</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">minore</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">bubble_sort</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">maggiore</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="nl">default:</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Errore: scegliere 1 o 2"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">scelta</span> <span class="o">!=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">scelta</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Dati ordinati: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"{ "</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">w</span><span class="p">[</span><span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" } "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Si modifichi la funzione C++ bubbleSort, che implementa l&#39;algoritmo di ordinamento BubbleSort, facendo in modo che possa gestire ordinamenti in senso crescente e decrescente. A tale scopo, la funzione bubbleSort riceverà come parametri un array di numeri interi v, la sua dimensione n e un puntatore pf a una funzione che riceva come parametri due numeri interi e restituisca come valore di ritorno un numero intero. La funzione puntata da pf restituisce 1 se l&#39;ordine degli interi è corretto rispetto all&#39;ordinamento prescelto e 0 altrimenti. Quindi la funzione bubbleSort chiamerà la funzione puntata da pf, passandole come parametri gli elementi v[j] e v[j + 1] dell&#39;array v e li scambierà se la chiamata alla funzione puntata da pf restituirà 0.</p>
@@ -4398,48 +4420,124 @@ Attenzione: per poter compilare il programma così modificato occorre convertire
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br></p>
 <h3 id='esercizio-10_2-allocazione-dinamica-della-memoria'>[Esercizio 10_2] - Allocazione dinamica della memoria</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 </span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">maggiore</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
+<span class="kt">int</span> <span class="nf">maggiore</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">minore</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
+<span class="kt">int</span> <span class="nf">minore</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">scambia</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
+<span class="kt">void</span> <span class="nf">scambia</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
     <span class="n">b</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">bubble_sort</span><span class="p">([...])</span>
-<span class="p">{</span>
-
-
+<span class="kt">void</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">pf</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="n">pf</span><span class="p">)(</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]))</span>
+                <span class="n">scambia</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Quanti numeri si vogliono inserire? "</span><span class="p">;</span>
-        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-        <span class="c1">//instanziare e riempire l'array</span>
-    <span class="c1">//fare scegliere all'utente se ordine crescente o decrescente</span>
-    <span class="c1">//chiamare la funzione bubble_sort nella maniera corretta</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Quanti numeri si vogliono inserire? "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il "</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">".o numero della sequenza: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">p</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">scelta</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Come si vogliono ordinare i dati? "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"1 - In senso crescente"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"2 - In senso decrescente"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">scelta</span><span class="p">;</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">scelta</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">bubble_sort</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">minore</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">bubble_sort</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">maggiore</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="nl">default:</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Errore: scegliere 1 o 2"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">scelta</span> <span class="o">!=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">scelta</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">);</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"La sequenza ordinata e': "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">s</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">delete</span><span class="p">[]</span> <span class="n">p</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
+
 </code></pre></div>
 <p>Provate a implementare nuovamente il programma utilizzando la funzione bubbleSort sviluppata nell&#39;esercizio 10_1, ma chiedendo all&#39;utente di specificare quanti numeri costituiscono la sequenza. In questo caso, il programma riempirà l&#39;array con i valori non ordinati inseriti dall&#39;utente, chiederà all&#39;utente se desidera operare un ordinamento in senso crescente o decrescente, chiamerà opportunamente la funzione bubbleSort e stamperà a video l&#39;array ordinato.</p>
 
 <p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -4476,7 +4574,23 @@ Attenzione: per poter compilare il programma così modificato occorre convertire
 
 <span class="kt">double</span> <span class="nf">prodotto_scalare</span><span class="p">(</span><span class="kt">double</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span><span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="p">[...]</span>
+    <span class="kt">double</span> <span class="n">somma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">q</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">double</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">q</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">somma</span> <span class="o">+=</span> <span class="o">*</span><span class="n">p</span> <span class="o">*</span> <span class="o">*</span><span class="n">q</span><span class="p">;</span>
+        <span class="n">q</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">somma</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Implementazione alternativa, inserendo l'intera applicazione </span>
+<span class="c1">// dell'aritmetica dei puntatori nell'istruzine for</span>
+<span class="kt">double</span> <span class="nf">prodotto_scalare_2</span><span class="p">(</span><span class="kt">double</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span><span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">somma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">double</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">q</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">q</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">,</span> <span class="n">q</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">somma</span> <span class="o">+=</span> <span class="o">*</span><span class="n">p</span> <span class="o">*</span> <span class="o">*</span><span class="n">q</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">somma</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// Implementazione che calcola anche la distanza e restuisce</span>
@@ -4489,7 +4603,16 @@ Attenzione: per poter compilare il programma così modificato occorre convertire
 <span class="c1">// Parte 2</span>
 <span class="kt">void</span> <span class="nf">prodotto_scalare_e_distanza</span><span class="p">(</span><span class="kt">double</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span><span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">risultati</span><span class="o">*</span> <span class="n">r</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="p">[...]</span>
+    <span class="kt">double</span> <span class="n">somma</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">somma_quadrati</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">q</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">double</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">q</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">somma</span> <span class="o">+=</span> <span class="o">*</span><span class="n">p</span> <span class="o">*</span> <span class="o">*</span><span class="n">q</span><span class="p">;</span>
+        <span class="n">somma_quadrati</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">p</span> <span class="o">-</span> <span class="o">*</span><span class="n">q</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">p</span> <span class="o">-</span> <span class="o">*</span><span class="n">q</span><span class="p">);</span>
+        <span class="n">q</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">r</span><span class="o">-&gt;</span><span class="n">prodotto</span> <span class="o">=</span> <span class="n">somma</span><span class="p">;</span>
+    <span class="n">r</span><span class="o">-&gt;</span><span class="n">distanza</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">somma_quadrati</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
@@ -4506,10 +4629,31 @@ Attenzione: per poter compilare il programma così modificato occorre convertire
     <span class="p">}</span>
     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
-    <span class="c1">//calcolare il prodotto scalare</span>
-    <span class="c1">//calcolare il prodotto scalare e la distanza</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Il prodotto scalare di: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"a = {"</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">dim</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"}"</span> <span class="o">&lt;&lt;</span> <span class="s">" e"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"b = {"</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">dim</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"}"</span> <span class="o">&lt;&lt;</span> <span class="s">" e' "</span> <span class="o">&lt;&lt;</span> <span class="n">prodotto_scalare</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="c1">// Parte 2</span>
+    <span class="n">risultati</span> <span class="n">ris</span><span class="p">;</span>
+    <span class="n">prodotto_scalare_e_distanza</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ris</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Il prodotto scalare di: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"a = {"</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">dim</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"}"</span> <span class="o">&lt;&lt;</span> <span class="s">" e"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"b = {"</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">dim</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"}"</span> <span class="o">&lt;&lt;</span> <span class="s">" e' "</span> <span class="o">&lt;&lt;</span> <span class="n">ris</span><span class="p">.</span><span class="n">prodotto</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"La distanza tra gli stessi due array vale "</span> <span class="o">&lt;&lt;</span> <span class="n">ris</span><span class="p">.</span><span class="n">distanza</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
+
 </code></pre></div>
 <p>Si scriva la funzione C++ prodotto_scalare che riceva come parametri il puntatore px al primo elemento di un array di numeri reali, il puntatore py al primo elemento di un array di numeri reali e la dimensione comune n dei due array (un numero intero). Utilizzando l&#39;aritmetica dei puntatori, la funzione dovrà scandire i due array e calcolarne il prodotto scalare, restituito come valore di ritorno (un numero reale). Si scriva quindi un programma C++ per verificare il corretto funzionamento della funzione. Il programma chiederà all&#39;utente di immettere da tastiera i valori per i due array, chiamerà la funzione prodotto_scalare e ne stamperà a video il valore di ritorno.</p>
 
@@ -4541,12 +4685,48 @@ Attenzione: per poter compilare il programma così modificato occorre convertire
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br></p>
 <h3 id='esercizio-10_4-concatenamento-e-ordinamento'>[Esercizio 10_4] - Concatenamento e Ordinamento</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
 </span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
 <span class="kt">int</span><span class="o">*</span> <span class="nf">append</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">pa</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">pb</span><span class="p">,</span> <span class="kt">int</span> <span class="n">na</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nb</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">[...]</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">na</span> <span class="o">+</span> <span class="n">nb</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">na</span> <span class="o">+</span> <span class="n">nb</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">pa</span><span class="p">;</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">pb</span><span class="p">;</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">((</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">pa</span> <span class="o">+</span> <span class="n">na</span><span class="p">))</span> <span class="o">||</span> <span class="p">(</span><span class="n">p2</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">pb</span> <span class="o">+</span> <span class="n">nb</span><span class="p">)))</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="o">*</span><span class="n">p2</span><span class="p">)</span>
+                    <span class="o">*</span><span class="n">p3</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span><span class="n">p1</span><span class="o">++</span><span class="p">;</span>
+                <span class="k">else</span>
+                    <span class="o">*</span><span class="n">p3</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span><span class="n">p2</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
     <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -4572,21 +4752,89 @@ Attenzione: per poter compilare il programma così modificato occorre convertire
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">//scelta array e elementi</span>
+    <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Primo array: quanti elementi si vogliono inserire? "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n1</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">n1</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p1</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n1</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il "</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">".o elemento del primo array: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">p1</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Secondo array: quanti elementi si vogliono inserire? "</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n2</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n2</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">n2</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p2</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="n">n2</span><span class="p">;</span> <span class="n">h</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Inserire il "</span> <span class="o">&lt;&lt;</span> <span class="n">h</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">".o elemento del primo array: "</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">p2</span><span class="p">[</span><span class="n">h</span><span class="p">];</span>
+    <span class="p">}</span>
     <span class="n">BubbleSort</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">n1</span><span class="p">);</span>
     <span class="n">BubbleSort</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="n">n2</span><span class="p">);</span>
-    <span class="c1">//append e ordinamento dei due array</span>
-    <span class="c1">//check</span>
-    <span class="c1">//deallocamento della memoria</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">p3</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">p3</span> <span class="o">+</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span><span class="p">);</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">check</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span><span class="p">))</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"L'array e' ordinato! "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">delete</span><span class="p">[]</span> <span class="n">p1</span><span class="p">;</span>
+    <span class="k">delete</span><span class="p">[]</span> <span class="n">p2</span><span class="p">;</span>
+    <span class="k">delete</span><span class="p">[]</span> <span class="n">p3</span><span class="p">;</span>
+
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
 </code></pre></div>
 <p>Si scriva la funzione C++ append che concateni due array di numeri interi ordinati in senso crescente. La funzione riceve come parametri i puntatori a due array di numeri interi pa e pb e le loro dimensioni na e nb (due numeri interi) e restituisce come valore di ritorno il puntatore a un array di numeri interi. Si suppone che gli array puntati da pa e pb siano già ordinati in senso crescente. La funzione allocherà dinamicamente un array di (na + nb) elementi e vi copierà gli elementi degli array puntati da pa e pb in modo tale che l&#39;array risultante sia a sua volta ordinato in senso crescente. La funzione restituirà infine il puntatore all&#39;array risultante. Sarà responsabilità del programma chiamante deallocare la memoria allocata dalla funzione.</p>
 
-<p>Si scriva quindi un programma C++ per verificare il corretto funzionamento della funzione. Il programma chiederà all&#39;utente di immettere da tastiera le dimensioni nx e ny di due array di numeri interi, allocherà dinamicamente gli array e chiederà all&#39;utente di inserire i valori per entrambi gli array. Il programma utilizzerà quindi l&#39;algoritmo BubbleSort per ordinare entrambi gli array, chiamerà la funzione append e stamperà a video l&#39;array concatenato risultante. Perché è più efficiente utilizzare la funzione append piuttosto che copiare semplicemente gli elementi dei due array di partenza nellarray risultante e poi utilizzare nuovamente BubbleSort sull&#39;array risultante?</p>
+<p>Si scriva quindi un programma C++ per verificare il corretto funzionamento della funzione. Il programma chiederà all&#39;utente di immettere da tastiera le dimensioni nx e ny di due array di numeri interi, allocherà dinamicamente gli array e chiederà all&#39;utente di inserire i valori per entrambi gli array. Il programma utilizzerà quindi l&#39;algoritmo BubbleSort per ordinare entrambi gli array, chiamerà la funzione append e stamperà a video l&#39;array concatenato risultante. Perché è più efficiente utilizzare la funzione append piuttosto che copiare semplicemente gli elementi dei due array di partenza nell&#39;array risultante e poi utilizzare nuovamente BubbleSort sull&#39;array risultante?</p>
 
 <p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
