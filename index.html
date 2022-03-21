@@ -5177,7 +5177,46 @@ Esempio: dato l'array a = {1, 3, 5, 6, 5, 2, 1, 5, 3, 6} (n = 10), la funzione r
 <br>
 <br>
 <br></p>
-<h2 id='dodicesima-esercitazione-introduzione-alle-classi-ancora-puntatori-template-di-funzioni-e-funzioni-ricorsive'>Dodicesima esercitazione - Introduzione alle classi. Ancora puntatori, template di funzioni e funzioni ricorsive</h2><h3 id='esercizio-12_1-introduzione-alle-classi'>[Esercizio 12_1] - Introduzione alle classi</h3>
+<h2 id='dodicesima-esercitazione-introduzione-alle-classi-ancora-puntatori-template-di-funzioni-e-funzioni-ricorsive'>Dodicesima esercitazione - Introduzione alle classi. Ancora puntatori, template di funzioni e funzioni ricorsive</h2><h3 id='esercizio-12_1-introduzione-alle-classi'>[Esercizio 12_1] - Introduzione alle classi</h3><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="cp">#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="c1">// Classe rilevamento</span>
+<span class="k">class</span> <span class="nc">rilevamento</span> <span class="p">{</span>
+<span class="nl">public:</span>
+
+<span class="nl">private:</span>
+
+<span class="p">};</span>
+
+<span class="p">[...]</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">[...]</span>
+<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p>Allo scopo di gestire l&#39;acquisizione di dati da un sensore meteorologico che rileva la temperatura (misurata in gradi Celsius) e la pressione (misurata in hPa) dell&#39;aria, si sviluppi in C++ la classe rilevamento avente i seguenti attributi: un numero reale _temperatura e un numero reale _pressione. Si implementino, inoltre, i seguenti metodi:</p>
+
+<ul>
+<li><p>Il costruttore di default che inizializzi a zero entrambi gli attributi. Si può scegliere se implementare il costruttore usando oppure non usando la lista di inizializzazione. A scopo didattico, aggiungere nel corpo del costruttore la stampa a video del seguente messaggio: &quot;Questo p il costruttore di default della classe rilevamento&quot;.</p></li>
+<li><p>Un costruttore con parametri che riceva in ingresso (ovvero come parametri) due numeri reali t e p e inizializzi l&#39;attributo _temperatura al valore di t e l&#39;attributo _pressione al valore di p. Per semplicità, si assuma che i valori assunti da t e da p siano sempre validi. Si può scegliere se implementare il costruttore usando oppure non usando la lista di inizializzazione. A scopo didattico, aggiungere nel corpo del costruttore la stampa a video del seguente messaggio &quot;Questo e&#39; il primo costruttore con parametri della classe rilevamento&quot;.</p></li>
+<li><p>Un costruttore con parametri che riceva in ingresso (ovvero come parametri) un array dati di due numeri reali e inizializzi l&#39;attributo _temperatura al valore del primo elemento dell&#39;array dati e l&#39;attributo _pressione al valore del secondo elemento dell&#39;array dati. Per semplicità, si assuma che i valori assunti dagli elementi dell&#39;array dati siano sempre validi. Si può scegliere se implementare il costruttore usando oppure non usando la lista di inizializzazione. A scopo didattico, aggiungere nel corpo del costruttore la stampa a video del seguente messaggio &quot;Questo e&#39; il secondo costruttore con parametri della classe rilevamento&quot;.</p></li>
+<li><p>Il costruttore di copia. Si può scegliere se implementare il costruttore usando oppure non usando la lista di inizializzazione. A scopo didattico, aggiungere nel corpo del costruttore la stampa a video del messaggio &quot;Questo e&#39; il costruttore di copia della classe rilevamento.&quot;</p></li>
+</ul>
+
+<p>-Il distruttore. A scopo didattico, aggiungere nel corpo del distruttore la stampa a video del seguente messaggio &quot;Questo e&#39; il distruttore della classe rilevamento&quot;.</p>
+
+<p>Si scriva, infine, la funzione main che operi come segue:</p>
+
+<ul>
+<li><p>Dichiari un oggetto r1 di tipo rilevamento;</p></li>
+<li><p>Dichiari un oggetto r2 di tipo rilevamento, inizializzandolo con i valori 20.0 per la temperatura e 1000.0 per la pressione;</p></li>
+<li><p>Dichiari un array ril di due numeri reali, inizializzi i due elementi di ril rispettivamente ai valori 15.0 e 1010.0</p></li>
+<li><p>Dichiari un oggetto r4 di tipo rilevamento, inizializzandolo come copia di r1</p></li>
+</ul>
+<h3 id='esercizio-12_2-puntatori'>[Esercizio 12_2] - Puntatori</h3>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
